@@ -10,5 +10,7 @@ import UIKit
 class SettingViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = .brown
     }
 }

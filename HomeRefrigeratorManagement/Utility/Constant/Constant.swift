@@ -7,4 +7,12 @@
 
 import Foundation
 
-enum Constant {}
+enum Constant {
+    enum TabBarLayoutDesign {
+        static let tabBarBorderWidth: CGFloat = 0.3
+    }
+    
+    enum TabBarSetting {
+        static let selectedIndex = 1
+    }
+}

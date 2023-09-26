@@ -9,9 +9,9 @@ import Foundation
 
 extension Constant {
     enum TabBarTitle {
-        static let recipeVC = "recipe"
+        static let recipeVC = "Recipe"
         static let foodManagementVC = "Home"
-        static let settingVC = "Setting"
+        static let settingVC = "My"
     }
     
     enum SystemImageName {
