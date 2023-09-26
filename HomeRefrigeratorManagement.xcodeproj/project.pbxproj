@@ -22,6 +22,8 @@
 		F7C31DA82AC2D9BD008DAA21 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F7C31DAA2AC2D9BD008DAA21 /* Localizable.strings */; };
 		F7C31DAF2AC2DA29008DAA21 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DAE2AC2DA29008DAA21 /* String+Extension.swift */; };
 		F7C31DB22AC2DA90008DAA21 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F7C31DB42AC2DA90008DAA21 /* InfoPlist.strings */; };
+		F7C31DBC2AC2DE64008DAA21 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DBB2AC2DE64008DAA21 /* Constant.swift */; };
+		F7C31DBE2AC2DE7B008DAA21 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DBD2AC2DE7B008DAA21 /* Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,8 @@
 		F7C31DAE2AC2DA29008DAA21 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		F7C31DB32AC2DA90008DAA21 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F7C31DB52AC2DA94008DAA21 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F7C31DBB2AC2DE64008DAA21 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		F7C31DBD2AC2DE7B008DAA21 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,17 +82,16 @@
 			children = (
 				F7C31D772AC2CE2E008DAA21 /* AppDelegate.swift */,
 				F7C31D792AC2CE2F008DAA21 /* SceneDelegate.swift */,
-				F7C31DAD2AC2DA16008DAA21 /* Helper */,
-				F7C31DAC2AC2DA0D008DAA21 /* Constant */,
+				F7C31DAD2AC2DA16008DAA21 /* Utility */,
 				F7C31D902AC2CFD6008DAA21 /* Network */,
 				F7C31D8F2AC2CFCE008DAA21 /* Model */,
 				F7C31D8D2AC2CFBE008DAA21 /* View */,
 				F7C31D8E2AC2CFC9008DAA21 /* ViewModel */,
+				F7C31DB62AC2DA9C008DAA21 /* Localizable */,
 				F7C31D802AC2CE30008DAA21 /* Assets.xcassets */,
 				F7C31D822AC2CE30008DAA21 /* LaunchScreen.storyboard */,
 				F7C31D852AC2CE30008DAA21 /* Info.plist */,
 				F7C31D8B2AC2CE9C008DAA21 /* .gitignore */,
-				F7C31DB62AC2DA9C008DAA21 /* Localizable */,
 			);
 			path = HomeRefrigeratorManagement;
 			sourceTree = "<group>";
@@ -128,16 +131,20 @@
 		F7C31DAC2AC2DA0D008DAA21 /* Constant */ = {
 			isa = PBXGroup;
 			children = (
+				F7C31DBB2AC2DE64008DAA21 /* Constant.swift */,
+				F7C31DBD2AC2DE7B008DAA21 /* Color.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
 		};
-		F7C31DAD2AC2DA16008DAA21 /* Helper */ = {
+		F7C31DAD2AC2DA16008DAA21 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				F7C31DAE2AC2DA29008DAA21 /* String+Extension.swift */,
+				F7C31DAC2AC2DA0D008DAA21 /* Constant */,
+				F7C31DB82AC2DDB1008DAA21 /* Protocol */,
+				F7C31DB72AC2DDA7008DAA21 /* Extension */,
 			);
-			path = Helper;
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		F7C31DB62AC2DA9C008DAA21 /* Localizable */ = {
@@ -147,6 +154,21 @@
 				F7C31DB42AC2DA90008DAA21 /* InfoPlist.strings */,
 			);
 			path = Localizable;
+			sourceTree = "<group>";
+		};
+		F7C31DB72AC2DDA7008DAA21 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F7C31DAE2AC2DA29008DAA21 /* String+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		F7C31DB82AC2DDB1008DAA21 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,10 +257,12 @@
 				F7C31D9C2AC2D60E008DAA21 /* FoodManagementViewModel.swift in Sources */,
 				F7C31DAF2AC2DA29008DAA21 /* String+Extension.swift in Sources */,
 				F7C31D7C2AC2CE2F008DAA21 /* FoodManagementViewController.swift in Sources */,
+				F7C31DBC2AC2DE64008DAA21 /* Constant.swift in Sources */,
 				F7C31D782AC2CE2E008DAA21 /* AppDelegate.swift in Sources */,
 				F7C31D922AC2CFEA008DAA21 /* APIKey.swift in Sources */,
 				F7C31D9E2AC2D619008DAA21 /* Observable.swift in Sources */,
 				F7C31D7A2AC2CE2F008DAA21 /* SceneDelegate.swift in Sources */,
+				F7C31DBE2AC2DE7B008DAA21 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
