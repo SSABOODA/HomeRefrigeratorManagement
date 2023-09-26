@@ -18,9 +18,31 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-        let vc = FoodManagementViewController()
-        window?.rootViewController = UINavigationController(rootViewController: vc)
+        
+        let tabBarVC = CustomTabBarController()
+        let vc1 = UINavigationController(rootViewController: RecipeViewController())
+        let vc2 = UINavigationController(rootViewController: FoodManagementViewController())
+        let vc3 = UINavigationController(rootViewController: SettingViewController())
+        
+        vc1.title = Constant.TabBarTitle.recipeVC
+        vc2.title = Constant.TabBarTitle.foodManagementVC
+        vc3.title = Constant.TabBarTitle.settingVC
+        
+        tabBarVC.setViewControllers([vc1, vc2, vc3], animated: true)
+        tabBarVC.modalPresentationStyle = .fullScreen
+        
+        guard let items = tabBarVC.tabBar.items else { return }
+        items[0].image = UIImage(systemName: Constant.SystemImageName.recipeVCTabBarImage)
+        items[1].image = UIImage(systemName: Constant.SystemImageName.foodManagementVCTabBarImage)
+        items[2].image = UIImage(systemName: Constant.SystemImageName.settingVCTabBarImage)
+        items[0].selectedImage = UIImage(systemName: Constant.SystemImageName.recipeVCTabBarSelectImage)
+        items[1].selectedImage = UIImage(systemName: Constant.SystemImageName.foodManagementVCTabBarSelectImage)
+        items[2].selectedImage = UIImage(systemName: Constant.SystemImageName.settingVCTabBarSelectImage)
+        
+        window?.rootViewController = tabBarVC
         window?.makeKeyAndVisible()
+        
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

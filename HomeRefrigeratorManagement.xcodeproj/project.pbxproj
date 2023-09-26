@@ -24,6 +24,11 @@
 		F7C31DB22AC2DA90008DAA21 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F7C31DB42AC2DA90008DAA21 /* InfoPlist.strings */; };
 		F7C31DBC2AC2DE64008DAA21 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DBB2AC2DE64008DAA21 /* Constant.swift */; };
 		F7C31DBE2AC2DE7B008DAA21 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DBD2AC2DE7B008DAA21 /* Color.swift */; };
+		F7C31DC42AC2E456008DAA21 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DC32AC2E456008DAA21 /* CustomTabBarController.swift */; };
+		F7C31DC62AC2E57D008DAA21 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DC52AC2E57D008DAA21 /* SettingViewController.swift */; };
+		F7C31DC82AC2E588008DAA21 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DC72AC2E588008DAA21 /* RecipeViewController.swift */; };
+		F7C31DCA2AC2E93E008DAA21 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DC92AC2E93E008DAA21 /* Text.swift */; };
+		F7C31DCC2AC2EF27008DAA21 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DCB2AC2EF27008DAA21 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +50,11 @@
 		F7C31DB52AC2DA94008DAA21 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F7C31DBB2AC2DE64008DAA21 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		F7C31DBD2AC2DE7B008DAA21 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		F7C31DC32AC2E456008DAA21 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		F7C31DC52AC2E57D008DAA21 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		F7C31DC72AC2E588008DAA21 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
+		F7C31DC92AC2E93E008DAA21 /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
+		F7C31DCB2AC2EF27008DAA21 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +109,10 @@
 		F7C31D8D2AC2CFBE008DAA21 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F7C31D7B2AC2CE2F008DAA21 /* FoodManagementViewController.swift */,
+				F7C31DC22AC2E43B008DAA21 /* CustomView */,
+				F7C31DC12AC2E428008DAA21 /* Cell */,
+				F7C31DC02AC2E422008DAA21 /* BaseView */,
+				F7C31DBF2AC2E40D008DAA21 /* Contollers */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -133,6 +146,7 @@
 			children = (
 				F7C31DBB2AC2DE64008DAA21 /* Constant.swift */,
 				F7C31DBD2AC2DE7B008DAA21 /* Color.swift */,
+				F7C31DC92AC2E93E008DAA21 /* Text.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -169,6 +183,39 @@
 			children = (
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		F7C31DBF2AC2E40D008DAA21 /* Contollers */ = {
+			isa = PBXGroup;
+			children = (
+				F7C31DC72AC2E588008DAA21 /* RecipeViewController.swift */,
+				F7C31D7B2AC2CE2F008DAA21 /* FoodManagementViewController.swift */,
+				F7C31DC52AC2E57D008DAA21 /* SettingViewController.swift */,
+			);
+			path = Contollers;
+			sourceTree = "<group>";
+		};
+		F7C31DC02AC2E422008DAA21 /* BaseView */ = {
+			isa = PBXGroup;
+			children = (
+				F7C31DCB2AC2EF27008DAA21 /* BaseViewController.swift */,
+			);
+			path = BaseView;
+			sourceTree = "<group>";
+		};
+		F7C31DC12AC2E428008DAA21 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		F7C31DC22AC2E43B008DAA21 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				F7C31DC32AC2E456008DAA21 /* CustomTabBarController.swift */,
+			);
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,11 +302,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7C31D9C2AC2D60E008DAA21 /* FoodManagementViewModel.swift in Sources */,
+				F7C31DC62AC2E57D008DAA21 /* SettingViewController.swift in Sources */,
 				F7C31DAF2AC2DA29008DAA21 /* String+Extension.swift in Sources */,
+				F7C31DC42AC2E456008DAA21 /* CustomTabBarController.swift in Sources */,
 				F7C31D7C2AC2CE2F008DAA21 /* FoodManagementViewController.swift in Sources */,
+				F7C31DCC2AC2EF27008DAA21 /* BaseViewController.swift in Sources */,
 				F7C31DBC2AC2DE64008DAA21 /* Constant.swift in Sources */,
 				F7C31D782AC2CE2E008DAA21 /* AppDelegate.swift in Sources */,
 				F7C31D922AC2CFEA008DAA21 /* APIKey.swift in Sources */,
+				F7C31DCA2AC2E93E008DAA21 /* Text.swift in Sources */,
+				F7C31DC82AC2E588008DAA21 /* RecipeViewController.swift in Sources */,
 				F7C31D9E2AC2D619008DAA21 /* Observable.swift in Sources */,
 				F7C31D7A2AC2CE2F008DAA21 /* SceneDelegate.swift in Sources */,
 				F7C31DBE2AC2DE7B008DAA21 /* Color.swift in Sources */,

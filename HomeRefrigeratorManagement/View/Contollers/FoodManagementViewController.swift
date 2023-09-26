@@ -7,12 +7,10 @@
 
 import UIKit
 
-class FoodManagementViewController: UIViewController {
+class FoodManagementViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = .brown
     }
 
 
