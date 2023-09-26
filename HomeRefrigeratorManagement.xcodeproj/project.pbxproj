@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		F7C31D782AC2CE2E008DAA21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D772AC2CE2E008DAA21 /* AppDelegate.swift */; };
 		F7C31D7A2AC2CE2F008DAA21 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D792AC2CE2F008DAA21 /* SceneDelegate.swift */; };
-		F7C31D7C2AC2CE2F008DAA21 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D7B2AC2CE2F008DAA21 /* ViewController.swift */; };
+		F7C31D7C2AC2CE2F008DAA21 /* FoodManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D7B2AC2CE2F008DAA21 /* FoodManagementViewController.swift */; };
 		F7C31D812AC2CE30008DAA21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7C31D802AC2CE30008DAA21 /* Assets.xcassets */; };
 		F7C31D842AC2CE30008DAA21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7C31D822AC2CE30008DAA21 /* LaunchScreen.storyboard */; };
 		F7C31D8C2AC2CE9C008DAA21 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F7C31D8B2AC2CE9C008DAA21 /* .gitignore */; };
@@ -17,18 +17,30 @@
 		F7C31D952AC2D3F2008DAA21 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F7C31D942AC2D3F2008DAA21 /* SnapKit */; };
 		F7C31D982AC2D4B6008DAA21 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = F7C31D972AC2D4B6008DAA21 /* Realm */; };
 		F7C31D9A2AC2D4B6008DAA21 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F7C31D992AC2D4B6008DAA21 /* RealmSwift */; };
+		F7C31D9C2AC2D60E008DAA21 /* FoodManagementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D9B2AC2D60E008DAA21 /* FoodManagementViewModel.swift */; };
+		F7C31D9E2AC2D619008DAA21 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D9D2AC2D619008DAA21 /* Observable.swift */; };
+		F7C31DA82AC2D9BD008DAA21 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F7C31DAA2AC2D9BD008DAA21 /* Localizable.strings */; };
+		F7C31DAF2AC2DA29008DAA21 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DAE2AC2DA29008DAA21 /* String+Extension.swift */; };
+		F7C31DB22AC2DA90008DAA21 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F7C31DB42AC2DA90008DAA21 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F7C31D742AC2CE2E008DAA21 /* HomeRefrigeratorManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeRefrigeratorManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7C31D772AC2CE2E008DAA21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7C31D792AC2CE2F008DAA21 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F7C31D7B2AC2CE2F008DAA21 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F7C31D7B2AC2CE2F008DAA21 /* FoodManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodManagementViewController.swift; sourceTree = "<group>"; };
 		F7C31D802AC2CE30008DAA21 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F7C31D832AC2CE30008DAA21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F7C31D852AC2CE30008DAA21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7C31D8B2AC2CE9C008DAA21 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		F7C31D912AC2CFEA008DAA21 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		F7C31D9B2AC2D60E008DAA21 /* FoodManagementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodManagementViewModel.swift; sourceTree = "<group>"; };
+		F7C31D9D2AC2D619008DAA21 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		F7C31DA92AC2D9BD008DAA21 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F7C31DAB2AC2D9E0008DAA21 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F7C31DAE2AC2DA29008DAA21 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		F7C31DB32AC2DA90008DAA21 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F7C31DB52AC2DA94008DAA21 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +78,8 @@
 			children = (
 				F7C31D772AC2CE2E008DAA21 /* AppDelegate.swift */,
 				F7C31D792AC2CE2F008DAA21 /* SceneDelegate.swift */,
+				F7C31DAD2AC2DA16008DAA21 /* Helper */,
+				F7C31DAC2AC2DA0D008DAA21 /* Constant */,
 				F7C31D902AC2CFD6008DAA21 /* Network */,
 				F7C31D8F2AC2CFCE008DAA21 /* Model */,
 				F7C31D8D2AC2CFBE008DAA21 /* View */,
@@ -74,6 +88,7 @@
 				F7C31D822AC2CE30008DAA21 /* LaunchScreen.storyboard */,
 				F7C31D852AC2CE30008DAA21 /* Info.plist */,
 				F7C31D8B2AC2CE9C008DAA21 /* .gitignore */,
+				F7C31DB62AC2DA9C008DAA21 /* Localizable */,
 			);
 			path = HomeRefrigeratorManagement;
 			sourceTree = "<group>";
@@ -81,7 +96,7 @@
 		F7C31D8D2AC2CFBE008DAA21 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F7C31D7B2AC2CE2F008DAA21 /* ViewController.swift */,
+				F7C31D7B2AC2CE2F008DAA21 /* FoodManagementViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -89,6 +104,8 @@
 		F7C31D8E2AC2CFC9008DAA21 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F7C31D9D2AC2D619008DAA21 /* Observable.swift */,
+				F7C31D9B2AC2D60E008DAA21 /* FoodManagementViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -106,6 +123,30 @@
 				F7C31D912AC2CFEA008DAA21 /* APIKey.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		F7C31DAC2AC2DA0D008DAA21 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		F7C31DAD2AC2DA16008DAA21 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				F7C31DAE2AC2DA29008DAA21 /* String+Extension.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		F7C31DB62AC2DA9C008DAA21 /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				F7C31DAA2AC2D9BD008DAA21 /* Localizable.strings */,
+				F7C31DB42AC2DA90008DAA21 /* InfoPlist.strings */,
+			);
+			path = Localizable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,6 +196,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = F7C31D6B2AC2CE2E008DAA21;
 			packageReferences = (
@@ -176,8 +218,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7C31D8C2AC2CE9C008DAA21 /* .gitignore in Resources */,
+				F7C31DA82AC2D9BD008DAA21 /* Localizable.strings in Resources */,
 				F7C31D842AC2CE30008DAA21 /* LaunchScreen.storyboard in Resources */,
 				F7C31D812AC2CE30008DAA21 /* Assets.xcassets in Resources */,
+				F7C31DB22AC2DA90008DAA21 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,9 +232,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7C31D7C2AC2CE2F008DAA21 /* ViewController.swift in Sources */,
+				F7C31D9C2AC2D60E008DAA21 /* FoodManagementViewModel.swift in Sources */,
+				F7C31DAF2AC2DA29008DAA21 /* String+Extension.swift in Sources */,
+				F7C31D7C2AC2CE2F008DAA21 /* FoodManagementViewController.swift in Sources */,
 				F7C31D782AC2CE2E008DAA21 /* AppDelegate.swift in Sources */,
 				F7C31D922AC2CFEA008DAA21 /* APIKey.swift in Sources */,
+				F7C31D9E2AC2D619008DAA21 /* Observable.swift in Sources */,
 				F7C31D7A2AC2CE2F008DAA21 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,6 +253,24 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		F7C31DAA2AC2D9BD008DAA21 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F7C31DA92AC2D9BD008DAA21 /* en */,
+				F7C31DAB2AC2D9E0008DAA21 /* ko */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		F7C31DB42AC2DA90008DAA21 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F7C31DB32AC2DA90008DAA21 /* en */,
+				F7C31DB52AC2DA94008DAA21 /* ko */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -213,6 +278,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -273,6 +339,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
