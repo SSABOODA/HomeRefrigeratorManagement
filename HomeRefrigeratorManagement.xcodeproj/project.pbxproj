@@ -32,12 +32,14 @@
 		F7C31DCF2AC329F1008DAA21 /* FoodTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DCE2AC329F1008DAA21 /* FoodTable.swift */; };
 		F7C31DD12AC32A0B008DAA21 /* RealmTableRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DD02AC32A0B008DAA21 /* RealmTableRepository.swift */; };
 		F7C31DD42AC5A3C3008DAA21 /* RecipeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DD32AC5A3C3008DAA21 /* RecipeTable.swift */; };
-		F7C31DD62AC5A602008DAA21 /* TabBarController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DD52AC5A602008DAA21 /* TabBarController+Extension.swift */; };
+		F7C31DD62AC5A602008DAA21 /* UITabBarController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DD52AC5A602008DAA21 /* UITabBarController+Extension.swift */; };
 		F7C31DD82AC5A90A008DAA21 /* FoodManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DD72AC5A90A008DAA21 /* FoodManagementView.swift */; };
 		F7C31DDA2AC5A924008DAA21 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DD92AC5A924008DAA21 /* BaseView.swift */; };
 		F7C31DDC2AC5ABF7008DAA21 /* FoodManagementCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DDB2AC5ABF7008DAA21 /* FoodManagementCollectionViewCell.swift */; };
 		F7C31DDE2AC5AC34008DAA21 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DDD2AC5AC34008DAA21 /* BaseCollectionViewCell.swift */; };
 		F7C31DE02AC5B001008DAA21 /* ReusableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DDF2AC5B001008DAA21 /* ReusableProtocol.swift */; };
+		F7C31DE22AC5C3F1008DAA21 /* RealmTableRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DE12AC5C3F1008DAA21 /* RealmTableRepositoryProtocol.swift */; };
+		F7C31DE42AC5C5F3008DAA21 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DE32AC5C5F3008DAA21 /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,12 +69,14 @@
 		F7C31DCE2AC329F1008DAA21 /* FoodTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTable.swift; sourceTree = "<group>"; };
 		F7C31DD02AC32A0B008DAA21 /* RealmTableRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTableRepository.swift; sourceTree = "<group>"; };
 		F7C31DD32AC5A3C3008DAA21 /* RecipeTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTable.swift; sourceTree = "<group>"; };
-		F7C31DD52AC5A602008DAA21 /* TabBarController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabBarController+Extension.swift"; sourceTree = "<group>"; };
+		F7C31DD52AC5A602008DAA21 /* UITabBarController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Extension.swift"; sourceTree = "<group>"; };
 		F7C31DD72AC5A90A008DAA21 /* FoodManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodManagementView.swift; sourceTree = "<group>"; };
 		F7C31DD92AC5A924008DAA21 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		F7C31DDB2AC5ABF7008DAA21 /* FoodManagementCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodManagementCollectionViewCell.swift; sourceTree = "<group>"; };
 		F7C31DDD2AC5AC34008DAA21 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		F7C31DDF2AC5B001008DAA21 /* ReusableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableProtocol.swift; sourceTree = "<group>"; };
+		F7C31DE12AC5C3F1008DAA21 /* RealmTableRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTableRepositoryProtocol.swift; sourceTree = "<group>"; };
+		F7C31DE32AC5C5F3008DAA21 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,7 +197,8 @@
 			isa = PBXGroup;
 			children = (
 				F7C31DAE2AC2DA29008DAA21 /* String+Extension.swift */,
-				F7C31DD52AC5A602008DAA21 /* TabBarController+Extension.swift */,
+				F7C31DD52AC5A602008DAA21 /* UITabBarController+Extension.swift */,
+				F7C31DE32AC5C5F3008DAA21 /* UIViewController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -202,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				F7C31DDF2AC5B001008DAA21 /* ReusableProtocol.swift */,
+				F7C31DE12AC5C3F1008DAA21 /* RealmTableRepositoryProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -344,6 +350,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7C31DE22AC5C3F1008DAA21 /* RealmTableRepositoryProtocol.swift in Sources */,
 				F7C31D9C2AC2D60E008DAA21 /* FoodManagementViewModel.swift in Sources */,
 				F7C31DD82AC5A90A008DAA21 /* FoodManagementView.swift in Sources */,
 				F7C31DD42AC5A3C3008DAA21 /* RecipeTable.swift in Sources */,
@@ -356,13 +363,14 @@
 				F7C31DCC2AC2EF27008DAA21 /* BaseViewController.swift in Sources */,
 				F7C31DBC2AC2DE64008DAA21 /* Constant.swift in Sources */,
 				F7C31D782AC2CE2E008DAA21 /* AppDelegate.swift in Sources */,
+				F7C31DE42AC5C5F3008DAA21 /* UIViewController+Extension.swift in Sources */,
 				F7C31D922AC2CFEA008DAA21 /* APIKey.swift in Sources */,
 				F7C31DCA2AC2E93E008DAA21 /* Text.swift in Sources */,
 				F7C31DC82AC2E588008DAA21 /* RecipeViewController.swift in Sources */,
 				F7C31DDE2AC5AC34008DAA21 /* BaseCollectionViewCell.swift in Sources */,
 				F7C31DCF2AC329F1008DAA21 /* FoodTable.swift in Sources */,
 				F7C31D9E2AC2D619008DAA21 /* Observable.swift in Sources */,
-				F7C31DD62AC5A602008DAA21 /* TabBarController+Extension.swift in Sources */,
+				F7C31DD62AC5A602008DAA21 /* UITabBarController+Extension.swift in Sources */,
 				F7C31D7A2AC2CE2F008DAA21 /* SceneDelegate.swift in Sources */,
 				F7C31DE02AC5B001008DAA21 /* ReusableProtocol.swift in Sources */,
 				F7C31DD12AC32A0B008DAA21 /* RealmTableRepository.swift in Sources */,
