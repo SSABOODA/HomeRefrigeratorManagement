@@ -11,17 +11,9 @@ final class CustomTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureTabBar()
         configureViewController()
         configureTabBarLayout()
-    }
-    
-    private func createTabBarItem(viewContoller: UIViewController, titleString: String, imageString: String, selectedImageString: String) {
-        viewContoller.tabBarItem = UITabBarItem(
-            title: titleString,
-            image: UIImage(systemName: imageString),
-            selectedImage: UIImage(systemName: selectedImageString)
-        )
+        configureTabBar()
     }
     
     private func configureViewController() {
@@ -32,15 +24,26 @@ final class CustomTabBarController: UITabBarController {
         setViewControllers([vc1, vc2, vc3], animated: true)
         modalPresentationStyle = .fullScreen
         
-        createTabBarItem(viewContoller: vc1, titleString: Constant.TabBarTitle.recipeVC, imageString: Constant.SystemImageName.recipeVCTabBarImage, selectedImageString: Constant.SystemImageName.recipeVCTabBarSelectImage)
+        createTabBarItem(
+            viewContoller: vc1,
+            titleString: Constant.TabBarTitle.recipeVC,
+            imageString: Constant.SystemImageName.recipeVCTabBarImage,
+            selectedImageString: Constant.SystemImageName.recipeVCTabBarSelectImage
+        )
         
-        createTabBarItem(viewContoller: vc2, titleString: Constant.TabBarTitle.foodManagementVC, imageString: Constant.SystemImageName.foodManagementVCTabBarImage, selectedImageString: Constant.SystemImageName.foodManagementVCTabBarSelectImage)
+        createTabBarItem(
+            viewContoller: vc2,
+            titleString: Constant.TabBarTitle.foodManagementVC,
+            imageString: Constant.SystemImageName.foodManagementVCTabBarImage,
+            selectedImageString: Constant.SystemImageName.foodManagementVCTabBarSelectImage
+        )
         
-        createTabBarItem(viewContoller: vc3, titleString: Constant.TabBarTitle.settingVC, imageString: Constant.SystemImageName.settingVCTabBarImage, selectedImageString: Constant.SystemImageName.settingVCTabBarSelectImage)
-    }
-    
-    private func configureTabBar() {
-        self.selectedIndex = Constant.TabBarSetting.selectedIndex
+        createTabBarItem(
+            viewContoller: vc3,
+            titleString: Constant.TabBarTitle.settingVC,
+            imageString: Constant.SystemImageName.settingVCTabBarImage,
+            selectedImageString: Constant.SystemImageName.settingVCTabBarSelectImage
+        )
     }
     
     private func configureTabBarLayout() {
@@ -53,4 +56,10 @@ final class CustomTabBarController: UITabBarController {
         tabBar.layer.cornerRadius = tabBar.frame.height * Constant.TabBarLayoutDesign.tabBarBorderWidth
         tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
+    
+    private func configureTabBar() {
+        self.selectedIndex = Constant.TabBarSetting.selectedIndex
+    }
 }
+
+
