@@ -42,6 +42,7 @@
 		F7C31DE42AC5C5F3008DAA21 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DE32AC5C5F3008DAA21 /* UIViewController+Extension.swift */; };
 		F7C31DE62AC69424008DAA21 /* FoodRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DE52AC69424008DAA21 /* FoodRegisterViewController.swift */; };
 		F7C31DE82AC69C3F008DAA21 /* FoodRegisterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DE72AC69C3F008DAA21 /* FoodRegisterDetailViewController.swift */; };
+		F7C31DEA2AC6AEFC008DAA21 /* FoodRegisterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DE92AC6AEFC008DAA21 /* FoodRegisterButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,7 @@
 		F7C31DE32AC5C5F3008DAA21 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		F7C31DE52AC69424008DAA21 /* FoodRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRegisterViewController.swift; sourceTree = "<group>"; };
 		F7C31DE72AC69C3F008DAA21 /* FoodRegisterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRegisterDetailViewController.swift; sourceTree = "<group>"; };
+		F7C31DE92AC6AEFC008DAA21 /* FoodRegisterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRegisterButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +253,7 @@
 			children = (
 				F7C31DC32AC2E456008DAA21 /* CustomTabBarController.swift */,
 				F7C31DD72AC5A90A008DAA21 /* FoodManagementView.swift */,
+				F7C31DE92AC6AEFC008DAA21 /* FoodRegisterButton.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				F7C31DE62AC69424008DAA21 /* FoodRegisterViewController.swift in Sources */,
 				F7C31DC82AC2E588008DAA21 /* RecipeViewController.swift in Sources */,
 				F7C31DDE2AC5AC34008DAA21 /* BaseCollectionViewCell.swift in Sources */,
+				F7C31DEA2AC6AEFC008DAA21 /* FoodRegisterButton.swift in Sources */,
 				F7C31DCF2AC329F1008DAA21 /* FoodTable.swift in Sources */,
 				F7C31D9E2AC2D619008DAA21 /* Observable.swift in Sources */,
 				F7C31DD62AC5A602008DAA21 /* UITabBarController+Extension.swift in Sources */,

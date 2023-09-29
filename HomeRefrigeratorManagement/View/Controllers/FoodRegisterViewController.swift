@@ -11,21 +11,15 @@ import SnapKit
 class FoodRegisterViewController: BaseViewController {
     
     lazy var directRegisterButton = {
-        let button = UIButton()
-        button.setTitle("직접 등록하기", for: .normal)
-        button.backgroundColor = .systemBlue
-        button.layer.cornerRadius = 15
-        button.clipsToBounds = true
+        let button = FoodRegisterButton()
+        button.setTitle(Constant.ButtonTitle.foodDirectRegister, for: .normal)
         button.addTarget(self, action: #selector(directRegisterButtonTapped), for: .touchUpInside)
         return button
     }()
     
     lazy var cameraRegisterButton = {
-        let button = UIButton()
-        button.setTitle("카메라로 등록하기", for: .normal)
-        button.backgroundColor = .systemBlue
-        button.layer.cornerRadius = 15
-        button.clipsToBounds = true
+        let button = FoodRegisterButton()
+        button.setTitle(Constant.ButtonTitle.foodCameraRegister, for: .normal)
         button.addTarget(self, action: #selector(cameraRegisterButtonTapped), for: .touchUpInside)
         return button
     }()
@@ -36,14 +30,21 @@ class FoodRegisterViewController: BaseViewController {
     }
     
     @objc func cameraRegisterButtonTapped() {
-        
+        print(#function)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .lightGray
-        
+        title = Constant.NavigationTitle.foodRegisterTitle
+        view.backgroundColor = Constant.BaseColor.backgroundColor
+    }
+    
+    override func configureView() {
         view.addSubview(directRegisterButton)
+        view.addSubview(cameraRegisterButton)
+    }
+    
+    override func configureLayout() {
         directRegisterButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview().offset(-40)
@@ -51,7 +52,7 @@ class FoodRegisterViewController: BaseViewController {
             make.height.equalTo(50)
         }
         
-        view.addSubview(cameraRegisterButton)
+        
         cameraRegisterButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview().offset(40)
@@ -59,9 +60,5 @@ class FoodRegisterViewController: BaseViewController {
             make.height.equalTo(50)
         }
     }
-    
-    
-    
-    
     
 }

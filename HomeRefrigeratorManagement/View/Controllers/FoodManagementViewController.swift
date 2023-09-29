@@ -12,9 +12,9 @@ final class FoodManagementViewController: BaseViewController {
     
     private let mainView = FoodManagementView()
     
-    var dataSource: UICollectionViewDiffableDataSource<Int, Food>!
+    private var dataSource: UICollectionViewDiffableDataSource<Int, Food>!
     
-    var foodData: Results<Food>!
+    private var foodData: Results<Food>!
     
     override func loadView() {
         view = mainView
@@ -67,10 +67,9 @@ extension FoodManagementViewController: UISheetPresentationControllerDelegate {
         
         let formNC = UINavigationController(rootViewController: formController)
         formNC.modalPresentationStyle = UIModalPresentationStyle.pageSheet
+        
         if let sheetPresentationController = formNC.presentationController as? UISheetPresentationController {
-            // Let's have the grabber always visible
             sheetPresentationController.prefersGrabberVisible = true
-            // Define which heights are allowed for our sheet
             sheetPresentationController.detents = [
                 UISheetPresentationController.Detent.medium(),
                 UISheetPresentationController.Detent.large()
