@@ -10,13 +10,12 @@ import SnapKit
 
 class FoodManagementView: BaseView {
     
-    var searchController = {
+    let searchController = {
         let searchController = UISearchController()
         return searchController
     }()
     
-    
-    private lazy var collectionView = {
+    lazy var collectionView = {
        let view = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout())
         view.register(
             FoodManagementCollectionViewCell.self,
@@ -27,13 +26,36 @@ class FoodManagementView: BaseView {
         return view
     }()
     
+    // TODO: Constant
+    let foodRegisterButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "camera.fill"), for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = .systemBlue
+        button.clipsToBounds = true
+        return button
+    }()
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        foodRegisterButton.layer.cornerRadius = foodRegisterButton.frame.width / 2
+    }
+    
     override func configureHierarchy() {
         addSubview(collectionView)
+        addSubview(foodRegisterButton)
     }
     
     override func configureLayout() {
         collectionView.snp.makeConstraints {
             $0.edges.equalToSuperview()
+        }
+    
+        // tab bar height = 83.0
+        foodRegisterButton.snp.makeConstraints {
+            $0.size.equalTo(60)
+            $0.bottom.equalToSuperview().offset(-83-30)
+            $0.trailing.equalToSuperview().offset(-30)
         }
     }
     
