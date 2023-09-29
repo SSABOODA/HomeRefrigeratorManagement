@@ -40,6 +40,8 @@
 		F7C31DE02AC5B001008DAA21 /* ReusableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DDF2AC5B001008DAA21 /* ReusableProtocol.swift */; };
 		F7C31DE22AC5C3F1008DAA21 /* RealmTableRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DE12AC5C3F1008DAA21 /* RealmTableRepositoryProtocol.swift */; };
 		F7C31DE42AC5C5F3008DAA21 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DE32AC5C5F3008DAA21 /* UIViewController+Extension.swift */; };
+		F7C31DE62AC69424008DAA21 /* FoodRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DE52AC69424008DAA21 /* FoodRegisterViewController.swift */; };
+		F7C31DE82AC69C3F008DAA21 /* FoodRegisterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DE72AC69C3F008DAA21 /* FoodRegisterDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +79,8 @@
 		F7C31DDF2AC5B001008DAA21 /* ReusableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableProtocol.swift; sourceTree = "<group>"; };
 		F7C31DE12AC5C3F1008DAA21 /* RealmTableRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTableRepositoryProtocol.swift; sourceTree = "<group>"; };
 		F7C31DE32AC5C5F3008DAA21 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		F7C31DE52AC69424008DAA21 /* FoodRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRegisterViewController.swift; sourceTree = "<group>"; };
+		F7C31DE72AC69C3F008DAA21 /* FoodRegisterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRegisterDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +139,7 @@
 				F7C31DC02AC2E422008DAA21 /* Base */,
 				F7C31DC22AC2E43B008DAA21 /* CustomView */,
 				F7C31DC12AC2E428008DAA21 /* Cell */,
-				F7C31DBF2AC2E40D008DAA21 /* Contollers */,
+				F7C31DBF2AC2E40D008DAA21 /* Controllers */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -212,14 +216,16 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
-		F7C31DBF2AC2E40D008DAA21 /* Contollers */ = {
+		F7C31DBF2AC2E40D008DAA21 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				F7C31DC72AC2E588008DAA21 /* RecipeViewController.swift */,
 				F7C31D7B2AC2CE2F008DAA21 /* FoodManagementViewController.swift */,
 				F7C31DC52AC2E57D008DAA21 /* SettingViewController.swift */,
+				F7C31DE52AC69424008DAA21 /* FoodRegisterViewController.swift */,
+				F7C31DE72AC69C3F008DAA21 /* FoodRegisterDetailViewController.swift */,
 			);
-			path = Contollers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		F7C31DC02AC2E422008DAA21 /* Base */ = {
@@ -357,6 +363,7 @@
 				F7C31DC62AC2E57D008DAA21 /* SettingViewController.swift in Sources */,
 				F7C31DDC2AC5ABF7008DAA21 /* FoodManagementCollectionViewCell.swift in Sources */,
 				F7C31DAF2AC2DA29008DAA21 /* String+Extension.swift in Sources */,
+				F7C31DE82AC69C3F008DAA21 /* FoodRegisterDetailViewController.swift in Sources */,
 				F7C31DC42AC2E456008DAA21 /* CustomTabBarController.swift in Sources */,
 				F7C31D7C2AC2CE2F008DAA21 /* FoodManagementViewController.swift in Sources */,
 				F7C31DDA2AC5A924008DAA21 /* BaseView.swift in Sources */,
@@ -366,6 +373,7 @@
 				F7C31DE42AC5C5F3008DAA21 /* UIViewController+Extension.swift in Sources */,
 				F7C31D922AC2CFEA008DAA21 /* APIKey.swift in Sources */,
 				F7C31DCA2AC2E93E008DAA21 /* Text.swift in Sources */,
+				F7C31DE62AC69424008DAA21 /* FoodRegisterViewController.swift in Sources */,
 				F7C31DC82AC2E588008DAA21 /* RecipeViewController.swift in Sources */,
 				F7C31DDE2AC5AC34008DAA21 /* BaseCollectionViewCell.swift in Sources */,
 				F7C31DCF2AC329F1008DAA21 /* FoodTable.swift in Sources */,

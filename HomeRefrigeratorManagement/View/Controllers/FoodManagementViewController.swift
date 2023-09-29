@@ -31,10 +31,8 @@ final class FoodManagementViewController: BaseViewController {
     
     @objc func foodRegisterButtonTapped() {
         print(#function)
+        showSheet()
         
-        let vc = UIViewController()
-        vc.sheetPresentationController?.delegate = self
-        showMyViewControllerInACustomizedSheet()
     }
     
     override func configureView() {
@@ -63,15 +61,22 @@ final class FoodManagementViewController: BaseViewController {
 }
 
 extension FoodManagementViewController: UISheetPresentationControllerDelegate {
-    func showMyViewControllerInACustomizedSheet() {
-        let viewControllerToPresent = FoodManagementViewController()
-        if let sheet = viewControllerToPresent.sheetPresentationController {
-            sheet.detents = [.medium(), .large()]
-            sheet.largestUndimmedDetentIdentifier = .medium
-            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
-            sheet.prefersEdgeAttachedInCompactHeight = true
-            sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
+    private func showSheet() {
+        let formController = FoodRegisterViewController()
+        formController.sheetPresentationController?.delegate = self
+        
+        let formNC = UINavigationController(rootViewController: formController)
+        formNC.modalPresentationStyle = UIModalPresentationStyle.pageSheet
+        if let sheetPresentationController = formNC.presentationController as? UISheetPresentationController {
+            // Let's have the grabber always visible
+            sheetPresentationController.prefersGrabberVisible = true
+            // Define which heights are allowed for our sheet
+            sheetPresentationController.detents = [
+                UISheetPresentationController.Detent.medium(),
+                UISheetPresentationController.Detent.large()
+            ]
         }
-        present(viewControllerToPresent, animated: true, completion: nil)
+        present(formNC, animated: true)
     }
+
 }
