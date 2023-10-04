@@ -49,6 +49,8 @@
 		F7C31E1D2ACD3E06008DAA21 /* FoodIconCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31E1C2ACD3E06008DAA21 /* FoodIconCollectionViewCell.swift */; };
 		F7C31E222ACD41A4008DAA21 /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31E212ACD41A4008DAA21 /* FoodModel.swift */; };
 		F7C31E242ACD4636008DAA21 /* FoodRegisterDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31E232ACD4636008DAA21 /* FoodRegisterDetailViewModel.swift */; };
+		F7C31E262ACD7847008DAA21 /* FoodConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31E252ACD7847008DAA21 /* FoodConstant.swift */; };
+		F7C31E282ACDA367008DAA21 /* AppDelegate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31E272ACDA367008DAA21 /* AppDelegate+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +95,8 @@
 		F7C31E1C2ACD3E06008DAA21 /* FoodIconCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodIconCollectionViewCell.swift; sourceTree = "<group>"; };
 		F7C31E212ACD41A4008DAA21 /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModel.swift; sourceTree = "<group>"; };
 		F7C31E232ACD4636008DAA21 /* FoodRegisterDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRegisterDetailViewModel.swift; sourceTree = "<group>"; };
+		F7C31E252ACD7847008DAA21 /* FoodConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodConstant.swift; sourceTree = "<group>"; };
+		F7C31E272ACDA367008DAA21 /* AppDelegate+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +195,7 @@
 				F7C31DBB2AC2DE64008DAA21 /* Constant.swift */,
 				F7C31DBD2AC2DE7B008DAA21 /* Color.swift */,
 				F7C31DC92AC2E93E008DAA21 /* Text.swift */,
+				F7C31E252ACD7847008DAA21 /* FoodConstant.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -220,6 +225,7 @@
 				F7C31DAE2AC2DA29008DAA21 /* String+Extension.swift */,
 				F7C31DD52AC5A602008DAA21 /* UITabBarController+Extension.swift */,
 				F7C31DE32AC5C5F3008DAA21 /* UIViewController+Extension.swift */,
+				F7C31E272ACDA367008DAA21 /* AppDelegate+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -444,6 +450,7 @@
 				F7C31DCC2AC2EF27008DAA21 /* BaseViewController.swift in Sources */,
 				F7C31DBC2AC2DE64008DAA21 /* Constant.swift in Sources */,
 				F7C31D782AC2CE2E008DAA21 /* AppDelegate.swift in Sources */,
+				F7C31E262ACD7847008DAA21 /* FoodConstant.swift in Sources */,
 				F7C31DE42AC5C5F3008DAA21 /* UIViewController+Extension.swift in Sources */,
 				F7C31D922AC2CFEA008DAA21 /* APIKey.swift in Sources */,
 				F7C31DCA2AC2E93E008DAA21 /* Text.swift in Sources */,
@@ -456,6 +463,7 @@
 				F7C31DCF2AC329F1008DAA21 /* FoodTable.swift in Sources */,
 				F7C31D9E2AC2D619008DAA21 /* Observable.swift in Sources */,
 				F7C31DD62AC5A602008DAA21 /* UITabBarController+Extension.swift in Sources */,
+				F7C31E282ACDA367008DAA21 /* AppDelegate+Extension.swift in Sources */,
 				F7C31D7A2AC2CE2F008DAA21 /* SceneDelegate.swift in Sources */,
 				F7C31DE02AC5B001008DAA21 /* ReusableProtocol.swift in Sources */,
 				F7C31DD12AC32A0B008DAA21 /* RealmTableRepository.swift in Sources */,

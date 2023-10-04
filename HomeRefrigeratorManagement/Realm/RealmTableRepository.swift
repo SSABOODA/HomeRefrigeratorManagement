@@ -12,7 +12,6 @@ final class RealmTableRepository: RealmTableRepositoryType {
     
     private let localRealm: Realm
    
-    
     static let shared = RealmTableRepository()
     private init() {
         do {
@@ -48,6 +47,17 @@ final class RealmTableRepository: RealmTableRepositoryType {
         return data
     }
     
-    
+    func save<T: Object>(object: T, _ errorHandler: @escaping ((_ error : Swift.Error) -> Void) = { _ in return }) {
+        print(#function, "aaaa")
+        do {
+            try localRealm.write {
+                localRealm.add(object)
+                print("Realm Save Success")
+            }
+        }
+        catch {
+            errorHandler(error)
+        }
+    }
 }
 

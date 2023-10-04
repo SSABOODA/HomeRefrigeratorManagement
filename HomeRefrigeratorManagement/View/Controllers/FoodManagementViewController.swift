@@ -22,29 +22,27 @@ final class FoodManagementViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         title = "식품 관리"
         mainView.foodRegisterButton.addTarget(self, action: #selector(foodRegisterButtonTapped), for: .touchUpInside)
-    
+
     }
         
     @objc func foodRegisterButtonTapped() {
         print(#function)
-//        showSheet()₩
-        
+//        showSheet()
         transition(viewController: FoodRegisterViewController(), style: .push)
-        
-        
-        
     }
     
     override func configureView() {
         self.navigationItem.searchController = mainView.searchController
     }
-    
+}
+
+// MARK: - DataSource
+
+extension FoodManagementViewController {
     private func configureDataSource() {
         let cellRegistration = UICollectionView.CellRegistration<FoodManagementCollectionViewCell, Food> { cell, indexPath, itemIdentifier in
-            
             cell.backgroundColor = .darkGray
         }
         
@@ -60,7 +58,6 @@ final class FoodManagementViewController: BaseViewController {
         snapshot.appendItems(Array(item))
         dataSource.apply(snapshot)
     }
-
 }
 
 //extension FoodManagementViewController: UISheetPresentationControllerDelegate {

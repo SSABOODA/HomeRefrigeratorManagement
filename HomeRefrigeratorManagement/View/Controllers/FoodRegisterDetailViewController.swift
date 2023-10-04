@@ -24,8 +24,8 @@ class FoodRegisterDetailViewController: BaseViewController {
             FoodIconCollectionViewCell.self,
             forCellWithReuseIdentifier: FoodIconCollectionViewCell.reuseIdentifier
         )
-        view.delegate = self
-        view.dataSource = self
+//        view.delegate = self
+//        view.dataSource = self
         return view
     }()
     
@@ -36,6 +36,8 @@ class FoodRegisterDetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("FoodRegisterDetailViewController", #function)
+        
+        configureDataSource()
     }
     
     override func configureView() {
@@ -64,7 +66,52 @@ class FoodRegisterDetailViewController: BaseViewController {
     @objc func checkmarkButtonCliecd() {
         print(#function)
     }
+
+}
+
+// MARK: - DataSource
+extension FoodRegisterDetailViewController {
+    private func configureDataSource() {
+        let cellRegistration = UICollectionView.CellRegistration<FoodIconCollectionViewCell,FoodModel> { cell, indexPath, itemIdentifier in
+        }
+        
+        dataSource = UICollectionViewDiffableDataSource(collectionView: self.collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
+            return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
+        })
+    }
     
+    func performQuery(with filter: String?) {
+//        let mountains = mountainsController.filteredMountains(with: filter).sorted { $0.name < $1.name }
+
+        var snapshot = NSDiffableDataSourceSnapshot<Section, FoodModel>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems([])
+        dataSource.apply(snapshot, animatingDifferences: true)
+    }
+}
+
+
+// MARK: - UICollectionViewDataSource
+
+//extension FoodRegisterDetailViewController: UICollectionViewDataSource {
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return viewModel.numberOfItemsInSection()
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FoodIconCollectionViewCell.reuseIdentifier, for: indexPath) as? FoodIconCollectionViewCell else {
+//            return UICollectionViewCell()
+//        }
+//        cell.foodIconImageView.image = UIImage(named: viewModel.cellForItemAt(indexPath))
+//        cell.foodIconNameLabel.text = viewModel.cellForItemAt(indexPath)
+//        return cell
+//    }
+//}
+
+
+// MARK: - UICollectionViewFlowLayout
+
+extension FoodRegisterDetailViewController {
     // TODO: Constant
     private func collectionViewLayout() -> UICollectionViewFlowLayout {
         let spacing: CGFloat = 8
@@ -75,21 +122,5 @@ class FoodRegisterDetailViewController: BaseViewController {
         layout.itemSize = CGSize(width: size/4, height: size/4)
         layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
         return layout
-    }
-}
-
-
-extension FoodRegisterDetailViewController: UICollectionViewDelegate & UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.numberOfItemsInSection()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FoodIconCollectionViewCell.reuseIdentifier, for: indexPath) as? FoodIconCollectionViewCell else {
-            return UICollectionViewCell()
-        }
-        cell.foodIconImageView.image = UIImage(named: viewModel.cellForItemAt(indexPath))
-        cell.foodIconNameLabel.text = viewModel.cellForItemAt(indexPath)
-        return cell
     }
 }

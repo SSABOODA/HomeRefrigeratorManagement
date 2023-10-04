@@ -11,11 +11,11 @@ class FoodRegisterDetailViewModel {
     var foodIconImageName = Observable("")
     
     func numberOfItemsInSection() -> Int {
-        return Constant.FoodIconInfo.foodIconImageNameCollection.count
+        return Constant.FoodConstant.foodIconImageNameCollection.count
     }
     
     func cellForItemAt(_ indexPath: IndexPath) -> String {
-        return Constant.FoodIconInfo.foodIconImageNameCollection[indexPath.item]
+        return Constant.FoodConstant.foodIconImageNameCollection[indexPath.item]
     }
     
     

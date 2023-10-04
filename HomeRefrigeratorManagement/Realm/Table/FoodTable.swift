@@ -45,6 +45,11 @@ class Food: Object {
 class FoodCategory: Object {
     @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted var categoryName: String
+    
+    convenience init(categoryName: String) {
+        self.init()
+        self.categoryName = categoryName
+    }
 }
 
 // Storage Type Table
