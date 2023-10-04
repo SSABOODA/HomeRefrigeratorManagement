@@ -22,11 +22,17 @@ final class FoodManagementViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        mainView.foodRegisterButton.addTarget(self, action: #selector(foodRegisterButtonTapped), for: .touchUpInside)
 //        let data = RealmTableRepository.shared.fetch(object: Food())
 //        configureDataSource() // 데이터소스 기반으로 하면 컬렉션뷰 안뜨는거 인식해야함.
 //        configureSnapshot(foodData)
+    
         
-        mainView.foodRegisterButton.addTarget(self, action: #selector(foodRegisterButtonTapped), for: .touchUpInside)
+//        let paths = Bundle.main.paths(forResourcesOfType: "png", inDirectory: "Assets.xcassets/food")
+//        print(paths)
+//
+        
+    
     }
     
     @objc func foodRegisterButtonTapped() {

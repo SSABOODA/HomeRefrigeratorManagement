@@ -43,6 +43,7 @@
 		F7C31DE62AC69424008DAA21 /* FoodRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DE52AC69424008DAA21 /* FoodRegisterViewController.swift */; };
 		F7C31DE82AC69C3F008DAA21 /* FoodRegisterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DE72AC69C3F008DAA21 /* FoodRegisterDetailViewController.swift */; };
 		F7C31DEA2AC6AEFC008DAA21 /* FoodRegisterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DE92AC6AEFC008DAA21 /* FoodRegisterButton.swift */; };
+		F7C31E142ACD347C008DAA21 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7C31E132ACD347C008DAA21 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +84,7 @@
 		F7C31DE52AC69424008DAA21 /* FoodRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRegisterViewController.swift; sourceTree = "<group>"; };
 		F7C31DE72AC69C3F008DAA21 /* FoodRegisterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRegisterDetailViewController.swift; sourceTree = "<group>"; };
 		F7C31DE92AC6AEFC008DAA21 /* FoodRegisterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRegisterButton.swift; sourceTree = "<group>"; };
+		F7C31E132ACD347C008DAA21 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 				F7C31D802AC2CE30008DAA21 /* Assets.xcassets */,
 				F7C31D822AC2CE30008DAA21 /* LaunchScreen.storyboard */,
 				F7C31D852AC2CE30008DAA21 /* Info.plist */,
+				F7C31E132ACD347C008DAA21 /* GoogleService-Info.plist */,
 				F7C31D8B2AC2CE9C008DAA21 /* .gitignore */,
 			);
 			path = HomeRefrigeratorManagement;
@@ -349,6 +352,7 @@
 				F7C31D842AC2CE30008DAA21 /* LaunchScreen.storyboard in Resources */,
 				F7C31D812AC2CE30008DAA21 /* Assets.xcassets in Resources */,
 				F7C31DB22AC2DA90008DAA21 /* InfoPlist.strings in Resources */,
+				F7C31E142ACD347C008DAA21 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
