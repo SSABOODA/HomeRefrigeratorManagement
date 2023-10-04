@@ -38,10 +38,10 @@ class FoodManagementCollectionViewCell: BaseCollectionViewCell {
     }
     
     override func configureLayout() {
-        foodImageView.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(30)
-            $0.centerY.equalToSuperview()
-            $0.size.equalTo(50)
+        foodImageView.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(30)
+            make.centerY.equalToSuperview()
+            make.size.equalTo(50)
         }
     }
 }

@@ -30,7 +30,10 @@ extension Constant {
         static let foodRegisterDetailSaveButtonImage = "checkmark"
     }
     
-    enum FoodIconImageName {
+    enum FoodIconInfo {
+        static let foodIconInfo = [
+            FoodModel(name: "가지", category: .vegetable)
+        ]
         static let foodIconImageNameCollection = [
             "가지", "간장", "감", "감자", "강낭콩", "게", "계란", "고구마", "고추", "고추장",
             "과자", "굴", "귀리", "귤", "깻잎", "닭고기", "당근", "돼지고기", "된장", "땅콩",

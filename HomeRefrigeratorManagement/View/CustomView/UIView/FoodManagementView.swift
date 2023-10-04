@@ -47,15 +47,15 @@ class FoodManagementView: BaseView {
     }
     
     override func configureLayout() {
-        collectionView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+        collectionView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
     
         // tab bar height = 83.0
-        foodRegisterButton.snp.makeConstraints {
-            $0.size.equalTo(60)
-            $0.bottom.equalToSuperview().offset(-83-30)
-            $0.trailing.equalToSuperview().offset(-30)
+        foodRegisterButton.snp.makeConstraints { make in
+            make.size.equalTo(60)
+            make.bottom.equalToSuperview().offset(-83-30)
+            make.trailing.equalToSuperview().offset(-30)
         }
     }
     

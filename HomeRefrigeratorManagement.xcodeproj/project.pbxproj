@@ -44,6 +44,11 @@
 		F7C31DE82AC69C3F008DAA21 /* FoodRegisterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DE72AC69C3F008DAA21 /* FoodRegisterDetailViewController.swift */; };
 		F7C31DEA2AC6AEFC008DAA21 /* FoodRegisterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DE92AC6AEFC008DAA21 /* FoodRegisterButton.swift */; };
 		F7C31E142ACD347C008DAA21 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7C31E132ACD347C008DAA21 /* GoogleService-Info.plist */; };
+		F7C31E182ACD36C3008DAA21 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = F7C31E172ACD36C3008DAA21 /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		F7C31E1A2ACD36C3008DAA21 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = F7C31E192ACD36C3008DAA21 /* FirebaseCrashlytics */; };
+		F7C31E1D2ACD3E06008DAA21 /* FoodIconCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31E1C2ACD3E06008DAA21 /* FoodIconCollectionViewCell.swift */; };
+		F7C31E222ACD41A4008DAA21 /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31E212ACD41A4008DAA21 /* FoodModel.swift */; };
+		F7C31E242ACD4636008DAA21 /* FoodRegisterDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31E232ACD4636008DAA21 /* FoodRegisterDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +90,9 @@
 		F7C31DE72AC69C3F008DAA21 /* FoodRegisterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRegisterDetailViewController.swift; sourceTree = "<group>"; };
 		F7C31DE92AC6AEFC008DAA21 /* FoodRegisterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRegisterButton.swift; sourceTree = "<group>"; };
 		F7C31E132ACD347C008DAA21 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F7C31E1C2ACD3E06008DAA21 /* FoodIconCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodIconCollectionViewCell.swift; sourceTree = "<group>"; };
+		F7C31E212ACD41A4008DAA21 /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModel.swift; sourceTree = "<group>"; };
+		F7C31E232ACD4636008DAA21 /* FoodRegisterDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRegisterDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +102,9 @@
 			files = (
 				F7C31D9A2AC2D4B6008DAA21 /* RealmSwift in Frameworks */,
 				F7C31D982AC2D4B6008DAA21 /* Realm in Frameworks */,
+				F7C31E1A2ACD36C3008DAA21 /* FirebaseCrashlytics in Frameworks */,
 				F7C31D952AC2D3F2008DAA21 /* SnapKit in Frameworks */,
+				F7C31E182ACD36C3008DAA21 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +164,7 @@
 			children = (
 				F7C31D9D2AC2D619008DAA21 /* Observable.swift */,
 				F7C31D9B2AC2D60E008DAA21 /* FoodManagementViewModel.swift */,
+				F7C31E232ACD4636008DAA21 /* FoodRegisterDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -161,6 +172,7 @@
 		F7C31D8F2AC2CFCE008DAA21 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F7C31E212ACD41A4008DAA21 /* FoodModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -247,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				F7C31DDB2AC5ABF7008DAA21 /* FoodManagementCollectionViewCell.swift */,
+				F7C31E1C2ACD3E06008DAA21 /* FoodIconCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -254,9 +267,9 @@
 		F7C31DC22AC2E43B008DAA21 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
-				F7C31DC32AC2E456008DAA21 /* CustomTabBarController.swift */,
-				F7C31DD72AC5A90A008DAA21 /* FoodManagementView.swift */,
-				F7C31DE92AC6AEFC008DAA21 /* FoodRegisterButton.swift */,
+				F7C31E202ACD40F9008DAA21 /* UITabBarController */,
+				F7C31E1F2ACD40E8008DAA21 /* UIView */,
+				F7C31E1E2ACD40D4008DAA21 /* UIButton */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -279,6 +292,30 @@
 			path = Table;
 			sourceTree = "<group>";
 		};
+		F7C31E1E2ACD40D4008DAA21 /* UIButton */ = {
+			isa = PBXGroup;
+			children = (
+				F7C31DE92AC6AEFC008DAA21 /* FoodRegisterButton.swift */,
+			);
+			path = UIButton;
+			sourceTree = "<group>";
+		};
+		F7C31E1F2ACD40E8008DAA21 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				F7C31DD72AC5A90A008DAA21 /* FoodManagementView.swift */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		F7C31E202ACD40F9008DAA21 /* UITabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				F7C31DC32AC2E456008DAA21 /* CustomTabBarController.swift */,
+			);
+			path = UITabBarController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -289,6 +326,7 @@
 				F7C31D702AC2CE2E008DAA21 /* Sources */,
 				F7C31D712AC2CE2E008DAA21 /* Frameworks */,
 				F7C31D722AC2CE2E008DAA21 /* Resources */,
+				F7C31E1B2ACD3828008DAA21 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -299,6 +337,8 @@
 				F7C31D942AC2D3F2008DAA21 /* SnapKit */,
 				F7C31D972AC2D4B6008DAA21 /* Realm */,
 				F7C31D992AC2D4B6008DAA21 /* RealmSwift */,
+				F7C31E172ACD36C3008DAA21 /* FirebaseAnalyticsWithoutAdIdSupport */,
+				F7C31E192ACD36C3008DAA21 /* FirebaseCrashlytics */,
 			);
 			productName = HomeRefrigeratorManagement;
 			productReference = F7C31D742AC2CE2E008DAA21 /* HomeRefrigeratorManagement.app */;
@@ -332,6 +372,7 @@
 			packageReferences = (
 				F7C31D932AC2D3F2008DAA21 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				F7C31D962AC2D4B6008DAA21 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				F7C31E162ACD36C3008DAA21 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = F7C31D752AC2CE2E008DAA21 /* Products */;
 			projectDirPath = "";
@@ -358,6 +399,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		F7C31E1B2ACD3828008DAA21 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist",
+				"$(BUILT_PRODUCTS_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/GoogleService-Info.plist",
+				"$(BUILT_PRODUCTS_DIR)/$(EXECUTABLE_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F7C31D702AC2CE2E008DAA21 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -365,6 +431,7 @@
 			files = (
 				F7C31DE22AC5C3F1008DAA21 /* RealmTableRepositoryProtocol.swift in Sources */,
 				F7C31D9C2AC2D60E008DAA21 /* FoodManagementViewModel.swift in Sources */,
+				F7C31E242ACD4636008DAA21 /* FoodRegisterDetailViewModel.swift in Sources */,
 				F7C31DD82AC5A90A008DAA21 /* FoodManagementView.swift in Sources */,
 				F7C31DD42AC5A3C3008DAA21 /* RecipeTable.swift in Sources */,
 				F7C31DC62AC2E57D008DAA21 /* SettingViewController.swift in Sources */,
@@ -380,7 +447,9 @@
 				F7C31DE42AC5C5F3008DAA21 /* UIViewController+Extension.swift in Sources */,
 				F7C31D922AC2CFEA008DAA21 /* APIKey.swift in Sources */,
 				F7C31DCA2AC2E93E008DAA21 /* Text.swift in Sources */,
+				F7C31E222ACD41A4008DAA21 /* FoodModel.swift in Sources */,
 				F7C31DE62AC69424008DAA21 /* FoodRegisterViewController.swift in Sources */,
+				F7C31E1D2ACD3E06008DAA21 /* FoodIconCollectionViewCell.swift in Sources */,
 				F7C31DC82AC2E588008DAA21 /* RecipeViewController.swift in Sources */,
 				F7C31DDE2AC5AC34008DAA21 /* BaseCollectionViewCell.swift in Sources */,
 				F7C31DEA2AC6AEFC008DAA21 /* FoodRegisterButton.swift in Sources */,
@@ -549,6 +618,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 2K3Y93YF8Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HomeRefrigeratorManagement/Info.plist;
@@ -648,6 +718,14 @@
 				version = 10.42.4;
 			};
 		};
+		F7C31E162ACD36C3008DAA21 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -665,6 +743,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F7C31D962AC2D4B6008DAA21 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		F7C31E172ACD36C3008DAA21 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F7C31E162ACD36C3008DAA21 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		F7C31E192ACD36C3008DAA21 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F7C31E162ACD36C3008DAA21 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

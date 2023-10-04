@@ -22,22 +22,19 @@ final class FoodManagementViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "식품 관리"
         mainView.foodRegisterButton.addTarget(self, action: #selector(foodRegisterButtonTapped), for: .touchUpInside)
-//        let data = RealmTableRepository.shared.fetch(object: Food())
-//        configureDataSource() // 데이터소스 기반으로 하면 컬렉션뷰 안뜨는거 인식해야함.
-//        configureSnapshot(foodData)
-    
-        
-//        let paths = Bundle.main.paths(forResourcesOfType: "png", inDirectory: "Assets.xcassets/food")
-//        print(paths)
-//
-        
     
     }
-    
+        
     @objc func foodRegisterButtonTapped() {
         print(#function)
-        showSheet()
+//        showSheet()₩
+        
+        transition(viewController: FoodRegisterViewController(), style: .push)
+        
+        
         
     }
     
@@ -66,22 +63,21 @@ final class FoodManagementViewController: BaseViewController {
 
 }
 
-extension FoodManagementViewController: UISheetPresentationControllerDelegate {
-    private func showSheet() {
-        let formController = FoodRegisterViewController()
-        formController.sheetPresentationController?.delegate = self
-        
-        let formNC = UINavigationController(rootViewController: formController)
-        formNC.modalPresentationStyle = UIModalPresentationStyle.pageSheet
-        
-        if let sheetPresentationController = formNC.presentationController as? UISheetPresentationController {
-            sheetPresentationController.prefersGrabberVisible = true
-            sheetPresentationController.detents = [
-                UISheetPresentationController.Detent.medium(),
-                UISheetPresentationController.Detent.large()
-            ]
-        }
-        present(formNC, animated: true)
-    }
-
-}
+//extension FoodManagementViewController: UISheetPresentationControllerDelegate {
+//    private func showSheet() {
+//        let formController = FoodRegisterViewController()
+//        formController.sheetPresentationController?.delegate = self
+//
+//        let formNC = UINavigationController(rootViewController: formController)
+//        formNC.modalPresentationStyle = UIModalPresentationStyle.pageSheet
+//
+//        if let sheetPresentationController = formNC.presentationController as? UISheetPresentationController {
+//            sheetPresentationController.prefersGrabberVisible = true
+//            sheetPresentationController.detents = [
+//                UISheetPresentationController.Detent.medium(),
+//                UISheetPresentationController.Detent.large()
+//            ]
+//        }
+//        present(formNC, animated: true)
+//    }
+//}
