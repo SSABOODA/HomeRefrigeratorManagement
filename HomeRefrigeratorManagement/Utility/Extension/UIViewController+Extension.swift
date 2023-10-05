@@ -31,4 +31,13 @@ extension UIViewController {
             navigationController?.pushViewController(vc, animated: true)
         }
     }
+    
+    func setNavigationBar() {
+        print(#function)
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = Constant.BaseColor.backgroundColor
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+    }
 }
