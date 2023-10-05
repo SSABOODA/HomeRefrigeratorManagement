@@ -66,7 +66,7 @@ extension FoodManagementViewController {
 
 extension FoodManagementViewController: UISheetPresentationControllerDelegate {
     private func showSheet() {
-        let formController = FoodRegisterDetailViewController()
+        let formController = FoodRegisterListViewController()
         formController.sheetPresentationController?.delegate = self
 
         let formNC = UINavigationController(rootViewController: formController)

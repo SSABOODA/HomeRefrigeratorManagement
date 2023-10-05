@@ -20,7 +20,7 @@ class FoodIconCollectionViewCell: BaseCollectionViewCell {
     let foodIconNameLabel = {
         let label = UILabel()
         label.text = "이름"
-        label.font = .boldSystemFont(ofSize: 11)
+        label.font = .boldSystemFont(ofSize: 13)
         return label
     }()
     

@@ -27,7 +27,7 @@ class FoodRegisterViewController: BaseViewController {
     }()
     
     @objc func directRegisterButtonTapped() {
-        let vc = FoodRegisterDetailViewController()
+        let vc = FoodRegisterListViewController()
         transition(viewController: vc, style: .push)
     }
     
