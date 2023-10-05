@@ -29,7 +29,7 @@ class FoodManagementView: BaseView {
     // TODO: Constant
     let foodRegisterButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "camera.fill"), for: .normal)
+        button.setImage(UIImage(systemName: "plus"), for: .normal)
         button.tintColor = .white
         button.backgroundColor = .systemBlue
         button.clipsToBounds = true
@@ -70,9 +70,10 @@ class FoodManagementView: BaseView {
         layout.sectionInset = UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0)
         return layout
     }
-    
 }
 
+
+// @deprecated: dataSource 사용
 extension FoodManagementView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 30

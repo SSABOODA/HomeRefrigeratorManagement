@@ -8,6 +8,7 @@
 import Foundation
 
 extension Constant {
+    
     enum FoodCategory: String, CaseIterable {
         case vegetable = "채소"
         case fruit = "과일"
@@ -28,9 +29,18 @@ extension Constant {
     }
     
     enum FoodConstant {
-
-        static let foodIconInfo = [
-            FoodModel(name: "가지", category: .vegetable)
+        static var foodIconInfo = [
+            FoodModel(name: "가지", category: .vegetable),
+            FoodModel(name: "간장", category: .sauce),
+            FoodModel(name: "감", category: .fruit),
+            FoodModel(name: "감자", category: .vegetable),
+            FoodModel(name: "강낭콩", category: .vegetable),
+            FoodModel(name: "게", category: .seafood),
+            FoodModel(name: "계란", category: .meat),
+            FoodModel(name: "고구마", category: .vegetable),
+            FoodModel(name: "고추", category: .vegetable),
+            FoodModel(name: "고추장", category: .sauce),
+            // 과자
         ]
         
         static let foodIconImageNameCollection = [
@@ -47,6 +57,5 @@ extension Constant {
             "포도", "피망", "피스타치오", "해산물-직접입력", "호두", "호박","옥수수"
         ]
     }
-
 }
 

@@ -8,6 +8,8 @@
 import UIKit
 import SnapKit
 
+// @deprecated!
+// 등록 버튼을 나눌 것인지 고민
 class FoodRegisterViewController: BaseViewController {
     
     lazy var directRegisterButton = {

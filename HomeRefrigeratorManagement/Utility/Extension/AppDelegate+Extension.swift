@@ -11,13 +11,13 @@ extension AppDelegate {
     func addFoodCategory() {
         let foodCategory = RealmTableRepository.shared.fetch(object: FoodCategory())
         
-        if foodCategory.isEmpty {
-            let foodCategoryList = Constant.FoodCategory.allCases
-            
-            foodCategoryList.forEach { category in
-                let task = FoodCategory(categoryName: category.rawValue)
-                RealmTableRepository.shared.save(object: task)
-            }
+        guard foodCategory.isEmpty else { return }
+        let foodCategoryList = Constant.FoodCategory.allCases
+        
+        foodCategoryList.forEach { category in
+            let task = FoodCategory(categoryName: category.rawValue)
+            RealmTableRepository.shared.save(object: task)
         }
+    
     }
 }
