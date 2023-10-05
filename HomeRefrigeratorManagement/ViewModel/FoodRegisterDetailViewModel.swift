@@ -2,21 +2,16 @@
 //  FoodRegisterDetailViewModel.swift
 //  HomeRefrigeratorManagement
 //
-//  Created by 한성봉 on 2023/10/04.
+//  Created by 한성봉 on 2023/10/05.
 //
 
 import Foundation
 
 class FoodRegisterDetailViewModel {
-    var foodIconImageName = Observable("")
+    var foodIconInfo = Observable(FoodModel(name: "", category: .etc))
     
-    func numberOfItemsInSection() -> Int {
-        return Constant.FoodConstant.foodIconImageNameCollection.count
+    var foodIconName: String {
+        return self.foodIconInfo.value.name
     }
-    
-    func cellForItemAt(_ indexPath: IndexPath) -> String {
-        return Constant.FoodConstant.foodIconImageNameCollection[indexPath.item]
-    }
-    
     
 }
