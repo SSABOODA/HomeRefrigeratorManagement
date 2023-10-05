@@ -19,7 +19,7 @@ class FoodManagementView: BaseView {
        let view = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout())
         view.register(
             FoodManagementCollectionViewCell.self,
-            forCellWithReuseIdentifier: FoodManagementCollectionViewCell.reuseIdentifier
+            forCellWithReuseIdentifier: FoodManagementCollectionViewCell.description()
         )
         view.delegate = self
         view.dataSource = self
@@ -32,7 +32,11 @@ class FoodManagementView: BaseView {
         button.setImage(UIImage(systemName: "plus"), for: .normal)
         button.tintColor = .white
         button.backgroundColor = .systemBlue
-        button.clipsToBounds = true
+        button.clipsToBounds = false
+        button.layer.shadowColor = UIColor.gray.cgColor
+        button.layer.shadowOpacity = 1.0
+        button.layer.shadowOffset = CGSize.zero
+        button.layer.shadowRadius = 6
         return button
     }()
     
@@ -80,7 +84,8 @@ extension FoodManagementView: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FoodManagementCollectionViewCell.reuseIdentifier, for: indexPath) as? FoodManagementCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FoodManagementCollectionViewCell.description(), for: indexPath) as? FoodManagementCollectionViewCell else { return UICollectionViewCell() }
+        
         cell.backgroundColor = .darkGray
         return cell
     }
