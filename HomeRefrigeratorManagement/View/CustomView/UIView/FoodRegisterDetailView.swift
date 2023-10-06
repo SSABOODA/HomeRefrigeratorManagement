@@ -12,7 +12,7 @@ class FoodRegisterDetailView: BaseView {
     
     let mainView = {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(hexCode: "F6F6F6")
         view.layer.cornerRadius = 10
         view.clipsToBounds = false
         view.layer.shadowColor = UIColor.black.cgColor
@@ -32,148 +32,288 @@ class FoodRegisterDetailView: BaseView {
         return view
     }()
     
+    // 상단 음식 아이콘
+    
     let foodImageView = {
         let view = UIImageView()
+        view.clipsToBounds = false
         return view
     }()
     
     let foodNameLabel = {
         let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 13)
+        label.font = .boldSystemFont(ofSize: 15)
         return label
     }()
     
-    //
+    let divideLineView = {
+        let view = UIView()
+        view.layer.borderColor = UIColor.lightGray.cgColor
+        view.layer.borderWidth = 1
+        return view
+    }()
+    
+    // 식품 설명
     
     let foodDescriptionLabel = {
-        let label = UILabel()
+        let label = FoodDetailSettingLabel()
         label.text = "식품 설명"
-        label.font = .boldSystemFont(ofSize: 15)
         return label
+    }()
+    
+    let foodDescriptionTextFieldView = {
+        let view = FoodRegisterTextFieldView()
+        return view
     }()
     
     lazy var foodDescriptionTextField = {
         let tf = UITextField()
         tf.placeholder = "식품의 상세한 설명을 적어보세요~"
         tf.font = .systemFont(ofSize: 13)
-        
         return tf
     }()
     
     lazy var foodDescriptionStackView: UIStackView = {
-        let stackView = UIStackView(
-            arrangedSubviews: [
-                foodDescriptionLabel,
-                foodDescriptionTextField
-            ]
-        )
+        let stackView = UIStackView(arrangedSubviews: [foodDescriptionLabel, foodDescriptionTextFieldView])
         stackView.axis = .horizontal
-        stackView.spacing = 6
+        stackView.spacing = 10
         return stackView
     }()
     
+    // 등록일
+    
     let registerDateLabel = {
-        let label = UILabel()
+        let label = FoodDetailSettingLabel()
         label.text = "등록 날짜"
-        label.font = .boldSystemFont(ofSize: 15)
         return label
+    }()
+    
+    let registerDateTextFieldView = {
+        let view = FoodRegisterTextFieldView()
+        return view
     }()
     
     let registerDateTextField = {
-        let label = UILabel()
+        let tf = UITextField()
+        tf.text = Date().convertDateFormat()
+        tf.font = .systemFont(ofSize: 13)
+        return tf
+    }()
+    
+    lazy var registerDateStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [registerDateLabel, registerDateTextFieldView])
+        stackView.axis = .horizontal
+        stackView.spacing = 10
+        return stackView
+    }()
+    
+    // 유통기한
+    let expirationDateLabel = {
+        let label = FoodDetailSettingLabel()
+        label.text = "유통 기한"
         return label
     }()
     
-    let expirationDateLabel = {
-        let label = UILabel()
-        return label
+    let expirationDateTextFieldView = {
+        let view = FoodRegisterTextFieldView()
+        return view
     }()
     
     let expirationDateTextField = {
         let tf = UITextField()
+        tf.text = Date().convertDateFormat()
+        tf.font = .systemFont(ofSize: 13)
         return tf
     }()
     
+    lazy var expirationDateStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [expirationDateLabel, expirationDateTextFieldView])
+        stackView.axis = .horizontal
+        stackView.spacing = 10
+        return stackView
+    }()
+    
+    // 수량
     let countLabel = {
-        let label = UILabel()
+        let label = FoodDetailSettingLabel()
+        label.text = "수량"
         return label
-    }
+    }()
+    
+    let countTextFieldView = {
+        let view = FoodRegisterTextFieldView()
+        return view
+    }()
     
     let countTextField = {
         let tf = UITextField()
+        tf.keyboardType = .numberPad
+        tf.placeholder = "수량을 입력해주세요~"
+        tf.font = .systemFont(ofSize: 13)
         return tf
     }()
     
+    lazy var countStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [countLabel, countTextFieldView])
+        stackView.axis = .horizontal
+        stackView.spacing = 10
+        return stackView
+    }()
+    
+    let cancelButton = {
+        let button = UIButton()
+        button.setTitle("취소하기", for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = .black
+        return button
+    }()
+    
+    let saveButton = {
+        let button = UIButton()
+        button.setTitle("저장하기", for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = .systemBlue
+        return button
+    }()
+
     override func layoutSubviews() {
         super.layoutSubviews()
+        print("DetailView layoutSubviews")
+        foodImageView.layer.cornerRadius = foodImageView.frame.width / 2
         
-        foodDescriptionTextField.layer.addBorder([.bottom], color: UIColor.darkGray, width: 3)
+        cancelButton.roundCorners(.bottomLeft, radius: 10)
+        cancelButton.layoutIfNeeded()
+        saveButton.roundCorners(.bottomRight, radius: 10)
+        saveButton.layoutIfNeeded()
+
     }
 
     override func configureHierarchy() {
-        addSubview(mainView)
+        print("DetailView")
         
+        addSubview(mainView)
         mainView.addSubview(foodView)
         mainView.addSubview(registerView)
         
         foodView.addSubview(foodImageView)
         foodView.addSubview(foodNameLabel)
         
-        registerView.addSubview(foodDescriptionStackView)
+        registerView.addSubview(divideLineView)
         
-//        registerView.addSubview(foodDescriptionLabel)
-//        registerView.addSubview(foodDescriptionTextField)
-//
-//        registerView.addSubview(registerDateLabel)
-//        registerView.addSubview(expirationDateTextField)
+        registerView.addSubview(foodDescriptionStackView)
+        foodDescriptionTextFieldView.addSubview(foodDescriptionTextField)
+        
+        registerView.addSubview(registerDateStackView)
+        registerDateTextFieldView.addSubview(registerDateTextField)
+        
+        registerView.addSubview(expirationDateStackView)
+        expirationDateTextFieldView.addSubview(expirationDateTextField)
+        
+        registerView.addSubview(countStackView)
+        countTextFieldView.addSubview(countTextField)
+        
+        mainView.addSubview(cancelButton)
+        mainView.addSubview(saveButton)
     }
     
     override func configureLayout() {
+        
         mainView.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.leading.trailing.equalToSuperview().inset(30)
-            make.top.bottom.equalToSuperview().inset(110)
+            make.leading.trailing.equalToSuperview().inset(40)
+            make.top.bottom.equalToSuperview().inset(180)
         }
         
         foodView.snp.makeConstraints { make in
-            make.top.horizontalEdges.equalToSuperview().inset(15)
+            make.top.horizontalEdges.equalToSuperview()
             make.height.equalToSuperview().multipliedBy(0.3)
         }
-        
+
         registerView.snp.makeConstraints { make in
-            make.top.equalTo(foodView.snp.bottom).offset(15)
-            make.horizontalEdges.bottom.equalToSuperview().inset(15)
+            make.top.equalTo(foodView.snp.bottom)
+            make.horizontalEdges.equalToSuperview()
+            make.height.equalToSuperview().multipliedBy(0.6)
         }
-        
+
         foodImageView.snp.makeConstraints { make in
-//            make.centerX.equalToSuperview()
-//            make.top.equalToSuperview().offset(40)
             make.center.equalToSuperview()
-            make.size.equalTo(50)
+            make.size.equalTo(70)
         }
-        
         foodNameLabel.snp.makeConstraints { make in
             make.centerX.equalTo(foodImageView.snp.centerX)
             make.top.equalTo(foodImageView.snp.bottom).offset(15)
         }
         
+        divideLineView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(30)
+            make.leading.trailing.equalToSuperview().inset(20)
+            make.height.equalTo(1)
+        }
+        
+        // 식품 설명
         foodDescriptionStackView.snp.makeConstraints { make in
-            make.top.horizontalEdges.equalToSuperview().inset(6)
-            make.height.equalTo(50)
+            make.top.equalTo(divideLineView.snp.bottom).offset(30)
+            make.leading.equalTo(divideLineView.snp.leading)
+            make.trailing.equalTo(divideLineView.snp.trailing)
+            make.height.equalToSuperview().multipliedBy(0.12)
         }
         
-        foodDescriptionLabel.snp.makeConstraints { make in
-//            make.top.equalTo(foodNameLabel.snp.bottom).offset(50)
-//            make.leading.equalToSuperview().inset(25)
-            make.width.equalTo(60)
+        foodDescriptionTextField.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(10)
         }
         
-//        foodDescriptionTextField.snp.makeConstraints { make in
-//            make.top.equalTo(foodNameLabel.snp.bottom).offset(50)
-//            make.leading.equalTo(foodDescriptionLabel.snp.trailing).offset(15)
-//            make.trailing.equalToSuperview().inset(25)
-//        }
-
+        // 등록 날짜
+        registerDateStackView.snp.makeConstraints { make in
+            make.top.equalTo(foodDescriptionStackView.snp.bottom).offset(20)
+            make.leading.equalTo(divideLineView.snp.leading)
+            make.trailing.equalTo(divideLineView.snp.trailing)
+            make.height.equalToSuperview().multipliedBy(0.12)
+        }
+        
+        registerDateTextField.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(10)
+        }
+        
+        // 유효기간
+        expirationDateStackView.snp.makeConstraints { make in
+            make.top.equalTo(registerDateStackView.snp.bottom).offset(20)
+            make.leading.equalTo(divideLineView.snp.leading)
+            make.trailing.equalTo(divideLineView.snp.trailing)
+            make.height.equalToSuperview().multipliedBy(0.12)
+        }
+        
+        expirationDateTextField.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(10)
+        }
+        
+        // 수량
+        countStackView.snp.makeConstraints { make in
+            make.top.equalTo(expirationDateStackView.snp.bottom).offset(20)
+            make.leading.equalTo(divideLineView.snp.leading)
+            make.trailing.equalTo(divideLineView.snp.trailing)
+            make.height.equalToSuperview().multipliedBy(0.12)
+        }
+        countTextField.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(10)
+            make.width.equalTo(countStackView.snp.width).multipliedBy(0.6)
+        }
+        
+        // 버튼
+        cancelButton.snp.makeConstraints { make in
+            make.leading.bottom.equalToSuperview()
+            make.width.equalToSuperview().multipliedBy(0.5)
+            make.height.equalToSuperview().multipliedBy(0.1)
+        }
+        
+        saveButton.snp.makeConstraints { make in
+            make.trailing.bottom.equalToSuperview()
+            make.width.equalToSuperview().multipliedBy(0.5)
+            make.height.equalToSuperview().multipliedBy(0.1)
+        }
+        
     }
+    
+
+    
     
 }

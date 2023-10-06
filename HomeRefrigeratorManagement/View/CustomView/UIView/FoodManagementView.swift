@@ -33,9 +33,9 @@ class FoodManagementView: BaseView {
         button.tintColor = .white
         button.backgroundColor = .systemBlue
         button.clipsToBounds = false
-        button.layer.shadowColor = UIColor.gray.cgColor
-        button.layer.shadowOpacity = 1.0
-        button.layer.shadowOffset = CGSize.zero
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOpacity = 0.5
+        button.layer.shadowOffset = .zero
         button.layer.shadowRadius = 6
         return button
     }()

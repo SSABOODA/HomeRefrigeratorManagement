@@ -9,9 +9,11 @@ import Foundation
 
 class FoodRegisterDetailViewModel {
     var foodIconInfo = Observable(FoodModel(name: "", category: .etc))
+    var registerDate = Observable(Date().convertDateFormat())
     
     var foodIconName: String {
         return self.foodIconInfo.value.name
     }
+    
     
 }

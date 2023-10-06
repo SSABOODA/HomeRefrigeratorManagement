@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FoodRegisterListViewController: BaseViewController {
+final class FoodRegisterListViewController: BaseViewController {
     
     enum Section: CaseIterable {
         case main
@@ -37,6 +37,13 @@ class FoodRegisterListViewController: BaseViewController {
         performQuery(with: "")
     }
     
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        sheetPresentationController?.animateChanges {
+//            sheetPresentationController?.selectedDetentIdentifier = .large
+//        }
+//    }
+    
     override func configureView() {
 //        title = Constant.NavigationTitle.foodRegisterDetailTitle
         view.backgroundColor = Constant.BaseColor.backgroundColor
@@ -62,7 +69,7 @@ class FoodRegisterListViewController: BaseViewController {
         print(#function)
     }
     
-    func setupSearchBar() {
+    private func setupSearchBar() {
         searchBar.delegate = self
         searchBar.placeholder = "식품을 검색해보세요"
         searchBar.showsCancelButton = true
@@ -126,13 +133,12 @@ extension FoodRegisterListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath)
         
-        sheetPresentationController?.animateChanges {
-            sheetPresentationController?.selectedDetentIdentifier = .large
-        }
-        
         let nextVC = FoodRegisterDetailViewController()
         nextVC.viewModel.foodIconInfo.value = self.viewModel.foodIconInfo.value[indexPath.item]
-        transition(viewController: nextVC, style: .push)
+//        transition(viewController: nextVC, style: .presentNavigation)
+        
+        nextVC.modalPresentationStyle = .overFullScreen
+        present(nextVC, animated: true)
     
     }
 }
