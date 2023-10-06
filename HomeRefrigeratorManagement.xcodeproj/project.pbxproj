@@ -49,7 +49,6 @@
 		F7C31E222ACD41A4008DAA21 /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31E212ACD41A4008DAA21 /* FoodModel.swift */; };
 		F7C31E242ACD4636008DAA21 /* FoodRegisterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31E232ACD4636008DAA21 /* FoodRegisterListViewModel.swift */; };
 		F7C31E262ACD7847008DAA21 /* FoodConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31E252ACD7847008DAA21 /* FoodConstant.swift */; };
-		F7C31E282ACDA367008DAA21 /* AppDelegate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31E272ACDA367008DAA21 /* AppDelegate+Extension.swift */; };
 		F7C31E2A2ACE8E8C008DAA21 /* FoodRegisterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31E292ACE8E8C008DAA21 /* FoodRegisterDetailViewController.swift */; };
 		F7C31E2C2ACE93E3008DAA21 /* FoodRegisterDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31E2B2ACE93E3008DAA21 /* FoodRegisterDetailViewModel.swift */; };
 		F7C31E2E2ACE9DAB008DAA21 /* FoodRegisterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31E2D2ACE9DAB008DAA21 /* FoodRegisterDetailView.swift */; };
@@ -104,7 +103,6 @@
 		F7C31E212ACD41A4008DAA21 /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModel.swift; sourceTree = "<group>"; };
 		F7C31E232ACD4636008DAA21 /* FoodRegisterListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRegisterListViewModel.swift; sourceTree = "<group>"; };
 		F7C31E252ACD7847008DAA21 /* FoodConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodConstant.swift; sourceTree = "<group>"; };
-		F7C31E272ACDA367008DAA21 /* AppDelegate+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Extension.swift"; sourceTree = "<group>"; };
 		F7C31E292ACE8E8C008DAA21 /* FoodRegisterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRegisterDetailViewController.swift; sourceTree = "<group>"; };
 		F7C31E2B2ACE93E3008DAA21 /* FoodRegisterDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRegisterDetailViewModel.swift; sourceTree = "<group>"; };
 		F7C31E2D2ACE9DAB008DAA21 /* FoodRegisterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRegisterDetailView.swift; sourceTree = "<group>"; };
@@ -242,7 +240,6 @@
 		F7C31DB72AC2DDA7008DAA21 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				F7C31E272ACDA367008DAA21 /* AppDelegate+Extension.swift */,
 				F7C31E2F2ACEDB23008DAA21 /* CALayer+Extension.swift */,
 				F7C31DAE2AC2DA29008DAA21 /* String+Extension.swift */,
 				F7C31E372ACFC37C008DAA21 /* Date+Extension.swift */,
@@ -515,7 +512,6 @@
 				F7C31DCF2AC329F1008DAA21 /* FoodTable.swift in Sources */,
 				F7C31D9E2AC2D619008DAA21 /* Observable.swift in Sources */,
 				F7C31DD62AC5A602008DAA21 /* UITabBarController+Extension.swift in Sources */,
-				F7C31E282ACDA367008DAA21 /* AppDelegate+Extension.swift in Sources */,
 				F7C31E362ACFABFD008DAA21 /* FoodDetailSettingLabel.swift in Sources */,
 				F7C31D7A2AC2CE2F008DAA21 /* SceneDelegate.swift in Sources */,
 				F7C31DD12AC32A0B008DAA21 /* RealmTableRepository.swift in Sources */,

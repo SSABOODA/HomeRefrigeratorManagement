@@ -13,6 +13,7 @@ final class RealmTableRepository: RealmTableRepositoryType {
     private let localRealm: Realm
    
     static let shared = RealmTableRepository()
+    
     private init() {
         do {
             localRealm = try Realm()
@@ -20,13 +21,11 @@ final class RealmTableRepository: RealmTableRepositoryType {
             fatalError(error.localizedDescription)
         }
     }
-
-    let realm = try! Realm()
     
     // 현재 Schema Version Check
     func checkSchemaVersion() {
         do {
-            let version = try schemaVersionAtURL(realm.configuration.fileURL!)
+            let version = try schemaVersionAtURL(localRealm.configuration.fileURL!)
             print("Schema Version: \(version)")
         } catch {
             print(error)
@@ -36,19 +35,19 @@ final class RealmTableRepository: RealmTableRepositoryType {
     // Document file Path 확인
     @discardableResult
     func findFileURL() -> URL? {
-        guard let fileURL = realm.configuration.fileURL else { return nil }
+        guard let fileURL = localRealm.configuration.fileURL else { return nil }
         print(fileURL)
         return fileURL
     }
     
     // realm에 저장된 데이터 확인
     func fetch<T: Object>(object: T) -> Results<T> {
-        let data = realm.objects(T.self)
+        let data = localRealm.objects(T.self)
         return data
     }
     
+    // create realm
     func save<T: Object>(object: T, _ errorHandler: @escaping ((_ error : Swift.Error) -> Void) = { _ in return }) {
-        print(#function, "aaaa")
         do {
             try localRealm.write {
                 localRealm.add(object)

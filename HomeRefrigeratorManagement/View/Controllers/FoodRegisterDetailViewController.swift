@@ -90,6 +90,8 @@ final class FoodRegisterDetailViewController: BaseViewController {
     @objc func saveButtonTapped() {
         print(#function)
         updateViewModelData()
+        viewModel.saveRealmDatabase()
+        dismiss(animated: true)
     }
     
 }
@@ -128,11 +130,6 @@ extension FoodRegisterDetailViewController {
         viewModel.foodIconInfo.value.purchaseDate = registerDate
         viewModel.foodIconInfo.value.expirationDate = expirationDate
         viewModel.foodIconInfo.value.count = count
-        
-//        print("desc: \(mainView.foodDescriptionTextField.text)")
-//        print("regi: \(mainView.registerDateTextField.text)")
-//        print("exp: \(mainView.expirationDateTextField.text)")
-//        print("cnt: \(mainView.countTextField.text)")
-//        print("end: \(viewModel.foodIconInfo.value)")
+
     }
 }
