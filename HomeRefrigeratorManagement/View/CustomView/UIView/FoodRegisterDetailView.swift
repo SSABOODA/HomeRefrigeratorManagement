@@ -36,7 +36,6 @@ class FoodRegisterDetailView: BaseView {
     
     let foodImageView = {
         let view = UIImageView()
-        view.clipsToBounds = false
         return view
     }()
     
@@ -95,7 +94,7 @@ class FoodRegisterDetailView: BaseView {
     
     let registerDateTextField = {
         let tf = UITextField()
-        tf.text = Date().convertDateFormat()
+        tf.text = Date().dateFormat(date: Date())
         tf.font = .systemFont(ofSize: 13)
         return tf
     }()
@@ -121,7 +120,7 @@ class FoodRegisterDetailView: BaseView {
     
     let expirationDateTextField = {
         let tf = UITextField()
-        tf.text = Date().convertDateFormat()
+        tf.text = Date().dateFormat(date: Date())
         tf.font = .systemFont(ofSize: 13)
         return tf
     }()
@@ -178,9 +177,7 @@ class FoodRegisterDetailView: BaseView {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        print("DetailView layoutSubviews")
-        foodImageView.layer.cornerRadius = foodImageView.frame.width / 2
-        
+//        print("DetailView layoutSubviews")
         cancelButton.roundCorners(.bottomLeft, radius: 10)
         cancelButton.layoutIfNeeded()
         saveButton.roundCorners(.bottomRight, radius: 10)
@@ -189,8 +186,7 @@ class FoodRegisterDetailView: BaseView {
     }
 
     override func configureHierarchy() {
-        print("DetailView")
-        
+//        print("DetailView")
         addSubview(mainView)
         mainView.addSubview(foodView)
         mainView.addSubview(registerView)

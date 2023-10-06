@@ -8,14 +8,19 @@
 import Foundation
 
 extension Date {
-    // convertDateFormat
-    func convertDateFormat() -> String {
-        let nowDate = Date()
+    func dateFormat(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy.MM.dd"
+        formatter.locale = Locale(identifier: "ko_KR")
+        return formatter.string(from: date)
+    }
+    
+    func toString() -> String {
         let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "yyyy.MM.dd a hh시 mm분"
-        dateFormatter.dateFormat = "yyyy.MM.dd"
-        dateFormatter.locale = Locale(identifier: "ko_KR")
-        let convertNowDate = dateFormatter.string(from: nowDate)
-        return convertNowDate
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.timeZone = TimeZone(identifier: "UTC")
+        return dateFormatter.string(from: self)
     }
 }
+
+
