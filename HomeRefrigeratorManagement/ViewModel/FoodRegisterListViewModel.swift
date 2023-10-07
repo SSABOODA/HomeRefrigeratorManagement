@@ -10,16 +10,8 @@ import Foundation
 class FoodRegisterListViewModel {
     
     var foodIconInfo = Observable(Constant.FoodConstant.foodIconInfo)
-    
-    // @deprecated
-    func filterFoodInfo(with filter: String?) -> [FoodModel] {
-        guard let filter else { return [] }
-        let foodIconData = Constant.FoodConstant.foodIconInfo
-        return filter.isEmpty ? foodIconData : foodIconData.filter { $0.name.contains(filter) }
-    }
-    
+  
     func filterInitialConsonant(with searchText: String) -> [FoodModel] {
-        
         let foodIconData = Constant.FoodConstant.foodIconInfo
         if searchText.isEmpty {
             return foodIconData

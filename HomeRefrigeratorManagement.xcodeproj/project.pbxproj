@@ -59,6 +59,7 @@
 		F7C31E3C2ACFD61D008DAA21 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31E3B2ACFD61D008DAA21 /* UIColor+Extension.swift */; };
 		F7C31E3E2ACFE025008DAA21 /* FoodRegisterTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31E3D2ACFE025008DAA21 /* FoodRegisterTextFieldView.swift */; };
 		F7C31E402AD153A3008DAA21 /* FoodStorageTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31E3F2AD153A3008DAA21 /* FoodStorageTypeButton.swift */; };
+		F7C31E432AD1625D008DAA21 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = F7C31E422AD1625D008DAA21 /* Toast */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -120,6 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7C31E432AD1625D008DAA21 /* Toast in Frameworks */,
 				F7C31D9A2AC2D4B6008DAA21 /* RealmSwift in Frameworks */,
 				F7C31D982AC2D4B6008DAA21 /* Realm in Frameworks */,
 				F7C31E1A2ACD36C3008DAA21 /* FirebaseCrashlytics in Frameworks */,
@@ -264,9 +266,9 @@
 			children = (
 				F7C31DC72AC2E588008DAA21 /* RecipeViewController.swift */,
 				F7C31D7B2AC2CE2F008DAA21 /* FoodManagementViewController.swift */,
-				F7C31DC52AC2E57D008DAA21 /* SettingViewController.swift */,
 				F7C31DE72AC69C3F008DAA21 /* FoodRegisterListViewController.swift */,
 				F7C31E292ACE8E8C008DAA21 /* FoodRegisterDetailViewController.swift */,
+				F7C31DC52AC2E57D008DAA21 /* SettingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -385,6 +387,7 @@
 				F7C31D992AC2D4B6008DAA21 /* RealmSwift */,
 				F7C31E172ACD36C3008DAA21 /* FirebaseAnalyticsWithoutAdIdSupport */,
 				F7C31E192ACD36C3008DAA21 /* FirebaseCrashlytics */,
+				F7C31E422AD1625D008DAA21 /* Toast */,
 			);
 			productName = HomeRefrigeratorManagement;
 			productReference = F7C31D742AC2CE2E008DAA21 /* HomeRefrigeratorManagement.app */;
@@ -419,6 +422,7 @@
 				F7C31D932AC2D3F2008DAA21 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				F7C31D962AC2D4B6008DAA21 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				F7C31E162ACD36C3008DAA21 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				F7C31E412AD1625D008DAA21 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 			);
 			productRefGroup = F7C31D752AC2CE2E008DAA21 /* Products */;
 			projectDirPath = "";
@@ -782,6 +786,14 @@
 				minimumVersion = 10.0.0;
 			};
 		};
+		F7C31E412AD1625D008DAA21 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -809,6 +821,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F7C31E162ACD36C3008DAA21 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseCrashlytics;
+		};
+		F7C31E422AD1625D008DAA21 /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F7C31E412AD1625D008DAA21 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

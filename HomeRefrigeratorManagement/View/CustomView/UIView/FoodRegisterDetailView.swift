@@ -199,7 +199,7 @@ class FoodRegisterDetailView: BaseView {
     let cancelButton = {
         let button = UIButton()
         button.setTitle("취소하기", for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 13)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 13)
         button.setTitleColor(UIColor.white, for: .normal)
         button.backgroundColor = .black
         return button
@@ -208,7 +208,7 @@ class FoodRegisterDetailView: BaseView {
     let saveButton = {
         let button = UIButton()
         button.setTitle("저장하기", for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 13)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 13)
         button.setTitleColor(UIColor.white, for: .normal)
         button.backgroundColor = Constant.BaseColor.baseColor
         return button

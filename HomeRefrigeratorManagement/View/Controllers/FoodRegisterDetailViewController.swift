@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import Toast
 
 final class FoodRegisterDetailViewController: BaseViewController {
     
     let mainView = FoodRegisterDetailView()
     let viewModel = FoodRegisterDetailViewModel()
+    let picker = UIPickerView()
     
     override func loadView() {
         view = mainView
@@ -19,12 +21,8 @@ final class FoodRegisterDetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTapGestures()
-        
-        
         print(#function)
         print(viewModel.foodIconInfo.value)
-        
-        
     }
     
     override func viewWillLayoutSubviews() {
@@ -41,12 +39,10 @@ final class FoodRegisterDetailViewController: BaseViewController {
         
         dataBind()
         addTarget()
+        configPickerView()
     }
     
-    private func dataBind() {
-//        viewModel.foodIconInfo.bind { [weak self] _ in
-//        }
-    }
+    private func dataBind() {}
     
     private func addTarget() {
         mainView.cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
@@ -92,10 +88,67 @@ final class FoodRegisterDetailViewController: BaseViewController {
     @objc func saveButtonTapped() {
         print(#function)
         updateViewModelData()
+        viewModel.isSave.value = true
         viewModel.saveRealmDatabase()
         dismiss(animated: true)
     }
     
+}
+
+extension FoodRegisterDetailViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func configPickerView() {
+        picker.delegate = self
+        picker.dataSource = self
+        self.mainView.storageTypeTextField.inputView = picker
+        configToolbar()
+    }
+    
+    func configToolbar() {
+        let toolBar = UIToolbar()
+        toolBar.barStyle = UIBarStyle.default
+        toolBar.isTranslucent = true
+        toolBar.tintColor = UIColor.white
+        toolBar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(self.donePicker))
+        doneButton.tintColor = Constant.BaseColor.tintColor
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(self.cancelPicker))
+        cancelButton.tintColor = Constant.BaseColor.tintColor
+        
+        toolBar.setItems([cancelButton, flexibleSpace, doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        self.mainView.storageTypeTextField.inputAccessoryView = toolBar
+    }
+
+    @objc func donePicker() {
+        let row = self.picker.selectedRow(inComponent: 0)
+        self.picker.selectRow(row, inComponent: 0, animated: false)
+        self.mainView.storageTypeTextField.text = self.viewModel.storageType[row]
+        self.mainView.storageTypeTextField.resignFirstResponder()
+    }
+
+    @objc func cancelPicker() {
+        self.mainView.storageTypeTextField.text = nil
+        self.mainView.storageTypeTextField.resignFirstResponder()
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return viewModel.storageType.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return viewModel.storageType[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.mainView.storageTypeTextField.text = self.viewModel.storageType[row]
+    }
+
 }
 
 extension FoodRegisterDetailViewController {
@@ -121,17 +174,25 @@ extension FoodRegisterDetailViewController {
         alert.setValue(vc, forKey: "contentViewController")
         present(alert, animated: true)
     }
-    
+
     func updateViewModelData() {
         guard let desc = self.mainView.foodDescriptionTextField.text else { return }
         guard let registerDate = self.mainView.registerDateTextField.text?.toDate() else { return }
         guard let expirationDate = self.mainView.expirationDateTextField.text?.toDate() else { return }
+        guard let storageTypeText = self.mainView.storageTypeTextField.text else { return }
         guard let count = Int(self.mainView.countTextField.text ?? "0") else { return }
 
         viewModel.foodIconInfo.value.description = desc
         viewModel.foodIconInfo.value.purchaseDate = registerDate
         viewModel.foodIconInfo.value.expirationDate = expirationDate
         viewModel.foodIconInfo.value.count = count
+        
+        for storageType in Constant.FoodStorageType.allCases {
+            if storageTypeText == storageType.rawValue {
+                viewModel.foodIconInfo.value.storageType = storageType
+            }
+        }
 
+        print("end: \(viewModel.foodIconInfo.value)")
     }
 }

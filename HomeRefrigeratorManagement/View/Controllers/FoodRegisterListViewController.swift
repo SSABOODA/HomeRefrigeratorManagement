@@ -35,6 +35,8 @@ final class FoodRegisterListViewController: BaseViewController {
         configureDataSource()
         setupSearchBar()
         performQuery(with: "")
+        
+        dataBind()
     }
     
 //    override func viewWillDisappear(_ animated: Bool) {
@@ -67,6 +69,9 @@ final class FoodRegisterListViewController: BaseViewController {
 
     @objc func checkmarkButtonCliecd() {
         print(#function)
+    }
+    
+    private func dataBind() {
     }
     
     private func setupSearchBar() {
@@ -134,6 +139,13 @@ extension FoodRegisterListViewController: UICollectionViewDelegate {
         print(indexPath)
         
         let nextVC = FoodRegisterDetailViewController()
+        nextVC.viewModel.completionHandler = { isSave in
+            print("isSave go")
+            if isSave {
+                self.view.makeToast("식품 저장이 완료되었습니다.😃")
+            }
+        }
+        
         nextVC.viewModel.foodIconInfo.value = self.viewModel.foodIconInfo.value[indexPath.item]
         nextVC.modalPresentationStyle = .overFullScreen
         present(nextVC, animated: true)
