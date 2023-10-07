@@ -135,8 +135,6 @@ extension FoodRegisterListViewController: UICollectionViewDelegate {
         
         let nextVC = FoodRegisterDetailViewController()
         nextVC.viewModel.foodIconInfo.value = self.viewModel.foodIconInfo.value[indexPath.item]
-//        transition(viewController: nextVC, style: .presentNavigation)
-        
         nextVC.modalPresentationStyle = .overFullScreen
         present(nextVC, animated: true)
     

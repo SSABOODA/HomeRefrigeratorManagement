@@ -12,6 +12,7 @@ extension Constant {
         static let backgroundColor = UIColor(named: "backgroundColor")
         static let tintColor = UIColor(named: "tintColor")
         static let borderColor = UIColor.lightGray.cgColor
+        static let baseColor = UIColor(hexCode: "#3D6FD2")
     }
     
     enum TitleColor {}

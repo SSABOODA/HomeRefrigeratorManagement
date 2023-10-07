@@ -41,8 +41,7 @@ final class FoodRegisterDetailViewController: BaseViewController {
     }
     
     private func dataBind() {
-        viewModel.foodIconInfo.bind { [weak self] food in
-            guard let self else { return }
+        viewModel.foodIconInfo.bind { [weak self] _ in
         }
     }
     

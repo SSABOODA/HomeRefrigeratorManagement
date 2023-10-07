@@ -29,7 +29,6 @@ extension Constant {
     }
     
     enum FoodStorageType: String, CaseIterable {
-        case all = "전체"
         case outdoor = "실외"
         case cold = "냉장"
         case frozen = "냉동"

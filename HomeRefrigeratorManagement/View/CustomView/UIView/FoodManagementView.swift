@@ -31,7 +31,7 @@ class FoodManagementView: BaseView {
         let button = UIButton()
         button.setImage(UIImage(systemName: "plus"), for: .normal)
         button.tintColor = .white
-        button.backgroundColor = .systemBlue
+        button.backgroundColor = Constant.BaseColor.baseColor
         button.clipsToBounds = false
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOpacity = 0.5

@@ -23,9 +23,9 @@ class FoodRegisterTextFieldView: UIView {
         layer.cornerRadius = 10
         clipsToBounds = false
         layer.shadowColor = UIColor.darkGray.cgColor
-        layer.shadowOffset = .zero
-        layer.shadowRadius = 10
-        layer.shadowOpacity = 0.5
+        layer.shadowOffset = CGSize(width: 5, height: 5)
+        layer.shadowRadius = 5
+        layer.shadowOpacity = 0.8
     }
     
 }

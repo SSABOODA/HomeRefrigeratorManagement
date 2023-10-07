@@ -19,8 +19,6 @@ class FoodRegisterDetailViewModel {
     }
     
     func saveRealmDatabase() {
-//        let category = realm.fetch(object: FoodCategory())
-            //.where { $0.categoryName.contains("채소") }
         let category = FoodCategory()
         category.categoryName = foodIconInfo.value.category.rawValue
         let foodData = Food(

@@ -12,8 +12,11 @@ class FoodIconCollectionViewCell: BaseCollectionViewCell {
     
     lazy var foodIconImageView = {
         let view = UIImageView()
-        view.clipsToBounds = true
-        view.contentMode = .scaleToFill
+        view.clipsToBounds = false
+        view.layer.shadowColor = Constant.BaseColor.tintColor?.cgColor
+        view.layer.shadowOffset = CGSize(width: 5, height: 5)
+        view.layer.shadowRadius = 5
+        view.layer.shadowOpacity = 0.8
         return view
     }()
     

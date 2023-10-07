@@ -39,7 +39,6 @@
 		F7C31DDE2AC5AC34008DAA21 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DDD2AC5AC34008DAA21 /* BaseCollectionViewCell.swift */; };
 		F7C31DE22AC5C3F1008DAA21 /* RealmTableRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DE12AC5C3F1008DAA21 /* RealmTableRepositoryProtocol.swift */; };
 		F7C31DE42AC5C5F3008DAA21 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DE32AC5C5F3008DAA21 /* UIViewController+Extension.swift */; };
-		F7C31DE62AC69424008DAA21 /* FoodRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DE52AC69424008DAA21 /* FoodRegisterViewController.swift */; };
 		F7C31DE82AC69C3F008DAA21 /* FoodRegisterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DE72AC69C3F008DAA21 /* FoodRegisterListViewController.swift */; };
 		F7C31DEA2AC6AEFC008DAA21 /* FoodRegisterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DE92AC6AEFC008DAA21 /* FoodRegisterButton.swift */; };
 		F7C31E142ACD347C008DAA21 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7C31E132ACD347C008DAA21 /* GoogleService-Info.plist */; };
@@ -59,6 +58,7 @@
 		F7C31E3A2ACFD0D8008DAA21 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31E392ACFD0D8008DAA21 /* UIView+Extension.swift */; };
 		F7C31E3C2ACFD61D008DAA21 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31E3B2ACFD61D008DAA21 /* UIColor+Extension.swift */; };
 		F7C31E3E2ACFE025008DAA21 /* FoodRegisterTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31E3D2ACFE025008DAA21 /* FoodRegisterTextFieldView.swift */; };
+		F7C31E402AD153A3008DAA21 /* FoodStorageTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31E3F2AD153A3008DAA21 /* FoodStorageTypeButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,7 +95,6 @@
 		F7C31DDD2AC5AC34008DAA21 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		F7C31DE12AC5C3F1008DAA21 /* RealmTableRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTableRepositoryProtocol.swift; sourceTree = "<group>"; };
 		F7C31DE32AC5C5F3008DAA21 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
-		F7C31DE52AC69424008DAA21 /* FoodRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRegisterViewController.swift; sourceTree = "<group>"; };
 		F7C31DE72AC69C3F008DAA21 /* FoodRegisterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRegisterListViewController.swift; sourceTree = "<group>"; };
 		F7C31DE92AC6AEFC008DAA21 /* FoodRegisterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRegisterButton.swift; sourceTree = "<group>"; };
 		F7C31E132ACD347C008DAA21 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -113,6 +112,7 @@
 		F7C31E392ACFD0D8008DAA21 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		F7C31E3B2ACFD61D008DAA21 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		F7C31E3D2ACFE025008DAA21 /* FoodRegisterTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRegisterTextFieldView.swift; sourceTree = "<group>"; };
+		F7C31E3F2AD153A3008DAA21 /* FoodStorageTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodStorageTypeButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,7 +265,6 @@
 				F7C31DC72AC2E588008DAA21 /* RecipeViewController.swift */,
 				F7C31D7B2AC2CE2F008DAA21 /* FoodManagementViewController.swift */,
 				F7C31DC52AC2E57D008DAA21 /* SettingViewController.swift */,
-				F7C31DE52AC69424008DAA21 /* FoodRegisterViewController.swift */,
 				F7C31DE72AC69C3F008DAA21 /* FoodRegisterListViewController.swift */,
 				F7C31E292ACE8E8C008DAA21 /* FoodRegisterDetailViewController.swift */,
 			);
@@ -324,6 +323,7 @@
 			isa = PBXGroup;
 			children = (
 				F7C31DE92AC6AEFC008DAA21 /* FoodRegisterButton.swift */,
+				F7C31E3F2AD153A3008DAA21 /* FoodStorageTypeButton.swift */,
 			);
 			path = UIButton;
 			sourceTree = "<group>";
@@ -477,6 +477,7 @@
 			files = (
 				F7C31E332ACEE999008DAA21 /* InitialConsonant.swift in Sources */,
 				F7C31E302ACEDB23008DAA21 /* CALayer+Extension.swift in Sources */,
+				F7C31E402AD153A3008DAA21 /* FoodStorageTypeButton.swift in Sources */,
 				F7C31E382ACFC37C008DAA21 /* Date+Extension.swift in Sources */,
 				F7C31DE22AC5C3F1008DAA21 /* RealmTableRepositoryProtocol.swift in Sources */,
 				F7C31D9C2AC2D60E008DAA21 /* FoodManagementViewModel.swift in Sources */,
@@ -503,7 +504,6 @@
 				F7C31D922AC2CFEA008DAA21 /* APIKey.swift in Sources */,
 				F7C31DCA2AC2E93E008DAA21 /* Text.swift in Sources */,
 				F7C31E222ACD41A4008DAA21 /* FoodModel.swift in Sources */,
-				F7C31DE62AC69424008DAA21 /* FoodRegisterViewController.swift in Sources */,
 				F7C31E1D2ACD3E06008DAA21 /* FoodIconCollectionViewCell.swift in Sources */,
 				F7C31E2A2ACE8E8C008DAA21 /* FoodRegisterDetailViewController.swift in Sources */,
 				F7C31DC82AC2E588008DAA21 /* RecipeViewController.swift in Sources */,
