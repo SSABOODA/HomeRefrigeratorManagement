@@ -26,16 +26,24 @@ class Food: Object {
     @Persisted var count: Int
     @Persisted var purchaseDate: Date
     @Persisted var expirationDate: Date
+    @Persisted var descriptionContent: String
     @Persisted var category: FoodCategory?
     @Persisted var storageType: StorageType?
     // FK 냉장고 Id
     
-    convenience init(name: String, count: Int, purchaseDate: Date, expirationDate: Date) {
+    convenience init(
+        name: String,
+        count: Int,
+        purchaseDate: Date,
+        expirationDate: Date,
+        descriptionContent: String
+    ) {
         self.init()
         self.name = name
         self.count = count
         self.purchaseDate = purchaseDate
         self.expirationDate = expirationDate
+        self.descriptionContent = descriptionContent
     }
 }
 

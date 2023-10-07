@@ -67,7 +67,6 @@ final class FoodRegisterDetailViewController: BaseViewController {
     
     @objc func foodDescriptionTextFieldTapped(_ sender: UITextField) {
         guard let text = sender.text else { return }
-        print("text: \(text)")
         viewModel.foodIconInfo.value.description = text
     }
     
@@ -88,11 +87,11 @@ final class FoodRegisterDetailViewController: BaseViewController {
     @objc func saveButtonTapped() {
         print(#function)
         updateViewModelData()
-        viewModel.isSave.value = true
         viewModel.saveRealmDatabase()
-        dismiss(animated: true)
+        if viewModel.isSave.value {
+            dismiss(animated: true)
+        }
     }
-    
 }
 
 extension FoodRegisterDetailViewController: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -176,22 +175,36 @@ extension FoodRegisterDetailViewController {
     }
 
     func updateViewModelData() {
+        print(#function)
+
         guard let desc = self.mainView.foodDescriptionTextField.text else { return }
         guard let registerDate = self.mainView.registerDateTextField.text?.toDate() else { return }
         guard let expirationDate = self.mainView.expirationDateTextField.text?.toDate() else { return }
-        guard let storageTypeText = self.mainView.storageTypeTextField.text else { return }
+        guard let storageTypeText = self.mainView.storageTypeTextField.text else {
+            print("저장 방법 여기")
+            return
+        }
         guard let count = Int(self.mainView.countTextField.text ?? "0") else { return }
-
-        viewModel.foodIconInfo.value.description = desc
-        viewModel.foodIconInfo.value.purchaseDate = registerDate
-        viewModel.foodIconInfo.value.expirationDate = expirationDate
-        viewModel.foodIconInfo.value.count = count
+        
+        
+        print("storageTypeText: \(storageTypeText)")
+        if storageTypeText.isEmpty {
+            emptyStorageTypeAlert()
+            return
+        }
+        
+        self.viewModel.foodIconInfo.value.description = desc
+        self.viewModel.foodIconInfo.value.purchaseDate = registerDate
+        self.viewModel.foodIconInfo.value.expirationDate = expirationDate
+        self.viewModel.foodIconInfo.value.count = count
         
         for storageType in Constant.FoodStorageType.allCases {
             if storageTypeText == storageType.rawValue {
-                viewModel.foodIconInfo.value.storageType = storageType
+                self.viewModel.foodIconInfo.value.storageType = storageType
             }
         }
+        
+        self.viewModel.isSave.value = true
 
         print("end: \(viewModel.foodIconInfo.value)")
     }

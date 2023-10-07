@@ -26,23 +26,26 @@ class FoodRegisterDetailViewModel {
     }
     
     func saveRealmDatabase() {
+        
+        let data = foodIconInfo.value
+        
         let category = FoodCategory()
-        category.categoryName = foodIconInfo.value.category.rawValue
+        category.categoryName = data.category.rawValue
         
         let storageType = StorageType()
-        storageType.storageType = foodIconInfo.value.storageType.rawValue
-        
+        storageType.storageType = data.storageType.rawValue
+
         let foodData = Food(
-            name: foodIconInfo.value.name,
-            count: foodIconInfo.value.count,
-            purchaseDate: foodIconInfo.value.purchaseDate,
-            expirationDate: foodIconInfo.value.expirationDate
+            name: data.name,
+            count: data.count,
+            purchaseDate: data.purchaseDate,
+            expirationDate: data.expirationDate,
+            descriptionContent: data.description
         )
         foodData.category = category
         foodData.storageType = storageType
         realm.save(object: foodData)
         
         completionHandler?(isSave.value)
-        
     }
 }
