@@ -27,9 +27,8 @@ class Food: Object {
     @Persisted var purchaseDate: Date
     @Persisted var expirationDate: Date
     @Persisted var category: FoodCategory?
+    @Persisted var storageType: StorageType?
     // FK 냉장고 Id
-    // FK 식품 카테고리 Id
-    // FK 저장 유형 Id
     
     convenience init(name: String, count: Int, purchaseDate: Date, expirationDate: Date) {
         self.init()
@@ -40,7 +39,7 @@ class Food: Object {
     }
 }
 
-// MARK: - Constant Table
+// MARK: - EmbeddedObject
 
 // Food Category Table
 class FoodCategory: EmbeddedObject {
@@ -48,8 +47,7 @@ class FoodCategory: EmbeddedObject {
 }
 
 // Storage Type Table
-class StorageType: Object {
-    @Persisted(primaryKey: true) var _id: ObjectId
+class StorageType: EmbeddedObject {
     @Persisted var storageType: String
 }
 
