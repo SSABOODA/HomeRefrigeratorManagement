@@ -10,10 +10,44 @@ import RealmSwift
 
 final class FoodManagementViewModel {
     var realmFoodData: Results<Food>?
+    var filteredFoodData: Results<Food>?
     
     func settingRealmFoodData() {
         realmFoodData = RealmTableRepository.shared.fetch(object: Food())
     }
+    
+    func filterFoodData(_ query: String) -> Results<Food>? {
+        if query.isEmpty {
+            return realmFoodData
+        } else {
+            filteredFoodData = realmFoodData?.where {
+                $0.name.contains(query)
+            }
+            return filteredFoodData
+        }
+    }
+    
+    func filterInitialConsonant(with searchText: String) -> [FoodModel] {
+        let foodIconData = Constant.FoodConstant.foodIconInfo
+        if searchText.isEmpty {
+            return foodIconData
+        }
+        
+        let text = searchText.trimmingCharacters(in: .whitespaces)
+        let isChosungCheck = isChosung(word: text)
+
+        let filterText = foodIconData.filter({
+            if isChosungCheck {
+                return ($0.name.contains(text) || getInitialConsonants(word: $0.name).contains(text))
+            } else {
+                return $0.name.contains(text)
+            }
+        })
+        return filterText
+    }
+    
+    
+    
     
     func caculateDday() {
         

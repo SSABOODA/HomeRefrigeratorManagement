@@ -11,7 +11,8 @@ import SnapKit
 class FoodManagementView: BaseView {
     
     let searchController = {
-        let searchController = UISearchController()
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.placeholder = "냉장고에 저장된 식품을 검색해보세요"
         return searchController
     }()
     

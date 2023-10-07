@@ -82,7 +82,6 @@ extension FoodRegisterListViewController {
 }
 
 extension FoodRegisterListViewController: UISearchControllerDelegate, UISearchBarDelegate {
-    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print(#function)
         performQuery(with: searchText)

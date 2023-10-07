@@ -31,7 +31,7 @@ final class FoodManagementViewController: BaseViewController {
         viewModel.settingRealmFoodData()
         
         configureDataSource()
-        configureSnapshot(viewModel.realmFoodData)
+        performQuery("")
         
     }
         
@@ -42,6 +42,8 @@ final class FoodManagementViewController: BaseViewController {
     
     override func configureView() {
         mainView.collectionView.delegate = self
+//        mainView.searchController.delegate = self
+        mainView.searchController.searchBar.delegate = self
         // view setting
         mainView.collectionView.backgroundColor = UIColor(hexCode: "#F6F6F6")
         
@@ -49,6 +51,7 @@ final class FoodManagementViewController: BaseViewController {
         title = Constant.NavigationTitle.foodRegisterHomeTitle
         self.navigationItem.searchController = mainView.searchController
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        
     }
     
     private func addTarget() {
@@ -63,6 +66,20 @@ extension FoodManagementViewController: UICollectionViewDelegate {
     }
 }
 
+// MARK: - SearchBarDelegate {
+extension FoodManagementViewController: UISearchControllerDelegate, UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(#function)
+        performQuery(searchText)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        print(#function)
+        searchBar.text = ""
+        guard let searchText = searchBar.text else { return }
+        performQuery(searchText)
+    }
+}
 
 // MARK: - DataSource
 
@@ -78,7 +95,6 @@ extension FoodManagementViewController {
             cell.nameLabel.text = itemIdentifier.name
             cell.descriptionLabel.text = itemIdentifier.descriptionContent.isEmpty ? "설명" : itemIdentifier.descriptionContent
             cell.purchaseDateLabel.text = "구매일자: \(itemIdentifier.purchaseDate.koreanDateFormatToString())"
-            
         }
         
         dataSource = UICollectionViewDiffableDataSource(collectionView: self.mainView.collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
@@ -86,8 +102,12 @@ extension FoodManagementViewController {
         })
     }
     
-    private func configureSnapshot(_ item: Results<Food>?) {
+    // TODO: 초성 검색 가능하게...
+    private func performQuery(_ searchText: String) {
+
+        let item = viewModel.filterFoodData(searchText)
         guard let item else { return }
+        
         var snapshot = NSDiffableDataSourceSnapshot<Section, Food>()
         snapshot.appendSections([.main])
         snapshot.appendItems(item.toArray())
@@ -95,6 +115,7 @@ extension FoodManagementViewController {
     }
 }
 
+// MARK: - UISheetPresentationControllerDelegate
 extension FoodManagementViewController: UISheetPresentationControllerDelegate {
     private func showSheet() {
         let formController = FoodRegisterListViewController()

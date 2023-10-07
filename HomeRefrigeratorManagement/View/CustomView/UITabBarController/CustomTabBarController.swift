@@ -53,8 +53,8 @@ final class CustomTabBarController: UITabBarController {
         tabBar.layer.borderColor = Constant.BaseColor.borderColor
         tabBar.layer.borderWidth = Constant.TabBarLayoutDesign.tabBarBorderWidth
         
-        tabBar.layer.cornerRadius = tabBar.frame.height * Constant.TabBarLayoutDesign.tabBarBorderWidth
-        tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+//        tabBar.layer.cornerRadius = tabBar.frame.height * Constant.TabBarLayoutDesign.tabBarBorderWidth
+//        tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     
     private func configureTabBar() {
