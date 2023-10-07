@@ -10,11 +10,15 @@ import RealmSwift
 
 final class FoodManagementViewController: BaseViewController {
     
+    enum Section: CaseIterable {
+        case main
+    }
+    
     private let mainView = FoodManagementView()
     
-    private var dataSource: UICollectionViewDiffableDataSource<Int, Food>!
+    private var dataSource: UICollectionViewDiffableDataSource<Section, Food>!
     
-    private var foodData: Results<Food>!
+    let viewModel = FoodManagementViewModel()
     
     override func loadView() {
         view = mainView
@@ -22,23 +26,30 @@ final class FoodManagementViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        title = "식품 관리"
-        mainView.foodRegisterButton.addTarget(
-            self,
-            action: #selector(foodRegisterButtonTapped),
-            for: .touchUpInside
-        )
+        
+        addTarget()
+        
+        viewModel.settingRealmFoodData()
+        
+        configureDataSource()
+        configureSnapshot(viewModel.realmFoodData)
+        
     }
         
     @objc func foodRegisterButtonTapped() {
         print(#function)
         showSheet()
-//        let nextVC = FoodRegisterDetailViewController()
-//        transition(viewController: nextVC, style: .presentNavigation)
     }
     
     override func configureView() {
+        // navigation setting
+        title = Constant.NavigationTitle.foodRegisterHomeTitle
         self.navigationItem.searchController = mainView.searchController
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    private func addTarget() {
+        mainView.foodRegisterButton.addTarget(self, action: #selector(foodRegisterButtonTapped), for: .touchUpInside)
     }
 }
 
@@ -47,20 +58,25 @@ final class FoodManagementViewController: BaseViewController {
 extension FoodManagementViewController {
     private func configureDataSource() {
         let cellRegistration = UICollectionView.CellRegistration<FoodManagementCollectionViewCell, Food> { cell, indexPath, itemIdentifier in
+            
+            print(cell)
+            print(itemIdentifier)
+            
             cell.backgroundColor = .darkGray
+            cell.foodImageView.image = UIImage(named: itemIdentifier.name)
         }
         
         dataSource = UICollectionViewDiffableDataSource(collectionView: self.mainView.collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
         })
-        
     }
     
-    private func configureSnapshot(_ item: Results<Food>) {
-        var snapshot = NSDiffableDataSourceSnapshot<Int, Food>()
-        snapshot.appendSections([0])
-        snapshot.appendItems(Array(item))
-        dataSource.apply(snapshot)
+    private func configureSnapshot(_ item: Results<Food>?) {
+        guard let item else { return }
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Food>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(item.toArray())
+        dataSource.apply(snapshot, animatingDifferences: true)
     }
 }
 

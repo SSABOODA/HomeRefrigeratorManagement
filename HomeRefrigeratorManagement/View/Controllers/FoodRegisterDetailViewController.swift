@@ -180,16 +180,12 @@ extension FoodRegisterDetailViewController {
         guard let desc = self.mainView.foodDescriptionTextField.text else { return }
         guard let registerDate = self.mainView.registerDateTextField.text?.toDate() else { return }
         guard let expirationDate = self.mainView.expirationDateTextField.text?.toDate() else { return }
-        guard let storageTypeText = self.mainView.storageTypeTextField.text else {
-            print("저장 방법 여기")
+        guard let storageTypeText = self.mainView.storageTypeTextField.text, !storageTypeText.isEmpty else {
+            emptyStorageTypeAlert()
             return
         }
-        guard let count = Int(self.mainView.countTextField.text ?? "0") else { return }
-        
-        
-        print("storageTypeText: \(storageTypeText)")
-        if storageTypeText.isEmpty {
-            emptyStorageTypeAlert()
+        guard let count = Int(self.mainView.countTextField.text ?? "0") else {
+            noInputFoodCountAlert()
             return
         }
         
@@ -197,13 +193,7 @@ extension FoodRegisterDetailViewController {
         self.viewModel.foodIconInfo.value.purchaseDate = registerDate
         self.viewModel.foodIconInfo.value.expirationDate = expirationDate
         self.viewModel.foodIconInfo.value.count = count
-        
-        for storageType in Constant.FoodStorageType.allCases {
-            if storageTypeText == storageType.rawValue {
-                self.viewModel.foodIconInfo.value.storageType = storageType
-            }
-        }
-        
+        self.viewModel.foodIconInfo.value.storageType = Constant.FoodStorageType(rawValue: storageTypeText) ?? .outdoor
         self.viewModel.isSave.value = true
 
         print("end: \(viewModel.foodIconInfo.value)")

@@ -17,12 +17,6 @@ class FoodManagementView: BaseView {
     
     lazy var collectionView = {
        let view = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout())
-        view.register(
-            FoodManagementCollectionViewCell.self,
-            forCellWithReuseIdentifier: FoodManagementCollectionViewCell.description()
-        )
-        view.delegate = self
-        view.dataSource = self
         return view
     }()
     
@@ -35,8 +29,8 @@ class FoodManagementView: BaseView {
         button.clipsToBounds = false
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOpacity = 0.5
-        button.layer.shadowOffset = .zero
-        button.layer.shadowRadius = 6
+        button.layer.shadowOffset = CGSize(width: 5, height: 5)
+        button.layer.shadowRadius = 5
         return button
     }()
     
@@ -76,17 +70,3 @@ class FoodManagementView: BaseView {
     }
 }
 
-
-// @deprecated: dataSource 사용
-extension FoodManagementView: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FoodManagementCollectionViewCell.description(), for: indexPath) as? FoodManagementCollectionViewCell else { return UICollectionViewCell() }
-        
-        cell.backgroundColor = .darkGray
-        return cell
-    }
-}

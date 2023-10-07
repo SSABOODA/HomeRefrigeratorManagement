@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F7289E4A2AD1BB9500E092C6 /* Results+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7289E492AD1BB9500E092C6 /* Results+Extension.swift */; };
 		F7C31D782AC2CE2E008DAA21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D772AC2CE2E008DAA21 /* AppDelegate.swift */; };
 		F7C31D7A2AC2CE2F008DAA21 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D792AC2CE2F008DAA21 /* SceneDelegate.swift */; };
 		F7C31D7C2AC2CE2F008DAA21 /* FoodManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D7B2AC2CE2F008DAA21 /* FoodManagementViewController.swift */; };
@@ -63,6 +64,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F7289E492AD1BB9500E092C6 /* Results+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Results+Extension.swift"; sourceTree = "<group>"; };
 		F7C31D742AC2CE2E008DAA21 /* HomeRefrigeratorManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeRefrigeratorManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7C31D772AC2CE2E008DAA21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7C31D792AC2CE2F008DAA21 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				F7C31DE32AC5C5F3008DAA21 /* UIViewController+Extension.swift */,
 				F7C31E392ACFD0D8008DAA21 /* UIView+Extension.swift */,
 				F7C31E3B2ACFD61D008DAA21 /* UIColor+Extension.swift */,
+				F7289E492AD1BB9500E092C6 /* Results+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -501,6 +504,7 @@
 				F7C31E2C2ACE93E3008DAA21 /* FoodRegisterDetailViewModel.swift in Sources */,
 				F7C31DCC2AC2EF27008DAA21 /* BaseViewController.swift in Sources */,
 				F7C31E3A2ACFD0D8008DAA21 /* UIView+Extension.swift in Sources */,
+				F7289E4A2AD1BB9500E092C6 /* Results+Extension.swift in Sources */,
 				F7C31DBC2AC2DE64008DAA21 /* Constant.swift in Sources */,
 				F7C31D782AC2CE2E008DAA21 /* AppDelegate.swift in Sources */,
 				F7C31E262ACD7847008DAA21 /* FoodConstant.swift in Sources */,

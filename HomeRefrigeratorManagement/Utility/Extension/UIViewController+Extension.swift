@@ -47,4 +47,11 @@ extension UIViewController {
         alert.addAction(ok)
         present(alert, animated: true)
     }
+    
+    func noInputFoodCountAlert() {
+        let alert = UIAlertController(title: "수량을 입력해주세요", message: nil, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .default)
+        alert.addAction(ok)
+        present(alert, animated: true)
+    }
 }

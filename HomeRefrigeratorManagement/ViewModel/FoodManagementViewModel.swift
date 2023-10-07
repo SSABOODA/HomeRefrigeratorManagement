@@ -6,3 +6,13 @@
 //
 
 import Foundation
+import RealmSwift
+
+final class FoodManagementViewModel {
+    var realmFoodData: Results<Food>?
+    
+    func settingRealmFoodData() {
+        realmFoodData = RealmTableRepository.shared.fetch(object: Food())
+    }
+}
+

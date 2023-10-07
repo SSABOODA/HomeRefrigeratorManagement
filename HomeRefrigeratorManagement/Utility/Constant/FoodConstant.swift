@@ -28,6 +28,7 @@ extension Constant {
         // 김치/젓갈
     }
     
+    @frozen
     enum FoodStorageType: String, CaseIterable {
         case outdoor = "실외"
         case cold = "냉장"

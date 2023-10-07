@@ -35,30 +35,11 @@ final class FoodRegisterListViewController: BaseViewController {
         configureDataSource()
         setupSearchBar()
         performQuery(with: "")
-        
-        dataBind()
     }
     
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        sheetPresentationController?.animateChanges {
-//            sheetPresentationController?.selectedDetentIdentifier = .large
-//        }
-//    }
-    
     override func configureView() {
-//        title = Constant.NavigationTitle.foodRegisterDetailTitle
         view.backgroundColor = Constant.BaseColor.backgroundColor
-        self.navigationItem.titleView = searchBar
-        
         view.addSubview(collectionView)
-        searchBar.delegate = self
-        
-        let backBarBtnItem = UIBarButtonItem()
-        backBarBtnItem.title = ""
-        backBarBtnItem.tintColor = Constant.BaseColor.tintColor
-        navigationItem.backBarButtonItem = backBarBtnItem
-        
     }
     
     override func configureLayout() {
@@ -66,17 +47,11 @@ final class FoodRegisterListViewController: BaseViewController {
             make.edges.equalToSuperview()
         }
     }
-
-    @objc func checkmarkButtonCliecd() {
-        print(#function)
-    }
-    
-    private func dataBind() {
-    }
     
     private func setupSearchBar() {
+        self.navigationItem.titleView = searchBar
         searchBar.delegate = self
-        searchBar.placeholder = "식품을 검색해보세요"
+        searchBar.placeholder = "식품을 검색해보세요".localized
         searchBar.showsCancelButton = true
     }
 
@@ -136,19 +111,13 @@ extension FoodRegisterListViewController {
 
 extension FoodRegisterListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath)
-        
         let nextVC = FoodRegisterDetailViewController()
         nextVC.viewModel.completionHandler = { isSave in
-            print("isSave go")
-            if isSave {
-                self.view.makeToast("식품 저장이 완료되었습니다.😃")
+            if isSave { self.view.makeToast(Constant.ToastMessage.foodSaveSuccessMessage.localized)
             }
         }
-        
         nextVC.viewModel.foodIconInfo.value = self.viewModel.foodIconInfo.value[indexPath.item]
         nextVC.modalPresentationStyle = .overFullScreen
         present(nextVC, animated: true)
-    
     }
 }

@@ -30,13 +30,14 @@ extension Constant {
         static let foodRegisterDetailSaveButtonImage = "checkmark"
     }
     
-    enum ButtonTitle {
-        static let foodDirectRegister = "직접 등록하기"
-        static let foodCameraRegister = "카메라로 등록하기"
-    }
     
     enum NavigationTitle {
+        static let foodRegisterHomeTitle = "냉장고 관리"
         static let foodRegisterTitle = "식품 등록 방법 선택"
         static let foodRegisterDetailTitle = "식품 등록하기"
+    }
+    
+    enum ToastMessage {
+        static let foodSaveSuccessMessage = "식품 저장이 완료되었습니다.😃"
     }
 }
