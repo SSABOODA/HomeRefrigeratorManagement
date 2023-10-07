@@ -16,7 +16,7 @@ class FoodManagementView: BaseView {
     }()
     
     lazy var collectionView = {
-       let view = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout())
+        let view = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout())
         return view
     }()
     
@@ -60,12 +60,12 @@ class FoodManagementView: BaseView {
     // TODO: Constant
     private func collectionViewLayout() -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 30
+        layout.minimumLineSpacing = 15
         layout.minimumInteritemSpacing = 30
         let width = UIScreen.main.bounds.width - 50
         layout.itemSize = CGSize(width: width, height: 100)
         layout.scrollDirection = .vertical
-        layout.sectionInset = UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0)
+        layout.sectionInset = UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0)
         return layout
     }
 }

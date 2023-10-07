@@ -14,5 +14,9 @@ final class FoodManagementViewModel {
     func settingRealmFoodData() {
         realmFoodData = RealmTableRepository.shared.fetch(object: Food())
     }
+    
+    func caculateDday() {
+        
+    }
 }
 

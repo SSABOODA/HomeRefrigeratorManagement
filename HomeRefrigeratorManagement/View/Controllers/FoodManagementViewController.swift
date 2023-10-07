@@ -26,7 +26,6 @@ final class FoodManagementViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         addTarget()
         
         viewModel.settingRealmFoodData()
@@ -42,6 +41,10 @@ final class FoodManagementViewController: BaseViewController {
     }
     
     override func configureView() {
+        mainView.collectionView.delegate = self
+        // view setting
+        mainView.collectionView.backgroundColor = UIColor(hexCode: "#F6F6F6")
+        
         // navigation setting
         title = Constant.NavigationTitle.foodRegisterHomeTitle
         self.navigationItem.searchController = mainView.searchController
@@ -53,17 +56,29 @@ final class FoodManagementViewController: BaseViewController {
     }
 }
 
+// MARK: - UICollectionViewDelegate
+extension FoodManagementViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath)
+    }
+}
+
+
 // MARK: - DataSource
 
 extension FoodManagementViewController {
     private func configureDataSource() {
         let cellRegistration = UICollectionView.CellRegistration<FoodManagementCollectionViewCell, Food> { cell, indexPath, itemIdentifier in
+  
+            cell.backgroundColor = .white
+            cell.layer.cornerRadius = 15
+            cell.clipsToBounds = true
             
-            print(cell)
-            print(itemIdentifier)
-            
-            cell.backgroundColor = .darkGray
             cell.foodImageView.image = UIImage(named: itemIdentifier.name)
+            cell.nameLabel.text = itemIdentifier.name
+            cell.descriptionLabel.text = itemIdentifier.descriptionContent.isEmpty ? "설명" : itemIdentifier.descriptionContent
+            cell.purchaseDateLabel.text = "구매일자: \(itemIdentifier.purchaseDate.koreanDateFormatToString())"
+            
         }
         
         dataSource = UICollectionViewDiffableDataSource(collectionView: self.mainView.collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
