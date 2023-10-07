@@ -18,9 +18,13 @@ final class FoodRegisterDetailViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTapGestures()
+        
+        
         print(#function)
         print(viewModel.foodIconInfo.value)
-        setupTapGestures()
+        
+        
     }
     
     override func viewWillLayoutSubviews() {
@@ -35,14 +39,13 @@ final class FoodRegisterDetailViewController: BaseViewController {
         mainView.foodImageView.image = UIImage(named: viewModel.foodIconName)
         mainView.foodNameLabel.text = viewModel.foodIconName
         
-        addTarget()
         dataBind()
-        
+        addTarget()
     }
     
     private func dataBind() {
-        viewModel.foodIconInfo.bind { [weak self] _ in
-        }
+//        viewModel.foodIconInfo.bind { [weak self] _ in
+//        }
     }
     
     private func addTarget() {

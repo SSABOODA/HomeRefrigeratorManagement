@@ -20,7 +20,7 @@ class FoodStorageTypeButton: UIButton {
     
     func setupView() {
         setTitleColor(Constant.BaseColor.tintColor, for: .normal)
-        titleLabel?.font = .systemFont(ofSize: 15)
+        titleLabel?.font = .systemFont(ofSize: 13)
     }
     
 }
