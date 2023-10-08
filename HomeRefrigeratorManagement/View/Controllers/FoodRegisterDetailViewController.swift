@@ -99,7 +99,7 @@ extension FoodRegisterDetailViewController: UIPickerViewDelegate, UIPickerViewDa
         picker.delegate = self
         picker.dataSource = self
         self.mainView.storageTypeTextField.inputView = picker
-        configToolbar()
+//        configToolbar() // Constraints 오류 때문에 일단 보류
     }
     
     func configToolbar() {

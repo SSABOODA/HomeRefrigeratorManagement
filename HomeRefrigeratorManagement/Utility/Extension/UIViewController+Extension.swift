@@ -60,7 +60,7 @@ extension UIViewController {
         let ok = UIAlertAction(title: "확인", style: .destructive) { _ in
             completionHandler()
         }
-        let cancel = UIAlertAction(title: "취소", style: .default) { _ in }
+        let cancel = UIAlertAction(title: "취소", style: .default)
         alert.addAction(ok)
         alert.addAction(cancel)
         present(alert, animated: true)

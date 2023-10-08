@@ -9,30 +9,48 @@ import UIKit
 
 class FoodDetailManagementViewController: BaseViewController {
     
+    let mainView = FoodDetailManagementView()
+    
     let viewModel = FoodDetailManagementViewModel()
+    
+    override func loadView() {
+        view = mainView
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        mainView.layoutSubviews()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        addTarget()
     }
     
     override func configureView() {
         super.configureView()
         
-        title = "식품 상세"
-        
         navigationBar()
         
         print(viewModel.food)
+        
+        view.backgroundColor = Constant.collectionViewColor.collectionViewBackgroundColor
     }
     
-    @objc func updateBarButtonTapped() {
+    func addTarget() {
+        mainView.deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
+        mainView.updateButton.addTarget(self, action: #selector(updateButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc func updateButtonTapped() {
         print(#function)
     }
     
-    @objc func deleteBarButtonTapped() {
+    @objc func deleteButtonTapped() {
         print(#function)
-        viewModel.deleteData()
         deleteFoodDataAlert {
+            self.viewModel.deleteData()
             self.navigationController?.popViewController(animated: true)
         }
     }
@@ -40,13 +58,7 @@ class FoodDetailManagementViewController: BaseViewController {
 
 extension FoodDetailManagementViewController {
     private func navigationBar() {
+        title = Constant.NavigationTitle.foodDetailTitle
         self.navigationItem.largeTitleDisplayMode = .never
-        
-        let updateBarButton = UIBarButtonItem(title: "수정", style: .plain, target: self, action: #selector(updateBarButtonTapped))
-        updateBarButton.tintColor = UIColor(hexCode: "#63A6F3")
-        let deleteBarButton = UIBarButtonItem(title: "삭제", style: .plain, target: self, action: #selector(deleteBarButtonTapped))
-        deleteBarButton.tintColor = UIColor(hexCode: "#E27749")
-        
-        navigationItem.rightBarButtonItems = [updateBarButton, deleteBarButton]
     }
 }

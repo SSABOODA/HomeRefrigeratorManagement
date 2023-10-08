@@ -1,22 +1,21 @@
 //
-//  FoodRegisterDetailView.swift
+//  FoodDetailManagementView.swift
 //  HomeRefrigeratorManagement
 //
-//  Created by 한성봉 on 2023/10/05.
+//  Created by 한성봉 on 2023/10/08.
 //
 
 import UIKit
-import SnapKit
 
-class FoodRegisterDetailView: BaseView {
-    
+// @deprecated
+class FoodDetailManagementView: BaseView {
     let mainView = {
         let view = UIView()
-        view.backgroundColor = UIColor(hexCode: "F6F6F6")
+        view.backgroundColor = Constant.BaseColor.backgroundColor
         view.layer.cornerRadius = 10
         view.clipsToBounds = false
         view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowOffset = .zero
+        view.layer.shadowOffset = CGSize(width: 10, height: 10)
         view.layer.shadowRadius = 10
         view.layer.shadowOpacity = 0.5
         return view
@@ -46,12 +45,14 @@ class FoodRegisterDetailView: BaseView {
     
     let foodImageView = {
         let view = UIImageView()
+        view.image = UIImage(named: "가지")
         return view
     }()
     
     let foodNameLabel = {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 15)
+        label.text = "가지"
         return label
     }()
     
@@ -195,39 +196,25 @@ class FoodRegisterDetailView: BaseView {
         return stackView
     }()
     
-    let cancelButton = {
+    let deleteButton = {
         let button = UIButton()
-        button.setTitle("취소하기", for: .normal)
+        button.setTitle("삭제하기", for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 13)
         button.setTitleColor(UIColor.white, for: .normal)
-        button.backgroundColor = .black
+        button.backgroundColor = UIColor(hexCode: "#E27749")
         return button
     }()
     
-    let saveButton = {
+    let updateButton = {
         let button = UIButton()
-        button.setTitle("저장하기", for: .normal)
+        button.setTitle("수정하기", for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 13)
         button.setTitleColor(UIColor.white, for: .normal)
         button.backgroundColor = Constant.BaseColor.basePointColor
         return button
     }()
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-//        print("DetailView layoutSubviews")
-        foodImageShadowView.layer.cornerRadius = foodImageShadowView.frame.width / 2
-        foodImageShadowView.layoutIfNeeded()
-        
-        cancelButton.roundCorners(.bottomLeft, radius: 10)
-        cancelButton.layoutIfNeeded()
-        saveButton.roundCorners(.bottomRight, radius: 10)
-        saveButton.layoutIfNeeded()
-
-    }
-
+    
     override func configureHierarchy() {
-//        print("DetailView")
         addSubview(mainView)
         mainView.addSubview(foodView)
         mainView.addSubview(registerView)
@@ -253,16 +240,23 @@ class FoodRegisterDetailView: BaseView {
         registerView.addSubview(countStackView)
         countTextFieldView.addSubview(countTextField)
         
-        mainView.addSubview(cancelButton)
-        mainView.addSubview(saveButton)
+        mainView.addSubview(deleteButton)
+        mainView.addSubview(updateButton)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        deleteButton.roundCorners(.bottomLeft, radius: 10)
+        deleteButton.layoutIfNeeded()
+        updateButton.roundCorners(.bottomRight, radius: 10)
+        updateButton.layoutIfNeeded()
     }
     
     override func configureLayout() {
-        
         mainView.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.leading.trailing.equalToSuperview().inset(40)
-            make.top.bottom.equalToSuperview().inset(160)
+            make.horizontalEdges.equalToSuperview().inset(30)
+            make.height.equalToSuperview().multipliedBy(0.6)
         }
         
         foodView.snp.makeConstraints { make in
@@ -275,10 +269,10 @@ class FoodRegisterDetailView: BaseView {
             make.horizontalEdges.equalToSuperview()
             make.height.equalToSuperview().multipliedBy(0.7)
         }
-
+        
         foodImageShadowView.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.size.equalTo(50)
+            make.size.equalTo(60)
         }
         
         foodImageView.snp.makeConstraints { make in
@@ -358,21 +352,16 @@ class FoodRegisterDetailView: BaseView {
         }
         
         // 버튼
-        cancelButton.snp.makeConstraints { make in
+        deleteButton.snp.makeConstraints { make in
             make.leading.bottom.equalToSuperview()
             make.width.equalToSuperview().multipliedBy(0.5)
             make.height.equalToSuperview().multipliedBy(0.1)
         }
         
-        saveButton.snp.makeConstraints { make in
+        updateButton.snp.makeConstraints { make in
             make.trailing.bottom.equalToSuperview()
             make.width.equalToSuperview().multipliedBy(0.5)
             make.height.equalToSuperview().multipliedBy(0.1)
         }
-        
     }
-    
-
-    
-    
 }

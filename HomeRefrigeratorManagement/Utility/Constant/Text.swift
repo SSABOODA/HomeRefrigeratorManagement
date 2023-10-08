@@ -35,6 +35,7 @@ extension Constant {
         static let foodRegisterHomeTitle = "냉장고 관리"
         static let foodRegisterTitle = "식품 등록 방법 선택"
         static let foodRegisterDetailTitle = "식품 등록하기"
+        static let foodDetailTitle = "식품 상세 정보"
     }
     
     enum ToastMessage {
