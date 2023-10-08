@@ -48,7 +48,7 @@ final class FoodRegisterDetailViewController: BaseViewController {
         mainView.cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
         mainView.saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
         
-        mainView.foodDescriptionTextField.addTarget(self, action: #selector(foodDescriptionTextFieldTapped), for: .editingChanged)
+        mainView.foodDescriptionTextField.addTarget(self, action: #selector(foodDescriptionTextEditingChanged), for: .editingChanged)
         mainView.registerDateTextField.addTarget(self, action: #selector(dateTextFieldTapped), for: .touchDown)
         mainView.expirationDateTextField.addTarget(self, action: #selector(dateTextFieldTapped), for: .touchDown)
     }
@@ -65,7 +65,7 @@ final class FoodRegisterDetailViewController: BaseViewController {
         view.endEditing(true)
     }
     
-    @objc func foodDescriptionTextFieldTapped(_ sender: UITextField) {
+    @objc func foodDescriptionTextEditingChanged(_ sender: UITextField) {
         guard let text = sender.text else { return }
         viewModel.foodIconInfo.value.description = text
     }

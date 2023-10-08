@@ -8,6 +8,8 @@
 import UIKit
 
 extension UIViewController {
+    // MARK: - view transition
+
     enum TransitionStyle {
         case present
         case presentNavigation
@@ -32,6 +34,8 @@ extension UIViewController {
         }
     }
     
+    // MARK: - navigation
+
     func setNavigationBar() {
         print(#function)
         let appearance = UINavigationBarAppearance()
@@ -41,6 +45,8 @@ extension UIViewController {
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
     }
     
+    // MARK: - alert
+
     func emptyStorageTypeAlert() {
         let alert = UIAlertController(title: "저장 방법을 선택해주세요", message: nil, preferredStyle: .alert)
         let ok = UIAlertAction(title: "확인", style: .default)
@@ -65,4 +71,17 @@ extension UIViewController {
         alert.addAction(cancel)
         present(alert, animated: true)
     }
+    
+    func updateFoodDataAlert(_ completionHandler: @escaping () -> Void) {
+        let alert = UIAlertController(title: "수정하시겠습니까?", message: nil, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .destructive) { _ in
+            completionHandler()
+        }
+        let cancel = UIAlertAction(title: "취소", style: .default)
+        alert.addAction(ok)
+        alert.addAction(cancel)
+        present(alert, animated: true)
+    }
+    
+    
 }

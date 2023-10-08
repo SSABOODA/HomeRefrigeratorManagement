@@ -77,6 +77,7 @@ extension FoodManagementViewController: UICollectionViewDelegate {
         nextVC.viewModel.completionHandler = { isDelete in
             if isDelete {
                 self.viewModel.deleteFoodData = food
+                self.view.makeToast("식품이 삭제되었습니다.")
             }
         }
         transition(viewController: nextVC, style: .push)
@@ -125,15 +126,12 @@ extension FoodManagementViewController {
         let item = viewModel.filterFoodData(searchText)
         guard let item else { return }
         
-        print("item: \(item)")
-        
         var snapshot = NSDiffableDataSourceSnapshot<Section, Food>()
         snapshot.appendSections([.main])
         snapshot.appendItems(item.toArray())
         
         // relam 데이터 삭제시 snapshot 처리
         if let deleteFood = viewModel.deleteFoodData, !deleteFood.isInvalidated {
-            print("deleteFood: \(deleteFood)")
             snapshot.deleteItems([deleteFood])
             dataSource.apply(snapshot, animatingDifferences: true)
             RealmTableRepository.shared.delete(object: deleteFood)

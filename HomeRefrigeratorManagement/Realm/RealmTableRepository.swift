@@ -62,14 +62,14 @@ final class RealmTableRepository: RealmTableRepositoryType {
     // Update Realm
     public func update<T: Object>(object: T, errorHandler: @escaping ((_ error : Swift.Error) -> Void) = { _ in return }) {
         
-//        do {
-//            try localRealm.write {
-//                localRealm.add(object, update: true)
-//            }
-//        }
-//        catch {
-//            errorHandler(error)
-//        }
+        do {
+            try localRealm.write {
+                localRealm.add(object, update: .modified)
+            }
+        }
+        catch {
+            errorHandler(error)
+        }
     }
     
     // Delete Realm
