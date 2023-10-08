@@ -10,6 +10,9 @@ import Foundation
 class FoodRegisterListViewModel {
     
     var foodIconInfo = Observable(Constant.FoodConstant.foodIconInfo)
+    var isSave = Observable(false)
+    
+    var completionHandler: ((Bool) -> Void)?
   
     func filterInitialConsonant(with searchText: String) -> [FoodModel] {
         let foodIconData = Constant.FoodConstant.foodIconInfo

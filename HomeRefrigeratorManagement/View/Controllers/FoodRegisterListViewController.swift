@@ -30,11 +30,17 @@ final class FoodRegisterListViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("FoodRegisterDetailViewController", #function)
+        print("FoodRegisterListViewController", #function)
         
         configureDataSource()
         setupSearchBar()
         performQuery(with: "")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("FoodRegisterListViewController", #function)
+        viewModel.completionHandler?(viewModel.isSave.value)
     }
     
     override func configureView() {
@@ -112,7 +118,9 @@ extension FoodRegisterListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let nextVC = FoodRegisterDetailViewController()
         nextVC.viewModel.completionHandler = { isSave in
-            if isSave { self.view.makeToast(Constant.ToastMessage.foodSaveSuccessMessage.localized)
+            if isSave {
+                self.view.makeToast(Constant.ToastMessage.foodSaveSuccessMessage.localized)
+                self.viewModel.isSave.value = true
             }
         }
         nextVC.viewModel.foodIconInfo.value = self.viewModel.foodIconInfo.value[indexPath.item]

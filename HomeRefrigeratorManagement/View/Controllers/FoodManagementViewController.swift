@@ -29,10 +29,8 @@ final class FoodManagementViewController: BaseViewController {
         addTarget()
         
         viewModel.settingRealmFoodData()
-        
         configureDataSource()
         performQuery("")
-        
     }
         
     @objc func foodRegisterButtonTapped() {
@@ -46,6 +44,7 @@ final class FoodManagementViewController: BaseViewController {
         mainView.searchController.searchBar.delegate = self
         // view setting
         mainView.collectionView.backgroundColor = UIColor(hexCode: "#F6F6F6")
+//        mainView.collectionView.backgroundColor = UIColor(hexCode: "#A1A2A5")
         
         // navigation setting
         title = Constant.NavigationTitle.foodRegisterHomeTitle
@@ -88,7 +87,7 @@ extension FoodManagementViewController {
     private func configureDataSource() {
         let cellRegistration = UICollectionView.CellRegistration<FoodManagementCollectionViewCell, Food> { cell, indexPath, itemIdentifier in
   
-            cell.backgroundColor = .white
+            cell.backgroundColor = Constant.BaseColor.backgroundColor
             cell.layer.cornerRadius = 15
             cell.clipsToBounds = true
             
@@ -104,7 +103,7 @@ extension FoodManagementViewController {
         })
     }
     
-    // TODO: 초성 검색 가능하게...
+    // TODO: 초성 검색 가능하게 작업해야함.
     private func performQuery(_ searchText: String) {
 
         let item = viewModel.filterFoodData(searchText)
@@ -121,6 +120,13 @@ extension FoodManagementViewController {
 extension FoodManagementViewController: UISheetPresentationControllerDelegate {
     private func showSheet() {
         let formController = FoodRegisterListViewController()
+        
+        formController.viewModel.completionHandler = { isSave in
+            if isSave {
+                self.performQuery("")
+            }
+        }
+        
         formController.sheetPresentationController?.delegate = self
 
         let formNC = UINavigationController(rootViewController: formController)
