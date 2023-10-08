@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class FoodDetailManagementViewModel {
+final class FoodDetailManagementViewModel {
     
     var food: Food?
     var isDelete = Observable(false)

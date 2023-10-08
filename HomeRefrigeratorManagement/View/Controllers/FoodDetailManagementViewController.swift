@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FoodDetailManagementViewController: BaseViewController {
+final class FoodDetailManagementViewController: BaseViewController {
     
     let mainView = FoodDetailManagementView()
     
@@ -30,15 +30,29 @@ class FoodDetailManagementViewController: BaseViewController {
     
     override func configureView() {
         super.configureView()
-        
+        view.backgroundColor = Constant.collectionViewColor.collectionViewBackgroundColor
         navigationBar()
+        configreData()
         
         print(viewModel.food)
         
-        view.backgroundColor = Constant.collectionViewColor.collectionViewBackgroundColor
+        
     }
     
-    func addTarget() {
+    func configreData() {
+        guard let food = viewModel.food else { return }
+        mainView.foodImageView.image = UIImage(named: food.name)
+        mainView.foodNameLabel.text = food.name
+        mainView.foodDescriptionTextField.text = food.descriptionContent
+        mainView.registerDateTextField.text = Date().dateFormat(date: food.purchaseDate)
+        mainView.expirationDateTextField.text = Date().dateFormat(date: food.expirationDate)
+        mainView.storageTypeTextField.text = food.storageType?.storageType
+        mainView.countTextField.text = String(food.count)
+    }
+    
+    
+    
+    private func addTarget() {
         mainView.deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
         mainView.updateButton.addTarget(self, action: #selector(updateButtonTapped), for: .touchUpInside)
     }

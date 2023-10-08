@@ -194,9 +194,9 @@
 			children = (
 				F7C31D9D2AC2D619008DAA21 /* Observable.swift */,
 				F7C31D9B2AC2D60E008DAA21 /* FoodManagementViewModel.swift */,
+				F7289E4D2AD2C60300E092C6 /* FoodDetailManagementViewModel.swift */,
 				F7C31E232ACD4636008DAA21 /* FoodRegisterListViewModel.swift */,
 				F7C31E2B2ACE93E3008DAA21 /* FoodRegisterDetailViewModel.swift */,
-				F7289E4D2AD2C60300E092C6 /* FoodDetailManagementViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";

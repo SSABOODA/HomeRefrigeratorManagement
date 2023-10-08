@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class FoodRegisterDetailView: BaseView {
+final class FoodRegisterDetailView: BaseView {
     
     let mainView = {
         let view = UIView()
