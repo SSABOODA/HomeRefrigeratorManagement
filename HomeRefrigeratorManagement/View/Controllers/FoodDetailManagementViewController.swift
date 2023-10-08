@@ -25,8 +25,6 @@ class FoodDetailManagementViewController: BaseViewController {
         print(viewModel.food)
     }
     
-    
-    
     @objc func updateBarButtonTapped() {
         print(#function)
     }
@@ -34,7 +32,9 @@ class FoodDetailManagementViewController: BaseViewController {
     @objc func deleteBarButtonTapped() {
         print(#function)
         viewModel.deleteData()
-        navigationController?.popViewController(animated: true)
+        deleteFoodDataAlert {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 }
 

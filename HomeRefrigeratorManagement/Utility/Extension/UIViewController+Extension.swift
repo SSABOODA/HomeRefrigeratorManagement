@@ -54,4 +54,15 @@ extension UIViewController {
         alert.addAction(ok)
         present(alert, animated: true)
     }
+    
+    func deleteFoodDataAlert(_ completionHandler: @escaping () -> Void) {
+        let alert = UIAlertController(title: "정말 삭제하시겠습니까?", message: nil, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .destructive) { _ in
+            completionHandler()
+        }
+        let cancel = UIAlertAction(title: "취소", style: .default) { _ in }
+        alert.addAction(ok)
+        alert.addAction(cancel)
+        present(alert, animated: true)
+    }
 }
