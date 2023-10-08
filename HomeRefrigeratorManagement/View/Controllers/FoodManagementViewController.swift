@@ -51,6 +51,7 @@ final class FoodManagementViewController: BaseViewController {
         title = Constant.NavigationTitle.foodRegisterHomeTitle
         self.navigationItem.searchController = mainView.searchController
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.hidesSearchBarWhenScrolling = false
         
     }
     
@@ -93,8 +94,9 @@ extension FoodManagementViewController {
             
             cell.foodImageView.image = UIImage(named: itemIdentifier.name)
             cell.nameLabel.text = itemIdentifier.name
-            cell.descriptionLabel.text = itemIdentifier.descriptionContent.isEmpty ? "설명" : itemIdentifier.descriptionContent
+            cell.descriptionLabel.text = itemIdentifier.descriptionContent.isEmpty ? itemIdentifier.name : itemIdentifier.descriptionContent
             cell.purchaseDateLabel.text = "구매일자: \(itemIdentifier.purchaseDate.koreanDateFormatToString())"
+            cell.expirationDateLabel.text = self.viewModel.caculateDday(itemIdentifier.expirationDate)
         }
         
         dataSource = UICollectionViewDiffableDataSource(collectionView: self.mainView.collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in

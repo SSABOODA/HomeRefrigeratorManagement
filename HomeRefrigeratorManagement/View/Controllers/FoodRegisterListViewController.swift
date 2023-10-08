@@ -51,7 +51,7 @@ final class FoodRegisterListViewController: BaseViewController {
     private func setupSearchBar() {
         self.navigationItem.titleView = searchBar
         searchBar.delegate = self
-        searchBar.placeholder = "식품을 검색해보세요".localized
+        searchBar.placeholder = "저장할 식품을 검색해보세요".localized
         searchBar.showsCancelButton = true
     }
 
