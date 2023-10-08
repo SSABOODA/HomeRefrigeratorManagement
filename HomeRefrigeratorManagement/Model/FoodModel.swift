@@ -16,7 +16,6 @@ struct FoodModel: Hashable {
     var purchaseDate: Date = Date()
     var expirationDate: Date = Date()
     var description: String = ""
-    
 }
 
 

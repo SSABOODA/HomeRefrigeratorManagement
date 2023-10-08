@@ -9,22 +9,20 @@ import Foundation
 import RealmSwift
 
 final class FoodManagementViewModel {
-    var realmFoodData: Results<Food>?
-    var filteredFoodData: Results<Food>?
     
-    func settingRealmFoodData() {
-        realmFoodData = RealmTableRepository.shared.fetch(object: Food())
-    }
+    var filteredFoodData: Results<Food>?
+    var deleteFoodData: Food?
     
     func filterFoodData(_ query: String) -> Results<Food>? {
         if query.isEmpty {
-            return realmFoodData
+            filteredFoodData = RealmTableRepository.shared.fetch(object: Food())
         } else {
-            filteredFoodData = realmFoodData?.where {
+            filteredFoodData = filteredFoodData?.where {
                 $0.name.contains(query)
             }
-            return filteredFoodData
         }
+        
+        return filteredFoodData
     }
     
     func filterInitialConsonant(with searchText: String) -> [FoodModel] {

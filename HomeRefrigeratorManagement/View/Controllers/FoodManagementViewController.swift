@@ -10,7 +10,7 @@ import RealmSwift
 
 final class FoodManagementViewController: BaseViewController {
     
-    enum Section: CaseIterable {
+    private enum Section: CaseIterable {
         case main
     }
     
@@ -18,7 +18,7 @@ final class FoodManagementViewController: BaseViewController {
     
     private var dataSource: UICollectionViewDiffableDataSource<Section, Food>!
     
-    let viewModel = FoodManagementViewModel()
+    private let viewModel = FoodManagementViewModel()
     
     override func loadView() {
         view = mainView
@@ -27,31 +27,37 @@ final class FoodManagementViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addTarget()
-        
-        viewModel.settingRealmFoodData()
         configureDataSource()
         performQuery("")
     }
-        
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print(#function)
+        performQuery("")
+    }
+    
     @objc func foodRegisterButtonTapped() {
         print(#function)
         showSheet()
     }
     
     override func configureView() {
-        mainView.collectionView.delegate = self
-//        mainView.searchController.delegate = self
-        mainView.searchController.searchBar.delegate = self
         // view setting
-        mainView.collectionView.backgroundColor = UIColor(hexCode: "#F6F6F6")
-//        mainView.collectionView.backgroundColor = UIColor(hexCode: "#A1A2A5")
+        mainView.collectionView.delegate = self
+        mainView.collectionView.backgroundColor = Constant.collectionViewColor.collectionViewBackgroundColor
         
         // navigation setting
         title = Constant.NavigationTitle.foodRegisterHomeTitle
+        self.mainView.searchController.searchBar.delegate = self
         self.navigationItem.searchController = mainView.searchController
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.hidesSearchBarWhenScrolling = false
         
+        // navigation backbutton
+        let backButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        backButtonItem.tintColor = Constant.BaseColor.tintColor
+        self.navigationItem.backBarButtonItem = backButtonItem
     }
     
     private func addTarget() {
@@ -63,6 +69,18 @@ final class FoodManagementViewController: BaseViewController {
 extension FoodManagementViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath)
+        
+        let nextVC = FoodDetailManagementViewController()
+        guard let filteredFoodData = self.viewModel.filteredFoodData else { return }
+        let food = filteredFoodData[indexPath.item]
+        nextVC.viewModel.food = food
+        nextVC.viewModel.completionHandler = { isDelete in
+            if isDelete {
+                self.viewModel.deleteFoodData = food
+            }
+        }
+        transition(viewController: nextVC, style: .push)
+        
     }
 }
 
@@ -86,11 +104,8 @@ extension FoodManagementViewController: UISearchControllerDelegate, UISearchBarD
 extension FoodManagementViewController {
     private func configureDataSource() {
         let cellRegistration = UICollectionView.CellRegistration<FoodManagementCollectionViewCell, Food> { cell, indexPath, itemIdentifier in
-  
-            cell.backgroundColor = Constant.BaseColor.backgroundColor
-            cell.layer.cornerRadius = 15
-            cell.clipsToBounds = true
             
+            cell.configureCell()
             cell.foodImageView.image = UIImage(named: itemIdentifier.name)
             cell.nameLabel.text = itemIdentifier.name
             cell.descriptionLabel.text = itemIdentifier.descriptionContent.isEmpty ? itemIdentifier.name : itemIdentifier.descriptionContent
@@ -105,13 +120,24 @@ extension FoodManagementViewController {
     
     // TODO: 초성 검색 가능하게 작업해야함.
     private func performQuery(_ searchText: String) {
+        print(#function)
 
         let item = viewModel.filterFoodData(searchText)
         guard let item else { return }
         
+        print("item: \(item)")
+        
         var snapshot = NSDiffableDataSourceSnapshot<Section, Food>()
         snapshot.appendSections([.main])
         snapshot.appendItems(item.toArray())
+        
+        // relam 데이터 삭제시 snapshot 처리
+        if let deleteFood = viewModel.deleteFoodData, !deleteFood.isInvalidated {
+            print("deleteFood: \(deleteFood)")
+            snapshot.deleteItems([deleteFood])
+            dataSource.apply(snapshot, animatingDifferences: true)
+            RealmTableRepository.shared.delete(object: deleteFood)
+        }
         dataSource.apply(snapshot, animatingDifferences: true)
     }
 }

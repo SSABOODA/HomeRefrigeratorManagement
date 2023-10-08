@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		F7289E4A2AD1BB9500E092C6 /* Results+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7289E492AD1BB9500E092C6 /* Results+Extension.swift */; };
+		F7289E4C2AD2C05400E092C6 /* FoodDetailManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7289E4B2AD2C05400E092C6 /* FoodDetailManagementViewController.swift */; };
+		F7289E4E2AD2C60300E092C6 /* FoodDetailManagementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7289E4D2AD2C60300E092C6 /* FoodDetailManagementViewModel.swift */; };
 		F7C31D782AC2CE2E008DAA21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D772AC2CE2E008DAA21 /* AppDelegate.swift */; };
 		F7C31D7A2AC2CE2F008DAA21 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D792AC2CE2F008DAA21 /* SceneDelegate.swift */; };
 		F7C31D7C2AC2CE2F008DAA21 /* FoodManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D7B2AC2CE2F008DAA21 /* FoodManagementViewController.swift */; };
@@ -65,6 +67,8 @@
 
 /* Begin PBXFileReference section */
 		F7289E492AD1BB9500E092C6 /* Results+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Results+Extension.swift"; sourceTree = "<group>"; };
+		F7289E4B2AD2C05400E092C6 /* FoodDetailManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailManagementViewController.swift; sourceTree = "<group>"; };
+		F7289E4D2AD2C60300E092C6 /* FoodDetailManagementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailManagementViewModel.swift; sourceTree = "<group>"; };
 		F7C31D742AC2CE2E008DAA21 /* HomeRefrigeratorManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeRefrigeratorManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7C31D772AC2CE2E008DAA21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7C31D792AC2CE2F008DAA21 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -190,6 +194,7 @@
 				F7C31D9B2AC2D60E008DAA21 /* FoodManagementViewModel.swift */,
 				F7C31E232ACD4636008DAA21 /* FoodRegisterListViewModel.swift */,
 				F7C31E2B2ACE93E3008DAA21 /* FoodRegisterDetailViewModel.swift */,
+				F7289E4D2AD2C60300E092C6 /* FoodDetailManagementViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -269,6 +274,7 @@
 			children = (
 				F7C31DC72AC2E588008DAA21 /* RecipeViewController.swift */,
 				F7C31D7B2AC2CE2F008DAA21 /* FoodManagementViewController.swift */,
+				F7289E4B2AD2C05400E092C6 /* FoodDetailManagementViewController.swift */,
 				F7C31DE72AC69C3F008DAA21 /* FoodRegisterListViewController.swift */,
 				F7C31E292ACE8E8C008DAA21 /* FoodRegisterDetailViewController.swift */,
 				F7C31DC52AC2E57D008DAA21 /* SettingViewController.swift */,
@@ -484,6 +490,7 @@
 			files = (
 				F7C31E332ACEE999008DAA21 /* InitialConsonant.swift in Sources */,
 				F7C31E302ACEDB23008DAA21 /* CALayer+Extension.swift in Sources */,
+				F7289E4E2AD2C60300E092C6 /* FoodDetailManagementViewModel.swift in Sources */,
 				F7C31E402AD153A3008DAA21 /* FoodStorageTypeButton.swift in Sources */,
 				F7C31E382ACFC37C008DAA21 /* Date+Extension.swift in Sources */,
 				F7C31DE22AC5C3F1008DAA21 /* RealmTableRepositoryProtocol.swift in Sources */,
@@ -494,6 +501,7 @@
 				F7C31DC62AC2E57D008DAA21 /* SettingViewController.swift in Sources */,
 				F7C31DDC2AC5ABF7008DAA21 /* FoodManagementCollectionViewCell.swift in Sources */,
 				F7C31DAF2AC2DA29008DAA21 /* String+Extension.swift in Sources */,
+				F7289E4C2AD2C05400E092C6 /* FoodDetailManagementViewController.swift in Sources */,
 				F7C31DE82AC69C3F008DAA21 /* FoodRegisterListViewController.swift in Sources */,
 				F7C31E3C2ACFD61D008DAA21 /* UIColor+Extension.swift in Sources */,
 				F7C31E3E2ACFE025008DAA21 /* FoodRegisterTextFieldView.swift in Sources */,

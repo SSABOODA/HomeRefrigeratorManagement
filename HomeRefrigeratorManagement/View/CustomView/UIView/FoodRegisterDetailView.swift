@@ -210,7 +210,7 @@ class FoodRegisterDetailView: BaseView {
         button.setTitle("저장하기", for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 13)
         button.setTitleColor(UIColor.white, for: .normal)
-        button.backgroundColor = Constant.BaseColor.baseColor
+        button.backgroundColor = Constant.BaseColor.basePointColor
         return button
     }()
 

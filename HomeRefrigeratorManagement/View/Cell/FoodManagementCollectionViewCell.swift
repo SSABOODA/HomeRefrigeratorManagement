@@ -79,6 +79,11 @@ class FoodManagementCollectionViewCell: BaseCollectionViewCell {
             make.centerY.equalToSuperview()
             make.size.equalTo(35)
         }
-        
+    }
+    
+    func configureCell() {
+        backgroundColor = Constant.collectionViewColor.collectionViewCellBackgroundColor
+        layer.cornerRadius = 15
+        clipsToBounds = true
     }
 }

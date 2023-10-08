@@ -40,18 +40,43 @@ final class RealmTableRepository: RealmTableRepositoryType {
         return fileURL
     }
     
-    // realm에 저장된 데이터 확인
+    // Read Realm
     func fetch<T: Object>(object: T) -> Results<T> {
         let data = localRealm.objects(T.self)
         return data
     }
     
-    // create realm
+    // Create Realm
     func save<T: Object>(object: T, _ errorHandler: @escaping ((_ error : Swift.Error) -> Void) = { _ in return }) {
         do {
             try localRealm.write {
                 localRealm.add(object)
                 print("Realm Save Success")
+            }
+        }
+        catch {
+            errorHandler(error)
+        }
+    }
+    
+    // Update Realm
+    public func update<T: Object>(object: T, errorHandler: @escaping ((_ error : Swift.Error) -> Void) = { _ in return }) {
+        
+//        do {
+//            try localRealm.write {
+//                localRealm.add(object, update: true)
+//            }
+//        }
+//        catch {
+//            errorHandler(error)
+//        }
+    }
+    
+    // Delete Realm
+    public func delete<T: Object>(object: T, errorHandler: @escaping ((_ error : Swift.Error) -> Void) = { _ in return }) {
+        do {
+            try localRealm.write {
+                localRealm.delete(object)
             }
         }
         catch {
