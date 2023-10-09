@@ -18,11 +18,10 @@ final class FoodManagementViewModel {
         if query.isEmpty {
             filteredFoodData = RealmTableRepository.shared.fetch(object: Food())
         } else {
-            print("query: \(query)")
-            filteredFoodData = filteredFoodData?.where({ food in
-                print(food)
-                return food.name.contains(query)
-            })
+            let food = RealmTableRepository.shared.fetch(object: Food())
+            filteredFoodData = food.where {
+                $0.name.contains(query)
+            }
         }
         
         filteredFoodData = filteredFoodData?.sorted(byKeyPath: sortType.rawValue, ascending: isAcending.value)

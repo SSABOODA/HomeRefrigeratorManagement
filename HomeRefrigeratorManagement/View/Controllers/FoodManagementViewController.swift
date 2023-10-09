@@ -29,8 +29,6 @@ final class FoodManagementViewController: BaseViewController {
         addTarget()
         configureDataSource()
         performQuery("")
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -122,7 +120,6 @@ extension FoodManagementViewController: UICollectionViewDelegate {
             }
         }
         transition(viewController: nextVC, style: .push)
-        
     }
 }
 

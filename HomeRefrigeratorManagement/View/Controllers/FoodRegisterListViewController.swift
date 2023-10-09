@@ -80,6 +80,7 @@ extension FoodRegisterListViewController {
     private func performQuery(with filter: String?) {
         viewModel.foodIconInfo.value = viewModel.filterInitialConsonant(with: filter ?? "")
         
+        
         var snapshot = NSDiffableDataSourceSnapshot<Section, FoodModel>()
         snapshot.appendSections([.main])
         snapshot.appendItems(viewModel.foodIconInfo.value)
@@ -116,6 +117,7 @@ extension FoodRegisterListViewController {
 
 extension FoodRegisterListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         let nextVC = FoodRegisterDetailViewController()
         nextVC.viewModel.completionHandler = { isSave in
             if isSave {
@@ -123,7 +125,9 @@ extension FoodRegisterListViewController: UICollectionViewDelegate {
                 self.viewModel.isSave.value = true
             }
         }
+        
         nextVC.viewModel.foodIconInfo.value = self.viewModel.foodIconInfo.value[indexPath.item]
+        print(self.viewModel.foodIconInfo.value[indexPath.item])
         nextVC.modalPresentationStyle = .overFullScreen
         present(nextVC, animated: true)
     }
