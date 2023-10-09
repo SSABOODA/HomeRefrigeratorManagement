@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class FoodManagementCollectionViewCell: BaseCollectionViewCell {
+final class FoodManagementCollectionViewCell: BaseCollectionViewCell {
     let foodImageView = {
         let view = UIImageView()
         view.layer.shadowColor = Constant.BaseColor.tintColor?.cgColor
@@ -81,6 +81,22 @@ class FoodManagementCollectionViewCell: BaseCollectionViewCell {
             make.centerY.equalToSuperview()
             make.size.equalTo(50)
         }
+    }
+    
+    override var isHighlighted: Bool {
+        didSet {
+            shrink(down: isHighlighted)
+        }
+    }
+    
+    private func shrink(down: Bool) {
+      UIView.animate(withDuration: 0.6) {
+          if down {
+              self.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+          } else {
+            self.transform = .identity
+        }
+      }
     }
     
     func configureCell() {

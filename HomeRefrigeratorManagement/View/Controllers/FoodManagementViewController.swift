@@ -78,22 +78,6 @@ extension FoodManagementViewController {
         navigationItem.rightBarButtonItem = navItem
         
         func createMenu() -> UIMenu {
-            print(#function)
-            
-            // 저장 타입 filter
-//            let allAction = UIAction(title: "전체".localized, image: UIImage(systemName: "arrow.counterclockwise")) { [weak self] _ in
-//                guard let self = self else { return }
-//            }
-//            let outDoorStorageTypeAction = UIAction(title: "실외".localized, image: UIImage(systemName: "arrow.counterclockwise")) { [weak self] _ in
-//                guard let self = self else { return }
-//            }
-//            let iceStorageTypeAction = UIAction(title: "냉장".localized, image: UIImage(systemName: "arrow.counterclockwise")) { [weak self] _ in
-//                guard let self = self else { return }
-//            }
-//            let frozenStorageTypeAction = UIAction(title: "냉동".localized, image: UIImage(systemName: "arrow.counterclockwise")) { [weak self] _ in
-//                guard let self = self else { return }
-//            }
-            
             // DB filter
             let nameFilterAction = UIAction(title: "이름 순".localized, image: UIImage(systemName: "text.aligncenter")) { [weak self] _ in
                 guard let self = self else { return }
@@ -113,9 +97,7 @@ extension FoodManagementViewController {
                 viewModel.isAcending.value.toggle()
             }
             
-
             let originalFilterMenu = UIMenu(title: "", options: .displayInline, children: [nameFilterAction, registerDateFilterAction, expirationDateFilterAction])
-//            let storageTypeFilterMenu = UIMenu(title: "", options: .displayInline, children: [allAction, outDoorStorageTypeAction, iceStorageTypeAction, frozenStorageTypeAction])
             let menu = UIMenu(title: "정렬", children: [originalFilterMenu])
             return menu
         }
