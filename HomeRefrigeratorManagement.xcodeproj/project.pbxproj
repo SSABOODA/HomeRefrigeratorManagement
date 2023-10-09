@@ -11,6 +11,7 @@
 		F7289E4C2AD2C05400E092C6 /* FoodDetailManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7289E4B2AD2C05400E092C6 /* FoodDetailManagementViewController.swift */; };
 		F7289E4E2AD2C60300E092C6 /* FoodDetailManagementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7289E4D2AD2C60300E092C6 /* FoodDetailManagementViewModel.swift */; };
 		F7289E502AD2E99900E092C6 /* FoodDetailManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7289E4F2AD2E99900E092C6 /* FoodDetailManagementView.swift */; };
+		F7289E532AD3CDF700E092C6 /* FilterEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7289E522AD3CDF700E092C6 /* FilterEnum.swift */; };
 		F7C31D782AC2CE2E008DAA21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D772AC2CE2E008DAA21 /* AppDelegate.swift */; };
 		F7C31D7A2AC2CE2F008DAA21 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D792AC2CE2F008DAA21 /* SceneDelegate.swift */; };
 		F7C31D7C2AC2CE2F008DAA21 /* FoodManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D7B2AC2CE2F008DAA21 /* FoodManagementViewController.swift */; };
@@ -71,6 +72,7 @@
 		F7289E4B2AD2C05400E092C6 /* FoodDetailManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailManagementViewController.swift; sourceTree = "<group>"; };
 		F7289E4D2AD2C60300E092C6 /* FoodDetailManagementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailManagementViewModel.swift; sourceTree = "<group>"; };
 		F7289E4F2AD2E99900E092C6 /* FoodDetailManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailManagementView.swift; sourceTree = "<group>"; };
+		F7289E522AD3CDF700E092C6 /* FilterEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterEnum.swift; sourceTree = "<group>"; };
 		F7C31D742AC2CE2E008DAA21 /* HomeRefrigeratorManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeRefrigeratorManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7C31D772AC2CE2E008DAA21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7C31D792AC2CE2F008DAA21 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +143,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F7289E512AD3CDD900E092C6 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				F7289E522AD3CDF700E092C6 /* FilterEnum.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
 		F7C31D6B2AC2CE2E008DAA21 = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +241,7 @@
 		F7C31DAD2AC2DA16008DAA21 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				F7289E512AD3CDD900E092C6 /* Enum */,
 				F7C31E312ACEE970008DAA21 /* Helper */,
 				F7C31DAC2AC2DA0D008DAA21 /* Constant */,
 				F7C31DB82AC2DDB1008DAA21 /* Protocol */,
@@ -529,6 +540,7 @@
 				F7C31DC82AC2E588008DAA21 /* RecipeViewController.swift in Sources */,
 				F7C31DDE2AC5AC34008DAA21 /* BaseCollectionViewCell.swift in Sources */,
 				F7C31DEA2AC6AEFC008DAA21 /* FoodRegisterButton.swift in Sources */,
+				F7289E532AD3CDF700E092C6 /* FilterEnum.swift in Sources */,
 				F7C31DCF2AC329F1008DAA21 /* FoodTable.swift in Sources */,
 				F7C31D9E2AC2D619008DAA21 /* Observable.swift in Sources */,
 				F7C31DD62AC5A602008DAA21 /* UITabBarController+Extension.swift in Sources */,

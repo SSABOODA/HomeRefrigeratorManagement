@@ -29,6 +29,7 @@ class FoodManagementCollectionViewCell: BaseCollectionViewCell {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 13)
         label.textColor = Constant.BaseColor.tintColor
+        label.numberOfLines = 0
         return label
     }()
     
@@ -51,7 +52,8 @@ class FoodManagementCollectionViewCell: BaseCollectionViewCell {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 15)
         label.textColor = UIColor(hexCode: "#E27749")
-        label.text = "D-2"
+        label.textAlignment = .right
+        label.text = "D-0"
         return label
     }()
     
@@ -72,7 +74,6 @@ class FoodManagementCollectionViewCell: BaseCollectionViewCell {
             make.verticalEdges.equalToSuperview().inset(15)
             make.leading.equalTo(foodImageView.snp.trailing).offset(30)
             make.width.equalToSuperview().multipliedBy(0.4)
-//            make.trailing.equalToSuperview().offset(40)
         }
         
         expirationDateLabel.snp.makeConstraints { make in

@@ -162,21 +162,19 @@ extension FoodRegisterDetailViewController {
         datePicker.locale = Locale(identifier: "ko_KR")
         
         datePicker.addTarget(self, action: #selector(dateChange), for: .valueChanged)
+    
+        let vc = UIViewController()
+        vc.view = datePicker
+        alert.setValue(vc, forKey: "contentViewController")
+        present(alert, animated: true)
         
         viewModel.registerDate.bind { date in
             print("date: \(date)")
             sender.text = date
         }
-        
-        let vc = UIViewController()
-        vc.view = datePicker
-        alert.setValue(vc, forKey: "contentViewController")
-        present(alert, animated: true)
     }
 
     func updateViewModelData() {
-        print(#function)
-
         guard let desc = self.mainView.foodDescriptionTextField.text else { return }
         guard let registerDate = self.mainView.registerDateTextField.text?.toDate() else { return }
         guard let expirationDate = self.mainView.expirationDateTextField.text?.toDate() else { return }

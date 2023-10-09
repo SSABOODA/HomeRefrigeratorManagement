@@ -12,8 +12,9 @@ final class FoodManagementViewModel {
     
     var filteredFoodData: Results<Food>?
     var deleteFoodData: Food?
+    var isAcending = Observable(false) // false: 오름차순, true: 내림차순
     
-    func filterFoodData(_ query: String) -> Results<Food>? {
+    func filterFoodData(_ query: String, _ sortType: SortType) -> Results<Food>? {
         if query.isEmpty {
             filteredFoodData = RealmTableRepository.shared.fetch(object: Food())
         } else {
@@ -22,6 +23,7 @@ final class FoodManagementViewModel {
             }
         }
         
+        filteredFoodData = filteredFoodData?.sorted(byKeyPath: sortType.rawValue, ascending: isAcending.value)
         return filteredFoodData
     }
     

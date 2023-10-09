@@ -29,6 +29,8 @@ final class FoodManagementViewController: BaseViewController {
         addTarget()
         configureDataSource()
         performQuery("")
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,6 +49,17 @@ final class FoodManagementViewController: BaseViewController {
         mainView.collectionView.delegate = self
         mainView.collectionView.backgroundColor = Constant.collectionViewColor.collectionViewBackgroundColor
         
+        configureNavigationBar()
+    }
+    
+    private func addTarget() {
+        mainView.foodRegisterButton.addTarget(self, action: #selector(foodRegisterButtonTapped), for: .touchUpInside)
+    }
+}
+
+// MARK: - navagation
+extension FoodManagementViewController {
+    func configureNavigationBar() {
         // navigation setting
         title = Constant.NavigationTitle.foodRegisterHomeTitle
         self.mainView.searchController.searchBar.delegate = self
@@ -58,12 +71,57 @@ final class FoodManagementViewController: BaseViewController {
         let backButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         backButtonItem.tintColor = Constant.BaseColor.tintColor
         self.navigationItem.backBarButtonItem = backButtonItem
-    }
-    
-    private func addTarget() {
-        mainView.foodRegisterButton.addTarget(self, action: #selector(foodRegisterButtonTapped), for: .touchUpInside)
+        
+        // navigation right button
+        let navItem = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal.decrease.circle"), menu: createMenu())
+        navItem.tintColor = .black
+        navigationItem.rightBarButtonItem = navItem
+        
+        func createMenu() -> UIMenu {
+            print(#function)
+            
+            // 저장 타입 filter
+//            let allAction = UIAction(title: "전체".localized, image: UIImage(systemName: "arrow.counterclockwise")) { [weak self] _ in
+//                guard let self = self else { return }
+//            }
+//            let outDoorStorageTypeAction = UIAction(title: "실외".localized, image: UIImage(systemName: "arrow.counterclockwise")) { [weak self] _ in
+//                guard let self = self else { return }
+//            }
+//            let iceStorageTypeAction = UIAction(title: "냉장".localized, image: UIImage(systemName: "arrow.counterclockwise")) { [weak self] _ in
+//                guard let self = self else { return }
+//            }
+//            let frozenStorageTypeAction = UIAction(title: "냉동".localized, image: UIImage(systemName: "arrow.counterclockwise")) { [weak self] _ in
+//                guard let self = self else { return }
+//            }
+            
+            // DB filter
+            let nameFilterAction = UIAction(title: "이름 순".localized, image: UIImage(systemName: "text.aligncenter")) { [weak self] _ in
+                guard let self = self else { return }
+                self.performQuery("", .name)
+                viewModel.isAcending.value.toggle()
+            }
+            
+            let registerDateFilterAction = UIAction(title: "등록일 순".localized, image: UIImage(systemName: "text.aligncenter")) { [weak self] _ in
+                guard let self = self else { return }
+                self.performQuery("", .register)
+                viewModel.isAcending.value.toggle()
+            }
+            
+            let expirationDateFilterAction = UIAction(title: "유효기간 순".localized, image: UIImage(systemName: "text.aligncenter")) { [weak self] _ in
+                guard let self = self else { return }
+                self.performQuery("", .expiration)
+                viewModel.isAcending.value.toggle()
+            }
+            
+
+            let originalFilterMenu = UIMenu(title: "", options: .displayInline, children: [nameFilterAction, registerDateFilterAction, expirationDateFilterAction])
+//            let storageTypeFilterMenu = UIMenu(title: "", options: .displayInline, children: [allAction, outDoorStorageTypeAction, iceStorageTypeAction, frozenStorageTypeAction])
+            let menu = UIMenu(title: "정렬", children: [originalFilterMenu])
+            return menu
+        }
     }
 }
+
 
 // MARK: - UICollectionViewDelegate
 extension FoodManagementViewController: UICollectionViewDelegate {
@@ -74,10 +132,11 @@ extension FoodManagementViewController: UICollectionViewDelegate {
         guard let filteredFoodData = self.viewModel.filteredFoodData else { return }
         let food = filteredFoodData[indexPath.item]
         nextVC.viewModel.food = food
-        nextVC.viewModel.completionHandler = { isDelete in
+        nextVC.viewModel.completionHandler = { [weak self] isDelete in
+            guard let weakSelf = self else {return }
             if isDelete {
-                self.viewModel.deleteFoodData = food
-                self.view.makeToast("식품이 삭제되었습니다.")
+                weakSelf.viewModel.deleteFoodData = food
+                weakSelf.view.makeToast("식품이 삭제되었습니다.")
             }
         }
         transition(viewController: nextVC, style: .push)
@@ -120,10 +179,9 @@ extension FoodManagementViewController {
     }
     
     // TODO: 초성 검색 가능하게 작업해야함.
-    private func performQuery(_ searchText: String) {
-        print(#function)
+    private func performQuery(_ searchText: String, _ sortType: SortType = .expiration) {
 
-        let item = viewModel.filterFoodData(searchText)
+        let item = viewModel.filterFoodData(searchText, sortType)
         guard let item else { return }
         
         var snapshot = NSDiffableDataSourceSnapshot<Section, Food>()
