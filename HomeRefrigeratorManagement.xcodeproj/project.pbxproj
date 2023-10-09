@@ -12,7 +12,6 @@
 		F7289E4E2AD2C60300E092C6 /* FoodDetailManagementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7289E4D2AD2C60300E092C6 /* FoodDetailManagementViewModel.swift */; };
 		F7289E502AD2E99900E092C6 /* FoodDetailManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7289E4F2AD2E99900E092C6 /* FoodDetailManagementView.swift */; };
 		F7289E532AD3CDF700E092C6 /* FilterEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7289E522AD3CDF700E092C6 /* FilterEnum.swift */; };
-		F7289E552AD3EAFD00E092C6 /* Jamo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7289E542AD3EAFD00E092C6 /* Jamo.swift */; };
 		F7C31D782AC2CE2E008DAA21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D772AC2CE2E008DAA21 /* AppDelegate.swift */; };
 		F7C31D7A2AC2CE2F008DAA21 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D792AC2CE2F008DAA21 /* SceneDelegate.swift */; };
 		F7C31D7C2AC2CE2F008DAA21 /* FoodManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D7B2AC2CE2F008DAA21 /* FoodManagementViewController.swift */; };
@@ -74,7 +73,6 @@
 		F7289E4D2AD2C60300E092C6 /* FoodDetailManagementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailManagementViewModel.swift; sourceTree = "<group>"; };
 		F7289E4F2AD2E99900E092C6 /* FoodDetailManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailManagementView.swift; sourceTree = "<group>"; };
 		F7289E522AD3CDF700E092C6 /* FilterEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterEnum.swift; sourceTree = "<group>"; };
-		F7289E542AD3EAFD00E092C6 /* Jamo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jamo.swift; sourceTree = "<group>"; };
 		F7C31D742AC2CE2E008DAA21 /* HomeRefrigeratorManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeRefrigeratorManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7C31D772AC2CE2E008DAA21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7C31D792AC2CE2F008DAA21 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -377,7 +375,6 @@
 			isa = PBXGroup;
 			children = (
 				F7C31E322ACEE998008DAA21 /* InitialConsonant.swift */,
-				F7289E542AD3EAFD00E092C6 /* Jamo.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -523,7 +520,6 @@
 				F7C31E3C2ACFD61D008DAA21 /* UIColor+Extension.swift in Sources */,
 				F7C31E3E2ACFE025008DAA21 /* FoodRegisterTextFieldView.swift in Sources */,
 				F7C31DC42AC2E456008DAA21 /* CustomTabBarController.swift in Sources */,
-				F7289E552AD3EAFD00E092C6 /* Jamo.swift in Sources */,
 				F7C31E2E2ACE9DAB008DAA21 /* FoodRegisterDetailView.swift in Sources */,
 				F7C31D7C2AC2CE2F008DAA21 /* FoodManagementViewController.swift in Sources */,
 				F7C31DDA2AC5A924008DAA21 /* BaseView.swift in Sources */,

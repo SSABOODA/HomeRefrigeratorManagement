@@ -44,23 +44,7 @@ class FoodRegisterDetailViewModel {
         foodData.category = category
         foodData.storageType = storageType
         realm.save(object: foodData)
-        
-        
-        for i in data.name.unicodeScalars {
-            print(i, i.value)
-        }
-        print("==========================")
-        for j in "브로콜리".unicodeScalars {
-            print(j, j.value)
-        }
-        
-        for j in "가지".unicodeScalars {
-            print(j, j.value)
-        }
-        
-        print("=========================123")
-        
-        
+
         completionHandler?(isSave.value)
     }
 }
