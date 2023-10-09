@@ -34,7 +34,7 @@ class FoodManagementCollectionViewCell: BaseCollectionViewCell {
     
     let purchaseDateLabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 13)
+        label.font = .systemFont(ofSize: 11)
         label.textColor = Constant.BaseColor.tintColor
         label.numberOfLines = 1
         return label
@@ -49,7 +49,7 @@ class FoodManagementCollectionViewCell: BaseCollectionViewCell {
     
     let expirationDateLabel = {
         let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 17)
+        label.font = .boldSystemFont(ofSize: 15)
         label.textColor = UIColor(hexCode: "#E27749")
         label.text = "D-2"
         return label
@@ -71,13 +71,14 @@ class FoodManagementCollectionViewCell: BaseCollectionViewCell {
         stackView.snp.makeConstraints { make in
             make.verticalEdges.equalToSuperview().inset(15)
             make.leading.equalTo(foodImageView.snp.trailing).offset(30)
-            make.trailing.equalToSuperview().offset(40)
+            make.width.equalToSuperview().multipliedBy(0.4)
+//            make.trailing.equalToSuperview().offset(40)
         }
         
         expirationDateLabel.snp.makeConstraints { make in
             make.trailing.equalToSuperview().offset(-30)
             make.centerY.equalToSuperview()
-            make.size.equalTo(35)
+            make.size.equalTo(50)
         }
     }
     
