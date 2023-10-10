@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseCore
 import RealmSwift
+import IQKeyboardManagerSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         RealmTableRepository.shared.findFileURL()
+        IQKeyboardManager.shared.enable = true
         return true
     }
 

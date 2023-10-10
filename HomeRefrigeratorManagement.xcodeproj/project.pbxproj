@@ -12,6 +12,7 @@
 		F7289E4E2AD2C60300E092C6 /* FoodDetailManagementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7289E4D2AD2C60300E092C6 /* FoodDetailManagementViewModel.swift */; };
 		F7289E502AD2E99900E092C6 /* FoodDetailManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7289E4F2AD2E99900E092C6 /* FoodDetailManagementView.swift */; };
 		F7289E532AD3CDF700E092C6 /* FilterEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7289E522AD3CDF700E092C6 /* FilterEnum.swift */; };
+		F7289E582AD50CF800E092C6 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F7289E572AD50CF800E092C6 /* IQKeyboardManagerSwift */; };
 		F7C31D782AC2CE2E008DAA21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D772AC2CE2E008DAA21 /* AppDelegate.swift */; };
 		F7C31D7A2AC2CE2F008DAA21 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D792AC2CE2F008DAA21 /* SceneDelegate.swift */; };
 		F7C31D7C2AC2CE2F008DAA21 /* FoodManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D7B2AC2CE2F008DAA21 /* FoodManagementViewController.swift */; };
@@ -131,6 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7289E582AD50CF800E092C6 /* IQKeyboardManagerSwift in Frameworks */,
 				F7C31E432AD1625D008DAA21 /* Toast in Frameworks */,
 				F7C31D9A2AC2D4B6008DAA21 /* RealmSwift in Frameworks */,
 				F7C31D982AC2D4B6008DAA21 /* Realm in Frameworks */,
@@ -411,6 +413,7 @@
 				F7C31E172ACD36C3008DAA21 /* FirebaseAnalyticsWithoutAdIdSupport */,
 				F7C31E192ACD36C3008DAA21 /* FirebaseCrashlytics */,
 				F7C31E422AD1625D008DAA21 /* Toast */,
+				F7289E572AD50CF800E092C6 /* IQKeyboardManagerSwift */,
 			);
 			productName = HomeRefrigeratorManagement;
 			productReference = F7C31D742AC2CE2E008DAA21 /* HomeRefrigeratorManagement.app */;
@@ -446,6 +449,7 @@
 				F7C31D962AC2D4B6008DAA21 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				F7C31E162ACD36C3008DAA21 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				F7C31E412AD1625D008DAA21 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				F7289E562AD50CF800E092C6 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = F7C31D752AC2CE2E008DAA21 /* Products */;
 			projectDirPath = "";
@@ -790,6 +794,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F7289E562AD50CF800E092C6 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 		F7C31D932AC2D3F2008DAA21 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -825,6 +837,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F7289E572AD50CF800E092C6 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F7289E562AD50CF800E092C6 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
 		F7C31D942AC2D3F2008DAA21 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F7C31D932AC2D3F2008DAA21 /* XCRemoteSwiftPackageReference "SnapKit" */;
