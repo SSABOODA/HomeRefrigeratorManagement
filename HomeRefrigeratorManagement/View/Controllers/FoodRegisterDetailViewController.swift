@@ -32,17 +32,16 @@ final class FoodRegisterDetailViewController: BaseViewController {
     
     override func configureView() {
         super.configureView()
-        view.backgroundColor = UIColor(white: 1, alpha: 0.5)
-        
-        mainView.foodImageView.image = UIImage(named: viewModel.foodIconName)
-        mainView.foodNameLabel.text = viewModel.foodIconName
-        
         dataBind()
         addTarget()
         configPickerView()
+        view.backgroundColor = UIColor(white: 1, alpha: 0.5)
     }
-    
-    private func dataBind() {}
+
+    private func dataBind() {
+        mainView.foodImageView.image = UIImage(named: viewModel.foodIconName)
+        mainView.foodNameLabel.text = viewModel.foodIconName
+    }
     
     private func addTarget() {
         mainView.cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
@@ -53,7 +52,6 @@ final class FoodRegisterDetailViewController: BaseViewController {
         mainView.expirationDateTextField.addTarget(self, action: #selector(dateTextFieldTapped), for: .touchDown)
     }
     
- 
     private func setupTapGestures() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapGesture))
         view.addGestureRecognizer(tapGesture)

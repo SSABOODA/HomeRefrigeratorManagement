@@ -78,19 +78,19 @@ extension FoodManagementViewController {
         
         func createMenu() -> UIMenu {
             // DB filter
-            let nameFilterAction = UIAction(title: "이름 순".localized, image: UIImage(systemName: "text.aligncenter")) { [weak self] _ in
+            let nameFilterAction = UIAction(title: "이름 순".localized, image: UIImage(systemName: "arrow.up.arrow.down")) { [weak self] _ in
                 guard let self = self else { return }
                 self.performQuery("", .name)
                 viewModel.isAcending.value.toggle()
             }
             
-            let registerDateFilterAction = UIAction(title: "등록일 순".localized, image: UIImage(systemName: "text.aligncenter")) { [weak self] _ in
+            let registerDateFilterAction = UIAction(title: "등록일 순".localized, image: UIImage(systemName: "arrow.up.arrow.down")) { [weak self] _ in
                 guard let self = self else { return }
                 self.performQuery("", .register)
                 viewModel.isAcending.value.toggle()
             }
             
-            let expirationDateFilterAction = UIAction(title: "유효기간 순".localized, image: UIImage(systemName: "text.aligncenter")) { [weak self] _ in
+            let expirationDateFilterAction = UIAction(title: "유효기간 순".localized, image: UIImage(systemName: "arrow.up.arrow.down")) { [weak self] _ in
                 guard let self = self else { return }
                 self.performQuery("", .expiration)
                 viewModel.isAcending.value.toggle()

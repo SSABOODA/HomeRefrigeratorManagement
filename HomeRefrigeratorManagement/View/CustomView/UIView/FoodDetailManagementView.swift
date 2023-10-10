@@ -9,6 +9,7 @@ import UIKit
 
 // @deprecated
 class FoodDetailManagementView: BaseView {
+    
     let mainView = {
         let view = UIView()
         view.backgroundColor = Constant.BaseColor.backgroundColor
@@ -186,6 +187,7 @@ class FoodDetailManagementView: BaseView {
         tf.keyboardType = .numberPad
         tf.placeholder = "수량을 입력해주세요~"
         tf.font = .systemFont(ofSize: 13)
+        tf.clearButtonMode = .whileEditing
         return tf
     }()
     
@@ -216,6 +218,7 @@ class FoodDetailManagementView: BaseView {
     
     override func configureHierarchy() {
         addSubview(mainView)
+        
         mainView.addSubview(foodView)
         mainView.addSubview(registerView)
         

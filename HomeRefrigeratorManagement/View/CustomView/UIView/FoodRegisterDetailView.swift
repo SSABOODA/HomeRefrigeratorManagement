@@ -223,12 +223,11 @@ final class FoodRegisterDetailView: BaseView {
         cancelButton.layoutIfNeeded()
         saveButton.roundCorners(.bottomRight, radius: 10)
         saveButton.layoutIfNeeded()
-
     }
 
     override func configureHierarchy() {
-//        print("DetailView")
         addSubview(mainView)
+    
         mainView.addSubview(foodView)
         mainView.addSubview(registerView)
         
