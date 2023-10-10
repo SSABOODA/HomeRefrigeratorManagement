@@ -10,6 +10,8 @@ import RealmSwift
 
 final class FoodDetailManagementViewModel {
     
+    let localRealm = RealmTableRepository.shared
+    
     var food: Food?
     var isDelete = Observable(false)
     var foodModel = Observable(FoodModel(name: "", category: .etc))
@@ -45,7 +47,7 @@ final class FoodDetailManagementViewModel {
             "descriptionContent": foodModel.value.description
         ] as [String : Any])
         
-        RealmTableRepository.shared.update(object: item)
+        localRealm.update(object: item)
     }
 }
 
