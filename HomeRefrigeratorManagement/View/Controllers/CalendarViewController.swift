@@ -32,7 +32,7 @@ final class CalendarViewController: BaseViewController {
         setAction()
         print("currentPage: \(currentPage)")
     }
-    
+
     override func configureView() {
         super.configureView()
         title = "캘린더"
@@ -71,7 +71,8 @@ final class CalendarViewController: BaseViewController {
         switch viewModel.isWeek.value {
         case true:
             mainView.calendar.scope = .week
-        case false: mainView.calendar.scope = .month
+        case false:
+            mainView.calendar.scope = .month
         }
     }
     

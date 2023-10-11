@@ -18,16 +18,37 @@ final class CalendarView: BaseView {
         return view
     }()
     
+    private let calendarHomeResetButtonView = {
+        let view = UIView()
+        view.clipsToBounds = false
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.5
+        view.layer.shadowOffset = CGSize(width: 5, height: 5)
+        view.layer.shadowRadius = 5
+        return view
+    }()
+    
     let calendarHomeResetButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "arrow.counterclockwise"), for: .normal)
+        button.setImage(UIImage(systemName: "arrow.clockwise"), for: .highlighted)
         button.tintColor = Constant.BaseColor.tintColor
         return button
     }()
     
+    private let calendarTypeChangeButtonView = {
+        let view = UIView()
+        view.clipsToBounds = false
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.5
+        view.layer.shadowOffset = CGSize(width: 5, height: 5)
+        view.layer.shadowRadius = 5
+        return view
+    }()
+    
     let calendarTypeChangeButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "arrow.up.arrow.down.circle"), for: .normal)
+        button.setImage(UIImage(systemName: "repeat"), for: .normal)
         button.tintColor = Constant.BaseColor.tintColor
         return button
     }()
@@ -94,8 +115,12 @@ final class CalendarView: BaseView {
     
     override func configureHierarchy() {
         addSubview(calendarTopView)
-        calendarTopView.addSubview(calendarHomeResetButton)
-        calendarTopView.addSubview(calendarTypeChangeButton)
+        
+        calendarTopView.addSubview(calendarHomeResetButtonView)
+        calendarHomeResetButtonView.addSubview(calendarHomeResetButton)
+        calendarTopView.addSubview(calendarTypeChangeButtonView)
+        calendarTypeChangeButtonView.addSubview(calendarTypeChangeButton)
+        
         addSubview(calendar)
         addSubview(prevButton)
         addSubview(nextButton)
@@ -108,16 +133,27 @@ final class CalendarView: BaseView {
             make.height.equalToSuperview().multipliedBy(0.05)
         }
         
+        calendarTypeChangeButtonView.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.trailing.equalToSuperview().inset(5)
+        }
+        
         calendarTypeChangeButton.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.trailing.equalToSuperview().inset(15)
+            make.center.equalToSuperview()
+            make.edges.equalToSuperview().inset(5)
         }
         
+        calendarHomeResetButtonView.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.trailing.equalTo(calendarTypeChangeButtonView.snp.leading).offset(-15)
+        }
+
         calendarHomeResetButton.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.trailing.equalTo(calendarTypeChangeButton.snp.leading).offset(-15)
+            make.center.equalToSuperview()
+            make.edges.equalToSuperview().inset(5)
         }
-        
+
+        // calendar
         calendar.snp.makeConstraints { make in
             make.top.equalTo(calendarTopView.snp.bottom)
             make.horizontalEdges.equalToSuperview().inset(25)
