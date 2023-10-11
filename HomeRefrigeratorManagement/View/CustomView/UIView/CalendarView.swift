@@ -12,6 +12,26 @@ import FSCalendar
 //UIColor(hexCode: "#E27749")
 
 final class CalendarView: BaseView {
+    
+    private let calendarTopView = {
+        let view = UIView()
+        return view
+    }()
+    
+    let calendarHomeResetButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "arrow.counterclockwise"), for: .normal)
+        button.tintColor = Constant.BaseColor.tintColor
+        return button
+    }()
+    
+    let calendarTypeChangeButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "arrow.up.arrow.down.circle"), for: .normal)
+        button.tintColor = Constant.BaseColor.tintColor
+        return button
+    }()
+    
     let calendar: FSCalendar = {
         let calendar = FSCalendar(frame: .zero)
         calendar.locale = Locale(identifier: "ko_KR")
@@ -73,14 +93,33 @@ final class CalendarView: BaseView {
     }()
     
     override func configureHierarchy() {
+        addSubview(calendarTopView)
+        calendarTopView.addSubview(calendarHomeResetButton)
+        calendarTopView.addSubview(calendarTypeChangeButton)
         addSubview(calendar)
         addSubview(prevButton)
         addSubview(nextButton)
     }
     
     override func configureLayout() {
-        calendar.snp.makeConstraints { make in
+        calendarTopView.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide)
+            make.horizontalEdges.equalToSuperview().inset(25)
+            make.height.equalToSuperview().multipliedBy(0.05)
+        }
+        
+        calendarTypeChangeButton.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.trailing.equalToSuperview().inset(15)
+        }
+        
+        calendarHomeResetButton.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.trailing.equalTo(calendarTypeChangeButton.snp.leading).offset(-15)
+        }
+        
+        calendar.snp.makeConstraints { make in
+            make.top.equalTo(calendarTopView.snp.bottom)
             make.horizontalEdges.equalToSuperview().inset(25)
             make.height.equalToSuperview().multipliedBy(0.5)
         }

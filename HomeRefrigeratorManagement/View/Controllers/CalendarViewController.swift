@@ -36,7 +36,7 @@ final class CalendarViewController: BaseViewController {
     override func configureView() {
         super.configureView()
         title = "캘린더"
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+//        self.navigationController?.navigationBar.prefersLargeTitles = true
         view.backgroundColor = Constant.collectionViewColor.collectionViewBackgroundColor
     }
     
@@ -56,6 +56,23 @@ final class CalendarViewController: BaseViewController {
                 for: .touchUpInside
             )
         }
+        
+        mainView.calendarHomeResetButton.addTarget(self, action: #selector(calendarHomeResetButtonTapped), for: .touchUpInside)
+        
+        mainView.calendarTypeChangeButton.addTarget(self, action: #selector(calendarTypeChangeButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc func calendarHomeResetButtonTapped() {
+        self.mainView.calendar.setCurrentPage(Date(), animated: true)
+    }
+    
+    @objc func calendarTypeChangeButtonTapped() {
+        viewModel.isWeek.value.toggle()
+        switch viewModel.isWeek.value {
+        case true:
+            mainView.calendar.scope = .week
+        case false: mainView.calendar.scope = .month
+        }
     }
     
     @objc func moveMonthButtonDidTap(sender: UIButton) {
@@ -73,18 +90,23 @@ final class CalendarViewController: BaseViewController {
 
 extension CalendarViewController: FSCalendarDelegateAppearance, FSCalendarDataSource {
     
-    func calendar(_ calendar: FSCalendar, cellFor date: Date, at position: FSCalendarMonthPosition) -> FSCalendarCell {
-        
-        print(#function)
-        guard let cell = calendar.dequeueReusableCell(
-            withIdentifier: CustomCalendarCell.description(),
-            for: date,
-            at: position
-        ) as? CustomCalendarCell else { return FSCalendarCell() }
-        
-        print("IN custom cell")
-        cell.configureCell(date: date, calendar: calendar)
-        return cell
+    // Custom Cell
+//    func calendar(_ calendar: FSCalendar, cellFor date: Date, at position: FSCalendarMonthPosition) -> FSCalendarCell {
+//
+//        print(#function)
+//        guard let cell = calendar.dequeueReusableCell(
+//            withIdentifier: CustomCalendarCell.description(),
+//            for: date,
+//            at: position
+//        ) as? CustomCalendarCell else { return FSCalendarCell() }
+//
+//        print("IN custom cell")
+//        cell.configureCell(date: date, calendar: calendar)
+//        return cell
+//    }
+    
+    func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
+        mainView.calendar.frame = CGRect(origin: mainView.calendar.frame.origin, size: bounds.size)
     }
     
     
@@ -105,11 +127,11 @@ extension CalendarViewController: FSCalendarDelegateAppearance, FSCalendarDataSo
     
     func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
         let dateString = self.formatter.string(from: date)
-        
+                
         for item in viewModel.foodData {
             let itemDate = self.formatter.string(from: item.expirationDate)
             if itemDate == dateString {
-                return UIImage(named: item.name)?.resize(newWidth: 12)
+                return UIImage(named: item.name)?.resize(newWidth: 15)
             }
         }
         return nil
