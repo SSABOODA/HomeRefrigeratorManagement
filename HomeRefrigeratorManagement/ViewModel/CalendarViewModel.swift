@@ -16,8 +16,6 @@ class CalendarViewModel {
         return localRealm.fetch(object: Food()).sorted(byKeyPath: "expirationDate", ascending: false)
     }
     
-    var isWeek = Observable(false)
-    
     
     
 }

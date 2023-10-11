@@ -57,22 +57,14 @@ final class CalendarViewController: BaseViewController {
             )
         }
         
-        mainView.calendarHomeResetButton.addTarget(self, action: #selector(calendarHomeResetButtonTapped), for: .touchUpInside)
-        
         mainView.calendarTypeChangeButton.addTarget(self, action: #selector(calendarTypeChangeButtonTapped), for: .touchUpInside)
     }
     
-    @objc func calendarHomeResetButtonTapped() {
-        self.mainView.calendar.setCurrentPage(Date(), animated: true)
-    }
-    
     @objc func calendarTypeChangeButtonTapped() {
-        viewModel.isWeek.value.toggle()
-        switch viewModel.isWeek.value {
-        case true:
-            mainView.calendar.scope = .week
-        case false:
-            mainView.calendar.scope = .month
+        if mainView.calendar.scope == .month {
+            mainView.calendar.setScope(.week, animated: true)
+        } else {
+            mainView.calendar.setScope(.month, animated: true)
         }
     }
     
@@ -91,26 +83,17 @@ final class CalendarViewController: BaseViewController {
 
 extension CalendarViewController: FSCalendarDelegateAppearance, FSCalendarDataSource {
     
-    // Custom Cell
-//    func calendar(_ calendar: FSCalendar, cellFor date: Date, at position: FSCalendarMonthPosition) -> FSCalendarCell {
-//
-//        print(#function)
-//        guard let cell = calendar.dequeueReusableCell(
-//            withIdentifier: CustomCalendarCell.description(),
-//            for: date,
-//            at: position
-//        ) as? CustomCalendarCell else { return FSCalendarCell() }
-//
-//        print("IN custom cell")
-//        cell.configureCell(date: date, calendar: calendar)
-//        return cell
-//    }
-    
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
-        mainView.calendar.frame = CGRect(origin: mainView.calendar.frame.origin, size: bounds.size)
+        print(#function)
+        mainView.calendar.frame = CGRect(
+            origin: mainView.calendar.frame.origin,
+            size: bounds.size
+        )
+        UIView.animate(withDuration: 0.5) {
+            self.view.layoutIfNeeded()
+        }
     }
-    
-    
+
     // 날짜 선택 시 콜백 메소드
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         print(formatter.string(from: date) + " 선택됨")
@@ -120,11 +103,6 @@ extension CalendarViewController: FSCalendarDelegateAppearance, FSCalendarDataSo
     func calendar(_ calendar: FSCalendar, didDeselect date: Date, at monthPosition: FSCalendarMonthPosition) {
         print(formatter.string(from: date) + " 해제됨")
     }
-    
-    // 선택된 날짜의 채워진 색상 지정
-//    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillSelectionColorFor date: Date) -> UIColor? {
-//        return appearance.selectionColor
-//    }
     
     func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
         let dateString = self.formatter.string(from: date)
@@ -146,6 +124,26 @@ extension CalendarViewController: FSCalendarDelegateAppearance, FSCalendarDataSo
             return nil
         }
     }
+    
+    // 선택된 날짜의 채워진 색상 지정
+//    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillSelectionColorFor date: Date) -> UIColor? {
+//        return appearance.selectionColor
+//    }
+    
+    // Custom Cell
+//    func calendar(_ calendar: FSCalendar, cellFor date: Date, at position: FSCalendarMonthPosition) -> FSCalendarCell {
+//
+//        print(#function)
+//        guard let cell = calendar.dequeueReusableCell(
+//            withIdentifier: CustomCalendarCell.description(),
+//            for: date,
+//            at: position
+//        ) as? CustomCalendarCell else { return FSCalendarCell() }
+//
+//        print("IN custom cell")
+//        cell.configureCell(date: date, calendar: calendar)
+//        return cell
+//    }
     
     //선택해제
 //    func calendar(_ calendar: FSCalendar, shouldDeselect date: Date, at monthPosition: FSCalendarMonthPosition) -> Bool {

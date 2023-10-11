@@ -48,7 +48,7 @@ final class CalendarView: BaseView {
     
     let calendarTypeChangeButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "repeat"), for: .normal)
+        button.setImage(UIImage(systemName: "chevron.up.chevron.down"), for: .normal)
         button.tintColor = Constant.BaseColor.tintColor
         return button
     }()
@@ -116,8 +116,8 @@ final class CalendarView: BaseView {
     override func configureHierarchy() {
         addSubview(calendarTopView)
         
-        calendarTopView.addSubview(calendarHomeResetButtonView)
-        calendarHomeResetButtonView.addSubview(calendarHomeResetButton)
+//        calendarTopView.addSubview(calendarHomeResetButtonView)
+//        calendarHomeResetButtonView.addSubview(calendarHomeResetButton)
         calendarTopView.addSubview(calendarTypeChangeButtonView)
         calendarTypeChangeButtonView.addSubview(calendarTypeChangeButton)
         
@@ -143,15 +143,15 @@ final class CalendarView: BaseView {
             make.edges.equalToSuperview().inset(5)
         }
         
-        calendarHomeResetButtonView.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.trailing.equalTo(calendarTypeChangeButtonView.snp.leading).offset(-15)
-        }
-
-        calendarHomeResetButton.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-            make.edges.equalToSuperview().inset(5)
-        }
+//        calendarHomeResetButtonView.snp.makeConstraints { make in
+//            make.centerY.equalToSuperview()
+//            make.trailing.equalTo(calendarTypeChangeButtonView.snp.leading).offset(-15)
+//        }
+//
+//        calendarHomeResetButton.snp.makeConstraints { make in
+//            make.center.equalToSuperview()
+//            make.edges.equalToSuperview().inset(5)
+//        }
 
         // calendar
         calendar.snp.makeConstraints { make in
