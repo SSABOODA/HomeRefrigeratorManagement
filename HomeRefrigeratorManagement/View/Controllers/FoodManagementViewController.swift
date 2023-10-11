@@ -140,7 +140,6 @@ extension FoodManagementViewController: UISearchControllerDelegate, UISearchBarD
 }
 
 // MARK: - DataSource
-
 extension FoodManagementViewController {
     private func configureDataSource() {
         let cellRegistration = UICollectionView.CellRegistration<FoodManagementCollectionViewCell, Food> { cell, indexPath, itemIdentifier in
@@ -170,12 +169,10 @@ extension FoodManagementViewController {
         
         // relam 데이터 삭제시 snapshot 처리
         if let deleteFood = viewModel.deleteFoodData, !deleteFood.isInvalidated {
-            print("12312312")
             snapshot.deleteItems([deleteFood])
             dataSource.apply(snapshot, animatingDifferences: true)
             RealmTableRepository.shared.delete(object: deleteFood)
         }
-        print("456456456")
         dataSource.apply(snapshot, animatingDifferences: true)
     }
 }

@@ -71,7 +71,7 @@ final class FoodManagementCollectionViewCell: BaseCollectionViewCell {
         }
         
         stackView.snp.makeConstraints { make in
-            make.verticalEdges.equalToSuperview().inset(15)
+            make.top.equalToSuperview().inset(15)
             make.leading.equalTo(foodImageView.snp.trailing).offset(30)
             make.width.equalToSuperview().multipliedBy(0.4)
         }

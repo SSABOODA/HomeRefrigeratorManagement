@@ -17,7 +17,7 @@ final class CustomTabBarController: UITabBarController {
     }
     
     private func configureViewController() {
-        let vc1 = UINavigationController(rootViewController: RecipeViewController())
+        let vc1 = UINavigationController(rootViewController: CalendarViewController())
         let vc2 = UINavigationController(rootViewController: FoodManagementViewController())
         let vc3 = UINavigationController(rootViewController: SettingViewController())
         
@@ -26,9 +26,9 @@ final class CustomTabBarController: UITabBarController {
         
         createTabBarItem(
             viewContoller: vc1,
-            titleString: Constant.TabBarTitle.recipeVC,
-            imageString: Constant.SystemImageName.recipeVCTabBarImage,
-            selectedImageString: Constant.SystemImageName.recipeVCTabBarSelectImage
+            titleString: Constant.TabBarTitle.calendarVC,
+            imageString: Constant.SystemImageName.calendarVCTabBarImage,
+            selectedImageString: Constant.SystemImageName.calendarVCTabBarSelectImage
         )
         
         createTabBarItem(
