@@ -19,16 +19,11 @@ final class CalendarViewModel {
     }
     
     func fetchImminentExpirationDateFoodData(_ selectedDate: Date) {
-        
+        filteredFoodData.value.removeAll()
         let selectedStringDate = selectedDate.toString(format: .compactDot)
-        
-        print("foodData: \(foodData)")
-        
         for item in foodData {
             let itemStringDate = item.expirationDate.toString(format: .compactDot)
-            print(itemStringDate, selectedStringDate)
             if itemStringDate == selectedStringDate {
-                print("item: \(item)")
                 filteredFoodData.value.append(item)
             }
         }
@@ -45,7 +40,4 @@ final class CalendarViewModel {
 //        print("useTime: \(useTime)", "startTime: \(startTime)", "endTime: \(endTime)", "dday: \(dDay)")
         return dDay < 0 ? "D+\(-dDay)" : "D-\(dDay)"
     }
-    
-    
-    
 }

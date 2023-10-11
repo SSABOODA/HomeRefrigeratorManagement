@@ -31,7 +31,7 @@ final class CalendarViewController: BaseViewController {
         setCalendarAction()
         
         configureDataSource()
-        dataBind()        
+        dataBind()
     }
     
     private func dataBind() {
@@ -47,8 +47,7 @@ final class CalendarViewController: BaseViewController {
         view.backgroundColor = Constant.BaseColor.grayContrastBackgroundColor
         
         title = "캘린더"
-//        self.navigationController?.navigationBar.prefersLargeTitles = true
-        
+        self.navigationItem.largeTitleDisplayMode = .never
         
         // CollectionView
         mainView.collectionView.backgroundColor = Constant.collectionViewColor.collectionViewBackgroundColor
@@ -75,7 +74,6 @@ extension CalendarViewController {
     }
     
     private func performShanshot() {
-        print("viewModel.filteredFoodData.value: \(viewModel.filteredFoodData.value)")
         var snapshot = NSDiffableDataSourceSnapshot<Section, Food>()
         snapshot.appendSections([.main])
         snapshot.appendItems(viewModel.filteredFoodData.value)
@@ -94,8 +92,28 @@ extension CalendarViewController: FSCalendarDelegateAppearance, FSCalendarDataSo
             origin: mainView.calendar.frame.origin,
             size: bounds.size
         )
+        
         UIView.animate(withDuration: 0.5) {
+            self.mainView.translatesAutoresizingMaskIntoConstraints = true
+            let maxY = bounds.maxY
+            let viewHeight = self.view.frame.height
+            let viewWidth = self.view.frame.width
+            let calendarTopViewHeight = self.mainView.calendarTopView.bounds.height
+            guard let navigationBarHeight = self.navigationController?.navigationBar.frame.height else { return }
+            let guide = self.view.safeAreaLayoutGuide
+            let safeAreaHeight = guide.layoutFrame.size.height
+
+            self.mainView.collectionView.frame = CGRect(
+                x: 0,
+                y: maxY + calendarTopViewHeight + (viewHeight-safeAreaHeight-calendarTopViewHeight-navigationBarHeight) + 5,
+                width: viewWidth,
+                height: viewHeight - maxY
+            )
+            
             self.view.layoutIfNeeded()
+            self.mainView.collectionView.layoutIfNeeded()
+            
+            
         }
     }
 

@@ -11,7 +11,7 @@ import FSCalendar
 
 final class CalendarView: BaseView {
     
-    private let calendarTopView = {
+    let calendarTopView = {
         let view = UIView()
         return view
     }()
@@ -86,7 +86,7 @@ final class CalendarView: BaseView {
         
         calendar.appearance.selectionColor = Constant.BaseColor.backgroundColor
         calendar.appearance.todayColor = .white
-        calendar.appearance.todaySelectionColor = .black
+        calendar.appearance.todaySelectionColor = .white
         
         calendar.firstWeekday = 2 // 첫 열을 월요일로 지정
         calendar.headerHeight = 70
@@ -118,6 +118,11 @@ final class CalendarView: BaseView {
         return view
     }()
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        print(#function)
+    }
+    
     override func configureHierarchy() {
         addSubview(calendarTopView)
         calendarTopView.addSubview(calendarTypeChangeButtonView)
@@ -126,7 +131,6 @@ final class CalendarView: BaseView {
         addSubview(calendar)
         addSubview(prevButton)
         addSubview(nextButton)
-        
         addSubview(collectionView)
     }
     
@@ -165,6 +169,7 @@ final class CalendarView: BaseView {
         }
         
         collectionView.snp.makeConstraints { make in
+            print("다시 그리니?")
             make.top.equalTo(calendar.snp.bottom)
             make.horizontalEdges.bottom.equalToSuperview()
         }
