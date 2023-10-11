@@ -9,7 +9,16 @@ import Foundation
 
 extension Date {
     
-    
+    enum stringDateFormatStyle: String {
+        case compactDot = "yyyy.MM.dd"
+        case compactUnderscore = "yyyy-MM-dd"
+        case compactSlash = "yyyy/MM/dd"
+        case compactKorean = "yyyy년 MM월 dd일"
+        
+        case Dot = "yyyy.MM.dd HH:mm:ss"
+        case Underscore = "yyyy-MM-dd HH:mm:ss"
+        case Slash = "yyyy/MM/dd HH:mm:ss"
+    }
     
     func dateFormat(date: Date) -> String {
         let formatter = DateFormatter()
@@ -18,10 +27,10 @@ extension Date {
         return formatter.string(from: date)
     }
     
-    func toString() -> String {
+    func toString(format dataFormatStyle: stringDateFormatStyle) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        dateFormatter.timeZone = TimeZone(identifier: "UTC")
+        dateFormatter.dateFormat = dataFormatStyle.rawValue
+//        dateFormatter.timeZone = TimeZone(identifier: "UTC")
         return dateFormatter.string(from: self)
     }
     

@@ -10,6 +10,7 @@ import UIKit
 extension Constant {
     enum BaseColor {
         static let backgroundColor = UIColor(named: "backgroundColor")
+        static let grayContrastBackgroundColor = UIColor(named: "grayContrastBackgroundColor")
         static let tintColor = UIColor(named: "tintColor")
         static let borderColor = UIColor.lightGray.cgColor
         static let basePointColor = UIColor(hexCode: "#3D6FD2") // 파란색

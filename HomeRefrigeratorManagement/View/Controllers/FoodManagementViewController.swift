@@ -15,9 +15,7 @@ final class FoodManagementViewController: BaseViewController {
     }
     
     private let mainView = FoodManagementView()
-    
     private var dataSource: UICollectionViewDiffableDataSource<Section, Food>!
-    
     private let viewModel = FoodManagementViewModel()
     
     override func loadView() {

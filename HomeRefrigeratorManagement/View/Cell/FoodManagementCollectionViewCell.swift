@@ -90,7 +90,7 @@ final class FoodManagementCollectionViewCell: BaseCollectionViewCell {
     }
     
     private func shrink(down: Bool) {
-      UIView.animate(withDuration: 0.6) {
+      UIView.animate(withDuration: 0.5) {
           if down {
               self.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
           } else {

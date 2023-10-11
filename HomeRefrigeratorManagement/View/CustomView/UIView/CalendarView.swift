@@ -9,8 +9,6 @@ import UIKit
 import SnapKit
 import FSCalendar
 
-//UIColor(hexCode: "#E27749")
-
 final class CalendarView: BaseView {
     
     private let calendarTopView = {
@@ -18,6 +16,7 @@ final class CalendarView: BaseView {
         return view
     }()
     
+    // @Deprecated
     private let calendarHomeResetButtonView = {
         let view = UIView()
         view.clipsToBounds = false
@@ -27,7 +26,7 @@ final class CalendarView: BaseView {
         view.layer.shadowRadius = 5
         return view
     }()
-    
+    // @Deprecated
     let calendarHomeResetButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "arrow.counterclockwise"), for: .normal)
@@ -113,17 +112,22 @@ final class CalendarView: BaseView {
         return button
     }()
     
+    lazy var collectionView = {
+        let view = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout())
+        view.backgroundColor = .systemRed
+        return view
+    }()
+    
     override func configureHierarchy() {
         addSubview(calendarTopView)
-        
-//        calendarTopView.addSubview(calendarHomeResetButtonView)
-//        calendarHomeResetButtonView.addSubview(calendarHomeResetButton)
         calendarTopView.addSubview(calendarTypeChangeButtonView)
         calendarTypeChangeButtonView.addSubview(calendarTypeChangeButton)
         
         addSubview(calendar)
         addSubview(prevButton)
         addSubview(nextButton)
+        
+        addSubview(collectionView)
     }
     
     override func configureLayout() {
@@ -142,16 +146,6 @@ final class CalendarView: BaseView {
             make.center.equalToSuperview()
             make.edges.equalToSuperview().inset(5)
         }
-        
-//        calendarHomeResetButtonView.snp.makeConstraints { make in
-//            make.centerY.equalToSuperview()
-//            make.trailing.equalTo(calendarTypeChangeButtonView.snp.leading).offset(-15)
-//        }
-//
-//        calendarHomeResetButton.snp.makeConstraints { make in
-//            make.center.equalToSuperview()
-//            make.edges.equalToSuperview().inset(5)
-//        }
 
         // calendar
         calendar.snp.makeConstraints { make in
@@ -169,5 +163,23 @@ final class CalendarView: BaseView {
             make.centerY.equalTo(calendar.calendarHeaderView).multipliedBy(1.1)
             make.trailing.equalTo(calendar.calendarHeaderView.snp.trailing).inset(20)
         }
+        
+        collectionView.snp.makeConstraints { make in
+            make.top.equalTo(calendar.snp.bottom)
+            make.horizontalEdges.bottom.equalToSuperview()
+        }
+    }
+}
+
+extension CalendarView {
+    private func collectionViewLayout() -> UICollectionViewFlowLayout {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 15
+        layout.minimumInteritemSpacing = 30
+        let width = UIScreen.main.bounds.width - 50
+        layout.itemSize = CGSize(width: width, height: 100)
+        layout.scrollDirection = .vertical
+        layout.sectionInset = UIEdgeInsets(top: 15, left: 0, bottom: 25, right: 0)
+        return layout
     }
 }
