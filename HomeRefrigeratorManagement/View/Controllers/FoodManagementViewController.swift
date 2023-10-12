@@ -31,7 +31,7 @@ final class FoodManagementViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print(#function)
+        print(#function, "FoodManagementViewController")
         performQuery("@")
         performQuery("")
     }

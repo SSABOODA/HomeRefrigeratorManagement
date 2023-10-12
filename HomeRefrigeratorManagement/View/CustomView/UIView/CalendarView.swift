@@ -114,13 +114,13 @@ final class CalendarView: BaseView {
     
     lazy var collectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout())
-        view.backgroundColor = .systemRed
         return view
     }()
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        print(#function)
+        print(#function, CalendarView.description())
+        print("calendar.frame.size: \(calendar.frame.size)")
     }
     
     override func configureHierarchy() {
@@ -135,6 +135,7 @@ final class CalendarView: BaseView {
     }
     
     override func configureLayout() {
+        print(#function)
         calendarTopView.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide)
             make.horizontalEdges.equalToSuperview().inset(25)
@@ -155,7 +156,7 @@ final class CalendarView: BaseView {
         calendar.snp.makeConstraints { make in
             make.top.equalTo(calendarTopView.snp.bottom)
             make.horizontalEdges.equalToSuperview().inset(25)
-            make.height.equalToSuperview().multipliedBy(0.5)
+            make.height.equalTo(Constant.ScreenSize.DeviceScreenHeight/2)
         }
         
         prevButton.snp.makeConstraints { make in
@@ -169,7 +170,6 @@ final class CalendarView: BaseView {
         }
         
         collectionView.snp.makeConstraints { make in
-            print("다시 그리니?")
             make.top.equalTo(calendar.snp.bottom)
             make.horizontalEdges.bottom.equalToSuperview()
         }

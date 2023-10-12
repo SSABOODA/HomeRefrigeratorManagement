@@ -34,6 +34,16 @@ final class CalendarViewController: BaseViewController {
         dataBind()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print(#function, CalendarViewController.description())
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        print(#function, CalendarViewController.description())
+    }
+    
     private func dataBind() {
         viewModel.filteredFoodData.bind { _ in
             DispatchQueue.main.async {
@@ -51,6 +61,7 @@ final class CalendarViewController: BaseViewController {
         
         // CollectionView
         mainView.collectionView.backgroundColor = Constant.collectionViewColor.collectionViewBackgroundColor
+        mainView.collectionView.delegate = self
     }
 }
 
@@ -81,40 +92,32 @@ extension CalendarViewController {
     }
 }
 
+// MARK: - UICollectionViewDelegate
+
+extension CalendarViewController: UICollectionViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let contentOffsetY = scrollView.contentOffset.y
+        print(contentOffsetY)
+        if contentOffsetY > 0 {
+            mainView.calendar.setScope(.week, animated: true)
+        } else {
+            mainView.calendar.setScope(.month, animated: true)
+        }
+        view.layoutIfNeeded()
+    }
+}
+
 // MARK: - FSCalendar
 
 extension CalendarViewController: FSCalendarDelegateAppearance, FSCalendarDataSource {
     
     // Delegate
-    
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
-        mainView.calendar.frame = CGRect(
-            origin: mainView.calendar.frame.origin,
-            size: bounds.size
-        )
-        
-        UIView.animate(withDuration: 0.5) {
-            self.mainView.translatesAutoresizingMaskIntoConstraints = true
-            let maxY = bounds.maxY
-            let viewHeight = self.view.frame.height
-            let viewWidth = self.view.frame.width
-            let calendarTopViewHeight = self.mainView.calendarTopView.bounds.height
-            guard let navigationBarHeight = self.navigationController?.navigationBar.frame.height else { return }
-            let guide = self.view.safeAreaLayoutGuide
-            let safeAreaHeight = guide.layoutFrame.size.height
-
-            self.mainView.collectionView.frame = CGRect(
-                x: 0,
-                y: maxY + calendarTopViewHeight + (viewHeight-safeAreaHeight-calendarTopViewHeight-navigationBarHeight) + 5,
-                width: viewWidth,
-                height: viewHeight - maxY
-            )
-            
-            self.view.layoutIfNeeded()
-            self.mainView.collectionView.layoutIfNeeded()
-            
-            
+        mainView.calendar.snp.updateConstraints { make in
+            make.height.equalTo(bounds.height)
         }
+        self.view.layoutIfNeeded()
     }
 
     // 날짜 선택 시 콜백 메소드
