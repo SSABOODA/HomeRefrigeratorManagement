@@ -120,7 +120,6 @@ final class CalendarView: BaseView {
     override func layoutSubviews() {
         super.layoutSubviews()
         print(#function, CalendarView.description())
-        print("calendar.frame.size: \(calendar.frame.size)")
     }
     
     override func configureHierarchy() {

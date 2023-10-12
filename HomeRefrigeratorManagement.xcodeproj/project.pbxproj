@@ -23,6 +23,8 @@
 		F7610A422AD7BDFB00832129 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A412AD7BDFB00832129 /* RecipeViewController.swift */; };
 		F7610A442AD7C17100832129 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A432AD7C17100832129 /* NetworkManager.swift */; };
 		F7610A462AD7C18D00832129 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A452AD7C18D00832129 /* Router.swift */; };
+		F7610A482AD7C30E00832129 /* YoutubeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A472AD7C30E00832129 /* YoutubeModel.swift */; };
+		F7610A4A2AD7C60400832129 /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A492AD7C60400832129 /* RecipeViewModel.swift */; };
 		F7C31D782AC2CE2E008DAA21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D772AC2CE2E008DAA21 /* AppDelegate.swift */; };
 		F7C31D7A2AC2CE2F008DAA21 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D792AC2CE2F008DAA21 /* SceneDelegate.swift */; };
 		F7C31D7C2AC2CE2F008DAA21 /* FoodManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D7B2AC2CE2F008DAA21 /* FoodManagementViewController.swift */; };
@@ -91,6 +93,8 @@
 		F7610A412AD7BDFB00832129 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		F7610A432AD7C17100832129 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		F7610A452AD7C18D00832129 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		F7610A472AD7C30E00832129 /* YoutubeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeModel.swift; sourceTree = "<group>"; };
+		F7610A492AD7C60400832129 /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
 		F7C31D742AC2CE2E008DAA21 /* HomeRefrigeratorManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeRefrigeratorManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7C31D772AC2CE2E008DAA21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7C31D792AC2CE2F008DAA21 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -226,6 +230,7 @@
 			children = (
 				F7C31D9D2AC2D619008DAA21 /* Observable.swift */,
 				F7610A202AD5458C00832129 /* CalendarViewModel.swift */,
+				F7610A492AD7C60400832129 /* RecipeViewModel.swift */,
 				F7C31D9B2AC2D60E008DAA21 /* FoodManagementViewModel.swift */,
 				F7289E4D2AD2C60300E092C6 /* FoodDetailManagementViewModel.swift */,
 				F7C31E232ACD4636008DAA21 /* FoodRegisterListViewModel.swift */,
@@ -238,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				F7C31E212ACD41A4008DAA21 /* FoodModel.swift */,
+				F7610A472AD7C30E00832129 /* YoutubeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -542,6 +548,7 @@
 				F7C31E332ACEE999008DAA21 /* InitialConsonant.swift in Sources */,
 				F7C31E302ACEDB23008DAA21 /* CALayer+Extension.swift in Sources */,
 				F7610A232AD54A2500832129 /* CalendarView.swift in Sources */,
+				F7610A482AD7C30E00832129 /* YoutubeModel.swift in Sources */,
 				F7289E4E2AD2C60300E092C6 /* FoodDetailManagementViewModel.swift in Sources */,
 				F7C31E402AD153A3008DAA21 /* FoodStorageTypeButton.swift in Sources */,
 				F7C31E382ACFC37C008DAA21 /* Date+Extension.swift in Sources */,
@@ -556,6 +563,7 @@
 				F7C31DAF2AC2DA29008DAA21 /* String+Extension.swift in Sources */,
 				F7289E4C2AD2C05400E092C6 /* FoodDetailManagementViewController.swift in Sources */,
 				F7610A212AD5458C00832129 /* CalendarViewModel.swift in Sources */,
+				F7610A4A2AD7C60400832129 /* RecipeViewModel.swift in Sources */,
 				F7610A442AD7C17100832129 /* NetworkManager.swift in Sources */,
 				F7C31DE82AC69C3F008DAA21 /* FoodRegisterListViewController.swift in Sources */,
 				F7C31E3C2ACFD61D008DAA21 /* UIColor+Extension.swift in Sources */,
