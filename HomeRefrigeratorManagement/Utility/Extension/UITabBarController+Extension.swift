@@ -9,7 +9,12 @@ import UIKit
 
 
 extension UITabBarController {
-    func createTabBarItem(viewContoller: UIViewController, titleString: String, imageString: String, selectedImageString: String) {
+    func createTabBarItem(
+        viewContoller: UIViewController,
+        titleString: String,
+        imageString: String,
+        selectedImageString: String
+    ) {
         viewContoller.tabBarItem = UITabBarItem(
             title: titleString,
             image: UIImage(systemName: imageString),

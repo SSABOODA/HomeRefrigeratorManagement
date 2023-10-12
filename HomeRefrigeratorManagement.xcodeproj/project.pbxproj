@@ -18,6 +18,11 @@
 		F7610A232AD54A2500832129 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A222AD54A2500832129 /* CalendarView.swift */; };
 		F7610A252AD56D3800832129 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A242AD56D3800832129 /* UIImage+Extension.swift */; };
 		F7610A272AD5B40100832129 /* CustomCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A262AD5B40100832129 /* CustomCalendarCell.swift */; };
+		F7610A3D2AD7BDAC00832129 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F7610A3C2AD7BDAC00832129 /* Alamofire */; };
+		F7610A402AD7BDBF00832129 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F7610A3F2AD7BDBF00832129 /* Kingfisher */; };
+		F7610A422AD7BDFB00832129 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A412AD7BDFB00832129 /* RecipeViewController.swift */; };
+		F7610A442AD7C17100832129 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A432AD7C17100832129 /* NetworkManager.swift */; };
+		F7610A462AD7C18D00832129 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A452AD7C18D00832129 /* Router.swift */; };
 		F7C31D782AC2CE2E008DAA21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D772AC2CE2E008DAA21 /* AppDelegate.swift */; };
 		F7C31D7A2AC2CE2F008DAA21 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D792AC2CE2F008DAA21 /* SceneDelegate.swift */; };
 		F7C31D7C2AC2CE2F008DAA21 /* FoodManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D7B2AC2CE2F008DAA21 /* FoodManagementViewController.swift */; };
@@ -83,6 +88,9 @@
 		F7610A222AD54A2500832129 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		F7610A242AD56D3800832129 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		F7610A262AD5B40100832129 /* CustomCalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalendarCell.swift; sourceTree = "<group>"; };
+		F7610A412AD7BDFB00832129 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
+		F7610A432AD7C17100832129 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		F7610A452AD7C18D00832129 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		F7C31D742AC2CE2E008DAA21 /* HomeRefrigeratorManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeRefrigeratorManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7C31D772AC2CE2E008DAA21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7C31D792AC2CE2F008DAA21 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,9 +149,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7610A3D2AD7BDAC00832129 /* Alamofire in Frameworks */,
 				F7289E582AD50CF800E092C6 /* IQKeyboardManagerSwift in Frameworks */,
 				F7C31E432AD1625D008DAA21 /* Toast in Frameworks */,
 				F7C31D9A2AC2D4B6008DAA21 /* RealmSwift in Frameworks */,
+				F7610A402AD7BDBF00832129 /* Kingfisher in Frameworks */,
 				F7C31D982AC2D4B6008DAA21 /* Realm in Frameworks */,
 				F7C31E1A2ACD36C3008DAA21 /* FirebaseCrashlytics in Frameworks */,
 				F7289E5B2AD52F4E00E092C6 /* FSCalendar in Frameworks */,
@@ -236,6 +246,8 @@
 			isa = PBXGroup;
 			children = (
 				F7C31D912AC2CFEA008DAA21 /* APIKey.swift */,
+				F7610A432AD7C17100832129 /* NetworkManager.swift */,
+				F7610A452AD7C18D00832129 /* Router.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -300,6 +312,7 @@
 			isa = PBXGroup;
 			children = (
 				F7C31DC72AC2E588008DAA21 /* CalendarViewController.swift */,
+				F7610A412AD7BDFB00832129 /* RecipeViewController.swift */,
 				F7C31D7B2AC2CE2F008DAA21 /* FoodManagementViewController.swift */,
 				F7289E4B2AD2C05400E092C6 /* FoodDetailManagementViewController.swift */,
 				F7C31DE72AC69C3F008DAA21 /* FoodRegisterListViewController.swift */,
@@ -429,6 +442,8 @@
 				F7C31E422AD1625D008DAA21 /* Toast */,
 				F7289E572AD50CF800E092C6 /* IQKeyboardManagerSwift */,
 				F7289E5A2AD52F4E00E092C6 /* FSCalendar */,
+				F7610A3C2AD7BDAC00832129 /* Alamofire */,
+				F7610A3F2AD7BDBF00832129 /* Kingfisher */,
 			);
 			productName = HomeRefrigeratorManagement;
 			productReference = F7C31D742AC2CE2E008DAA21 /* HomeRefrigeratorManagement.app */;
@@ -466,6 +481,8 @@
 				F7C31E412AD1625D008DAA21 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				F7289E562AD50CF800E092C6 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				F7289E592AD52F4E00E092C6 /* XCRemoteSwiftPackageReference "FSCalendar" */,
+				F7610A3B2AD7BDAC00832129 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				F7610A3E2AD7BDBF00832129 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = F7C31D752AC2CE2E008DAA21 /* Products */;
 			projectDirPath = "";
@@ -530,6 +547,7 @@
 				F7C31E382ACFC37C008DAA21 /* Date+Extension.swift in Sources */,
 				F7C31DE22AC5C3F1008DAA21 /* RealmTableRepositoryProtocol.swift in Sources */,
 				F7C31D9C2AC2D60E008DAA21 /* FoodManagementViewModel.swift in Sources */,
+				F7610A462AD7C18D00832129 /* Router.swift in Sources */,
 				F7C31E242ACD4636008DAA21 /* FoodRegisterListViewModel.swift in Sources */,
 				F7C31DD82AC5A90A008DAA21 /* FoodManagementView.swift in Sources */,
 				F7C31DD42AC5A3C3008DAA21 /* RecipeTable.swift in Sources */,
@@ -538,10 +556,12 @@
 				F7C31DAF2AC2DA29008DAA21 /* String+Extension.swift in Sources */,
 				F7289E4C2AD2C05400E092C6 /* FoodDetailManagementViewController.swift in Sources */,
 				F7610A212AD5458C00832129 /* CalendarViewModel.swift in Sources */,
+				F7610A442AD7C17100832129 /* NetworkManager.swift in Sources */,
 				F7C31DE82AC69C3F008DAA21 /* FoodRegisterListViewController.swift in Sources */,
 				F7C31E3C2ACFD61D008DAA21 /* UIColor+Extension.swift in Sources */,
 				F7C31E3E2ACFE025008DAA21 /* FoodRegisterTextFieldView.swift in Sources */,
 				F7C31DC42AC2E456008DAA21 /* CustomTabBarController.swift in Sources */,
+				F7610A422AD7BDFB00832129 /* RecipeViewController.swift in Sources */,
 				F7610A272AD5B40100832129 /* CustomCalendarCell.swift in Sources */,
 				F7C31E2E2ACE9DAB008DAA21 /* FoodRegisterDetailView.swift in Sources */,
 				F7C31D7C2AC2CE2F008DAA21 /* FoodManagementViewController.swift in Sources */,
@@ -830,6 +850,22 @@
 				version = 2.8.4;
 			};
 		};
+		F7610A3B2AD7BDAC00832129 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		F7610A3E2AD7BDBF00832129 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		F7C31D932AC2D3F2008DAA21 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -874,6 +910,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F7289E592AD52F4E00E092C6 /* XCRemoteSwiftPackageReference "FSCalendar" */;
 			productName = FSCalendar;
+		};
+		F7610A3C2AD7BDAC00832129 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F7610A3B2AD7BDAC00832129 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		F7610A3F2AD7BDBF00832129 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F7610A3E2AD7BDBF00832129 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		F7C31D942AC2D3F2008DAA21 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;

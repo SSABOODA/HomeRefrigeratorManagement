@@ -108,7 +108,7 @@ extension FoodRegisterListViewController {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = spacing
         layout.minimumInteritemSpacing = spacing
-        let size = UIScreen.main.bounds.width - 40
+        let size = Constant.ScreenSize.DeviceScreenWidth - 40
         layout.itemSize = CGSize(width: size/4, height: size/4)
         layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
         return layout
@@ -127,7 +127,6 @@ extension FoodRegisterListViewController: UICollectionViewDelegate {
         }
         
         nextVC.viewModel.foodIconInfo.value = self.viewModel.foodIconInfo.value[indexPath.item]
-        print(self.viewModel.foodIconInfo.value[indexPath.item])
         nextVC.modalPresentationStyle = .overFullScreen
         present(nextVC, animated: true)
     }

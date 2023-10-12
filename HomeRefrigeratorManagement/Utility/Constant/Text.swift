@@ -9,8 +9,9 @@ import Foundation
 
 extension Constant {
     enum TabBarTitle {
-        static let calendarVC = "Calendar"
-        static let foodManagementVC = "Home"
+        static let calendarVC = "캘런더"
+        static let recipeVC = "레시피"
+        static let foodManagementVC = "관리"
         static let settingVC = "My"
     }
     
@@ -18,11 +19,13 @@ extension Constant {
         
         // TabBar System Image
         static let calendarVCTabBarImage = "calendar.circle"
+        static let recipeVCTabBarImage = "fork.knife"
         static let foodManagementVCTabBarImage = "refrigerator"
         static let settingVCTabBarImage = "person.circle"
         
         // TabBar Selected System Image
         static let calendarVCTabBarSelectImage = "\(SystemImageName.calendarVCTabBarImage).fill"
+        static let recipeVCTabBarSelectImage = "fork.knife"
         static let foodManagementVCTabBarSelectImage = "\(SystemImageName.foodManagementVCTabBarImage).fill"
         static let settingVCTabBarSelectImage = "\(SystemImageName.settingVCTabBarImage).fill"
         

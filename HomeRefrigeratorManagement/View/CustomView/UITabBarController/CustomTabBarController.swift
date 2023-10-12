@@ -17,29 +17,45 @@ final class CustomTabBarController: UITabBarController {
     }
     
     private func configureViewController() {
-        let vc1 = UINavigationController(rootViewController: CalendarViewController())
-        let vc2 = UINavigationController(rootViewController: FoodManagementViewController())
-        let vc3 = UINavigationController(rootViewController: SettingViewController())
+        let CalendarVC = UINavigationController(rootViewController: CalendarViewController())
+        let RecipeVC = UINavigationController(rootViewController: RecipeViewController())
+        let FoodManagementVC = UINavigationController(rootViewController: FoodManagementViewController())
+        let SettingVC = UINavigationController(rootViewController: SettingViewController())
         
-        setViewControllers([vc1, vc2, vc3], animated: true)
+        setViewControllers(
+            [
+                CalendarVC,
+                RecipeVC,
+                FoodManagementVC,
+                SettingVC
+            ], animated: true
+        )
+        
         modalPresentationStyle = .fullScreen
         
         createTabBarItem(
-            viewContoller: vc1,
+            viewContoller: CalendarVC,
             titleString: Constant.TabBarTitle.calendarVC,
             imageString: Constant.SystemImageName.calendarVCTabBarImage,
             selectedImageString: Constant.SystemImageName.calendarVCTabBarSelectImage
         )
         
         createTabBarItem(
-            viewContoller: vc2,
+            viewContoller: RecipeVC,
+            titleString: Constant.TabBarTitle.recipeVC,
+            imageString: Constant.SystemImageName.recipeVCTabBarImage,
+            selectedImageString: Constant.SystemImageName.recipeVCTabBarSelectImage
+        )
+        
+        createTabBarItem(
+            viewContoller: FoodManagementVC,
             titleString: Constant.TabBarTitle.foodManagementVC,
             imageString: Constant.SystemImageName.foodManagementVCTabBarImage,
             selectedImageString: Constant.SystemImageName.foodManagementVCTabBarSelectImage
         )
         
         createTabBarItem(
-            viewContoller: vc3,
+            viewContoller: SettingVC,
             titleString: Constant.TabBarTitle.settingVC,
             imageString: Constant.SystemImageName.settingVCTabBarImage,
             selectedImageString: Constant.SystemImageName.settingVCTabBarSelectImage
@@ -52,9 +68,6 @@ final class CustomTabBarController: UITabBarController {
         
         tabBar.layer.borderColor = Constant.BaseColor.borderColor
         tabBar.layer.borderWidth = Constant.TabBarLayoutDesign.tabBarBorderWidth
-        
-//        tabBar.layer.cornerRadius = tabBar.frame.height * Constant.TabBarLayoutDesign.tabBarBorderWidth
-//        tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     
     private func configureTabBar() {

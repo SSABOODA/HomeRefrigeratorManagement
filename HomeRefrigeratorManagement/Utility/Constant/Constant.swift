@@ -13,7 +13,6 @@ enum Constant {
         static let DeviceScreenHeight = UIScreen.main.bounds.height
     }
     
-    
     enum TabBarLayoutDesign {
         static let tabBarBorderWidth: CGFloat = 0.3
     }
