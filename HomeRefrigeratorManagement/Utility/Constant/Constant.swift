@@ -9,8 +9,16 @@ import UIKit
 
 enum Constant {
     enum ScreenSize {
-        static let DeviceScreenWidth = UIScreen.main.bounds.width
-        static let DeviceScreenHeight = UIScreen.main.bounds.height
+        static let deviceScreenWidth = UIScreen.main.bounds.width
+        static let deviceScreenHeight = UIScreen.main.bounds.height
+    }
+
+    enum MainView {
+        static let mainViewHorizontalPadding = 25
+    }
+    
+    enum StackView {
+        static let detailManagementTextFieldStackViewSpacing = 20.0
     }
     
     enum TabBarLayoutDesign {

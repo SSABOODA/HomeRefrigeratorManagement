@@ -12,7 +12,7 @@ enum Router: URLRequestConvertible {
     private static let key = APIKey.youtubeAPIKey
     
     //filed: String, maxResults: String
-    case search(query: String, part: String)
+    case search(query: String)
     
     private var baseURL: URL {
         return URL(string: "https://youtube.googleapis.com/youtube/v3/")!
@@ -40,13 +40,13 @@ enum Router: URLRequestConvertible {
     
     private var parameters: Parameters? {
         switch self {
-        case .search(let query, let part):
+        case .search(let query):
             return [
                 "key": key,
-                "query": query,
-                "part": part,
-//                "filed": filed,
-//                "maxResults": maxResults,
+                "q": query,
+                "part": "snippet",
+                "maxResults": 3,
+                "filed": "items(id,snippet(channelId,title,categoryId),statistics)",
             ]
         }
     }
@@ -56,13 +56,9 @@ enum Router: URLRequestConvertible {
         var urlRequest = URLRequest(url: url)
         urlRequest.headers = header
         urlRequest.method = method
-
         if let parameters {
             return try URLEncoding.default.encode(urlRequest, with: parameters)
         }
-        
-        print("urlRequest: \(urlRequest)")
-        
         return urlRequest
     }
 }

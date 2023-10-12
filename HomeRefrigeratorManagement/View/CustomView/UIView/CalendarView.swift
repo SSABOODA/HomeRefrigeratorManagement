@@ -155,7 +155,7 @@ final class CalendarView: BaseView {
         calendar.snp.makeConstraints { make in
             make.top.equalTo(calendarTopView.snp.bottom)
             make.horizontalEdges.equalToSuperview().inset(25)
-            make.height.equalTo(Constant.ScreenSize.DeviceScreenHeight/2)
+            make.height.equalTo(Constant.ScreenSize.deviceScreenHeight/2)
         }
         
         prevButton.snp.makeConstraints { make in
@@ -180,7 +180,7 @@ extension CalendarView {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 15
         layout.minimumInteritemSpacing = 30
-        let width = Constant.ScreenSize.DeviceScreenWidth - 50
+        let width = Constant.ScreenSize.deviceScreenWidth - 50
         layout.itemSize = CGSize(width: width, height: 100)
         layout.scrollDirection = .vertical
         layout.sectionInset = UIEdgeInsets(top: 15, left: 0, bottom: 25, right: 0)

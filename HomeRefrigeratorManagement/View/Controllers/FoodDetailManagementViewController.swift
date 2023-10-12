@@ -31,7 +31,7 @@ final class FoodDetailManagementViewController: BaseViewController {
     
     override func configureView() {
         super.configureView()
-        view.backgroundColor = Constant.collectionViewColor.collectionViewBackgroundColor
+        view.backgroundColor = Constant.BaseColor.grayContrastBackgroundColor
         navigationBar()
         configreData()
         configPickerView()

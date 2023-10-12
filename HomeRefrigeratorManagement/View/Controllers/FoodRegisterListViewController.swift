@@ -108,7 +108,7 @@ extension FoodRegisterListViewController {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = spacing
         layout.minimumInteritemSpacing = spacing
-        let size = Constant.ScreenSize.DeviceScreenWidth - 40
+        let size = Constant.ScreenSize.deviceScreenWidth - 40
         layout.itemSize = CGSize(width: size/4, height: size/4)
         layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
         return layout

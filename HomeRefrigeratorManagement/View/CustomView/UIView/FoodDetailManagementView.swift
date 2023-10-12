@@ -14,11 +14,7 @@ class FoodDetailManagementView: BaseView {
         let view = UIView()
         view.backgroundColor = Constant.BaseColor.backgroundColor
         view.layer.cornerRadius = 10
-        view.clipsToBounds = false
-        view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowOffset = CGSize(width: 10, height: 10)
-        view.layer.shadowRadius = 10
-        view.layer.shadowOpacity = 0.5
+        view.clipsToBounds = true
         return view
     }()
     
@@ -88,7 +84,7 @@ class FoodDetailManagementView: BaseView {
     lazy var foodDescriptionStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [foodDescriptionLabel, foodDescriptionTextFieldView])
         stackView.axis = .horizontal
-        stackView.spacing = 10
+        stackView.spacing = Constant.StackView.detailManagementTextFieldStackViewSpacing
         return stackView
     }()
     
@@ -107,14 +103,14 @@ class FoodDetailManagementView: BaseView {
     let registerDateTextField = {
         let tf = UITextField()
         tf.text = Date().dateFormat(date: Date())
-        tf.font = .systemFont(ofSize: 13)
+        tf.font = .boldSystemFont(ofSize: 13)
         return tf
     }()
     
     lazy var registerDateStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [registerDateLabel, registerDateTextFieldView])
         stackView.axis = .horizontal
-        stackView.spacing = 10
+        stackView.spacing = Constant.StackView.detailManagementTextFieldStackViewSpacing
         return stackView
     }()
     
@@ -133,14 +129,14 @@ class FoodDetailManagementView: BaseView {
     let expirationDateTextField = {
         let tf = UITextField()
         tf.text = Date().dateFormat(date: Date())
-        tf.font = .systemFont(ofSize: 13)
+        tf.font = .boldSystemFont(ofSize: 13)
         return tf
     }()
     
     lazy var expirationDateStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [expirationDateLabel, expirationDateTextFieldView])
         stackView.axis = .horizontal
-        stackView.spacing = 10
+        stackView.spacing = Constant.StackView.detailManagementTextFieldStackViewSpacing
         return stackView
     }()
     
@@ -159,14 +155,14 @@ class FoodDetailManagementView: BaseView {
     let storageTypeTextField = {
         let tf = UITextField()
         tf.placeholder = "저장 방법을 선택해주세요"
-        tf.font = .systemFont(ofSize: 13)
+        tf.font = .boldSystemFont(ofSize: 13)
         return tf
     }()
     
     lazy var storageTypeStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [storageTypeLabel, storageTypeTextFieldView])
         stackView.axis = .horizontal
-        stackView.spacing = 10
+        stackView.spacing = Constant.StackView.detailManagementTextFieldStackViewSpacing
         return stackView
     }()
     
@@ -186,7 +182,7 @@ class FoodDetailManagementView: BaseView {
         let tf = UITextField()
         tf.keyboardType = .numberPad
         tf.placeholder = "수량을 입력해주세요~"
-        tf.font = .systemFont(ofSize: 13)
+        tf.font = .boldSystemFont(ofSize: 13)
         tf.clearButtonMode = .whileEditing
         return tf
     }()
@@ -194,7 +190,7 @@ class FoodDetailManagementView: BaseView {
     lazy var countStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [countLabel, countTextFieldView])
         stackView.axis = .horizontal
-        stackView.spacing = 10
+        stackView.spacing = Constant.StackView.detailManagementTextFieldStackViewSpacing
         return stackView
     }()
     
@@ -215,10 +211,9 @@ class FoodDetailManagementView: BaseView {
         button.backgroundColor = Constant.BaseColor.basePointColor
         return button
     }()
-    
+
     override func configureHierarchy() {
         addSubview(mainView)
-        
         mainView.addSubview(foodView)
         mainView.addSubview(registerView)
         
@@ -250,15 +245,16 @@ class FoodDetailManagementView: BaseView {
     override func layoutSubviews() {
         super.layoutSubviews()
         deleteButton.roundCorners(.bottomLeft, radius: 10)
-        deleteButton.layoutIfNeeded()
         updateButton.roundCorners(.bottomRight, radius: 10)
+        deleteButton.layoutIfNeeded()
         updateButton.layoutIfNeeded()
     }
     
     override func configureLayout() {
         mainView.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-            make.horizontalEdges.equalToSuperview().inset(30)
+//            make.top.equalTo(self.safeAreaLayoutGuide).inset(10)
+            make.centerY.equalToSuperview()
+            make.horizontalEdges.equalToSuperview().inset(Constant.MainView.mainViewHorizontalPadding)
             make.height.equalToSuperview().multipliedBy(0.6)
         }
         
@@ -272,22 +268,18 @@ class FoodDetailManagementView: BaseView {
             make.horizontalEdges.equalToSuperview()
             make.height.equalToSuperview().multipliedBy(0.7)
         }
-        
         foodImageShadowView.snp.makeConstraints { make in
             make.center.equalToSuperview()
             make.size.equalTo(60)
         }
-        
         foodImageView.snp.makeConstraints { make in
             make.center.equalToSuperview()
             make.edges.equalToSuperview().inset(10)
         }
-        
         foodNameLabel.snp.makeConstraints { make in
             make.centerX.equalTo(foodImageShadowView.snp.centerX)
             make.top.equalTo(foodImageShadowView.snp.bottom).offset(10)
         }
-        
         divideLineView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(30)
             make.leading.trailing.equalToSuperview().inset(20)
@@ -301,7 +293,6 @@ class FoodDetailManagementView: BaseView {
             make.trailing.equalTo(divideLineView.snp.trailing)
             make.height.equalToSuperview().multipliedBy(0.1)
         }
-        
         foodDescriptionTextField.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(10)
         }
@@ -313,7 +304,6 @@ class FoodDetailManagementView: BaseView {
             make.trailing.equalTo(divideLineView.snp.trailing)
             make.height.equalToSuperview().multipliedBy(0.1)
         }
-        
         registerDateTextField.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(10)
         }
@@ -325,7 +315,6 @@ class FoodDetailManagementView: BaseView {
             make.trailing.equalTo(divideLineView.snp.trailing)
             make.height.equalToSuperview().multipliedBy(0.1)
         }
-        
         expirationDateTextField.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(10)
         }
@@ -337,7 +326,6 @@ class FoodDetailManagementView: BaseView {
             make.trailing.equalTo(divideLineView.snp.trailing)
             make.height.equalToSuperview().multipliedBy(0.1)
         }
-        
         storageTypeTextField.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(10)
         }
@@ -351,7 +339,7 @@ class FoodDetailManagementView: BaseView {
         }
         countTextField.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(10)
-            make.width.equalTo(countStackView.snp.width).multipliedBy(0.6)
+            make.width.equalTo(countStackView.snp.width).multipliedBy(0.7)
         }
         
         // 버튼
@@ -366,5 +354,6 @@ class FoodDetailManagementView: BaseView {
             make.width.equalToSuperview().multipliedBy(0.5)
             make.height.equalToSuperview().multipliedBy(0.1)
         }
+        
     }
 }

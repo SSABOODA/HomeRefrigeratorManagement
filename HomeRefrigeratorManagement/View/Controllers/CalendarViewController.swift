@@ -136,6 +136,7 @@ extension CalendarViewController: FSCalendarDelegateAppearance, FSCalendarDataSo
         for item in viewModel.foodData {
             let itemDate = item.expirationDate.toString(format: .compactUnderscore)
             if itemDate == dateString {
+                
                 return UIImage(named: item.name)?.resize(newWidth: 15)
             }
         }

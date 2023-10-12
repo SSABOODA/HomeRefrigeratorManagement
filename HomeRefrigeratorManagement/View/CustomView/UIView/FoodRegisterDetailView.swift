@@ -353,7 +353,7 @@ final class FoodRegisterDetailView: BaseView {
         }
         countTextField.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(10)
-            make.width.equalTo(countStackView.snp.width).multipliedBy(0.6)
+            make.width.equalTo(countStackView.snp.width).multipliedBy(0.7)
         }
         
         // 버튼
