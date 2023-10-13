@@ -10,6 +10,8 @@ import RealmSwift
 
 final class FoodManagementViewController: BaseViewController {
     
+//    static let titleElementKind = "title-element-kind"
+    
     private enum Section: CaseIterable {
         case main
     }
@@ -63,6 +65,7 @@ extension FoodManagementViewController {
         self.navigationItem.searchController = mainView.searchController
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.hidesSearchBarWhenScrolling = false
+        self.navigationController?.view.backgroundColor = Constant.BaseColor.backgroundColor
         
         // navigation backbutton
         let backButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
@@ -73,6 +76,10 @@ extension FoodManagementViewController {
         let navItem = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal.decrease.circle"), menu: createMenu())
         navItem.tintColor = .black
         navigationItem.rightBarButtonItem = navItem
+        
+        let navItem2 = UIBarButtonItem(image: UIImage(systemName: "chart.bar.xaxis"), style: .plain, target: self, action: #selector(navItem2Tapped))
+        navItem2.tintColor = .black
+        navigationItem.rightBarButtonItems = [navItem, navItem2]
         
         func createMenu() -> UIMenu {
             // DB filter
@@ -100,6 +107,10 @@ extension FoodManagementViewController {
             return menu
         }
     }
+    
+    @objc func navItem2Tapped() {
+        print(#function)
+    }
 }
 
 
@@ -107,7 +118,6 @@ extension FoodManagementViewController {
 extension FoodManagementViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath)
-        
         let nextVC = FoodDetailManagementViewController()
         guard let filteredFoodData = self.viewModel.filteredFoodData else { return }
         let food = filteredFoodData[indexPath.item]
@@ -151,9 +161,20 @@ extension FoodManagementViewController {
             cell.expirationDateLabel.text = self.viewModel.caculateDday(itemIdentifier.expirationDate)
         }
         
-        dataSource = UICollectionViewDiffableDataSource(collectionView: self.mainView.collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
+        dataSource = UICollectionViewDiffableDataSource(
+            collectionView: self.mainView.collectionView,
+            cellProvider: { collectionView, indexPath, itemIdentifier in
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
         })
+        
+        let supplementaryRegistration = UICollectionView.SupplementaryRegistration<FoodManagementCollectionViewHeaderView>(elementKind: FoodManagementViewController.description()) { supplementaryView, elementKind, indexPath in
+        }
+        
+        dataSource.supplementaryViewProvider = { (view, kind, index) in
+            return self.mainView.collectionView.dequeueConfiguredReusableSupplementary(
+                using: supplementaryRegistration, for: index)
+        }
+
     }
     
     // TODO: 초성 검색 가능하게 작업해야함.

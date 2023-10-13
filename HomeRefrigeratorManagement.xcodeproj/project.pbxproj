@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F7248A372AD9329100D768DF /* SafariActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7248A362AD9329100D768DF /* SafariActivity.swift */; };
+		F7248A3A2AD963E600D768DF /* FoodManagementCollectionViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7248A392AD963E600D768DF /* FoodManagementCollectionViewHeaderView.swift */; };
 		F7289E4A2AD1BB9500E092C6 /* Results+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7289E492AD1BB9500E092C6 /* Results+Extension.swift */; };
 		F7289E4C2AD2C05400E092C6 /* FoodDetailManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7289E4B2AD2C05400E092C6 /* FoodDetailManagementViewController.swift */; };
 		F7289E4E2AD2C60300E092C6 /* FoodDetailManagementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7289E4D2AD2C60300E092C6 /* FoodDetailManagementViewModel.swift */; };
@@ -87,6 +88,7 @@
 
 /* Begin PBXFileReference section */
 		F7248A362AD9329100D768DF /* SafariActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariActivity.swift; sourceTree = "<group>"; };
+		F7248A392AD963E600D768DF /* FoodManagementCollectionViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodManagementCollectionViewHeaderView.swift; sourceTree = "<group>"; };
 		F7289E492AD1BB9500E092C6 /* Results+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Results+Extension.swift"; sourceTree = "<group>"; };
 		F7289E4B2AD2C05400E092C6 /* FoodDetailManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailManagementViewController.swift; sourceTree = "<group>"; };
 		F7289E4D2AD2C60300E092C6 /* FoodDetailManagementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailManagementViewModel.swift; sourceTree = "<group>"; };
@@ -185,6 +187,14 @@
 				F7248A362AD9329100D768DF /* SafariActivity.swift */,
 			);
 			path = Activity;
+			sourceTree = "<group>";
+		};
+		F7248A382AD963C600D768DF /* CollectionViewHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				F7248A392AD963E600D768DF /* FoodManagementCollectionViewHeaderView.swift */,
+			);
+			path = CollectionViewHeaderView;
 			sourceTree = "<group>";
 		};
 		F7289E512AD3CDD900E092C6 /* Enum */ = {
@@ -419,6 +429,7 @@
 		F7C31E1F2ACD40E8008DAA21 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
+				F7248A382AD963C600D768DF /* CollectionViewHeaderView */,
 				F7610A222AD54A2500832129 /* CalendarView.swift */,
 				F7610A4B2AD8012D00832129 /* RecipeView.swift */,
 				F7C31DD72AC5A90A008DAA21 /* FoodManagementView.swift */,
@@ -597,6 +608,7 @@
 				F7289E4C2AD2C05400E092C6 /* FoodDetailManagementViewController.swift in Sources */,
 				F7610A212AD5458C00832129 /* CalendarViewModel.swift in Sources */,
 				F7610A4A2AD7C60400832129 /* RecipeViewModel.swift in Sources */,
+				F7248A3A2AD963E600D768DF /* FoodManagementCollectionViewHeaderView.swift in Sources */,
 				F7610A442AD7C17100832129 /* NetworkManager.swift in Sources */,
 				F7C31DE82AC69C3F008DAA21 /* FoodRegisterListViewController.swift in Sources */,
 				F7C31E3C2ACFD61D008DAA21 /* UIColor+Extension.swift in Sources */,

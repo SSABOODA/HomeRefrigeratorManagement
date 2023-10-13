@@ -18,14 +18,12 @@ final class CustomTabBarController: UITabBarController {
     
     private func configureViewController() {
         let CalendarVC = UINavigationController(rootViewController: CalendarViewController())
-//        let RecipeVC = UINavigationController(rootViewController: RecipeViewController())
         let FoodManagementVC = UINavigationController(rootViewController: FoodManagementViewController())
         let SettingVC = UINavigationController(rootViewController: SettingViewController())
         
         setViewControllers(
             [
                 CalendarVC,
-//                RecipeVC,
                 FoodManagementVC,
                 SettingVC
             ], animated: true
@@ -39,13 +37,6 @@ final class CustomTabBarController: UITabBarController {
             imageString: Constant.SystemImageName.calendarVCTabBarImage,
             selectedImageString: Constant.SystemImageName.calendarVCTabBarSelectImage
         )
-        
-//        createTabBarItem(
-//            viewContoller: RecipeVC,
-//            titleString: Constant.TabBarTitle.recipeVC,
-//            imageString: Constant.SystemImageName.recipeVCTabBarImage,
-//            selectedImageString: Constant.SystemImageName.recipeVCTabBarSelectImage
-//        )
         
         createTabBarItem(
             viewContoller: FoodManagementVC,
@@ -82,7 +73,7 @@ final class CustomTabBarController: UITabBarController {
             shadowView.layer.shadowColor = UIColor.black.cgColor
             shadowView.layer.shadowOffset = CGSize(width: 0.0, height: -8.0)
             shadowView.layer.shadowOpacity = 0.3
-            shadowView.layer.shadowRadius = 10
+            shadowView.layer.shadowRadius = 5
             view.addSubview(shadowView)
             view.bringSubviewToFront(tabBar)
         }

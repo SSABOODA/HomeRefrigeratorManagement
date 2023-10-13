@@ -17,8 +17,16 @@ class FoodManagementView: BaseView {
     }()
     
     lazy var collectionView = {
-        let view = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout())
-        return view
+        let collectionView = UICollectionView(
+            frame: .zero,
+            collectionViewLayout: createLayout()
+        )
+        collectionView.register(
+            FoodManagementCollectionViewHeaderView.self,
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: FoodManagementCollectionViewHeaderView.description()
+        )
+        return collectionView
     }()
     
     // TODO: Constant
@@ -59,14 +67,62 @@ class FoodManagementView: BaseView {
     }
     
     // TODO: Constant
-    private func collectionViewLayout() -> UICollectionViewFlowLayout {
-        let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 15
-        layout.minimumInteritemSpacing = 30
-        let width = Constant.ScreenSize.deviceScreenWidth - 40
-        layout.itemSize = CGSize(width: width, height: 100)
-        layout.scrollDirection = .vertical
-        layout.sectionInset = UIEdgeInsets(top: 15, left: 0, bottom: 25, right: 0)
+//    private func collectionViewLayout() -> UICollectionViewFlowLayout {
+//        let layout = UICollectionViewFlowLayout()
+//        layout.minimumLineSpacing = 15
+//        layout.minimumInteritemSpacing = 30
+//        let width = Constant.ScreenSize.deviceScreenWidth - 40
+//        layout.itemSize = CGSize(width: width, height: 100)
+//        layout.scrollDirection = .vertical
+//        layout.sectionInset = UIEdgeInsets(top: 15, left: 0, bottom: 25, right: 0)
+//        return layout
+//    }
+    
+    func createLayout() -> UICollectionViewLayout {
+        let sectionProvider = { (sectionIndex: Int,
+            layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
+            
+            let itemSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .fractionalHeight(1.0)
+            )
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+
+//            let groupFractionalWidth = CGFloat(
+//                layoutEnvironment.container.effectiveContentSize.width > 500 ? 0.425 : 0.85
+//            )
+            let groupSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .absolute(100)
+            )
+            let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+
+            let section = NSCollectionLayoutSection(group: group)
+            section.orthogonalScrollingBehavior = .none
+            section.interGroupSpacing = 10
+            section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20)
+
+            let titleSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .estimated(Constant.ScreenSize.deviceScreenHeight*0.1)
+            )
+            
+            let titleSupplementary = NSCollectionLayoutBoundarySupplementaryItem(
+                layoutSize: titleSize,
+                elementKind: FoodManagementViewController.description(),
+                alignment: .top
+            )
+            section.boundarySupplementaryItems = [titleSupplementary]
+            return section
+        }
+
+        let config = UICollectionViewCompositionalLayoutConfiguration()
+        config.interSectionSpacing = 10
+
+        let layout = UICollectionViewCompositionalLayout(
+            sectionProvider: sectionProvider,
+            configuration: config
+        )
         return layout
     }
 }
