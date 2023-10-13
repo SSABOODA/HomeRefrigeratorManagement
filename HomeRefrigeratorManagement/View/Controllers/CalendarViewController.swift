@@ -97,9 +97,9 @@ extension CalendarViewController {
 extension CalendarViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let bottomSheetVC = WebViewBottomSheetViewController()
-        bottomSheetVC.modalPresentationStyle = .overFullScreen
-        self.present(bottomSheetVC, animated: false, completion: nil)
+        let vc = YoutubeWebViewViewController()
+        vc.foodDataName = viewModel.filteredFoodData.value[indexPath.item].name
+        transition(viewController: vc, style: .presentFullNavigation)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -178,7 +178,6 @@ extension CalendarViewController: FSCalendarDelegateAppearance, FSCalendarDataSo
         }
         
         mainView.calendarHomeResetButton.addTarget(self, action: #selector(calendarHomeResetButtonTapped), for: .touchUpInside)
-        
         mainView.calendarTypeChangeButton.addTarget(self, action: #selector(calendarTypeChangeButtonTapped), for: .touchUpInside)
     }
     

@@ -39,6 +39,7 @@ extension Constant {
         static let foodRegisterTitle = "식품 등록 방법 선택"
         static let foodRegisterDetailTitle = "식품 등록하기"
         static let foodDetailTitle = "식품 상세 정보"
+        static let youtubeWebViewTitle = "유튜브 레시피"
     }
     
     enum ToastMessage {
@@ -60,6 +61,9 @@ extension Constant {
         static let deleteAlertTitleMessage = "정말 삭제하시겠습니까?"
         // 식품 수정 시
         static let updateAlertTitleMessage = "수정하시겠습니까?"
-        
+    }
+    
+    enum URLString {
+        static let youtubeURL = "https://www.youtube.com/results?search_query"
     }
 }

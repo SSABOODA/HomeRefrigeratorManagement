@@ -95,4 +95,28 @@ extension UIViewController {
                 self.present(alert, animated: true, completion: nil)
             }
         }
+    
+    
+    // UIActivityViewController
+    func showActivityVC(
+        activityItems: [Any],
+        applicationActivities: [UIActivity],
+        completion: (() -> ())? = nil) {
+            let activityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: applicationActivities)
+            
+            activityViewController.popoverPresentationController?.sourceView = self.view
+            //        activityVC.excludedActivityTypes = [.postToTwitter, .postToWeibo, .postToVimeo, .postToFlickr, .postToFacebook, .postToTencentWeibo]
+            
+            activityViewController.completionWithItemsHandler = { (activity, success, items, error) in
+                if success {
+                    // 성공했을 때 작업
+                    completion?()
+                }  else  {
+                    // 실패했을 때 작업
+                    completion?()
+                }
+            }
+            
+            present(activityViewController, animated: true, completion: completion)
+        }
 }
