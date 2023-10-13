@@ -177,6 +177,8 @@ extension CalendarViewController: FSCalendarDelegateAppearance, FSCalendarDataSo
             )
         }
         
+        mainView.calendarHomeResetButton.addTarget(self, action: #selector(calendarHomeResetButtonTapped), for: .touchUpInside)
+        
         mainView.calendarTypeChangeButton.addTarget(self, action: #selector(calendarTypeChangeButtonTapped), for: .touchUpInside)
     }
     
@@ -186,6 +188,11 @@ extension CalendarViewController: FSCalendarDelegateAppearance, FSCalendarDataSo
         } else {
             mainView.calendar.setScope(.month, animated: true)
         }
+    }
+    
+    @objc func calendarHomeResetButtonTapped() {
+        print(#function)
+        self.mainView.calendar.setCurrentPage(Date(), animated: true)
     }
     
     @objc func moveMonthButtonDidTap(sender: UIButton) {

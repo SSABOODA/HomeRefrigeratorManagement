@@ -16,25 +16,6 @@ final class CalendarView: BaseView {
         return view
     }()
     
-    // @Deprecated
-    private let calendarHomeResetButtonView = {
-        let view = UIView()
-        view.clipsToBounds = false
-        view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowOpacity = 0.5
-        view.layer.shadowOffset = CGSize(width: 5, height: 5)
-        view.layer.shadowRadius = 5
-        return view
-    }()
-    // @Deprecated
-    let calendarHomeResetButton = {
-        let button = UIButton()
-        button.setImage(UIImage(systemName: "arrow.counterclockwise"), for: .normal)
-        button.setImage(UIImage(systemName: "arrow.clockwise"), for: .highlighted)
-        button.tintColor = Constant.BaseColor.tintColor
-        return button
-    }()
-    
     private let calendarTypeChangeButtonView = {
         let view = UIView()
         view.clipsToBounds = false
@@ -47,7 +28,25 @@ final class CalendarView: BaseView {
     
     let calendarTypeChangeButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "chevron.up.chevron.down"), for: .normal)
+//        button.setImage(UIImage(systemName: "chevron.up.chevron.down"), for: .normal)
+        button.setImage(UIImage(systemName: "chevron.down"), for: .normal)
+        button.tintColor = Constant.BaseColor.tintColor
+        return button
+    }()
+    
+    private let calendarHomeResetButtonView = {
+        let view = UIView()
+        view.clipsToBounds = false
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.5
+        view.layer.shadowOffset = CGSize(width: 5, height: 5)
+        view.layer.shadowRadius = 5
+        return view
+    }()
+    
+    lazy var calendarHomeResetButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "arrow.counterclockwise"), for: .normal)
         button.tintColor = Constant.BaseColor.tintColor
         return button
     }()
@@ -78,8 +77,8 @@ final class CalendarView: BaseView {
         calendar.appearance.headerTitleFont = .boldSystemFont(ofSize: 25)
         calendar.appearance.headerMinimumDissolvedAlpha = 0.0
         
-        calendar.appearance.eventDefaultColor = UIColor.systemRed
-        calendar.appearance.eventSelectionColor = UIColor.systemRed
+//        calendar.appearance.eventDefaultColor = UIColor.systemRed
+//        calendar.appearance.eventSelectionColor = UIColor.systemRed
         
         calendar.appearance.titleSelectionColor = UIColor(hexCode: "#517DD6")
         calendar.appearance.subtitleSelectionColor = UIColor(hexCode: "#517DD6")
@@ -119,13 +118,22 @@ final class CalendarView: BaseView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        print(#function, CalendarView.description())
+//        print(#function, CalendarView.description())
+        
+        if calendar.scope == .month {
+            calendarTypeChangeButton.setImage(UIImage(systemName: "chevron.down"), for: .normal)
+        } else {
+            calendarTypeChangeButton.setImage(UIImage(systemName: "chevron.up"), for: .normal)
+        }
     }
     
     override func configureHierarchy() {
         addSubview(calendarTopView)
         calendarTopView.addSubview(calendarTypeChangeButtonView)
+        calendarTopView.addSubview(calendarHomeResetButtonView)
+        
         calendarTypeChangeButtonView.addSubview(calendarTypeChangeButton)
+        calendarHomeResetButtonView.addSubview(calendarHomeResetButton)
         
         addSubview(calendar)
         addSubview(prevButton)
@@ -147,6 +155,16 @@ final class CalendarView: BaseView {
         }
         
         calendarTypeChangeButton.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.edges.equalToSuperview().inset(5)
+        }
+        
+        calendarHomeResetButtonView.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.trailing.equalTo(calendarTypeChangeButtonView.snp.leading).inset(-10)
+        }
+        
+        calendarHomeResetButton.snp.makeConstraints { make in
             make.center.equalToSuperview()
             make.edges.equalToSuperview().inset(5)
         }
