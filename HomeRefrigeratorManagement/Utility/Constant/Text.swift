@@ -18,13 +18,13 @@ extension Constant {
     enum SystemImageName {
         
         // TabBar System Image
-        static let calendarVCTabBarImage = "calendar.circle"
+        static let calendarVCTabBarImage = "calendar.badge.clock"
         static let recipeVCTabBarImage = "fork.knife"
         static let foodManagementVCTabBarImage = "refrigerator"
-        static let settingVCTabBarImage = "person.circle"
+        static let settingVCTabBarImage = "person"
         
         // TabBar Selected System Image
-        static let calendarVCTabBarSelectImage = "\(SystemImageName.calendarVCTabBarImage).fill"
+        static let calendarVCTabBarSelectImage = "calendar.badge.clock"
         static let recipeVCTabBarSelectImage = "fork.knife"
         static let foodManagementVCTabBarSelectImage = "\(SystemImageName.foodManagementVCTabBarImage).fill"
         static let settingVCTabBarSelectImage = "\(SystemImageName.settingVCTabBarImage).fill"

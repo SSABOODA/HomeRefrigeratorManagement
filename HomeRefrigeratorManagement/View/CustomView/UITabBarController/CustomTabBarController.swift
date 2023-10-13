@@ -18,14 +18,14 @@ final class CustomTabBarController: UITabBarController {
     
     private func configureViewController() {
         let CalendarVC = UINavigationController(rootViewController: CalendarViewController())
-        let RecipeVC = UINavigationController(rootViewController: RecipeViewController())
+//        let RecipeVC = UINavigationController(rootViewController: RecipeViewController())
         let FoodManagementVC = UINavigationController(rootViewController: FoodManagementViewController())
         let SettingVC = UINavigationController(rootViewController: SettingViewController())
         
         setViewControllers(
             [
                 CalendarVC,
-                RecipeVC,
+//                RecipeVC,
                 FoodManagementVC,
                 SettingVC
             ], animated: true
@@ -40,12 +40,12 @@ final class CustomTabBarController: UITabBarController {
             selectedImageString: Constant.SystemImageName.calendarVCTabBarSelectImage
         )
         
-        createTabBarItem(
-            viewContoller: RecipeVC,
-            titleString: Constant.TabBarTitle.recipeVC,
-            imageString: Constant.SystemImageName.recipeVCTabBarImage,
-            selectedImageString: Constant.SystemImageName.recipeVCTabBarSelectImage
-        )
+//        createTabBarItem(
+//            viewContoller: RecipeVC,
+//            titleString: Constant.TabBarTitle.recipeVC,
+//            imageString: Constant.SystemImageName.recipeVCTabBarImage,
+//            selectedImageString: Constant.SystemImageName.recipeVCTabBarSelectImage
+//        )
         
         createTabBarItem(
             viewContoller: FoodManagementVC,
@@ -64,10 +64,14 @@ final class CustomTabBarController: UITabBarController {
     
     private func configureTabBarLayout() {
         tabBar.tintColor = Constant.BaseColor.tintColor
-        tabBar.backgroundColor = Constant.BaseColor.backgroundColor
+        tabBar.backgroundColor = .white
         
         tabBar.layer.borderColor = Constant.BaseColor.borderColor
         tabBar.layer.borderWidth = Constant.TabBarLayoutDesign.tabBarBorderWidth
+        
+        tabBar.layer.masksToBounds = true
+        tabBar.layer.cornerRadius = tabBar.frame.height * 0.5
+        tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     
     private func configureTabBar() {
