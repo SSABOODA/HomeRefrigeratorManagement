@@ -53,43 +53,46 @@ extension UIViewController {
     
     // MARK: - alert
 
-    // 식품 등록, 수정 시 저장 방법을 입력하지 않았을 경우
-    func emptyStorageTypeAlert() {
-        let alert = UIAlertController(title: "저장 방법을 선택해주세요", message: nil, preferredStyle: .alert)
-        let ok = UIAlertAction(title: "확인", style: .default)
-        alert.addAction(ok)
-        present(alert, animated: true)
-    }
-    
-    // 식품 등록, 수정 시 수량을 입력하지 않았을 경우
-    func noInputFoodCountAlert() {
-        let alert = UIAlertController(title: "수량을 입력해주세요", message: nil, preferredStyle: .alert)
-        let ok = UIAlertAction(title: "확인", style: .default)
-        alert.addAction(ok)
-        present(alert, animated: true)
-    }
-    
-    // 식품 정보 삭제 시
-    func deleteFoodDataAlert(_ completionHandler: @escaping () -> Void) {
-        let alert = UIAlertController(title: "정말 삭제하시겠습니까?", message: nil, preferredStyle: .alert)
-        let ok = UIAlertAction(title: "확인", style: .destructive) { _ in
-            completionHandler()
+    func showAlertAction1(
+        preferredStyle: UIAlertController.Style = .alert,
+        title: String = "",
+        message: String = "",
+        completeTitle: String = "확인", _ completeHandler:(() -> Void)? = nil) {
+        
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: title, message: message, preferredStyle: preferredStyle)
+            
+            let completeAction = UIAlertAction(title: completeTitle, style: .default) { action in
+                completeHandler?()
+            }
+            
+            alert.addAction(completeAction)
+            self.present(alert, animated: true, completion: nil)
         }
-        let cancel = UIAlertAction(title: "취소", style: .default)
-        alert.addAction(ok)
-        alert.addAction(cancel)
-        present(alert, animated: true)
     }
     
-    // 식품 정보 업데이트 시
-    func updateFoodDataAlert(_ completionHandler: @escaping () -> Void) {
-        let alert = UIAlertController(title: "수정하시겠습니까?", message: nil, preferredStyle: .alert)
-        let ok = UIAlertAction(title: "확인", style: .destructive) { _ in
-            completionHandler()
+    
+    func showAlertAction2(
+        preferredStyle: UIAlertController.Style = .alert,
+        title: String = "",
+        message: String = "",
+        cancelTitle: String = "취소",
+        completeTitle: String = "확인",  _ cancelHandler: (() -> Void)? = nil, _ completeHandler: (() -> Void)? = nil) {
+            
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: title, message: message, preferredStyle: preferredStyle)
+                
+                let cancelAction = UIAlertAction(title: cancelTitle, style: .cancel) { action in
+                    cancelHandler?()
+                }
+                
+                let completeAction = UIAlertAction(title: completeTitle, style: .destructive) { action in
+                    completeHandler?()
+                }
+                
+                alert.addAction(cancelAction)
+                alert.addAction(completeAction)
+                self.present(alert, animated: true, completion: nil)
+            }
         }
-        let cancel = UIAlertAction(title: "취소", style: .default)
-        alert.addAction(ok)
-        alert.addAction(cancel)
-        present(alert, animated: true)
-    }
 }

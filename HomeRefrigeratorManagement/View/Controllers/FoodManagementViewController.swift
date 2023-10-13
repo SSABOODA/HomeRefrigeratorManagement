@@ -115,7 +115,7 @@ extension FoodManagementViewController: UICollectionViewDelegate {
             guard let weakSelf = self else {return }
             if isDelete {
                 weakSelf.viewModel.deleteFoodData = food
-                weakSelf.view.makeToast("식품이 삭제되었습니다.")
+                weakSelf.view.makeToast(Constant.ToastMessage.foodDeleteSuccessMessage)
             }
         }
         transition(viewController: nextVC, style: .push)
@@ -146,7 +146,7 @@ extension FoodManagementViewController {
             cell.foodImageView.image = UIImage(named: itemIdentifier.name)
             cell.nameLabel.text = itemIdentifier.name
             cell.descriptionLabel.text = itemIdentifier.descriptionContent.isEmpty ? itemIdentifier.name : itemIdentifier.descriptionContent
-            cell.purchaseDateLabel.text = "구매일자: \(itemIdentifier.purchaseDate.koreanDateFormatToString())"
+            cell.purchaseDateLabel.text = "구매일자: \(itemIdentifier.purchaseDate.toString(format: .compactDot))"
             cell.expirationDateLabel.text = self.viewModel.caculateDday(itemIdentifier.expirationDate)
         }
         

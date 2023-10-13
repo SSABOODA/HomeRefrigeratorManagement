@@ -35,7 +35,7 @@ final class FoodManagementCollectionViewCell: BaseCollectionViewCell {
     
     let purchaseDateLabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 11)
+        label.font = .systemFont(ofSize: 13)
         label.textColor = Constant.BaseColor.tintColor
         label.numberOfLines = 1
         return label

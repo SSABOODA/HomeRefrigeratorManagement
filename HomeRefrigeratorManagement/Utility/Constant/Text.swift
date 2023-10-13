@@ -43,5 +43,23 @@ extension Constant {
     
     enum ToastMessage {
         static let foodSaveSuccessMessage = "식품 저장이 완료되었습니다.😃"
+        static let foodDeleteSuccessMessage = "식품이 삭제되었습니다."
+    }
+    
+    enum ButtonSetTitle {
+        static let foodDeleteButtonTitle = "삭제하기"
+        static let foodUpdateButtonTitle = "수정하기"
+    }
+    
+    enum AlertText {
+        // 저장 방법이 존재하지 않을 때 얼럿
+        static let emptyStorageTitleMessage = "저장 방법을 선택해주세요"
+        // 수량이 존재하지 않을 때 얼럿
+        static let noInputFoodCountTitleMessage = "수량을 입력해주세요"
+        // 식품 삭제 시
+        static let deleteAlertTitleMessage = "정말 삭제하시겠습니까?"
+        // 식품 수정 시
+        static let updateAlertTitleMessage = "수정하시겠습니까?"
+        
     }
 }

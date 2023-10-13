@@ -196,16 +196,17 @@ class FoodDetailManagementView: BaseView {
     
     let deleteButton = {
         let button = UIButton()
-        button.setTitle("삭제하기", for: .normal)
+        button.setTitle(Constant.ButtonSetTitle.foodDeleteButtonTitle, for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 13)
         button.setTitleColor(UIColor.white, for: .normal)
-        button.backgroundColor = UIColor(hexCode: "#E27749")
+//        button.backgroundColor = UIColor(hexCode: "#A1A2A5")
+        button.backgroundColor = .black
         return button
     }()
     
     let updateButton = {
         let button = UIButton()
-        button.setTitle("수정하기", for: .normal)
+        button.setTitle(Constant.ButtonSetTitle.foodUpdateButtonTitle, for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 13)
         button.setTitleColor(UIColor.white, for: .normal)
         button.backgroundColor = Constant.BaseColor.basePointColor

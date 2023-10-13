@@ -107,16 +107,23 @@ final class FoodDetailManagementViewController: BaseViewController {
         print(#function)
         viewModel.foodModel.value.purchaseDate = mainView.registerDateTextField.text?.toDate() ?? Date()
         viewModel.foodModel.value.expirationDate = mainView.expirationDateTextField.text?.toDate() ?? Date()
-
-        updateFoodDataAlert {
+        
+        showAlertAction2(
+            preferredStyle: .alert,
+            title: Constant.AlertText.updateAlertTitleMessage
+        ) {} _: {
             self.viewModel.updateData()
             self.navigationController?.popViewController(animated: true)
         }
+
     }
     
     @objc func deleteButtonTapped() {
         print(#function)
-        deleteFoodDataAlert {
+        showAlertAction2(
+            preferredStyle: .alert,
+            title: Constant.AlertText.deleteAlertTitleMessage
+        ) {} _: {
             self.viewModel.deleteData()
             self.navigationController?.popViewController(animated: true)
         }
@@ -136,8 +143,6 @@ extension FoodDetailManagementViewController: UITextFieldDelegate {
 //        if Int(string) == nil {
 //            return false
 //        } else {
-//            print(2222)
-//            print(string)
 //            guard let text = textField.text else { return true }
 //            guard let count = Int(text) else { return false }
 //            return count <= 100

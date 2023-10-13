@@ -75,7 +75,7 @@ extension CalendarViewController {
             cell.foodImageView.image = UIImage(named: itemIdentifier.name)
             cell.nameLabel.text = itemIdentifier.name
             cell.descriptionLabel.text = itemIdentifier.descriptionContent.isEmpty ? itemIdentifier.name : itemIdentifier.descriptionContent
-            cell.purchaseDateLabel.text = "구매일자: \(itemIdentifier.purchaseDate.koreanDateFormatToString())"
+            cell.purchaseDateLabel.text = "구매일자: \(itemIdentifier.purchaseDate.toString(format: .compactDot))"
             cell.expirationDateLabel.text = self.viewModel.caculateDday(itemIdentifier.expirationDate)
         }
         

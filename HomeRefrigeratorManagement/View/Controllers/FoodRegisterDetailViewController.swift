@@ -92,6 +92,8 @@ final class FoodRegisterDetailViewController: BaseViewController {
     }
 }
 
+// UIPickerViewDelegate
+
 extension FoodRegisterDetailViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func configPickerView() {
         picker.delegate = self
@@ -148,6 +150,7 @@ extension FoodRegisterDetailViewController: UIPickerViewDelegate, UIPickerViewDa
 
 }
 
+// DatePicker
 extension FoodRegisterDetailViewController {
     func dateFormatterAlert(_ sender: UITextField) {
         let alert = UIAlertController(title: "구매 일자", message: nil, preferredStyle: .actionSheet)
@@ -177,11 +180,19 @@ extension FoodRegisterDetailViewController {
         guard let registerDate = self.mainView.registerDateTextField.text?.toDate() else { return }
         guard let expirationDate = self.mainView.expirationDateTextField.text?.toDate() else { return }
         guard let storageTypeText = self.mainView.storageTypeTextField.text, !storageTypeText.isEmpty else {
-            emptyStorageTypeAlert()
+            
+            showAlertAction1(
+                preferredStyle: .alert,
+                title: Constant.AlertText.emptyStorageTitleMessage
+            )
             return
         }
         guard let count = Int(self.mainView.countTextField.text ?? "0") else {
-            noInputFoodCountAlert()
+            
+            showAlertAction1(
+                preferredStyle: .alert,
+                title: Constant.AlertText.noInputFoodCountTitleMessage
+            )
             return
         }
         

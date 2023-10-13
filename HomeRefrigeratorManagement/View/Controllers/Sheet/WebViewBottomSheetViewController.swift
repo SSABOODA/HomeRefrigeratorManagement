@@ -29,10 +29,7 @@ final class WebViewBottomSheetViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let dimmedTap = UITapGestureRecognizer(target: self, action: #selector(dimmedViewTapped(_:)))
-        dimmedView.addGestureRecognizer(dimmedTap)
-        dimmedView.isUserInteractionEnabled = true
+        setupTapGestures()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -67,8 +64,14 @@ final class WebViewBottomSheetViewController: BaseViewController {
         ])
     }
     
+    private func setupTapGestures() {
+        let dimmedTap = UITapGestureRecognizer(target: self, action: #selector(dimmedViewTapped(_:)))
+        dimmedView.addGestureRecognizer(dimmedTap)
+        dimmedView.isUserInteractionEnabled = true
+    }
+    
     private func showBottomSheet() {
-        let safeAreaHeight: CGFloat = view.safeAreaLayoutGuide.layoutFrame.height
+        let safeAreaHeight: CGFloat = view.safeAreaLayoutGuide.layoutFrame.size.height
         let bottomPadding: CGFloat = view.safeAreaInsets.bottom
         
         bottomSheetViewTopConstraint.constant = (safeAreaHeight + bottomPadding) - defaultHeight
