@@ -14,7 +14,7 @@ enum Constant {
     }
 
     enum MainView {
-        static let mainViewHorizontalPadding = 25
+        static let mainViewHorizontalPadding = 20
     }
     
     enum StackView {

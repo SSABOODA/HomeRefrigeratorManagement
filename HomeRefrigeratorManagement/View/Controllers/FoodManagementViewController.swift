@@ -96,6 +96,7 @@ extension FoodManagementViewController {
             
             let originalFilterMenu = UIMenu(title: "", options: .displayInline, children: [nameFilterAction, registerDateFilterAction, expirationDateFilterAction])
             let menu = UIMenu(title: "정렬", children: [originalFilterMenu])
+            
             return menu
         }
     }

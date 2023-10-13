@@ -63,7 +63,7 @@ class FoodManagementView: BaseView {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 15
         layout.minimumInteritemSpacing = 30
-        let width = Constant.ScreenSize.deviceScreenWidth - 50
+        let width = Constant.ScreenSize.deviceScreenWidth - 40
         layout.itemSize = CGSize(width: width, height: 100)
         layout.scrollDirection = .vertical
         layout.sectionInset = UIEdgeInsets(top: 15, left: 0, bottom: 25, right: 0)
