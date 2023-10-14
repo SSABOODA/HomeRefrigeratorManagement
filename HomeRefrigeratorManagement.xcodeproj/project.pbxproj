@@ -31,6 +31,9 @@
 		F7610A4E2AD8020700832129 /* RecipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A4D2AD8020700832129 /* RecipeCollectionViewCell.swift */; };
 		F7610A512AD83FCF00832129 /* WebViewBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A502AD83FCF00832129 /* WebViewBottomSheetViewController.swift */; };
 		F7610A532AD9109D00832129 /* YoutubeWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A522AD9109D00832129 /* YoutubeWebViewViewController.swift */; };
+		F78B9B292ADA54D400EA61CB /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78B9B282ADA54D400EA61CB /* ChartViewController.swift */; };
+		F78B9B2B2ADA572700EA61CB /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78B9B2A2ADA572700EA61CB /* ChartView.swift */; };
+		F78B9B302ADA761A00EA61CB /* ChartContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78B9B2F2ADA761900EA61CB /* ChartContentView.swift */; };
 		F7C31D782AC2CE2E008DAA21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D772AC2CE2E008DAA21 /* AppDelegate.swift */; };
 		F7C31D7A2AC2CE2F008DAA21 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D792AC2CE2F008DAA21 /* SceneDelegate.swift */; };
 		F7C31D7C2AC2CE2F008DAA21 /* FoodManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D7B2AC2CE2F008DAA21 /* FoodManagementViewController.swift */; };
@@ -107,6 +110,9 @@
 		F7610A4D2AD8020700832129 /* RecipeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCollectionViewCell.swift; sourceTree = "<group>"; };
 		F7610A502AD83FCF00832129 /* WebViewBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewBottomSheetViewController.swift; sourceTree = "<group>"; };
 		F7610A522AD9109D00832129 /* YoutubeWebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeWebViewViewController.swift; sourceTree = "<group>"; };
+		F78B9B282ADA54D400EA61CB /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
+		F78B9B2A2ADA572700EA61CB /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		F78B9B2F2ADA761900EA61CB /* ChartContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartContentView.swift; sourceTree = "<group>"; };
 		F7C31D742AC2CE2E008DAA21 /* HomeRefrigeratorManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeRefrigeratorManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7C31D772AC2CE2E008DAA21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7C31D792AC2CE2F008DAA21 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -211,6 +217,20 @@
 				F7610A502AD83FCF00832129 /* WebViewBottomSheetViewController.swift */,
 			);
 			path = Sheet;
+			sourceTree = "<group>";
+		};
+		F78B9B2E2ADA75D600EA61CB /* ViewContollerMainView */ = {
+			isa = PBXGroup;
+			children = (
+				F7610A222AD54A2500832129 /* CalendarView.swift */,
+				F7610A4B2AD8012D00832129 /* RecipeView.swift */,
+				F7C31DD72AC5A90A008DAA21 /* FoodManagementView.swift */,
+				F7289E4F2AD2E99900E092C6 /* FoodDetailManagementView.swift */,
+				F7C31E2D2ACE9DAB008DAA21 /* FoodRegisterDetailView.swift */,
+				F7C31E3D2ACFE025008DAA21 /* FoodRegisterTextFieldView.swift */,
+				F78B9B2A2ADA572700EA61CB /* ChartView.swift */,
+			);
+			path = ViewContollerMainView;
 			sourceTree = "<group>";
 		};
 		F7C31D6B2AC2CE2E008DAA21 = {
@@ -362,6 +382,7 @@
 				F7C31E292ACE8E8C008DAA21 /* FoodRegisterDetailViewController.swift */,
 				F7C31DC52AC2E57D008DAA21 /* SettingViewController.swift */,
 				F7610A522AD9109D00832129 /* YoutubeWebViewViewController.swift */,
+				F78B9B282ADA54D400EA61CB /* ChartViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -430,12 +451,8 @@
 			isa = PBXGroup;
 			children = (
 				F7248A382AD963C600D768DF /* CollectionViewHeaderView */,
-				F7610A222AD54A2500832129 /* CalendarView.swift */,
-				F7610A4B2AD8012D00832129 /* RecipeView.swift */,
-				F7C31DD72AC5A90A008DAA21 /* FoodManagementView.swift */,
-				F7289E4F2AD2E99900E092C6 /* FoodDetailManagementView.swift */,
-				F7C31E2D2ACE9DAB008DAA21 /* FoodRegisterDetailView.swift */,
-				F7C31E3D2ACFE025008DAA21 /* FoodRegisterTextFieldView.swift */,
+				F78B9B2E2ADA75D600EA61CB /* ViewContollerMainView */,
+				F78B9B2F2ADA761900EA61CB /* ChartContentView.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -620,6 +637,7 @@
 				F7C31D7C2AC2CE2F008DAA21 /* FoodManagementViewController.swift in Sources */,
 				F7C31DDA2AC5A924008DAA21 /* BaseView.swift in Sources */,
 				F7C31E2C2ACE93E3008DAA21 /* FoodRegisterDetailViewModel.swift in Sources */,
+				F78B9B292ADA54D400EA61CB /* ChartViewController.swift in Sources */,
 				F7C31DCC2AC2EF27008DAA21 /* BaseViewController.swift in Sources */,
 				F7C31E3A2ACFD0D8008DAA21 /* UIView+Extension.swift in Sources */,
 				F7289E502AD2E99900E092C6 /* FoodDetailManagementView.swift in Sources */,
@@ -630,6 +648,7 @@
 				F7C31E262ACD7847008DAA21 /* FoodConstant.swift in Sources */,
 				F7C31DE42AC5C5F3008DAA21 /* UIViewController+Extension.swift in Sources */,
 				F7610A4C2AD8012D00832129 /* RecipeView.swift in Sources */,
+				F78B9B302ADA761A00EA61CB /* ChartContentView.swift in Sources */,
 				F7C31D922AC2CFEA008DAA21 /* APIKey.swift in Sources */,
 				F7C31DCA2AC2E93E008DAA21 /* Text.swift in Sources */,
 				F7C31E222ACD41A4008DAA21 /* FoodModel.swift in Sources */,
@@ -645,6 +664,7 @@
 				F7C31D9E2AC2D619008DAA21 /* Observable.swift in Sources */,
 				F7C31DD62AC5A602008DAA21 /* UITabBarController+Extension.swift in Sources */,
 				F7C31E362ACFABFD008DAA21 /* FoodDetailSettingLabel.swift in Sources */,
+				F78B9B2B2ADA572700EA61CB /* ChartView.swift in Sources */,
 				F7C31D7A2AC2CE2F008DAA21 /* SceneDelegate.swift in Sources */,
 				F7C31DD12AC32A0B008DAA21 /* RealmTableRepository.swift in Sources */,
 				F7C31DBE2AC2DE7B008DAA21 /* Color.swift in Sources */,

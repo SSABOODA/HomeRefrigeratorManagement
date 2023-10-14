@@ -80,13 +80,13 @@ extension FoodManagementViewController {
         self.navigationItem.backBarButtonItem = backButtonItem
         
         // navigation right button
-        let navItem = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal.decrease.circle"), menu: createMenu())
-        navItem.tintColor = .black
-        navigationItem.rightBarButtonItem = navItem
+        let sortButton = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal.decrease.circle"), menu: createMenu())
+        sortButton.tintColor = .black
+        navigationItem.rightBarButtonItem = sortButton
         
-        let navItem2 = UIBarButtonItem(image: UIImage(systemName: "chart.pie"), style: .plain, target: self, action: #selector(navItem2Tapped))
-        navItem2.tintColor = .black
-        navigationItem.rightBarButtonItems = [navItem, navItem2]
+        let chartButton = UIBarButtonItem(image: UIImage(systemName: "chart.pie"), style: .plain, target: self, action: #selector(chartButtonTapped))
+        chartButton.tintColor = .black
+        navigationItem.rightBarButtonItems = [sortButton, chartButton]
         
         func createMenu() -> UIMenu {
             // DB filter
@@ -115,9 +115,11 @@ extension FoodManagementViewController {
         }
     }
     
-    @objc func navItem2Tapped() {
+    @objc func chartButtonTapped() {
         print(#function)
         // TODO: Chart
+        let vc = ChartViewController()
+        transition(viewController: vc, style: .push)
     }
 }
 
@@ -264,7 +266,6 @@ extension FoodManagementViewController {
         }
     }
     
-    // TODO: 초성 검색 가능하게 작업해야함.
     private func performQuery(
         searchText: String,
         sortType: SortType = .expiration,
