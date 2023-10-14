@@ -18,7 +18,9 @@ final class FoodDetailManagementViewModel {
     var registerDate = Observable(Date().dateFormat(date: Date()))
     
     var storageType: [String] {
-        return Constant.FoodStorageType.allCases.map { $0.rawValue }
+        return Constant.FoodStorageType.allCases.filter {
+            $0.rawValue != "전체"
+        }.map { $0.rawValue }
     }
     
     var completionHandler: ((Bool) -> Void)?

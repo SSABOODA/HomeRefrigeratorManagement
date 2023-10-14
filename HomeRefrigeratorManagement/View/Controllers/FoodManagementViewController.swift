@@ -227,7 +227,6 @@ extension FoodManagementViewController {
         
         storageFilterButtonUpdateUI(sender.tag)
         storageChoiceWork()
-        print(storageAllButtonIsActive, storageOutdoorButtonIsActive, storageIceButtonIsActive, storageFrozenButtonIsActive)
     }
     
     private func storageFilterButtonUpdateUI(_ tag: Int) {
