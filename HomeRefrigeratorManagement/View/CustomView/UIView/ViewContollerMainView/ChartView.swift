@@ -176,7 +176,17 @@ final class ChartView: BaseView {
     
     let pieChartView = {
         let view = PieChartView()
-        view.backgroundColor = .darkGray
+        // 데이터 없을 UI 세팅
+        view.noDataText = "출력 데이터가 없습니다. 😭".localized
+        view.noDataFont = UIFont(name: Constant.Font.soyoBold, size: 20)!
+        view.noDataTextColor = .orange
+        view.noDataTextAlignment = .center
+        view.backgroundColor = Constant.BaseColor.backgroundColor
+        // pieChart UI 세팅
+        view.legend.font = UIFont(name: Constant.Font.soyoRegular, size: 12)!
+        view.entryLabelFont = UIFont(name: Constant.Font.soyoRegular, size: 10)
+        view.entryLabelColor = .black
+        view.tintColor = .black
         return view
     }()
     
@@ -227,8 +237,7 @@ final class ChartView: BaseView {
         }
         
         headerTitleLabel.snp.makeConstraints { make in
-            make.top.horizontalEdges.equalToSuperview().inset(5)
-            make.height.equalToSuperview().multipliedBy(0.5)
+            make.top.horizontalEdges.equalToSuperview().inset(20)
         }
         
         headerSubTitleLabel.snp.makeConstraints { make in
@@ -244,8 +253,8 @@ final class ChartView: BaseView {
         }
         
         totalAnalysisTitleLabel.snp.makeConstraints { make in
-            make.top.horizontalEdges.equalToSuperview().inset(10)
-            make.height.equalToSuperview().multipliedBy(0.2)
+            make.top.horizontalEdges.equalToSuperview().inset(20)
+//            make.height.equalToSuperview().multipliedBy(0.2)
         }
         
         firstTotalAnalysisContentStackView.snp.makeConstraints { make in
@@ -282,17 +291,17 @@ final class ChartView: BaseView {
         chartAnalyView.snp.makeConstraints { make in
             make.top.equalTo(totalAnalysisView.snp.bottom).inset(-15)
             make.horizontalEdges.equalTo(contentView.snp.horizontalEdges).inset(Constant.MainView.mainViewHorizontalPadding)
-            make.height.equalTo(Constant.ScreenSize.deviceScreenHeight*0.3)
+            make.height.equalTo(Constant.ScreenSize.deviceScreenHeight*0.6)
         }
         
         chartAnalyTitleLabel.snp.makeConstraints { make in
-            make.top.horizontalEdges.equalToSuperview().inset(10)
-            make.height.equalToSuperview().multipliedBy(0.2)
+            make.top.horizontalEdges.equalToSuperview().inset(20)
         }
         
         pieChartView.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-            make.size.equalTo(200)
+            make.top.equalTo(chartAnalyTitleLabel.snp.bottom).inset(-30)
+            make.centerX.equalToSuperview()
+            make.size.equalTo(350)
         }
         
 

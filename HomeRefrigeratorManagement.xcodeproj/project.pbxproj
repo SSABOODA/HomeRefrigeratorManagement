@@ -38,6 +38,7 @@
 		F78B9B362ADA86F200EA61CB /* SOYOMapleBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F78B9B342ADA86F200EA61CB /* SOYOMapleBold.ttf */; };
 		F78B9B382ADA899A00EA61CB /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78B9B372ADA899A00EA61CB /* Font.swift */; };
 		F78B9B3B2ADAC1CA00EA61CB /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = F78B9B3A2ADAC1CA00EA61CB /* DGCharts */; };
+		F78B9B3E2ADAD07D00EA61CB /* ChartViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78B9B3D2ADAD07D00EA61CB /* ChartViewmodel.swift */; };
 		F7C31D782AC2CE2E008DAA21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D772AC2CE2E008DAA21 /* AppDelegate.swift */; };
 		F7C31D7A2AC2CE2F008DAA21 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D792AC2CE2F008DAA21 /* SceneDelegate.swift */; };
 		F7C31D7C2AC2CE2F008DAA21 /* FoodManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D7B2AC2CE2F008DAA21 /* FoodManagementViewController.swift */; };
@@ -120,6 +121,7 @@
 		F78B9B332ADA86F100EA61CB /* SOYOMapleRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SOYOMapleRegular.ttf; sourceTree = "<group>"; };
 		F78B9B342ADA86F200EA61CB /* SOYOMapleBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SOYOMapleBold.ttf; sourceTree = "<group>"; };
 		F78B9B372ADA899A00EA61CB /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		F78B9B3D2ADAD07D00EA61CB /* ChartViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewmodel.swift; sourceTree = "<group>"; };
 		F7C31D742AC2CE2E008DAA21 /* HomeRefrigeratorManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeRefrigeratorManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7C31D772AC2CE2E008DAA21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7C31D792AC2CE2F008DAA21 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 				F7289E4D2AD2C60300E092C6 /* FoodDetailManagementViewModel.swift */,
 				F7C31E232ACD4636008DAA21 /* FoodRegisterListViewModel.swift */,
 				F7C31E2B2ACE93E3008DAA21 /* FoodRegisterDetailViewModel.swift */,
+				F78B9B3D2ADAD07D00EA61CB /* ChartViewmodel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -346,8 +349,8 @@
 				F7C31DBB2AC2DE64008DAA21 /* Constant.swift */,
 				F7C31DBD2AC2DE7B008DAA21 /* Color.swift */,
 				F7C31DC92AC2E93E008DAA21 /* Text.swift */,
-				F7C31E252ACD7847008DAA21 /* FoodConstant.swift */,
 				F78B9B372ADA899A00EA61CB /* Font.swift */,
+				F7C31E252ACD7847008DAA21 /* FoodConstant.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -654,6 +657,7 @@
 				F7C31DC62AC2E57D008DAA21 /* SettingViewController.swift in Sources */,
 				F7C31DDC2AC5ABF7008DAA21 /* FoodManagementCollectionViewCell.swift in Sources */,
 				F7C31DAF2AC2DA29008DAA21 /* String+Extension.swift in Sources */,
+				F78B9B3E2ADAD07D00EA61CB /* ChartViewmodel.swift in Sources */,
 				F7289E4C2AD2C05400E092C6 /* FoodDetailManagementViewController.swift in Sources */,
 				F7610A212AD5458C00832129 /* CalendarViewModel.swift in Sources */,
 				F7610A4A2AD7C60400832129 /* RecipeViewModel.swift in Sources */,
