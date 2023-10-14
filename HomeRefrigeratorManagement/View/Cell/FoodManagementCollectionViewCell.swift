@@ -29,7 +29,7 @@ final class FoodManagementCollectionViewCell: BaseCollectionViewCell {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 13)
         label.textColor = Constant.BaseColor.tintColor
-        label.numberOfLines = 0
+        label.numberOfLines = 1
         return label
     }()
     

@@ -10,8 +10,6 @@ import RealmSwift
 
 final class FoodManagementViewController: BaseViewController {
     
-//    static let titleElementKind = "title-element-kind"
-    
     private enum Section: CaseIterable {
         case main
     }
@@ -19,6 +17,14 @@ final class FoodManagementViewController: BaseViewController {
     private let mainView = FoodManagementView()
     private var dataSource: UICollectionViewDiffableDataSource<Section, Food>!
     private let viewModel = FoodManagementViewModel()
+    
+    private var storageAllButtonIsActive = false
+    private var storageOutdoorButtonIsActive = false
+    private var storageIceButtonIsActive = false
+    private var storageFrozenButtonIsActive = false
+    var storageButtonArray = [UIButton]()
+    var currentStorageType: Constant.FoodStorageType = .all
+    var searchText = ""
     
     override func loadView() {
         view = mainView
@@ -28,14 +34,15 @@ final class FoodManagementViewController: BaseViewController {
         super.viewDidLoad()
         addTarget()
         configureDataSource()
-        performQuery("")
+        performQuery(searchText: "", storageType: currentStorageType)
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print(#function, "FoodManagementViewController")
-        performQuery("@")
-        performQuery("")
+        performQuery(searchText: "", storageType: currentStorageType)
     }
     
     @objc func foodRegisterButtonTapped() {
@@ -77,7 +84,7 @@ extension FoodManagementViewController {
         navItem.tintColor = .black
         navigationItem.rightBarButtonItem = navItem
         
-        let navItem2 = UIBarButtonItem(image: UIImage(systemName: "chart.bar.xaxis"), style: .plain, target: self, action: #selector(navItem2Tapped))
+        let navItem2 = UIBarButtonItem(image: UIImage(systemName: "chart.pie"), style: .plain, target: self, action: #selector(navItem2Tapped))
         navItem2.tintColor = .black
         navigationItem.rightBarButtonItems = [navItem, navItem2]
         
@@ -85,19 +92,19 @@ extension FoodManagementViewController {
             // DB filter
             let nameFilterAction = UIAction(title: "이름 순".localized, image: UIImage(systemName: "arrow.up.arrow.down")) { [weak self] _ in
                 guard let self = self else { return }
-                self.performQuery("", .name)
+                self.performQuery(searchText: "", sortType: .name, storageType: currentStorageType)
                 viewModel.isAcending.value.toggle()
             }
             
             let registerDateFilterAction = UIAction(title: "등록일 순".localized, image: UIImage(systemName: "arrow.up.arrow.down")) { [weak self] _ in
                 guard let self = self else { return }
-                self.performQuery("", .register)
+                self.performQuery(searchText: "", sortType: .register, storageType: currentStorageType)
                 viewModel.isAcending.value.toggle()
             }
             
             let expirationDateFilterAction = UIAction(title: "유효기간 순".localized, image: UIImage(systemName: "arrow.up.arrow.down")) { [weak self] _ in
                 guard let self = self else { return }
-                self.performQuery("", .expiration)
+                self.performQuery(searchText: "", sortType: .expiration, storageType: currentStorageType)
                 viewModel.isAcending.value.toggle()
             }
             
@@ -110,6 +117,22 @@ extension FoodManagementViewController {
     
     @objc func navItem2Tapped() {
         print(#function)
+        // TODO: Chart
+    }
+}
+
+// MARK: - SearchBarDelegate {
+extension FoodManagementViewController: UISearchControllerDelegate, UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(#function)
+        performQuery(searchText: searchText, storageType: currentStorageType)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        print(#function)
+        searchBar.text = ""
+        guard let searchText = searchBar.text else { return }
+        performQuery(searchText: searchText, storageType: currentStorageType)
     }
 }
 
@@ -133,20 +156,7 @@ extension FoodManagementViewController: UICollectionViewDelegate {
     }
 }
 
-// MARK: - SearchBarDelegate {
-extension FoodManagementViewController: UISearchControllerDelegate, UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(#function)
-        performQuery(searchText)
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        print(#function)
-        searchBar.text = ""
-        guard let searchText = searchBar.text else { return }
-        performQuery(searchText)
-    }
-}
+
 
 // MARK: - DataSource
 extension FoodManagementViewController {
@@ -168,19 +178,106 @@ extension FoodManagementViewController {
         })
         
         let supplementaryRegistration = UICollectionView.SupplementaryRegistration<FoodManagementCollectionViewHeaderView>(elementKind: FoodManagementViewController.description()) { supplementaryView, elementKind, indexPath in
+            self.storageButtonArray.append(supplementaryView.storageAllTypeButton)
+            self.storageButtonArray.append(supplementaryView.storageOutdoorTypeButton)
+            self.storageButtonArray.append(supplementaryView.storageIceTypeButton)
+            self.storageButtonArray.append(supplementaryView.storageFrozenTypeButton)
+            var tag = 0
+            self.storageButtonArray.forEach {
+                $0.addTarget(
+                    self,
+                    action: #selector(self.storageFilterButtonTapped),
+                    for: .touchUpInside
+                )
+                $0.tag = tag
+                tag += 1
+            }
+            
+            self.storageFilterButtoninitialSetting(supplementaryView.storageAllTypeButton)
         }
         
         dataSource.supplementaryViewProvider = { (view, kind, index) in
             return self.mainView.collectionView.dequeueConfiguredReusableSupplementary(
                 using: supplementaryRegistration, for: index)
         }
-
+    }
+    
+    private func storageFilterButtoninitialSetting(_ button: UIButton) {
+        button.backgroundColor = .black
+        button.setTitleColor(.white, for: .normal)
+    }
+    
+    @objc func storageFilterButtonTapped(_ sender: UIButton) {
+        print(#function, sender.tag)
+        
+        storageAllButtonIsActive = false
+        storageOutdoorButtonIsActive = false
+        storageIceButtonIsActive = false
+        storageFrozenButtonIsActive = false
+        
+        if sender.tag == 0 {
+            storageAllButtonIsActive.toggle()
+        } else if sender.tag == 1 {
+            storageOutdoorButtonIsActive.toggle()
+        } else if sender.tag == 2 {
+            storageIceButtonIsActive.toggle()
+        } else {
+            storageFrozenButtonIsActive.toggle()
+        }
+        
+        storageFilterButtonUpdateUI(sender.tag)
+        storageChoiceWork()
+        print(storageAllButtonIsActive, storageOutdoorButtonIsActive, storageIceButtonIsActive, storageFrozenButtonIsActive)
+    }
+    
+    private func storageFilterButtonUpdateUI(_ tag: Int) {
+        storageButtonArray[0].backgroundColor = !storageAllButtonIsActive ? .white : .black
+        storageButtonArray[1].backgroundColor = !storageOutdoorButtonIsActive ? .white : .black
+        storageButtonArray[2].backgroundColor = !storageIceButtonIsActive ? .white : .black
+        storageButtonArray[3].backgroundColor = !storageFrozenButtonIsActive ? .white : .black
+        storageButtonArray[0].setTitleColor(!storageAllButtonIsActive ? .black : .white, for: .normal)
+        storageButtonArray[1].setTitleColor(!storageOutdoorButtonIsActive ? .black : .white, for: .normal)
+        storageButtonArray[2].setTitleColor(!storageIceButtonIsActive ? .black : .white, for: .normal)
+        storageButtonArray[3].setTitleColor(!storageFrozenButtonIsActive ? .black : .white, for: .normal)
+    }
+    
+    private func storageChoiceWork() {
+        if storageAllButtonIsActive {
+            print("all 실행")
+            viewModel.filterStorageType(.all)
+            performQuery(searchText: "", storageType: .all)
+            currentStorageType = .all
+        } else if storageOutdoorButtonIsActive {
+            print("Outdoor 실행")
+            viewModel.filterStorageType(.outdoor)
+            performQuery(searchText: "", storageType: .outdoor)
+            currentStorageType = .outdoor
+        } else if storageIceButtonIsActive {
+            print("Ice 실행")
+            viewModel.filterStorageType(.cold)
+            performQuery(searchText: "", storageType: .cold)
+            currentStorageType = .cold
+        } else {
+            print("frozen 실행")
+            viewModel.filterStorageType(.frozen)
+            performQuery(searchText: "", storageType: .frozen)
+            currentStorageType = .frozen
+        }
     }
     
     // TODO: 초성 검색 가능하게 작업해야함.
-    private func performQuery(_ searchText: String, _ sortType: SortType = .expiration) {
+    private func performQuery(
+        searchText: String,
+        sortType: SortType = .expiration,
+        storageType: Constant.FoodStorageType
+    ) {
 
-        let item = viewModel.filterFoodData(searchText, sortType)
+        let item = viewModel.filterFoodData(
+            query: searchText,
+            sortType: sortType,
+            storageType: storageType
+        )
+        
         guard let item else { return }
         
         var snapshot = NSDiffableDataSourceSnapshot<Section, Food>()
@@ -195,6 +292,8 @@ extension FoodManagementViewController {
         }
         dataSource.apply(snapshot, animatingDifferences: true)
     }
+    
+    
 }
 
 // MARK: - UISheetPresentationControllerDelegate
@@ -204,7 +303,7 @@ extension FoodManagementViewController: UISheetPresentationControllerDelegate {
         
         formController.viewModel.completionHandler = { isSave in
             if isSave {
-                self.performQuery("")
+                self.performQuery(searchText: "", storageType: self.currentStorageType)
             }
         }
         

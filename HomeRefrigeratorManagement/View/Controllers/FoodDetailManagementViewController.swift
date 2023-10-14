@@ -137,6 +137,7 @@ extension FoodDetailManagementViewController {
     }
 }
 
+// TODO: 제약 조건
 extension FoodDetailManagementViewController: UITextFieldDelegate {
 //    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 //        print(#function, string)

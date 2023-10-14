@@ -112,6 +112,7 @@ class FoodManagementView: BaseView {
                 elementKind: FoodManagementViewController.description(),
                 alignment: .top
             )
+            titleSupplementary.pinToVisibleBounds = true
             section.boundarySupplementaryItems = [titleSupplementary]
             return section
         }
@@ -123,6 +124,7 @@ class FoodManagementView: BaseView {
             sectionProvider: sectionProvider,
             configuration: config
         )
+        
         return layout
     }
 }

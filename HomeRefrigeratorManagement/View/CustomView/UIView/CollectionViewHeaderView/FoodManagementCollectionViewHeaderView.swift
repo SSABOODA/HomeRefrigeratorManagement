@@ -9,6 +9,9 @@ import UIKit
 import SnapKit
 
 class FoodManagementCollectionViewHeaderView: UICollectionReusableView {
+//    enum StorageFilterButton: String {
+//    }
+    
     let storageAllTypeButton = {
         let button = FoodStorageTypeButton()
         button.setTitle("전체", for: .normal)

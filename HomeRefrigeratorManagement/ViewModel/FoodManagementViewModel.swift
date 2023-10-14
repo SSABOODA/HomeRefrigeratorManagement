@@ -15,7 +15,11 @@ final class FoodManagementViewModel {
     var isAcending = Observable(false) // false: 오름차순, true: 내림차순
     let localRealm = RealmTableRepository.shared
     
-    func filterFoodData(_ query: String, _ sortType: SortType) -> Results<Food>? {
+    func filterFoodData(
+        query: String,
+        sortType: SortType,
+        storageType: Constant.FoodStorageType
+    ) -> Results<Food>? {
         if query.isEmpty {
             filteredFoodData = localRealm.fetch(object: Food())
         } else {
@@ -26,10 +30,15 @@ final class FoodManagementViewModel {
             }
         }
         
+        self.filterStorageType(storageType)
+        
         filteredFoodData = filteredFoodData?.sorted(
             byKeyPath: sortType.rawValue,
             ascending: isAcending.value
         )
+        
+//        print("filteredFoodData: \(filteredFoodData)")
+        
         return filteredFoodData
     }
     
@@ -60,8 +69,17 @@ final class FoodManagementViewModel {
         guard let endTime = format.date(from: format.string(from: expirationData)) else { return "0" }
         let useTime = Int(endTime.timeIntervalSince(startTime))
         let dDay = Int(floor(Double(useTime/86400)))
-//        print("useTime: \(useTime)", "startTime: \(startTime)", "endTime: \(endTime)", "dday: \(dDay)")
         return dDay < 0 ? "D+\(-dDay)" : "D-\(dDay)"
+    }
+    
+    func filterStorageType(_ storageType: Constant.FoodStorageType) {
+        print(#function)
+        
+        if storageType != .all {
+            filteredFoodData = filteredFoodData?.where({ food in
+                return food.storageType.storageType == storageType.rawValue
+            })
+        }
     }
 }
 
