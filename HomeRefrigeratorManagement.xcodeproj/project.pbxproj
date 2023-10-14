@@ -36,6 +36,7 @@
 		F78B9B302ADA761A00EA61CB /* ChartContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78B9B2F2ADA761900EA61CB /* ChartContentView.swift */; };
 		F78B9B352ADA86F200EA61CB /* SOYOMapleRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F78B9B332ADA86F100EA61CB /* SOYOMapleRegular.ttf */; };
 		F78B9B362ADA86F200EA61CB /* SOYOMapleBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F78B9B342ADA86F200EA61CB /* SOYOMapleBold.ttf */; };
+		F78B9B382ADA899A00EA61CB /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78B9B372ADA899A00EA61CB /* Font.swift */; };
 		F7C31D782AC2CE2E008DAA21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D772AC2CE2E008DAA21 /* AppDelegate.swift */; };
 		F7C31D7A2AC2CE2F008DAA21 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D792AC2CE2F008DAA21 /* SceneDelegate.swift */; };
 		F7C31D7C2AC2CE2F008DAA21 /* FoodManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D7B2AC2CE2F008DAA21 /* FoodManagementViewController.swift */; };
@@ -117,6 +118,7 @@
 		F78B9B2F2ADA761900EA61CB /* ChartContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartContentView.swift; sourceTree = "<group>"; };
 		F78B9B332ADA86F100EA61CB /* SOYOMapleRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SOYOMapleRegular.ttf; sourceTree = "<group>"; };
 		F78B9B342ADA86F200EA61CB /* SOYOMapleBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SOYOMapleBold.ttf; sourceTree = "<group>"; };
+		F78B9B372ADA899A00EA61CB /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		F7C31D742AC2CE2E008DAA21 /* HomeRefrigeratorManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeRefrigeratorManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7C31D772AC2CE2E008DAA21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7C31D792AC2CE2F008DAA21 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 				F7C31DBD2AC2DE7B008DAA21 /* Color.swift */,
 				F7C31DC92AC2E93E008DAA21 /* Text.swift */,
 				F7C31E252ACD7847008DAA21 /* FoodConstant.swift */,
+				F78B9B372ADA899A00EA61CB /* Font.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -635,6 +638,7 @@
 				F7289E4E2AD2C60300E092C6 /* FoodDetailManagementViewModel.swift in Sources */,
 				F7C31E402AD153A3008DAA21 /* FoodStorageTypeButton.swift in Sources */,
 				F7C31E382ACFC37C008DAA21 /* Date+Extension.swift in Sources */,
+				F78B9B382ADA899A00EA61CB /* Font.swift in Sources */,
 				F7C31DE22AC5C3F1008DAA21 /* RealmTableRepositoryProtocol.swift in Sources */,
 				F7C31D9C2AC2D60E008DAA21 /* FoodManagementViewModel.swift in Sources */,
 				F7610A512AD83FCF00832129 /* WebViewBottomSheetViewController.swift in Sources */,

@@ -30,8 +30,8 @@ final class ChartView: BaseView {
     
     private let headerTitleLabel = {
         let label = UILabel()
-        label.text = "2023년 10월"
-        label.font = .boldSystemFont(ofSize: 25)
+        label.text = Date().toString(format: .compactDot)
+        label.font = UIFont(name: Constant.Font.soyoBold, size: 25)
         label.textAlignment = .center
         return label
     }()
@@ -40,7 +40,7 @@ final class ChartView: BaseView {
         let label = UILabel()
         label.text = "식품에 대한 분석을 살펴보세요"
         label.textAlignment = .center
-        label.font = .systemFont(ofSize: 13)
+        label.font = UIFont(name: Constant.Font.soyoRegular, size: 13)
         label.textColor = .lightGray
         return label
     }()
@@ -55,66 +55,75 @@ final class ChartView: BaseView {
         let label = UILabel()
         label.text = "종합 분석"
         label.textAlignment = .center
-        label.font = .boldSystemFont(ofSize: 25)
+        label.font = UIFont(name: Constant.Font.soyoBold, size: 25)
         return label
     }()
     
     let firstTotalAnalysisImageView = {
         let view = UIImageView()
-        view.image = UIImage(systemName: "person")
+        view.image = UIImage(named: "가지")
+        view.contentMode = .scaleAspectFit
         return view
     }()
     
     let firstTotalAnalysisContentLabel = {
         let label = UILabel()
-        label.text = "유통기한을 지키지 못한 식품"
+        label.text = "현재 냉장고에 보관된 식품"
+        label.font = UIFont(name: Constant.Font.soyoRegular, size: 13)
+        label.textAlignment = .center
         return label
     }()
     
     let firstTotalAnalysisContentInfoLabel = {
         let label = UILabel()
-        label.text = "35"
-        label.font = .boldSystemFont(ofSize: 20)
+        label.text = "40"
+        label.font = UIFont(name: Constant.Font.soyoBold, size: 15)
         label.textColor = .orange
         return label
     }()
     
     let secondTotalAnalysisImageView = {
         let view = UIImageView()
-        view.image = UIImage(systemName: "person")
+        view.image = UIImage(named: "오렌지")
+        view.contentMode = .scaleAspectFit
         return view
     }()
     
     let secondTotalAnalysisContentLabel = {
         let label = UILabel()
-        label.text = "유통기한을 지키지 못한 식품"
+        label.text = "유통기한 내에 먹은 음식 수"
+        label.font = UIFont(name: Constant.Font.soyoRegular, size: 13)
+        label.textAlignment = .center
         return label
     }()
     
     let secondTotalAnalysisContentInfoLabel = {
         let label = UILabel()
-        label.text = "35"
-        label.font = .boldSystemFont(ofSize: 20)
+        label.text = "50"
+        label.font = UIFont(name: Constant.Font.soyoBold, size: 15)
         label.textColor = .orange
         return label
     }()
     
     let thirdTotalAnalysisImageView = {
         let view = UIImageView()
-        view.image = UIImage(systemName: "person")
+        view.image = UIImage(named: "아스파라거스")
+        view.contentMode = .scaleAspectFit
         return view
     }()
     
     let thirdTotalAnalysisContentLabel = {
         let label = UILabel()
         label.text = "유통기한을 지키지 못한 식품"
+        label.font = UIFont(name: Constant.Font.soyoRegular, size: 13)
+        label.textAlignment = .center
         return label
     }()
     
     let thirdTotalAnalysisContentInfoLabel = {
         let label = UILabel()
         label.text = "35"
-        label.font = .boldSystemFont(ofSize: 20)
+        label.font = UIFont(name: Constant.Font.soyoBold, size: 15)
         label.textColor = .orange
         return label
     }()
@@ -126,6 +135,7 @@ final class ChartView: BaseView {
             firstTotalAnalysisContentInfoLabel
         ])
         stackView.axis = .horizontal
+        stackView.distribution = .fill
         return stackView
     }()
     
@@ -223,20 +233,32 @@ final class ChartView: BaseView {
         
         firstTotalAnalysisContentStackView.snp.makeConstraints { make in
             make.top.equalTo(totalAnalysisTitleLabel.snp.bottom).inset(-10)
-            make.horizontalEdges.equalToSuperview().inset(10)
+            make.horizontalEdges.equalToSuperview().inset(40)
             make.height.equalToSuperview().multipliedBy(0.15)
+        }
+        
+        firstTotalAnalysisImageView.snp.makeConstraints { make in
+            make.width.equalTo(firstTotalAnalysisContentStackView.snp.width).multipliedBy(0.1)
         }
         
         secondTotalAnalysisContentStackView.snp.makeConstraints { make in
-            make.top.equalTo(firstTotalAnalysisContentStackView.snp.bottom).inset(10)
-            make.horizontalEdges.equalToSuperview().inset(10)
+            make.top.equalTo(firstTotalAnalysisContentStackView.snp.bottom).inset(-10)
+            make.horizontalEdges.equalToSuperview().inset(40)
             make.height.equalToSuperview().multipliedBy(0.15)
         }
         
+        secondTotalAnalysisImageView.snp.makeConstraints { make in
+            make.width.equalTo(secondTotalAnalysisContentStackView.snp.width).multipliedBy(0.1)
+        }
+
         thirdTotalAnalysisContentStackView.snp.makeConstraints { make in
-            make.top.equalTo(secondTotalAnalysisContentStackView.snp.bottom).inset(10)
-            make.horizontalEdges.equalToSuperview().inset(10)
+            make.top.equalTo(secondTotalAnalysisContentStackView.snp.bottom).inset(-10)
+            make.horizontalEdges.equalToSuperview().inset(40)
             make.height.equalToSuperview().multipliedBy(0.15)
+        }
+        
+        thirdTotalAnalysisImageView.snp.makeConstraints { make in
+            make.width.equalTo(thirdTotalAnalysisContentStackView.snp.width).multipliedBy(0.1)
         }
         
         // chartAnalyView
