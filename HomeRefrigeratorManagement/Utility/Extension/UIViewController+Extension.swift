@@ -119,4 +119,10 @@ extension UIViewController {
             
             present(activityViewController, animated: true, completion: completion)
         }
+    
+    func changeNavigationCustomFont() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font: UIFont(name: Constant.Font.soyoBold, size: Constant.FontSize.navigationLargeTitleFontSize)!]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: Constant.Font.soyoBold, size: 15)!]
+    }
 }

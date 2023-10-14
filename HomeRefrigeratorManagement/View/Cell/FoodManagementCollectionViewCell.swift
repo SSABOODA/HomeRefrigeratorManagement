@@ -101,7 +101,11 @@ final class FoodManagementCollectionViewCell: BaseCollectionViewCell {
     
     func configureCell() {
         backgroundColor = Constant.collectionViewColor.collectionViewCellBackgroundColor
-        layer.cornerRadius = 15
-        clipsToBounds = true
+        layer.cornerRadius = 10
+        clipsToBounds = false
+        layer.shadowColor = UIColor.lightGray.cgColor
+        layer.shadowOpacity = 0.5
+        layer.shadowOffset = CGSize.zero
+        layer.shadowRadius = 2
     }
 }

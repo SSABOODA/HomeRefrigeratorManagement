@@ -29,10 +29,8 @@ final class ChartViewController: BaseViewController, UIScrollViewDelegate {
     }
     
     private func setNav() {
-        title = "분석"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font: UIFont(name: Constant.Font.soyoBold, size: Constant.FontSize.navigationLargeTitleFontSize)!]
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: Constant.Font.soyoBold, size: 15)!]
+        title = Constant.TabBarTitle.chartVC
+        changeNavigationCustomFont()
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {}

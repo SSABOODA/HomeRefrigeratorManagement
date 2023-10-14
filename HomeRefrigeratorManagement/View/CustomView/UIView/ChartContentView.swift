@@ -21,7 +21,6 @@ final class ChartContentView: UIView {
     private func configureView() {
         backgroundColor = Constant.BaseColor.backgroundColor
         layer.cornerRadius = 10
-        clipsToBounds = true
         clipsToBounds = false
         layer.shadowColor = UIColor.lightGray.cgColor
         layer.shadowOpacity = 0.5

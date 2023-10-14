@@ -12,6 +12,7 @@ extension Constant {
         static let calendarVC = "캘런더"
         static let recipeVC = "레시피"
         static let foodManagementVC = "관리"
+        static let chartVC = "분석"
         static let settingVC = "My"
     }
     

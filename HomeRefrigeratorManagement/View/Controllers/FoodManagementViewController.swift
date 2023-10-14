@@ -68,6 +68,7 @@ extension FoodManagementViewController {
     func configureNavigationBar() {
         // navigation setting
         title = Constant.NavigationTitle.foodRegisterHomeTitle
+        changeNavigationCustomFont()
         self.mainView.searchController.searchBar.delegate = self
         self.navigationItem.searchController = mainView.searchController
         self.navigationController?.navigationBar.prefersLargeTitles = true

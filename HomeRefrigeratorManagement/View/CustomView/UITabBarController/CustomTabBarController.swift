@@ -16,6 +16,32 @@ final class CustomTabBarController: UITabBarController {
         configureTabBar()
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        tabBar.tintColor = Constant.BaseColor.tintColor
+        tabBar.layer.masksToBounds = true
+        tabBar.layer.cornerRadius = 20
+        tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        
+        if let shadowView = view.subviews.first(where: { $0.accessibilityIdentifier == "TabBarShadow" }) {
+            shadowView.frame = tabBar.frame
+        } else {
+            let shadowView = UIView(frame: .zero)
+            shadowView.frame = tabBar.frame
+            shadowView.accessibilityIdentifier = "TabBarShadow"
+            shadowView.backgroundColor = UIColor.white
+            shadowView.layer.cornerRadius = tabBar.layer.cornerRadius
+            shadowView.layer.maskedCorners = tabBar.layer.maskedCorners
+            shadowView.layer.masksToBounds = false
+            shadowView.layer.shadowColor = UIColor.black.cgColor
+            shadowView.layer.shadowOffset = CGSize(width: 0.0, height: -8.0)
+            shadowView.layer.shadowOpacity = 0.3
+            shadowView.layer.shadowRadius = 5
+            view.addSubview(shadowView)
+            view.bringSubviewToFront(tabBar)
+        }
+    }
+    
     private func configureViewController() {
         let CalendarVC = UINavigationController(rootViewController: CalendarViewController())
         let FoodManagementVC = UINavigationController(rootViewController: FoodManagementViewController())
@@ -51,32 +77,10 @@ final class CustomTabBarController: UITabBarController {
             imageString: Constant.SystemImageName.settingVCTabBarImage,
             selectedImageString: Constant.SystemImageName.settingVCTabBarSelectImage
         )
-    }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        tabBar.tintColor = Constant.BaseColor.tintColor
-        tabBar.layer.masksToBounds = true
-        tabBar.layer.cornerRadius = 20
-        tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
-        if let shadowView = view.subviews.first(where: { $0.accessibilityIdentifier == "TabBarShadow" }) {
-            shadowView.frame = tabBar.frame
-        } else {
-            let shadowView = UIView(frame: .zero)
-            shadowView.frame = tabBar.frame
-            shadowView.accessibilityIdentifier = "TabBarShadow"
-            shadowView.backgroundColor = UIColor.white
-            shadowView.layer.cornerRadius = tabBar.layer.cornerRadius
-            shadowView.layer.maskedCorners = tabBar.layer.maskedCorners
-            shadowView.layer.masksToBounds = false
-            shadowView.layer.shadowColor = UIColor.black.cgColor
-            shadowView.layer.shadowOffset = CGSize(width: 0.0, height: -8.0)
-            shadowView.layer.shadowOpacity = 0.3
-            shadowView.layer.shadowRadius = 5
-            view.addSubview(shadowView)
-            view.bringSubviewToFront(tabBar)
-        }
+        let appearance = UITabBarItem.appearance()
+        let attributes = [NSAttributedString.Key.font: UIFont(name: Constant.Font.soyoBold, size: 11)]
+        appearance.setTitleTextAttributes(attributes as [NSAttributedString.Key : Any], for: .normal)
     }
     
     private func configureTabBarLayout() {}
