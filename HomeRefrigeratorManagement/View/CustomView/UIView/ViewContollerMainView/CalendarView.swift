@@ -28,7 +28,6 @@ final class CalendarView: BaseView {
     
     let calendarTypeChangeButton = {
         let button = UIButton()
-//        button.setImage(UIImage(systemName: "chevron.up.chevron.down"), for: .normal)
         button.setImage(UIImage(systemName: "chevron.down"), for: .normal)
         button.tintColor = Constant.BaseColor.tintColor
         return button
@@ -60,11 +59,11 @@ final class CalendarView: BaseView {
         calendar.scrollDirection = .horizontal
         
         // 요일 UI 설정
-        calendar.appearance.weekdayFont = .boldSystemFont(ofSize: 17)
+        calendar.appearance.weekdayFont = UIFont(name: Constant.Font.soyoBold, size: 17)
         calendar.appearance.weekdayTextColor = UIColor(hexCode: "A1A2A5")
         
         // 각각의 일(날짜) 폰트 설정
-        calendar.appearance.titleFont = .boldSystemFont(ofSize: 17)
+        calendar.appearance.titleFont = UIFont(name: Constant.Font.soyoBold, size: 16)
         
         // 다중 선택
 //        calendar.allowsMultipleSelection = true
@@ -74,7 +73,7 @@ final class CalendarView: BaseView {
         calendar.appearance.headerDateFormat = "YYYY. M"
         calendar.appearance.headerTitleColor = Constant.BaseColor.tintColor
         calendar.appearance.headerTitleAlignment = .center
-        calendar.appearance.headerTitleFont = .boldSystemFont(ofSize: 25)
+        calendar.appearance.headerTitleFont = UIFont(name: Constant.Font.soyoBold, size: 25)
         calendar.appearance.headerMinimumDissolvedAlpha = 0.0
         
 //        calendar.appearance.eventDefaultColor = UIColor.systemRed
@@ -89,8 +88,15 @@ final class CalendarView: BaseView {
         
         calendar.firstWeekday = 2 // 첫 열을 월요일로 지정
         calendar.headerHeight = 70
-        calendar.layer.cornerRadius = 10
         
+        // celendar UI
+        calendar.layer.cornerRadius = 10
+        calendar.clipsToBounds = false
+        
+        calendar.layer.shadowColor = UIColor.darkGray.cgColor
+        calendar.layer.shadowOffset = CGSize.zero
+        calendar.layer.shadowRadius = 3
+        calendar.layer.shadowOpacity = 0.5
         calendar.register(CustomCalendarCell.self, forCellReuseIdentifier: CustomCalendarCell.description())
         return calendar
     }()
@@ -187,7 +193,7 @@ final class CalendarView: BaseView {
         }
         
         collectionView.snp.makeConstraints { make in
-            make.top.equalTo(calendar.snp.bottom)
+            make.top.equalTo(calendar.snp.bottom).inset(-3)
             make.horizontalEdges.bottom.equalToSuperview()
         }
     }

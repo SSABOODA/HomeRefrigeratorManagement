@@ -12,7 +12,10 @@ class FoodManagementView: BaseView {
     
     let searchController = {
         let searchController = UISearchController(searchResultsController: nil)
-        searchController.searchBar.placeholder = "냉장고에 저장된 식품을 검색해보세요".localized
+        searchController.searchBar.searchTextField.attributedPlaceholder = NSAttributedString(
+            string: "냉장고에 저장된 식품을 검색해보세요".localized,
+            attributes: [NSAttributedString.Key.font: UIFont(name: Constant.Font.soyoBold, size: 11)!]
+        )
         return searchController
     }()
     
@@ -65,18 +68,6 @@ class FoodManagementView: BaseView {
             make.trailing.equalToSuperview().offset(-30)
         }
     }
-    
-    // TODO: Constant
-//    private func collectionViewLayout() -> UICollectionViewFlowLayout {
-//        let layout = UICollectionViewFlowLayout()
-//        layout.minimumLineSpacing = 15
-//        layout.minimumInteritemSpacing = 30
-//        let width = Constant.ScreenSize.deviceScreenWidth - 40
-//        layout.itemSize = CGSize(width: width, height: 100)
-//        layout.scrollDirection = .vertical
-//        layout.sectionInset = UIEdgeInsets(top: 15, left: 0, bottom: 25, right: 0)
-//        return layout
-//    }
     
     func createLayout() -> UICollectionViewLayout {
         let sectionProvider = { (sectionIndex: Int,

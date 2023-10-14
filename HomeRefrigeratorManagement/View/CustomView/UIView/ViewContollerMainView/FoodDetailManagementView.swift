@@ -66,6 +66,7 @@ class FoodDetailManagementView: BaseView {
     let foodDescriptionLabel = {
         let label = FoodDetailSettingLabel()
         label.text = "식품 설명"
+        label.font = UIFont(name: Constant.Font.soyoRegular, size: 13)
         return label
     }()
     
@@ -92,6 +93,7 @@ class FoodDetailManagementView: BaseView {
     let registerDateLabel = {
         let label = FoodDetailSettingLabel()
         label.text = "등록 날짜"
+        label.font = UIFont(name: Constant.Font.soyoRegular, size: 13)
         return label
     }()
     
@@ -118,6 +120,7 @@ class FoodDetailManagementView: BaseView {
     let expirationDateLabel = {
         let label = FoodDetailSettingLabel()
         label.text = "유통 기한"
+        label.font = UIFont(name: Constant.Font.soyoRegular, size: 13)
         return label
     }()
     
@@ -144,6 +147,7 @@ class FoodDetailManagementView: BaseView {
     let storageTypeLabel = {
         let label = FoodDetailSettingLabel()
         label.text = "저장 방법"
+        label.font = UIFont(name: Constant.Font.soyoRegular, size: 13)
         return label
     }()
     
@@ -170,6 +174,7 @@ class FoodDetailManagementView: BaseView {
     let countLabel = {
         let label = FoodDetailSettingLabel()
         label.text = "수량"
+        label.font = UIFont(name: Constant.Font.soyoRegular, size: 13)
         return label
     }()
     
@@ -197,9 +202,8 @@ class FoodDetailManagementView: BaseView {
     let deleteButton = {
         let button = UIButton()
         button.setTitle(Constant.ButtonSetTitle.foodDeleteButtonTitle, for: .normal)
-        button.titleLabel?.font = .boldSystemFont(ofSize: 13)
+        button.titleLabel?.font = UIFont(name: Constant.Font.soyoBold, size: 13)
         button.setTitleColor(UIColor.white, for: .normal)
-//        button.backgroundColor = UIColor(hexCode: "#A1A2A5")
         button.backgroundColor = .black
         return button
     }()
@@ -207,7 +211,7 @@ class FoodDetailManagementView: BaseView {
     let updateButton = {
         let button = UIButton()
         button.setTitle(Constant.ButtonSetTitle.foodUpdateButtonTitle, for: .normal)
-        button.titleLabel?.font = .boldSystemFont(ofSize: 13)
+        button.titleLabel?.font = UIFont(name: Constant.Font.soyoBold, size: 13)
         button.setTitleColor(UIColor.white, for: .normal)
         button.backgroundColor = Constant.BaseColor.basePointColor
         return button

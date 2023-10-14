@@ -57,8 +57,9 @@ final class CalendarViewController: BaseViewController {
         view.backgroundColor = Constant.BaseColor.grayContrastBackgroundColor
         
         title = "캘린더"
-//       t self.navigationController?.navigationBar.prefersLargeTitles = true
+//      self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.largeTitleDisplayMode = .never
+        changeNavigationCustomFont()
         
         // CollectionView
         mainView.collectionView.backgroundColor = Constant.collectionViewColor.collectionViewBackgroundColor
