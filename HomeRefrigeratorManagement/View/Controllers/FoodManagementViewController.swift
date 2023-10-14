@@ -281,7 +281,7 @@ extension FoodManagementViewController {
         
         var snapshot = NSDiffableDataSourceSnapshot<Section, Food>()
         snapshot.appendSections([.main])
-        snapshot.appendItems(item.toArray())
+        snapshot.appendItems(item)
         
         // relam 데이터 삭제시 snapshot 처리
         if let deleteFood = viewModel.deleteFoodData, !deleteFood.isInvalidated {

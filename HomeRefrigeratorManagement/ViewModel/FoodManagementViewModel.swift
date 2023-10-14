@@ -19,27 +19,38 @@ final class FoodManagementViewModel {
         query: String,
         sortType: SortType,
         storageType: Constant.FoodStorageType
-    ) -> Results<Food>? {
+    ) -> [Food]? {
+        let food = localRealm.fetch(object: Food())
+        var foodItemInfo = [Food]()
+        
         if query.isEmpty {
-            filteredFoodData = localRealm.fetch(object: Food())
+            filteredFoodData = food
         } else {
-            let food = localRealm.fetch(object: Food())
-            
             filteredFoodData = food.where {
                 $0.name.contains(query)
             }
+            
+            for item in food {
+                if getInitialConsonants(word: item.name).contains(query) || item.name.contains(query) {
+                    foodItemInfo.append(item)
+                }
+            }
         }
         
+        // 저장 방법 필터
         self.filterStorageType(storageType)
         
+        // 식품 정렬
         filteredFoodData = filteredFoodData?.sorted(
             byKeyPath: sortType.rawValue,
             ascending: isAcending.value
         )
         
-//        print("filteredFoodData: \(filteredFoodData)")
+        if !foodItemInfo.isEmpty {
+            return foodItemInfo
+        }
         
-        return filteredFoodData
+        return filteredFoodData?.toArray()
     }
     
     func filterInitialConsonant(with searchText: String) -> [FoodModel] {
