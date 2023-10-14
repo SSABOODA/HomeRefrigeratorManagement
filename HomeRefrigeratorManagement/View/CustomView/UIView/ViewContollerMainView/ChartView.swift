@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DGCharts
 
 final class ChartView: BaseView {
     // scrollView
@@ -59,14 +60,14 @@ final class ChartView: BaseView {
         return label
     }()
     
-    let firstTotalAnalysisImageView = {
+    private let firstTotalAnalysisImageView = {
         let view = UIImageView()
         view.image = UIImage(named: "가지")
         view.contentMode = .scaleAspectFit
         return view
     }()
     
-    let firstTotalAnalysisContentLabel = {
+    private let firstTotalAnalysisContentLabel = {
         let label = UILabel()
         label.text = Constant.CharViewTitle.firstTotalAnalysisContentTitle
         label.font = UIFont(name: Constant.Font.soyoRegular, size: 13)
@@ -74,7 +75,7 @@ final class ChartView: BaseView {
         return label
     }()
     
-    let firstTotalAnalysisContentInfoLabel = {
+    private let firstTotalAnalysisContentInfoLabel = {
         let label = UILabel()
         label.text = "40"
         label.font = UIFont(name: Constant.Font.soyoBold, size: 15)
@@ -82,14 +83,14 @@ final class ChartView: BaseView {
         return label
     }()
     
-    let secondTotalAnalysisImageView = {
+    private let secondTotalAnalysisImageView = {
         let view = UIImageView()
         view.image = UIImage(named: "오렌지")
         view.contentMode = .scaleAspectFit
         return view
     }()
     
-    let secondTotalAnalysisContentLabel = {
+    private let secondTotalAnalysisContentLabel = {
         let label = UILabel()
         label.text = Constant.CharViewTitle.secondTotalAnalysisContentTitle
         label.font = UIFont(name: Constant.Font.soyoRegular, size: 13)
@@ -97,7 +98,7 @@ final class ChartView: BaseView {
         return label
     }()
     
-    let secondTotalAnalysisContentInfoLabel = {
+    private let secondTotalAnalysisContentInfoLabel = {
         let label = UILabel()
         label.text = "50"
         label.font = UIFont(name: Constant.Font.soyoBold, size: 15)
@@ -105,14 +106,14 @@ final class ChartView: BaseView {
         return label
     }()
     
-    let thirdTotalAnalysisImageView = {
+    private let thirdTotalAnalysisImageView = {
         let view = UIImageView()
         view.image = UIImage(named: "아스파라거스")
         view.contentMode = .scaleAspectFit
         return view
     }()
     
-    let thirdTotalAnalysisContentLabel = {
+    private let thirdTotalAnalysisContentLabel = {
         let label = UILabel()
         label.text = Constant.CharViewTitle.thirdTotalAnalysisContentTitle
         label.font = UIFont(name: Constant.Font.soyoRegular, size: 13)
@@ -120,7 +121,7 @@ final class ChartView: BaseView {
         return label
     }()
     
-    let thirdTotalAnalysisContentInfoLabel = {
+    private let thirdTotalAnalysisContentInfoLabel = {
         let label = UILabel()
         label.text = "35"
         label.font = UIFont(name: Constant.Font.soyoBold, size: 15)
@@ -128,7 +129,7 @@ final class ChartView: BaseView {
         return label
     }()
     
-    lazy var firstTotalAnalysisContentStackView = {
+    private lazy var firstTotalAnalysisContentStackView = {
         let stackView = UIStackView(arrangedSubviews: [
             firstTotalAnalysisImageView,
             firstTotalAnalysisContentLabel,
@@ -139,7 +140,7 @@ final class ChartView: BaseView {
         return stackView
     }()
     
-    lazy var secondTotalAnalysisContentStackView = {
+    private lazy var secondTotalAnalysisContentStackView = {
         let stackView = UIStackView(arrangedSubviews: [
             secondTotalAnalysisImageView,
             secondTotalAnalysisContentLabel,
@@ -149,7 +150,7 @@ final class ChartView: BaseView {
         return stackView
     }()
     
-    lazy var thirdTotalAnalysisContentStackView = {
+    private lazy var thirdTotalAnalysisContentStackView = {
         let stackView = UIStackView(arrangedSubviews: [
             thirdTotalAnalysisImageView,
             thirdTotalAnalysisContentLabel,
@@ -160,16 +161,23 @@ final class ChartView: BaseView {
     }()
     
     // ChartView
-    let chartAnalyView = {
+    private let chartAnalyView = {
         let view = ChartContentView()
         return view
     }()
     
-    let chartAnalyTitleLabel = {
+    private let chartAnalyTitleLabel = {
         let label = UILabel()
         label.text = Constant.CharViewTitle.chartAnalyTitle
         label.font = UIFont(name: Constant.Font.soyoBold, size: 25)
+        label.textAlignment = .center
         return label
+    }()
+    
+    let pieChartView = {
+        let view = PieChartView()
+        view.backgroundColor = .darkGray
+        return view
     }()
     
     
@@ -193,6 +201,8 @@ final class ChartView: BaseView {
         
         // chartAnalyView
         contentView.addSubview(chartAnalyView)
+        chartAnalyView.addSubview(chartAnalyTitleLabel)
+        chartAnalyView.addSubview(pieChartView)
         
     }
 
@@ -275,6 +285,15 @@ final class ChartView: BaseView {
             make.height.equalTo(Constant.ScreenSize.deviceScreenHeight*0.3)
         }
         
+        chartAnalyTitleLabel.snp.makeConstraints { make in
+            make.top.horizontalEdges.equalToSuperview().inset(10)
+            make.height.equalToSuperview().multipliedBy(0.2)
+        }
+        
+        pieChartView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.size.equalTo(200)
+        }
         
 
     }
