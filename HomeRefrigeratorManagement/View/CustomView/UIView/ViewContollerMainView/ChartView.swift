@@ -38,7 +38,7 @@ final class ChartView: BaseView {
     
     private let headerSubTitleLabel = {
         let label = UILabel()
-        label.text = "식품에 대한 분석을 살펴보세요"
+        label.text = Constant.CharViewTitle.headerSubTitle
         label.textAlignment = .center
         label.font = UIFont(name: Constant.Font.soyoRegular, size: 13)
         label.textColor = .lightGray
@@ -53,7 +53,7 @@ final class ChartView: BaseView {
     
     private let totalAnalysisTitleLabel = {
         let label = UILabel()
-        label.text = "종합 분석"
+        label.text = Constant.CharViewTitle.totalAnalysisTitle
         label.textAlignment = .center
         label.font = UIFont(name: Constant.Font.soyoBold, size: 25)
         return label
@@ -68,7 +68,7 @@ final class ChartView: BaseView {
     
     let firstTotalAnalysisContentLabel = {
         let label = UILabel()
-        label.text = "현재 냉장고에 보관된 식품"
+        label.text = Constant.CharViewTitle.firstTotalAnalysisContentTitle
         label.font = UIFont(name: Constant.Font.soyoRegular, size: 13)
         label.textAlignment = .center
         return label
@@ -91,7 +91,7 @@ final class ChartView: BaseView {
     
     let secondTotalAnalysisContentLabel = {
         let label = UILabel()
-        label.text = "유통기한 내에 먹은 음식 수"
+        label.text = Constant.CharViewTitle.secondTotalAnalysisContentTitle
         label.font = UIFont(name: Constant.Font.soyoRegular, size: 13)
         label.textAlignment = .center
         return label
@@ -114,7 +114,7 @@ final class ChartView: BaseView {
     
     let thirdTotalAnalysisContentLabel = {
         let label = UILabel()
-        label.text = "유통기한을 지키지 못한 식품"
+        label.text = Constant.CharViewTitle.thirdTotalAnalysisContentTitle
         label.font = UIFont(name: Constant.Font.soyoRegular, size: 13)
         label.textAlignment = .center
         return label
@@ -163,6 +163,13 @@ final class ChartView: BaseView {
     let chartAnalyView = {
         let view = ChartContentView()
         return view
+    }()
+    
+    let chartAnalyTitleLabel = {
+        let label = UILabel()
+        label.text = Constant.CharViewTitle.chartAnalyTitle
+        label.font = UIFont(name: Constant.Font.soyoBold, size: 25)
+        return label
     }()
     
     

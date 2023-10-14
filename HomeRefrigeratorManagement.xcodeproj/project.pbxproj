@@ -37,6 +37,7 @@
 		F78B9B352ADA86F200EA61CB /* SOYOMapleRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F78B9B332ADA86F100EA61CB /* SOYOMapleRegular.ttf */; };
 		F78B9B362ADA86F200EA61CB /* SOYOMapleBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F78B9B342ADA86F200EA61CB /* SOYOMapleBold.ttf */; };
 		F78B9B382ADA899A00EA61CB /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78B9B372ADA899A00EA61CB /* Font.swift */; };
+		F78B9B3B2ADAC1CA00EA61CB /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = F78B9B3A2ADAC1CA00EA61CB /* DGCharts */; };
 		F7C31D782AC2CE2E008DAA21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D772AC2CE2E008DAA21 /* AppDelegate.swift */; };
 		F7C31D7A2AC2CE2F008DAA21 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D792AC2CE2F008DAA21 /* SceneDelegate.swift */; };
 		F7C31D7C2AC2CE2F008DAA21 /* FoodManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D7B2AC2CE2F008DAA21 /* FoodManagementViewController.swift */; };
@@ -186,6 +187,7 @@
 				F7C31E1A2ACD36C3008DAA21 /* FirebaseCrashlytics in Frameworks */,
 				F7289E5B2AD52F4E00E092C6 /* FSCalendar in Frameworks */,
 				F7C31D952AC2D3F2008DAA21 /* SnapKit in Frameworks */,
+				F78B9B3B2ADAC1CA00EA61CB /* DGCharts in Frameworks */,
 				F7C31E182ACD36C3008DAA21 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -534,6 +536,7 @@
 				F7289E5A2AD52F4E00E092C6 /* FSCalendar */,
 				F7610A3C2AD7BDAC00832129 /* Alamofire */,
 				F7610A3F2AD7BDBF00832129 /* Kingfisher */,
+				F78B9B3A2ADAC1CA00EA61CB /* DGCharts */,
 			);
 			productName = HomeRefrigeratorManagement;
 			productReference = F7C31D742AC2CE2E008DAA21 /* HomeRefrigeratorManagement.app */;
@@ -573,6 +576,7 @@
 				F7289E592AD52F4E00E092C6 /* XCRemoteSwiftPackageReference "FSCalendar" */,
 				F7610A3B2AD7BDAC00832129 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				F7610A3E2AD7BDBF00832129 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				F78B9B392ADAC1CA00EA61CB /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = F7C31D752AC2CE2E008DAA21 /* Products */;
 			projectDirPath = "";
@@ -970,6 +974,14 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		F78B9B392ADAC1CA00EA61CB /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		F7C31D932AC2D3F2008DAA21 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -1024,6 +1036,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F7610A3E2AD7BDBF00832129 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		F78B9B3A2ADAC1CA00EA61CB /* DGCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F78B9B392ADAC1CA00EA61CB /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGCharts;
 		};
 		F7C31D942AC2D3F2008DAA21 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
