@@ -66,7 +66,7 @@ class FoodDetailManagementView: BaseView {
     let foodDescriptionLabel = {
         let label = FoodDetailSettingLabel()
         label.text = "식품 설명"
-        label.font = UIFont(name: Constant.Font.soyoRegular, size: 13)
+        label.font = UIFont(name: Constant.Font.soyoBold, size: 13)
         return label
     }()
     
@@ -79,6 +79,7 @@ class FoodDetailManagementView: BaseView {
         let tf = UITextField()
         tf.placeholder = "식품의 상세한 설명을 적어보세요~"
         tf.font = .systemFont(ofSize: 13)
+        tf.tag = 0
         return tf
     }()
     
@@ -93,7 +94,7 @@ class FoodDetailManagementView: BaseView {
     let registerDateLabel = {
         let label = FoodDetailSettingLabel()
         label.text = "등록 날짜"
-        label.font = UIFont(name: Constant.Font.soyoRegular, size: 13)
+        label.font = UIFont(name: Constant.Font.soyoBold, size: 13)
         return label
     }()
     
@@ -120,7 +121,7 @@ class FoodDetailManagementView: BaseView {
     let expirationDateLabel = {
         let label = FoodDetailSettingLabel()
         label.text = "유통 기한"
-        label.font = UIFont(name: Constant.Font.soyoRegular, size: 13)
+        label.font = UIFont(name: Constant.Font.soyoBold, size: 13)
         return label
     }()
     
@@ -147,7 +148,7 @@ class FoodDetailManagementView: BaseView {
     let storageTypeLabel = {
         let label = FoodDetailSettingLabel()
         label.text = "저장 방법"
-        label.font = UIFont(name: Constant.Font.soyoRegular, size: 13)
+        label.font = UIFont(name: Constant.Font.soyoBold, size: 13)
         return label
     }()
     
@@ -174,7 +175,7 @@ class FoodDetailManagementView: BaseView {
     let countLabel = {
         let label = FoodDetailSettingLabel()
         label.text = "수량"
-        label.font = UIFont(name: Constant.Font.soyoRegular, size: 13)
+        label.font = UIFont(name: Constant.Font.soyoBold, size: 13)
         return label
     }()
     
@@ -189,6 +190,7 @@ class FoodDetailManagementView: BaseView {
         tf.placeholder = "수량을 입력해주세요~"
         tf.font = .boldSystemFont(ofSize: 13)
         tf.clearButtonMode = .whileEditing
+        tf.tag = 1
         return tf
     }()
     
@@ -257,7 +259,6 @@ class FoodDetailManagementView: BaseView {
     
     override func configureLayout() {
         mainView.snp.makeConstraints { make in
-//            make.top.equalTo(self.safeAreaLayoutGuide).inset(10)
             make.centerY.equalToSuperview()
             make.horizontalEdges.equalToSuperview().inset(Constant.MainView.mainViewHorizontalPadding)
             make.height.equalToSuperview().multipliedBy(0.6)

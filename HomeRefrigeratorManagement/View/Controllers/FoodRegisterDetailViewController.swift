@@ -36,6 +36,8 @@ final class FoodRegisterDetailViewController: BaseViewController {
         addTarget()
         configPickerView()
         view.backgroundColor = UIColor(white: 1, alpha: 0.5)
+        mainView.foodDescriptionTextField.delegate = self
+        mainView.countTextField.delegate = self
     }
 
     private func dataBind() {
@@ -92,8 +94,13 @@ final class FoodRegisterDetailViewController: BaseViewController {
     }
 }
 
-// UIPickerViewDelegate
+extension FoodRegisterDetailViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return foodInputDataTextFieldRestriction(textField, string: string)
+    }
+}
 
+// UIPickerViewDelegate
 extension FoodRegisterDetailViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func configPickerView() {
         picker.delegate = self

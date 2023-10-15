@@ -80,6 +80,7 @@ final class FoodRegisterDetailView: BaseView {
         let tf = UITextField()
         tf.placeholder = "식품의 상세한 설명을 적어보세요~"
         tf.font = .systemFont(ofSize: 13)
+        tf.tag = 0
         return tf
     }()
     
@@ -185,6 +186,7 @@ final class FoodRegisterDetailView: BaseView {
         tf.keyboardType = .numberPad
         tf.placeholder = "수량을 입력해주세요~"
         tf.font = .systemFont(ofSize: 13)
+        tf.tag = 1
         return tf
     }()
     

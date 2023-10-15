@@ -37,6 +37,7 @@ final class FoodDetailManagementViewController: BaseViewController {
         configPickerView()
         
         mainView.countTextField.delegate = self
+        mainView.foodDescriptionTextField.delegate = self
     }
 
     private func configreData() {
@@ -130,6 +131,7 @@ final class FoodDetailManagementViewController: BaseViewController {
     }
 }
 
+// navigationBar
 extension FoodDetailManagementViewController {
     private func navigationBar() {
         title = Constant.NavigationTitle.foodDetailTitle
@@ -139,16 +141,9 @@ extension FoodDetailManagementViewController {
 
 // TODO: 제약 조건
 extension FoodDetailManagementViewController: UITextFieldDelegate {
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        print(#function, string)
-//        if Int(string) == nil {
-//            return false
-//        } else {
-//            guard let text = textField.text else { return true }
-//            guard let count = Int(text) else { return false }
-//            return count <= 100
-//        }
-//    }
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return foodInputDataTextFieldRestriction(textField, string: string)
+    }
 }
 
 extension FoodDetailManagementViewController: UIPickerViewDelegate, UIPickerViewDataSource {

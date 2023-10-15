@@ -120,9 +120,43 @@ extension UIViewController {
             present(activityViewController, animated: true, completion: completion)
         }
     
+    // 네비게이션 폰트 변경
     func changeNavigationCustomFont() {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font: UIFont(name: Constant.Font.soyoBold, size: Constant.FontSize.navigationLargeTitleFontSize)!]
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: Constant.Font.soyoBold, size: 15)!]
+    }
+    
+    // 텍스트필드 제약
+    func foodInputDataTextFieldRestriction(_ textField: UITextField, string: String) -> Bool {
+        if let char = string.cString(using: String.Encoding.utf8) {
+            let isBackSpace = strcmp(char, "\\b")
+            if isBackSpace == -92 {
+                return true
+            }
+        }
+        
+        if textField.tag == 0 {
+            print("tag 0", textField.text!.count)
+            guard textField.text!.count < 19 else { return false } // 100 글자로 제한
+        } else if textField.tag == 1 {
+            print("tag 1")
+            if textField.isEditing {
+                print("textField: \(textField)")
+            }
+            if let text = textField.text,
+               let amount = Int(text),
+               (0 < amount), (amount < 100) {
+                return true
+            } else {
+                if let text = textField.text {
+                    if text.isEmpty {
+                        return true
+                    }
+                }
+            }
+            return false
+        }
+        return true
     }
 }
