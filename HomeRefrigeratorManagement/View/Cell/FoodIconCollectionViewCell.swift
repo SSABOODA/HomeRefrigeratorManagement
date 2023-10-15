@@ -16,14 +16,14 @@ class FoodIconCollectionViewCell: BaseCollectionViewCell {
         view.layer.shadowColor = Constant.BaseColor.tintColor?.cgColor
         view.layer.shadowOffset = CGSize(width: 5, height: 5)
         view.layer.shadowRadius = 5
-        view.layer.shadowOpacity = 0.8
+        view.layer.shadowOpacity = 0.5
         return view
     }()
     
     let foodIconNameLabel = {
         let label = UILabel()
         label.text = "이름"
-        label.font = .boldSystemFont(ofSize: 13)
+        label.font = UIFont(name: Constant.Font.soyoBold, size: 13)
         return label
     }()
     

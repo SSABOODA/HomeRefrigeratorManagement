@@ -39,6 +39,7 @@
 		F78B9B382ADA899A00EA61CB /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78B9B372ADA899A00EA61CB /* Font.swift */; };
 		F78B9B3B2ADAC1CA00EA61CB /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = F78B9B3A2ADAC1CA00EA61CB /* DGCharts */; };
 		F78B9B3E2ADAD07D00EA61CB /* ChartViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78B9B3D2ADAD07D00EA61CB /* ChartViewmodel.swift */; };
+		F78B9B402ADB8C7000EA61CB /* FoodIconImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78B9B3F2ADB8C7000EA61CB /* FoodIconImageView.swift */; };
 		F7C31D782AC2CE2E008DAA21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D772AC2CE2E008DAA21 /* AppDelegate.swift */; };
 		F7C31D7A2AC2CE2F008DAA21 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D792AC2CE2F008DAA21 /* SceneDelegate.swift */; };
 		F7C31D7C2AC2CE2F008DAA21 /* FoodManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D7B2AC2CE2F008DAA21 /* FoodManagementViewController.swift */; };
@@ -122,6 +123,7 @@
 		F78B9B342ADA86F200EA61CB /* SOYOMapleBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SOYOMapleBold.ttf; sourceTree = "<group>"; };
 		F78B9B372ADA899A00EA61CB /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		F78B9B3D2ADAD07D00EA61CB /* ChartViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewmodel.swift; sourceTree = "<group>"; };
+		F78B9B3F2ADB8C7000EA61CB /* FoodIconImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodIconImageView.swift; sourceTree = "<group>"; };
 		F7C31D742AC2CE2E008DAA21 /* HomeRefrigeratorManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeRefrigeratorManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7C31D772AC2CE2E008DAA21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7C31D792AC2CE2F008DAA21 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -446,6 +448,7 @@
 				F7C31E202ACD40F9008DAA21 /* UITabBarController */,
 				F7C31E1F2ACD40E8008DAA21 /* UIView */,
 				F7C31E1E2ACD40D4008DAA21 /* UIButton */,
+				F78B9B3F2ADB8C7000EA61CB /* FoodIconImageView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -647,6 +650,7 @@
 				F7C31E382ACFC37C008DAA21 /* Date+Extension.swift in Sources */,
 				F78B9B382ADA899A00EA61CB /* Font.swift in Sources */,
 				F7C31DE22AC5C3F1008DAA21 /* RealmTableRepositoryProtocol.swift in Sources */,
+				F78B9B402ADB8C7000EA61CB /* FoodIconImageView.swift in Sources */,
 				F7C31D9C2AC2D60E008DAA21 /* FoodManagementViewModel.swift in Sources */,
 				F7610A512AD83FCF00832129 /* WebViewBottomSheetViewController.swift in Sources */,
 				F7248A372AD9329100D768DF /* SafariActivity.swift in Sources */,

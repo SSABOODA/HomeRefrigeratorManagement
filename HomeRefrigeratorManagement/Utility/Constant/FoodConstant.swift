@@ -68,6 +68,7 @@ extension Constant {
             FoodModel(name: "피망", category: .vegetable),
             FoodModel(name: "호박", category: .vegetable),
             FoodModel(name: "옥수수", category: .vegetable),
+            FoodModel(name: "양파", category: .vegetable),
             // "과일"
             FoodModel(name: "감", category: .fruit),
             FoodModel(name: "귤", category: .fruit),

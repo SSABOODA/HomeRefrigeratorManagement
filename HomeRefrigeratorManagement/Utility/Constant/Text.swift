@@ -34,6 +34,13 @@ extension Constant {
         static let foodRegisterDetailSaveButtonImage = "checkmark"
     }
     
+    enum ImageName {
+        // chartImage
+        static let currentStorageCountImageName = "현재-저장-식품"
+        static let successExpirationCountImageName = "유통기한-소비"
+        static let failedExpirationCountImageName = "유통기한-초과"
+    }
+    
     
     enum NavigationTitle {
         static let calendarTitle = "캘린더".localized

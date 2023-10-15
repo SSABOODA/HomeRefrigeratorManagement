@@ -57,8 +57,22 @@ final class FoodRegisterListViewController: BaseViewController {
     private func setupSearchBar() {
         self.navigationItem.titleView = searchBar
         searchBar.delegate = self
-        searchBar.placeholder = "저장할 식품을 검색해보세요".localized
         searchBar.showsCancelButton = true
+        
+        let nsAttributedString = NSAttributedString(
+            string: "저장할 식품을 검색해보세요".localized,
+            attributes: [NSAttributedString.Key.font: UIFont(name: Constant.Font.soyoBold, size: 12)!]
+        )
+        searchBar.searchTextField.attributedPlaceholder = nsAttributedString
+        
+        if let cancelButton = searchBar.value(forKey: "cancelButton") as? UIButton {
+            let nsAttributedString = NSAttributedString(
+                string: "취소".localized,
+                attributes: [NSAttributedString.Key.font: UIFont(name: Constant.Font.soyoBold, size: 12)!]
+            )
+            cancelButton.setTitleColor(Constant.BaseColor.tintColor, for: .normal)
+            cancelButton.setAttributedTitle(nsAttributedString, for: .normal)
+        }
     }
 
 }

@@ -60,8 +60,8 @@ final class ChartView: BaseView {
     }()
     
     private let firstTotalAnalysisImageView = {
-        let view = UIImageView()
-        view.image = UIImage(named: "가지")
+        let view = FoodIconImageView(frame: .zero)
+        view.image = UIImage(named: Constant.ImageName.currentStorageCountImageName)
         view.contentMode = .scaleAspectFit
         return view
     }()
@@ -76,7 +76,7 @@ final class ChartView: BaseView {
     
     let firstTotalAnalysisContentInfoLabel = {
         let label = UILabel()
-        label.text = "40"
+        label.text = "0"
         label.font = UIFont(name: Constant.Font.soyoBold, size: 15)
         label.textColor = .orange
         label.textAlignment = .right
@@ -84,8 +84,8 @@ final class ChartView: BaseView {
     }()
     
     private let secondTotalAnalysisImageView = {
-        let view = UIImageView()
-        view.image = UIImage(named: "오렌지")
+        let view = FoodIconImageView(frame: .zero)
+        view.image = UIImage(named: Constant.ImageName.successExpirationCountImageName)
         view.contentMode = .scaleAspectFit
         return view
     }()
@@ -100,7 +100,7 @@ final class ChartView: BaseView {
     
     let secondTotalAnalysisContentInfoLabel = {
         let label = UILabel()
-        label.text = "50"
+        label.text = "0"
         label.font = UIFont(name: Constant.Font.soyoBold, size: 15)
         label.textColor = .orange
         label.textAlignment = .right
@@ -108,8 +108,8 @@ final class ChartView: BaseView {
     }()
     
     private let thirdTotalAnalysisImageView = {
-        let view = UIImageView()
-        view.image = UIImage(named: "아스파라거스")
+        let view = FoodIconImageView(frame: .zero)
+        view.image = UIImage(named: Constant.ImageName.failedExpirationCountImageName)
         view.contentMode = .scaleAspectFit
         return view
     }()
@@ -124,7 +124,7 @@ final class ChartView: BaseView {
     
     let thirdTotalAnalysisContentInfoLabel = {
         let label = UILabel()
-        label.text = "35"
+        label.text = "0"
         label.font = UIFont(name: Constant.Font.soyoBold, size: 15)
         label.textColor = .orange
         label.textAlignment = .right

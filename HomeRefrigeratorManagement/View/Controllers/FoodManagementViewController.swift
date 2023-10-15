@@ -35,8 +35,6 @@ final class FoodManagementViewController: BaseViewController {
         addTarget()
         configureDataSource()
         performQuery(searchText: "", storageType: currentStorageType)
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -137,6 +135,13 @@ extension FoodManagementViewController: UISearchControllerDelegate, UISearchBarD
         guard let searchText = searchBar.text else { return }
         performQuery(searchText: searchText, storageType: currentStorageType)
     }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
+    }
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(false, animated: true)
+    }
 }
 
 
@@ -158,8 +163,6 @@ extension FoodManagementViewController: UICollectionViewDelegate {
         transition(viewController: nextVC, style: .push)
     }
 }
-
-
 
 // MARK: - DataSource
 extension FoodManagementViewController {
