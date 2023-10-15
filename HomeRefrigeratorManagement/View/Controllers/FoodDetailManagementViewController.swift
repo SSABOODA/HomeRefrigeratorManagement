@@ -13,6 +13,8 @@ final class FoodDetailManagementViewController: BaseViewController {
     let viewModel = FoodDetailManagementViewModel()
     let picker = UIPickerView()
     
+    var senderTag = 0
+    
     override func loadView() {
         view = mainView
     }
@@ -80,7 +82,7 @@ final class FoodDetailManagementViewController: BaseViewController {
     }
     
     @objc func registerDateTextFieldTapped(_ sender: UITextField) {
-        print(#function)
+        print(#function, "\(sender.text)")
         dateFormatterAlert(sender)
     }
     
@@ -97,7 +99,6 @@ final class FoodDetailManagementViewController: BaseViewController {
     @objc func storageTypeTextFieldEditingChanged(_ sender: UITextField) {
         print(#function)
         guard let text = sender.text else { return }
-        print("Constant.FoodStorageType(rawValue: text): \(Constant.FoodStorageType(rawValue: text))")
         viewModel.foodModel.value.storageType = Constant.FoodStorageType(rawValue: text) ?? .outdoor
     }
     
@@ -112,6 +113,23 @@ final class FoodDetailManagementViewController: BaseViewController {
         viewModel.foodModel.value.purchaseDate = mainView.registerDateTextField.text?.toDate() ?? Date()
         viewModel.foodModel.value.expirationDate = mainView.expirationDateTextField.text?.toDate() ?? Date()
         
+        
+        // 구매일자, 유효기간 비교
+        guard let registerDate = mainView.registerDateTextField.text else { return }
+        guard let expirationDate = mainView.expirationDateTextField.text else { return }
+        
+        switch registerDate.compare(expirationDate) {
+        case .orderedSame: print("same")
+        case .orderedDescending:
+            print(">")
+            showAlertAction1(
+                preferredStyle: .alert,
+                title: "유통기한을 구매일보다 더 뒷날로 설정해야합니다."
+            )
+        case .orderedAscending: print("<")
+        }
+        
+        // 수정 완료
         showAlertAction2(
             preferredStyle: .alert,
             title: Constant.AlertText.updateAlertTitleMessage
@@ -119,7 +137,9 @@ final class FoodDetailManagementViewController: BaseViewController {
             self.viewModel.updateData()
             self.navigationController?.popViewController(animated: true)
         }
-
+        
+        
+ 
     }
     
     @objc func deleteButtonTapped() {
@@ -207,6 +227,7 @@ extension FoodDetailManagementViewController: UIPickerViewDelegate, UIPickerView
     }
 }
 
+// dateFormatterAlert
 extension FoodDetailManagementViewController {
     func dateFormatterAlert(_ sender: UITextField) {
         let alert = UIAlertController(title: "구매 일자", message: nil, preferredStyle: .actionSheet)
@@ -217,20 +238,26 @@ extension FoodDetailManagementViewController {
         datePicker.datePickerMode = .date
         datePicker.preferredDatePickerStyle = .wheels
         datePicker.locale = Locale(identifier: "ko_KR")
+        guard let textFieldDate = sender.text?.toDate() else { return }
+        datePicker.date = textFieldDate
+        
+        senderTag = sender.tag
         datePicker.addTarget(self, action: #selector(dateChange), for: .valueChanged)
         
         let vc = UIViewController()
         vc.view = datePicker
         alert.setValue(vc, forKey: "contentViewController")
         present(alert, animated: true)
-        
-        viewModel.registerDate.bind { date in
-            print("date: \(date)")
-            sender.text = date
-        }
     }
-    
+
     @objc func dateChange(_ sender: UIDatePicker) {
-        viewModel.registerDate.value = Date().dateFormat(date: sender.date)
+        print(#function, "\(sender.date)")
+        if senderTag == FoodDataInputTextFieldTag.register.rawValue {
+            viewModel.foodModel.value.purchaseDate = sender.date
+            mainView.registerDateTextField.text = sender.date.toString(format: .compactDot)
+        } else if senderTag == FoodDataInputTextFieldTag.expiration.rawValue {
+            viewModel.foodModel.value.expirationDate = sender.date
+            mainView.expirationDateTextField.text = sender.date.toString(format: .compactDot)
+        }
     }
 }
