@@ -12,7 +12,6 @@ final class ChartView: BaseView {
     // scrollView
     let scrollView = {
         let scrollView = UIScrollView()
-        scrollView.isScrollEnabled = true
         scrollView.showsVerticalScrollIndicator = false
         return scrollView
     }()
@@ -80,6 +79,7 @@ final class ChartView: BaseView {
         label.text = "40"
         label.font = UIFont(name: Constant.Font.soyoBold, size: 15)
         label.textColor = .orange
+        label.textAlignment = .right
         return label
     }()
     
@@ -103,6 +103,7 @@ final class ChartView: BaseView {
         label.text = "50"
         label.font = UIFont(name: Constant.Font.soyoBold, size: 15)
         label.textColor = .orange
+        label.textAlignment = .right
         return label
     }()
     
@@ -126,6 +127,7 @@ final class ChartView: BaseView {
         label.text = "35"
         label.font = UIFont(name: Constant.Font.soyoBold, size: 15)
         label.textColor = .orange
+        label.textAlignment = .right
         return label
     }()
     
@@ -147,6 +149,7 @@ final class ChartView: BaseView {
             secondTotalAnalysisContentInfoLabel
         ])
         stackView.axis = .horizontal
+        stackView.distribution = .fill
         return stackView
     }()
     
@@ -157,16 +160,17 @@ final class ChartView: BaseView {
             thirdTotalAnalysisContentInfoLabel
         ])
         stackView.axis = .horizontal
+        stackView.distribution = .fill
         return stackView
     }()
     
     // ChartView
-    private let chartAnalyView = {
+    private let categoryChartAnalyView = {
         let view = ChartContentView()
         return view
     }()
     
-    private let chartAnalyTitleLabel = {
+    private let categoryChartAnalyTitleLabel = {
         let label = UILabel()
         label.text = Constant.CharViewTitle.chartAnalyTitle
         label.font = UIFont(name: Constant.Font.soyoBold, size: 25)
@@ -174,7 +178,7 @@ final class ChartView: BaseView {
         return label
     }()
     
-    let pieChartView = {
+    let categoryPieChartView = {
         let view = PieChartView()
         view.backgroundColor = Constant.BaseColor.backgroundColor
         // 데이터 없을 UI 세팅
@@ -189,21 +193,22 @@ final class ChartView: BaseView {
         view.entryLabelColor = .black
         view.tintColor = .black
         
-        view.legend.horizontalAlignment = .right
+        view.legend.horizontalAlignment = .center
         view.legend.verticalAlignment = .bottom
-        view.legend.orientation = .horizontal
-        view.legend.xEntrySpace = 0
-        view.legend.yEntrySpace = 0
-        view.legend.yOffset = 0
-        
-        view.drawHoleEnabled = false
         view.drawEntryLabelsEnabled = false
         view.notifyDataSetChanged()
         return view
     }()
     
+    private let chartView = {
+        let view = ChartContentView()
+        return view
+    }()
     
-
+    override func layoutSubviews() {
+        super.layoutSubviews()
+    }
+    
     override func configureHierarchy() {
         // scrollView
         addSubview(scrollView)
@@ -222,10 +227,12 @@ final class ChartView: BaseView {
         totalAnalysisView.addSubview(thirdTotalAnalysisContentStackView)
         
         // chartAnalyView
-        contentView.addSubview(chartAnalyView)
-        chartAnalyView.addSubview(chartAnalyTitleLabel)
-        chartAnalyView.addSubview(pieChartView)
+        contentView.addSubview(categoryChartAnalyView)
+        categoryChartAnalyView.addSubview(categoryChartAnalyTitleLabel)
+        categoryChartAnalyView.addSubview(categoryPieChartView)
         
+        // temp Chart View
+        contentView.addSubview(chartView)
     }
 
 
@@ -278,6 +285,10 @@ final class ChartView: BaseView {
             make.width.equalTo(firstTotalAnalysisContentStackView.snp.width).multipliedBy(0.1)
         }
         
+        firstTotalAnalysisContentLabel.snp.makeConstraints { make in
+            make.width.equalTo(firstTotalAnalysisContentStackView.snp.width).multipliedBy(0.8)
+        }
+        
         secondTotalAnalysisContentStackView.snp.makeConstraints { make in
             make.top.equalTo(firstTotalAnalysisContentStackView.snp.bottom).inset(-10)
             make.horizontalEdges.equalToSuperview().inset(40)
@@ -286,6 +297,10 @@ final class ChartView: BaseView {
         
         secondTotalAnalysisImageView.snp.makeConstraints { make in
             make.width.equalTo(secondTotalAnalysisContentStackView.snp.width).multipliedBy(0.1)
+        }
+        
+        secondTotalAnalysisContentLabel.snp.makeConstraints { make in
+            make.width.equalTo(secondTotalAnalysisContentStackView.snp.width).multipliedBy(0.8)
         }
 
         thirdTotalAnalysisContentStackView.snp.makeConstraints { make in
@@ -298,23 +313,33 @@ final class ChartView: BaseView {
             make.width.equalTo(thirdTotalAnalysisContentStackView.snp.width).multipliedBy(0.1)
         }
         
+        thirdTotalAnalysisContentLabel.snp.makeConstraints { make in
+            make.width.equalTo(thirdTotalAnalysisContentStackView.snp.width).multipliedBy(0.8)
+        }
+        
         // chartAnalyView
-        chartAnalyView.snp.makeConstraints { make in
+        categoryChartAnalyView.snp.makeConstraints { make in
             make.top.equalTo(totalAnalysisView.snp.bottom).inset(-15)
             make.horizontalEdges.equalTo(contentView.snp.horizontalEdges).inset(Constant.MainView.mainViewHorizontalPadding)
             make.height.equalTo(Constant.ScreenSize.deviceScreenHeight*0.6)
         }
         
-        chartAnalyTitleLabel.snp.makeConstraints { make in
+        categoryChartAnalyTitleLabel.snp.makeConstraints { make in
             make.top.horizontalEdges.equalToSuperview().inset(20)
         }
         
-        pieChartView.snp.makeConstraints { make in
-            make.top.equalTo(chartAnalyTitleLabel.snp.bottom).inset(-30)
+        categoryPieChartView.snp.makeConstraints { make in
+            make.top.equalTo(categoryChartAnalyTitleLabel.snp.bottom).inset(-30)
             make.centerX.equalToSuperview()
             make.size.equalTo(350)
         }
         
-
+        // 임시 chartView
+        chartView.snp.makeConstraints { make in
+            make.top.equalTo(categoryChartAnalyView.snp.bottom).inset(-15)
+            make.horizontalEdges.equalTo(contentView.snp.horizontalEdges).inset(Constant.MainView.mainViewHorizontalPadding)
+            make.height.equalTo(Constant.ScreenSize.deviceScreenHeight*0.6)
+            make.bottom.equalTo(scrollView.snp.bottom)
+        }
     }
 }

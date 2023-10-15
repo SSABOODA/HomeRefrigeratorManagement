@@ -13,7 +13,7 @@ extension Constant {
         static let recipeVC = "레시피".localized
         static let foodManagementVC = "관리".localized
         static let chartVC = "분석".localized
-        static let settingVC = "My".localized
+        static let settingVC = "설정".localized
     }
     
     enum SystemImageName {
@@ -36,7 +36,7 @@ extension Constant {
     
     
     enum NavigationTitle {
-        static let calendarTitle = "유통기한 일정 관리".localized
+        static let calendarTitle = "캘린더".localized
         static let foodRegisterHomeTitle = "냉장고 관리".localized
         static let foodRegisterTitle = "식품 등록 방법 선택".localized
         static let foodRegisterDetailTitle = "식품 등록하기".localized

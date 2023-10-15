@@ -10,7 +10,15 @@ import UIKit
 final class SettingViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = .brown
+        setNav()
+    }
+    
+    override func configureView() {
+        super.configureView()
+    }
+    
+    private func setNav() {
+        title = Constant.TabBarTitle.settingVC
+        changeNavigationCustomFont()
     }
 }
