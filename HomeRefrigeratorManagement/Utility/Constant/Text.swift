@@ -36,6 +36,7 @@ extension Constant {
     
     
     enum NavigationTitle {
+        static let calendarTitle = "유통기한 일정 관리".localized
         static let foodRegisterHomeTitle = "냉장고 관리".localized
         static let foodRegisterTitle = "식품 등록 방법 선택".localized
         static let foodRegisterDetailTitle = "식품 등록하기".localized
@@ -73,7 +74,7 @@ extension Constant {
         static let totalAnalysisTitle = "종합 분석".localized
         static let firstTotalAnalysisContentTitle = "현재 냉장고에 보관된 식품 수".localized
         static let secondTotalAnalysisContentTitle = "유통기한 내에 먹은 음식 수".localized
-        static let thirdTotalAnalysisContentTitle = "현재 냉장고에 보관된 식품 수".localized
-        static let chartAnalyTitle = "식품 군".localized
+        static let thirdTotalAnalysisContentTitle = "유통기한을 지키지 못한 음식 수".localized
+        static let chartAnalyTitle = "식품 유형".localized
     }
 }

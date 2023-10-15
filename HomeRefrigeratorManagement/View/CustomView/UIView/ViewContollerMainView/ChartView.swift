@@ -75,7 +75,7 @@ final class ChartView: BaseView {
         return label
     }()
     
-    private let firstTotalAnalysisContentInfoLabel = {
+    let firstTotalAnalysisContentInfoLabel = {
         let label = UILabel()
         label.text = "40"
         label.font = UIFont(name: Constant.Font.soyoBold, size: 15)
@@ -98,7 +98,7 @@ final class ChartView: BaseView {
         return label
     }()
     
-    private let secondTotalAnalysisContentInfoLabel = {
+    let secondTotalAnalysisContentInfoLabel = {
         let label = UILabel()
         label.text = "50"
         label.font = UIFont(name: Constant.Font.soyoBold, size: 15)
@@ -121,7 +121,7 @@ final class ChartView: BaseView {
         return label
     }()
     
-    private let thirdTotalAnalysisContentInfoLabel = {
+    let thirdTotalAnalysisContentInfoLabel = {
         let label = UILabel()
         label.text = "35"
         label.font = UIFont(name: Constant.Font.soyoBold, size: 15)
@@ -176,17 +176,29 @@ final class ChartView: BaseView {
     
     let pieChartView = {
         let view = PieChartView()
+        view.backgroundColor = Constant.BaseColor.backgroundColor
         // 데이터 없을 UI 세팅
         view.noDataText = "출력 데이터가 없습니다. 😭".localized
         view.noDataFont = UIFont(name: Constant.Font.soyoBold, size: 20)!
         view.noDataTextColor = .orange
         view.noDataTextAlignment = .center
-        view.backgroundColor = Constant.BaseColor.backgroundColor
+        
         // pieChart UI 세팅
         view.legend.font = UIFont(name: Constant.Font.soyoRegular, size: 12)!
         view.entryLabelFont = UIFont(name: Constant.Font.soyoRegular, size: 10)
         view.entryLabelColor = .black
         view.tintColor = .black
+        
+        view.legend.horizontalAlignment = .right
+        view.legend.verticalAlignment = .bottom
+        view.legend.orientation = .horizontal
+        view.legend.xEntrySpace = 0
+        view.legend.yEntrySpace = 0
+        view.legend.yOffset = 0
+        
+        view.drawHoleEnabled = false
+        view.drawEntryLabelsEnabled = false
+        view.notifyDataSetChanged()
         return view
     }()
     
@@ -254,11 +266,10 @@ final class ChartView: BaseView {
         
         totalAnalysisTitleLabel.snp.makeConstraints { make in
             make.top.horizontalEdges.equalToSuperview().inset(20)
-//            make.height.equalToSuperview().multipliedBy(0.2)
         }
         
         firstTotalAnalysisContentStackView.snp.makeConstraints { make in
-            make.top.equalTo(totalAnalysisTitleLabel.snp.bottom).inset(-10)
+            make.top.equalTo(totalAnalysisTitleLabel.snp.bottom).inset(-20)
             make.horizontalEdges.equalToSuperview().inset(40)
             make.height.equalToSuperview().multipliedBy(0.15)
         }

@@ -45,9 +45,9 @@ final class CalendarViewController: BaseViewController {
     }
     
     private func dataBind() {
-        viewModel.filteredFoodData.bind { _ in
+        viewModel.filteredFoodData.bind { [weak self] _ in
             DispatchQueue.main.async {
-                self.performShanshot()
+                self?.performShanshot()
             }
         }
     }
@@ -55,8 +55,7 @@ final class CalendarViewController: BaseViewController {
     override func configureView() {
         super.configureView()
         view.backgroundColor = Constant.BaseColor.grayContrastBackgroundColor
-        
-        title = "캘린더"
+        title = Constant.NavigationTitle.calendarTitle
 //      self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.largeTitleDisplayMode = .never
         changeNavigationCustomFont()

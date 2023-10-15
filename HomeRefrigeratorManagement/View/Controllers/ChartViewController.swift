@@ -8,7 +8,7 @@
 import UIKit
 import DGCharts
 
-final class ChartViewController: BaseViewController, UIScrollViewDelegate {
+final class ChartViewController: BaseViewController {
 
     let mainView = ChartView()
     let viewModel = ChartViewmodel()
@@ -23,20 +23,10 @@ final class ChartViewController: BaseViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNav()
-        dataBind()
-        
-        customizeChart(dataPoints: categoryList, values: numberOfFoodsByCategory)
-        
-        print(categoryList, categoryList.count)
-        print(numberOfFoodsByCategory, numberOfFoodsByCategory.count)
+        pieChartDataConfiguration()
+        totalAnalysisDataConfiguration()
     }
-    
-    private func dataBind() {
-        viewModel.fetchData()
-        categoryList = viewModel.makeFoodCategoryList()
-        numberOfFoodsByCategory = viewModel.numberOfFoodsByCategory(categoryList)
-    }
-    
+
     override func configureView() {
         super.configureView()
         mainView.scrollView.delegate = self
@@ -48,7 +38,22 @@ final class ChartViewController: BaseViewController, UIScrollViewDelegate {
         changeNavigationCustomFont()
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {}
+    private func pieChartDataConfiguration() {
+        viewModel.fetchData()
+        categoryList = viewModel.makeFoodCategoryList()
+        numberOfFoodsByCategory = viewModel.numberOfFoodsByCategory(categoryList)
+        
+        customizeChart(
+            dataPoints: categoryList,
+            values: numberOfFoodsByCategory
+        )
+    }
+    
+    private func totalAnalysisDataConfiguration() {
+        mainView.firstTotalAnalysisContentInfoLabel.text = "\(viewModel.totalAnalysisData(.totalCurrentFoodCount))"
+        mainView.secondTotalAnalysisContentInfoLabel.text = "\(viewModel.totalAnalysisData(.successExpirationDate))"
+        mainView.thirdTotalAnalysisContentInfoLabel.text = "\(viewModel.totalAnalysisData(.failedExpirationDate))"
+    }
 }
 
 // pieChart
@@ -84,4 +89,9 @@ extension ChartViewController {
         }
         return colors
     }
+}
+
+// UIScrollViewDelegate
+extension ChartViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {}
 }

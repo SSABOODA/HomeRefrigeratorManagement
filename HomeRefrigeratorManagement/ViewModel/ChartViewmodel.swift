@@ -9,6 +9,12 @@ import Foundation
 import RealmSwift
 
 final class ChartViewmodel {
+    enum TotalAnalysis {
+        case totalCurrentFoodCount
+        case successExpirationDate
+        case failedExpirationDate
+    }
+    
     var foodData: Observable<[Food]> = Observable([Food]())
     
     func fetchData() {
@@ -30,6 +36,22 @@ final class ChartViewmodel {
             result.append(count)
         }
         return result.map { Double($0) }
+    }
+    
+    func totalAnalysisData(_ totalAnalysisType: TotalAnalysis) -> Int {
+        self.fetchData()
+        switch totalAnalysisType {
+        case .totalCurrentFoodCount:
+            return foodData.value.count
+        case .successExpirationDate:
+            return foodData.value.filter {
+                $0.count == 0
+            }.count
+        case .failedExpirationDate:
+            return foodData.value.filter {
+                $0.expirationDate > Date()
+            }.count
+        }
     }
     
 }
