@@ -136,14 +136,9 @@ extension UIViewController {
             }
         }
         
-        if textField.tag == 0 {
-            print("tag 0", textField.text!.count)
-            guard textField.text!.count < 19 else { return false } // 100 글자로 제한
-        } else if textField.tag == 1 {
-            print("tag 1")
-            if textField.isEditing {
-                print("textField: \(textField)")
-            }
+        if textField.tag == FoodDataInputTextFieldTag.desc.rawValue {
+            guard textField.text!.count < 19 else { return false }
+        } else if textField.tag == FoodDataInputTextFieldTag.count.rawValue {
             if let text = textField.text,
                let amount = Int(text),
                (0 < amount), (amount < 100) {

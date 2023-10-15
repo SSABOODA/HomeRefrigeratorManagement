@@ -43,12 +43,8 @@ final class CustomCalendarCell: FSCalendarCell {
     
     // 셀에 표시할 내용을 설정할 수 있습니다.
     func configureCell(date: Date, calendar: FSCalendar) {
-        print(calendar.selectedDates, date)
-        
         if calendar.selectedDates.contains(date) {
-            print("selected DATE IN")
             mainImageView.image = UIImage(systemName: "star")
-//            mainImageView.isHidden = false
         } else {
             mainImageView.isHidden = true
         }

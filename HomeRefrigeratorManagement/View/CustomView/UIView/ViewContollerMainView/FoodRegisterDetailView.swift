@@ -80,7 +80,7 @@ final class FoodRegisterDetailView: BaseView {
         let tf = UITextField()
         tf.placeholder = "식품의 상세한 설명을 적어보세요~"
         tf.font = .systemFont(ofSize: 13)
-        tf.tag = 0
+        tf.tag = FoodDataInputTextFieldTag.desc.rawValue
         return tf
     }()
     
@@ -107,6 +107,7 @@ final class FoodRegisterDetailView: BaseView {
         let tf = UITextField()
         tf.text = Date().dateFormat(date: Date())
         tf.font = .systemFont(ofSize: 13)
+        tf.tag = FoodDataInputTextFieldTag.register.rawValue
         return tf
     }()
     
@@ -133,6 +134,7 @@ final class FoodRegisterDetailView: BaseView {
         let tf = UITextField()
         tf.text = Date().dateFormat(date: Date())
         tf.font = .systemFont(ofSize: 13)
+        tf.tag = FoodDataInputTextFieldTag.expiration.rawValue
         return tf
     }()
     
@@ -159,6 +161,7 @@ final class FoodRegisterDetailView: BaseView {
         let tf = UITextField()
         tf.placeholder = "저장 방법을 선택해주세요"
         tf.font = .systemFont(ofSize: 13)
+        tf.tag = FoodDataInputTextFieldTag.storage.rawValue
         return tf
     }()
     
@@ -186,7 +189,7 @@ final class FoodRegisterDetailView: BaseView {
         tf.keyboardType = .numberPad
         tf.placeholder = "수량을 입력해주세요~"
         tf.font = .systemFont(ofSize: 13)
-        tf.tag = 1
+        tf.tag = FoodDataInputTextFieldTag.count.rawValue
         return tf
     }()
     

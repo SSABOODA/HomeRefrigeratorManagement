@@ -13,7 +13,7 @@
 		F7289E4C2AD2C05400E092C6 /* FoodDetailManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7289E4B2AD2C05400E092C6 /* FoodDetailManagementViewController.swift */; };
 		F7289E4E2AD2C60300E092C6 /* FoodDetailManagementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7289E4D2AD2C60300E092C6 /* FoodDetailManagementViewModel.swift */; };
 		F7289E502AD2E99900E092C6 /* FoodDetailManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7289E4F2AD2E99900E092C6 /* FoodDetailManagementView.swift */; };
-		F7289E532AD3CDF700E092C6 /* FilterEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7289E522AD3CDF700E092C6 /* FilterEnum.swift */; };
+		F7289E532AD3CDF700E092C6 /* GlobalEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7289E522AD3CDF700E092C6 /* GlobalEnum.swift */; };
 		F7289E582AD50CF800E092C6 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F7289E572AD50CF800E092C6 /* IQKeyboardManagerSwift */; };
 		F7289E5B2AD52F4E00E092C6 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = F7289E5A2AD52F4E00E092C6 /* FSCalendar */; };
 		F7610A212AD5458C00832129 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A202AD5458C00832129 /* CalendarViewModel.swift */; };
@@ -102,7 +102,7 @@
 		F7289E4B2AD2C05400E092C6 /* FoodDetailManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailManagementViewController.swift; sourceTree = "<group>"; };
 		F7289E4D2AD2C60300E092C6 /* FoodDetailManagementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailManagementViewModel.swift; sourceTree = "<group>"; };
 		F7289E4F2AD2E99900E092C6 /* FoodDetailManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailManagementView.swift; sourceTree = "<group>"; };
-		F7289E522AD3CDF700E092C6 /* FilterEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterEnum.swift; sourceTree = "<group>"; };
+		F7289E522AD3CDF700E092C6 /* GlobalEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalEnum.swift; sourceTree = "<group>"; };
 		F7610A202AD5458C00832129 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
 		F7610A222AD54A2500832129 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		F7610A242AD56D3800832129 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -218,7 +218,7 @@
 		F7289E512AD3CDD900E092C6 /* Enum */ = {
 			isa = PBXGroup;
 			children = (
-				F7289E522AD3CDF700E092C6 /* FilterEnum.swift */,
+				F7289E522AD3CDF700E092C6 /* GlobalEnum.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -699,7 +699,7 @@
 				F7C31DDE2AC5AC34008DAA21 /* BaseCollectionViewCell.swift in Sources */,
 				F7C31DEA2AC6AEFC008DAA21 /* FoodRegisterButton.swift in Sources */,
 				F7610A4E2AD8020700832129 /* RecipeCollectionViewCell.swift in Sources */,
-				F7289E532AD3CDF700E092C6 /* FilterEnum.swift in Sources */,
+				F7289E532AD3CDF700E092C6 /* GlobalEnum.swift in Sources */,
 				F7C31DCF2AC329F1008DAA21 /* FoodTable.swift in Sources */,
 				F7C31D9E2AC2D619008DAA21 /* Observable.swift in Sources */,
 				F7C31DD62AC5A602008DAA21 /* UITabBarController+Extension.swift in Sources */,

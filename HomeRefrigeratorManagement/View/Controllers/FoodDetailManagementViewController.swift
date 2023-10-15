@@ -75,6 +75,7 @@ final class FoodDetailManagementViewController: BaseViewController {
     
     @objc func foodDescriptionTextEditingChanged(_ sender: UITextField) {
         guard let text = sender.text else { return }
+        print("textfiled.text: \(text)")
         viewModel.foodModel.value.description = text
     }
     
@@ -94,7 +95,9 @@ final class FoodDetailManagementViewController: BaseViewController {
     }
     
     @objc func storageTypeTextFieldEditingChanged(_ sender: UITextField) {
+        print(#function)
         guard let text = sender.text else { return }
+        print("Constant.FoodStorageType(rawValue: text): \(Constant.FoodStorageType(rawValue: text))")
         viewModel.foodModel.value.storageType = Constant.FoodStorageType(rawValue: text) ?? .outdoor
     }
     
@@ -139,13 +142,14 @@ extension FoodDetailManagementViewController {
     }
 }
 
-// TODO: 제약 조건
+// UITextFieldDelegate
 extension FoodDetailManagementViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         return foodInputDataTextFieldRestriction(textField, string: string)
     }
 }
 
+// UIPickerViewDelegate, UIPickerViewDataSource
 extension FoodDetailManagementViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func configPickerView() {
         picker.delegate = self
@@ -198,6 +202,8 @@ extension FoodDetailManagementViewController: UIPickerViewDelegate, UIPickerView
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.mainView.storageTypeTextField.text = self.viewModel.storageType[row]
+        guard let storageTypeText = self.mainView.storageTypeTextField.text else { return }
+        self.viewModel.foodModel.value.storageType = Constant.FoodStorageType(rawValue: storageTypeText) ?? .outdoor
     }
 }
 

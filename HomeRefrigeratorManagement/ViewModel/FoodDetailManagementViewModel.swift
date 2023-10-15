@@ -34,7 +34,7 @@ final class FoodDetailManagementViewModel {
         guard let food else { return }
         
         let category = FoodCategory()
-        category.categoryName = food.category?.categoryName ?? "실외"
+        category.categoryName = food.category?.categoryName ?? "기타"
         let storageType = StorageType()
         storageType.storageType = foodModel.value.storageType.rawValue
         
@@ -43,10 +43,10 @@ final class FoodDetailManagementViewModel {
             "name": food.name,
             "category": category,
             "storageType": storageType,
-            "count": foodModel.value.count,
+            "count": foodModel.value.count == 0 ? food.count : foodModel.value.count,
             "purchaseDate": foodModel.value.purchaseDate,
             "expirationDate": foodModel.value.expirationDate,
-            "descriptionContent": foodModel.value.description
+            "descriptionContent": foodModel.value.description.isEmpty ? food.descriptionContent : foodModel.value.description
         ] as [String : Any])
         
         localRealm.update(object: item)

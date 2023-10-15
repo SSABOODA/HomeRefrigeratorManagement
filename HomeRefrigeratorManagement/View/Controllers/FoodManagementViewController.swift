@@ -52,7 +52,6 @@ final class FoodManagementViewController: BaseViewController {
         // view setting
         mainView.collectionView.delegate = self
         mainView.collectionView.backgroundColor = Constant.collectionViewColor.collectionViewBackgroundColor
-        
         configureNavigationBar()
     }
     

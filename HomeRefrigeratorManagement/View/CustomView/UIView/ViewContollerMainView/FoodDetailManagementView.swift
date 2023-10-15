@@ -10,6 +10,8 @@ import UIKit
 // @deprecated
 class FoodDetailManagementView: BaseView {
     
+    
+    
     let mainView = {
         let view = UIView()
         view.backgroundColor = Constant.BaseColor.backgroundColor
@@ -79,7 +81,7 @@ class FoodDetailManagementView: BaseView {
         let tf = UITextField()
         tf.placeholder = "식품의 상세한 설명을 적어보세요~"
         tf.font = .systemFont(ofSize: 13)
-        tf.tag = 0
+        tf.tag = FoodDataInputTextFieldTag.desc.rawValue
         return tf
     }()
     
@@ -107,6 +109,7 @@ class FoodDetailManagementView: BaseView {
         let tf = UITextField()
         tf.text = Date().dateFormat(date: Date())
         tf.font = .boldSystemFont(ofSize: 13)
+        tf.tag = FoodDataInputTextFieldTag.register.rawValue
         return tf
     }()
     
@@ -134,6 +137,7 @@ class FoodDetailManagementView: BaseView {
         let tf = UITextField()
         tf.text = Date().dateFormat(date: Date())
         tf.font = .boldSystemFont(ofSize: 13)
+        tf.tag = FoodDataInputTextFieldTag.expiration.rawValue
         return tf
     }()
     
@@ -161,6 +165,7 @@ class FoodDetailManagementView: BaseView {
         let tf = UITextField()
         tf.placeholder = "저장 방법을 선택해주세요"
         tf.font = .boldSystemFont(ofSize: 13)
+        tf.tag = FoodDataInputTextFieldTag.storage.rawValue
         return tf
     }()
     
@@ -190,7 +195,7 @@ class FoodDetailManagementView: BaseView {
         tf.placeholder = "수량을 입력해주세요~"
         tf.font = .boldSystemFont(ofSize: 13)
         tf.clearButtonMode = .whileEditing
-        tf.tag = 1
+        tf.tag = FoodDataInputTextFieldTag.count.rawValue
         return tf
     }()
     
