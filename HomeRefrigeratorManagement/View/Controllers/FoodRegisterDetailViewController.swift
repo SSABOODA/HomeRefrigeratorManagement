@@ -34,7 +34,7 @@ final class FoodRegisterDetailViewController: BaseViewController {
     
     override func configureView() {
         super.configureView()
-        dataBind()
+        configureInitialDate()
         addTarget()
         configPickerView()
         view.backgroundColor = UIColor(white: 1, alpha: 0.5)
@@ -42,9 +42,10 @@ final class FoodRegisterDetailViewController: BaseViewController {
         mainView.countTextField.delegate = self
     }
 
-    private func dataBind() {
+    private func configureInitialDate() {
         mainView.foodImageView.image = UIImage(named: viewModel.foodIconName)
         mainView.foodNameLabel.text = viewModel.foodIconName
+        mainView.storageTypeTextField.text = viewModel.foodIconInfo.value.storageType.rawValue
     }
     
     private func addTarget() {

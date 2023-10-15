@@ -29,7 +29,6 @@ final class CalendarViewController: BaseViewController {
         super.viewDidLoad()
         configureCalendar()
         setCalendarAction()
-        
         configureDataSource()
         dataBind()
     }
@@ -54,10 +53,11 @@ final class CalendarViewController: BaseViewController {
 
     override func configureView() {
         super.configureView()
+        // configure navigation
         view.backgroundColor = Constant.BaseColor.grayContrastBackgroundColor
         title = Constant.NavigationTitle.calendarTitle
-//      self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationItem.largeTitleDisplayMode = .never
+//        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .never
         changeNavigationCustomFont()
         
         // CollectionView

@@ -103,7 +103,7 @@ class FoodManagementView: BaseView {
             let section = NSCollectionLayoutSection(group: group)
             section.orthogonalScrollingBehavior = .none
             section.interGroupSpacing = 10
-            section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20)
+            section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 20, bottom: 0, trailing: 20)
 
             let titleSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),

@@ -202,12 +202,12 @@ final class CalendarView: BaseView {
 extension CalendarView {
     private func collectionViewLayout() -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 15
-        layout.minimumInteritemSpacing = 30
+        layout.minimumLineSpacing = 10
+        layout.minimumInteritemSpacing = 10
         let width = Constant.ScreenSize.deviceScreenWidth - 50
         layout.itemSize = CGSize(width: width, height: 100)
         layout.scrollDirection = .vertical
-        layout.sectionInset = UIEdgeInsets(top: 15, left: 0, bottom: 25, right: 0)
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 25, right: 0)
         return layout
     }
 }
