@@ -33,7 +33,7 @@ final class AlarmViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        checkAccessAlarm()
     }
     
     override func configureView() {
@@ -53,7 +53,12 @@ final class AlarmViewController: BaseViewController {
     @objc func switchViewTapped() {
         print(#function)
     }
-
+    
+    private func checkAccessAlarm() {
+        let permissionStatus = UserDefaults.standard.bool(forKey: "permission")
+        print("permissionStatus: \(permissionStatus)")
+        switchView.setOn(permissionStatus, animated: true)
+    }
 }
 
 extension AlarmViewController: UITableViewDelegate, UITableViewDataSource {
