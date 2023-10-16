@@ -7,6 +7,7 @@
 
 import Foundation
 
+// @deprecated
 struct YoutubeModel: Codable {
     let pageInfo: PageInfo
     var items: [Item]?
