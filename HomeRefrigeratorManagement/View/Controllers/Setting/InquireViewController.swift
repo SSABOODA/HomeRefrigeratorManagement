@@ -14,6 +14,11 @@ final class InquireViewController: BaseViewController, MFMailComposeViewControll
         sendEmail()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print(#function)
+    }
+    
     private func sendEmail() {
         if MFMailComposeViewController.canSendMail() {
             let composeViewController = MFMailComposeViewController()
@@ -52,10 +57,9 @@ final class InquireViewController: BaseViewController, MFMailComposeViewControll
                     }
                 }
             }
-            let cancleAction = UIAlertAction(title: "취소", style: .destructive, handler: nil)
-            
+            let cancelAction = UIAlertAction(title: "취소", style: .destructive)
             sendMailErrorAlert.addAction(goAppStoreAction)
-            sendMailErrorAlert.addAction(cancleAction)
+            sendMailErrorAlert.addAction(cancelAction)
             self.present(sendMailErrorAlert, animated: true, completion: nil)
         }
     }
@@ -79,4 +83,21 @@ final class InquireViewController: BaseViewController, MFMailComposeViewControll
               let version = dictionary["CFBundleShortVersionString"] as? String else { return "" }
         return version
     }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        switch result {
+        case .cancelled:
+            self.dismiss(animated: true, completion: nil)
+        case .saved:
+            print("")
+        case .sent:
+            print("")
+        case .failed:
+            print("")
+        @unknown default:
+            print(error?.localizedDescription)
+        }
+        self.navigationController?.popViewController(animated: true)
+    }
+
 }
