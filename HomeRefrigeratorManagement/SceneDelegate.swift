@@ -44,14 +44,44 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillEnterForeground(_ scene: UIScene) {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
+        UIApplication.shared.applicationIconBadgeNumber = 0
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
+        
+        configureUserNotification()
     }
 
 
 }
 
+
+extension SceneDelegate {
+    private func configureUserNotification() {
+        
+        var dayComponent = DateComponents()
+        dayComponent.day = -3 // For removing one day (yesterday): -1
+        let theCalendar = Calendar.current
+        let nextDate = theCalendar.date(byAdding: dayComponent, to: Date())
+        guard let nextDate else { return }
+        
+        let food = RealmTableRepository.shared.fetch(object: Food()).sorted(byKeyPath: "expirationDate", ascending: false).toArray().filter {
+            $0.expirationDate <= nextDate
+        }
+        
+        print(food.count)
+        
+        let content = UNMutableNotificationContent()
+        content.title = "유통기한이 3일 이내에 임박하거나 지난 식품이 \(food.count)개 있어요.~"
+        content.badge = NSNumber(value: UIApplication.shared.applicationIconBadgeNumber + 1)
+
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true)
+        let request = UNNotificationRequest(identifier: "\(Date())", content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request) { error in
+            print(error)
+        }
+    }
+}
