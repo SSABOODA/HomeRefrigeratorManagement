@@ -137,7 +137,10 @@ extension SettingViewController: UICollectionViewDelegate, UICollectionViewDataS
             transition(viewController: vc, style: .push)
         case .notice: print("notice")
         case .version: print("version")
-        case .inquire: print("inquire")
+        case .inquire:
+            print("inquire")
+            let vc = InquireViewController()
+            transition(viewController: vc, style: .push)
         case .licence:
             print("licence")
             let vc = LicenseViewController()
