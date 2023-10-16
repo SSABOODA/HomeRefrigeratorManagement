@@ -6,7 +6,9 @@
 //
 
 import Foundation
+import UIKit
 
+// localized
 extension String {
     var localized: String {
         return NSLocalizedString(self, comment: "")
@@ -20,9 +22,13 @@ extension String {
         return String(format: self.localized, number)
     }
     
-    func toDate() -> Date? { //"yyyy-MM-dd HH:mm:ss"
+    
+}
+
+// string to date
+extension String {
+    func toDate() -> Date? {
         let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         dateFormatter.dateFormat = "yyyy-MM-dd"
         dateFormatter.timeZone = TimeZone(identifier: "UTC")
         if let date = dateFormatter.date(from: self) {
@@ -30,5 +36,40 @@ extension String {
         } else {
             return nil
         }
+    }
+}
+
+
+// html to string
+extension String {
+    var htmlToAttributedString: NSAttributedString? {
+        guard let data = data(using: .utf8) else { return nil }
+        do {
+            return try NSAttributedString(
+                data: data,
+                options: [
+                    .documentType: NSAttributedString.DocumentType.html,
+                    .characterEncoding:String.Encoding.utf8.rawValue
+                ],
+                documentAttributes: nil
+            )
+        } catch {
+            return nil
+        }
+    }
+    var htmlToString: String {
+        return htmlToAttributedString?.string ?? ""
+    }
+}
+
+
+// NSAttributedString
+extension String {
+    func makeNSAttributedString(fontName: String, fontSize: CGFloat) -> NSAttributedString {
+        let nsAttributedString = NSAttributedString(
+            string: self.localized,
+            attributes: [NSAttributedString.Key.font: UIFont(name: fontName, size: fontSize)!]
+        )
+        return nsAttributedString
     }
 }

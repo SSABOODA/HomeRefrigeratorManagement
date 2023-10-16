@@ -10,50 +10,49 @@ import UIKit
 
 
 struct SettingInfo {
-    enum SettingCategory: String, CaseIterable {
-        case alarm = "알람"
-        case notice = "서비스 알림"
-        case inquire = "문의"
-        case privacy = "개인정보"
+    enum SettingCategory: Int, CaseIterable {
+        case alarm = 0 //"알람"
+        case notice = 1 //"서비스 알림"
+        case inquire = 2 //"문의"
+        case privacy = 3 //"개인정보"
+        
+        enum SettingViewType: Int, CaseIterable {
+            case alarm = 0, notice, version, inquire, licence, privacy
+        }
         
         var options: [SettingInfo] {
             switch self {
             case .alarm:
                 return [
-                    SettingInfo(title: "알림 설정", category: self)
+                    SettingInfo(title: "알림 설정", sectionCategory: self, itemViewCategory: SettingCategory.SettingViewType.alarm)
                 ]
             case .notice:
                 return [
-                    SettingInfo(title: "공지 사항", category: self),
-                    SettingInfo(title: "버전 정보", category: self),
+                    SettingInfo(title: "공지 사항", sectionCategory: self, itemViewCategory: SettingCategory.SettingViewType.notice),
+                    SettingInfo(title: "버전 정보", sectionCategory: self, itemViewCategory: SettingCategory.SettingViewType.version),
                 ]
             case .inquire:
                 return [
-                    SettingInfo(title: "서비스 제보, 문의", category: self),
+                    SettingInfo(title: "서비스 제보, 문의", sectionCategory: self, itemViewCategory: SettingCategory.SettingViewType.inquire),
                 ]
             case .privacy:
                 return [
-                    SettingInfo(title: "라이선스", category: self),
-                    SettingInfo(title: "개인정보 처리 방침", category: self),
+                    SettingInfo(title: "라이센스", sectionCategory: self, itemViewCategory: SettingCategory.SettingViewType.licence),
+                    SettingInfo(title: "개인정보 처리 방침", sectionCategory: self, itemViewCategory: SettingCategory.SettingViewType.privacy),
                 ]
             }
         }
     }
-
     
     var title: String
-    let category: SettingCategory
+    let sectionCategory: SettingCategory
+    let itemViewCategory: SettingCategory.SettingViewType
 }
 
 
 final class SettingViewController: BaseViewController {
-    
-    var list = SettingInfo.SettingCategory.alarm.options
-    
-    
     var collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
     var cellRegistration: UICollectionView.CellRegistration<UICollectionViewListCell, SettingInfo>!
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +69,8 @@ final class SettingViewController: BaseViewController {
             // UIListContentConfiguration
             var content = UIListContentConfiguration.valueCell()
             content.text = itemIdentifier.title
+            
+            
             let nsAttributedString = NSAttributedString(
                 string: "\(itemIdentifier.title)".localized,
                 attributes: [NSAttributedString.Key.font: UIFont(name: Constant.Font.soyoBold, size: 15)!]
@@ -79,7 +80,6 @@ final class SettingViewController: BaseViewController {
             
             cell.contentConfiguration = content
             cell.accessories = [.disclosureIndicator()]
-            
             
             // UIBackgroundConfiguration
             var backgroundConfig = UIBackgroundConfiguration.listPlainCell()
@@ -127,6 +127,24 @@ extension SettingViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath.row)
+
+        let viewType = SettingInfo.SettingCategory.allCases[indexPath.section].options[indexPath.item].itemViewCategory
+
+        switch viewType {
+        case .alarm:
+            print("alarm")
+            let vc = AlarmViewController()
+            transition(viewController: vc, style: .push)
+        case .notice: print("notice")
+        case .version: print("version")
+        case .inquire: print("inquire")
+        case .licence:
+            print("licence")
+            let vc = LicenseViewController()
+            transition(viewController: vc, style: .push)
+        case .privacy: print("privacy")
+        }
+        
     }
 }
 

@@ -40,6 +40,8 @@
 		F78B9B3B2ADAC1CA00EA61CB /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = F78B9B3A2ADAC1CA00EA61CB /* DGCharts */; };
 		F78B9B3E2ADAD07D00EA61CB /* ChartViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78B9B3D2ADAD07D00EA61CB /* ChartViewmodel.swift */; };
 		F78B9B402ADB8C7000EA61CB /* FoodIconImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78B9B3F2ADB8C7000EA61CB /* FoodIconImageView.swift */; };
+		F794A5B32ADD4263009D3A3A /* LicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F794A5B22ADD4263009D3A3A /* LicenseViewController.swift */; };
+		F794A5B52ADD5B10009D3A3A /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F794A5B42ADD5B10009D3A3A /* AlarmViewController.swift */; };
 		F7C31D782AC2CE2E008DAA21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D772AC2CE2E008DAA21 /* AppDelegate.swift */; };
 		F7C31D7A2AC2CE2F008DAA21 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D792AC2CE2F008DAA21 /* SceneDelegate.swift */; };
 		F7C31D7C2AC2CE2F008DAA21 /* FoodManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D7B2AC2CE2F008DAA21 /* FoodManagementViewController.swift */; };
@@ -124,6 +126,8 @@
 		F78B9B372ADA899A00EA61CB /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		F78B9B3D2ADAD07D00EA61CB /* ChartViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewmodel.swift; sourceTree = "<group>"; };
 		F78B9B3F2ADB8C7000EA61CB /* FoodIconImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodIconImageView.swift; sourceTree = "<group>"; };
+		F794A5B22ADD4263009D3A3A /* LicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseViewController.swift; sourceTree = "<group>"; };
+		F794A5B42ADD5B10009D3A3A /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
 		F7C31D742AC2CE2E008DAA21 /* HomeRefrigeratorManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeRefrigeratorManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7C31D772AC2CE2E008DAA21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7C31D792AC2CE2F008DAA21 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -260,6 +264,15 @@
 				F78B9B332ADA86F100EA61CB /* SOYOMapleRegular.ttf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		F794A5B12ADD424E009D3A3A /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				F794A5B22ADD4263009D3A3A /* LicenseViewController.swift */,
+				F794A5B42ADD5B10009D3A3A /* AlarmViewController.swift */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		F7C31D6B2AC2CE2E008DAA21 = {
@@ -406,6 +419,7 @@
 			isa = PBXGroup;
 			children = (
 				F7610A4F2AD83FB800832129 /* Sheet */,
+				F794A5B12ADD424E009D3A3A /* Setting */,
 				F7C31DC72AC2E588008DAA21 /* CalendarViewController.swift */,
 				F7610A412AD7BDFB00832129 /* RecipeViewController.swift */,
 				F7C31D7B2AC2CE2F008DAA21 /* FoodManagementViewController.swift */,
@@ -653,6 +667,7 @@
 				F78B9B402ADB8C7000EA61CB /* FoodIconImageView.swift in Sources */,
 				F7C31D9C2AC2D60E008DAA21 /* FoodManagementViewModel.swift in Sources */,
 				F7610A512AD83FCF00832129 /* WebViewBottomSheetViewController.swift in Sources */,
+				F794A5B32ADD4263009D3A3A /* LicenseViewController.swift in Sources */,
 				F7248A372AD9329100D768DF /* SafariActivity.swift in Sources */,
 				F7610A462AD7C18D00832129 /* Router.swift in Sources */,
 				F7C31E242ACD4636008DAA21 /* FoodRegisterListViewModel.swift in Sources */,
@@ -666,6 +681,7 @@
 				F7610A212AD5458C00832129 /* CalendarViewModel.swift in Sources */,
 				F7610A4A2AD7C60400832129 /* RecipeViewModel.swift in Sources */,
 				F7248A3A2AD963E600D768DF /* FoodManagementCollectionViewHeaderView.swift in Sources */,
+				F794A5B52ADD5B10009D3A3A /* AlarmViewController.swift in Sources */,
 				F7610A442AD7C17100832129 /* NetworkManager.swift in Sources */,
 				F7C31DE82AC69C3F008DAA21 /* FoodRegisterListViewController.swift in Sources */,
 				F7C31E3C2ACFD61D008DAA21 /* UIColor+Extension.swift in Sources */,

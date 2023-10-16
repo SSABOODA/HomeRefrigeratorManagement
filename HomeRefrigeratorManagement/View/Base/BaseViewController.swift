@@ -12,11 +12,16 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
         
         configureView()
+        configureHirarchy()
         configureLayout()
     }
     
     func configureView() {
         view.backgroundColor = Constant.BaseColor.backgroundColor
+    }
+    
+    func configureHirarchy() {
+        
     }
     
     func configureLayout() {
