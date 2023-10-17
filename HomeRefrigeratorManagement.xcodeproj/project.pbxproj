@@ -43,6 +43,7 @@
 		F794A5B32ADD4263009D3A3A /* LicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F794A5B22ADD4263009D3A3A /* LicenseViewController.swift */; };
 		F794A5B52ADD5B10009D3A3A /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F794A5B42ADD5B10009D3A3A /* AlarmViewController.swift */; };
 		F794A5B72ADD6A27009D3A3A /* InquireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F794A5B62ADD6A27009D3A3A /* InquireViewController.swift */; };
+		F794A5B92ADD7BD4009D3A3A /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F794A5B82ADD7BD4009D3A3A /* NoticeViewController.swift */; };
 		F7C31D782AC2CE2E008DAA21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D772AC2CE2E008DAA21 /* AppDelegate.swift */; };
 		F7C31D7A2AC2CE2F008DAA21 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D792AC2CE2F008DAA21 /* SceneDelegate.swift */; };
 		F7C31D7C2AC2CE2F008DAA21 /* FoodManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D7B2AC2CE2F008DAA21 /* FoodManagementViewController.swift */; };
@@ -130,6 +131,7 @@
 		F794A5B22ADD4263009D3A3A /* LicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseViewController.swift; sourceTree = "<group>"; };
 		F794A5B42ADD5B10009D3A3A /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
 		F794A5B62ADD6A27009D3A3A /* InquireViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InquireViewController.swift; sourceTree = "<group>"; };
+		F794A5B82ADD7BD4009D3A3A /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
 		F7C31D742AC2CE2E008DAA21 /* HomeRefrigeratorManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeRefrigeratorManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7C31D772AC2CE2E008DAA21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7C31D792AC2CE2F008DAA21 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -271,9 +273,11 @@
 		F794A5B12ADD424E009D3A3A /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				F7C31DC52AC2E57D008DAA21 /* SettingViewController.swift */,
 				F794A5B22ADD4263009D3A3A /* LicenseViewController.swift */,
 				F794A5B42ADD5B10009D3A3A /* AlarmViewController.swift */,
 				F794A5B62ADD6A27009D3A3A /* InquireViewController.swift */,
+				F794A5B82ADD7BD4009D3A3A /* NoticeViewController.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -429,7 +433,6 @@
 				F7289E4B2AD2C05400E092C6 /* FoodDetailManagementViewController.swift */,
 				F7C31DE72AC69C3F008DAA21 /* FoodRegisterListViewController.swift */,
 				F7C31E292ACE8E8C008DAA21 /* FoodRegisterDetailViewController.swift */,
-				F7C31DC52AC2E57D008DAA21 /* SettingViewController.swift */,
 				F7610A522AD9109D00832129 /* YoutubeWebViewViewController.swift */,
 				F78B9B282ADA54D400EA61CB /* ChartViewController.swift */,
 			);
@@ -677,6 +680,7 @@
 				F7C31DD82AC5A90A008DAA21 /* FoodManagementView.swift in Sources */,
 				F7C31DD42AC5A3C3008DAA21 /* RecipeTable.swift in Sources */,
 				F7C31DC62AC2E57D008DAA21 /* SettingViewController.swift in Sources */,
+				F794A5B92ADD7BD4009D3A3A /* NoticeViewController.swift in Sources */,
 				F7C31DDC2AC5ABF7008DAA21 /* FoodManagementCollectionViewCell.swift in Sources */,
 				F7C31DAF2AC2DA29008DAA21 /* String+Extension.swift in Sources */,
 				F78B9B3E2ADAD07D00EA61CB /* ChartViewmodel.swift in Sources */,

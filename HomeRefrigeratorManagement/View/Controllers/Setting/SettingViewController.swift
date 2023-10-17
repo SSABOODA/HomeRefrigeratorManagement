@@ -135,7 +135,10 @@ extension SettingViewController: UICollectionViewDelegate, UICollectionViewDataS
             print("alarm")
             let vc = AlarmViewController()
             transition(viewController: vc, style: .push)
-        case .notice: print("notice")
+        case .notice:
+            print("notice")
+            let vc = NoticeViewController()
+            transition(viewController: vc, style: .push)
         case .version: print("version")
         case .inquire:
             print("inquire")

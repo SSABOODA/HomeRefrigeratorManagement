@@ -42,22 +42,44 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
+        print(#function)
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
+        
         UIApplication.shared.applicationIconBadgeNumber = 0
+        
+        // 사용자에게 이미 전달된 노티
+//        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+        // 사용자에게 전달 예정인 노티
+//        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        
+        UNUserNotificationCenter.current().getPendingNotificationRequests { (notiRequests) in
+            var removeIdentifiers = [String]()
+            for noti: UNNotificationRequest in notiRequests {
+                print("notiRequests: \(notiRequests)")
+                for id in notiRequests {
+                    print(noti.identifier, id.identifier)
+                    let id = id
+                    if noti.identifier == id.identifier {
+                        removeIdentifiers.append(noti.identifier)
+                    }
+                }
+            }
+            
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: removeIdentifiers)
+        }
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
-        
-        configureUserNotification()
+        let permissionStatus = UserDefaults.standard.bool(forKey: "permission")
+        if permissionStatus {
+            configureUserNotification()
+        }
     }
-
-
 }
-
 
 extension SceneDelegate {
     private func configureUserNotification() {
@@ -71,14 +93,12 @@ extension SceneDelegate {
         let food = RealmTableRepository.shared.fetch(object: Food()).sorted(byKeyPath: "expirationDate", ascending: false).toArray().filter {
             $0.expirationDate <= nextDate
         }
-        
-        print(food.count)
-        
+    
         let content = UNMutableNotificationContent()
-        content.title = "유통기한이 3일 이내에 임박하거나 지난 식품이 \(food.count)개 있어요.~"
+        content.title = "유통기한이 임박한 상품이 \(food.count)개 있어요"
         content.badge = NSNumber(value: UIApplication.shared.applicationIconBadgeNumber + 1)
 
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 86400, repeats: false)
         let request = UNNotificationRequest(identifier: "\(Date())", content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request) { error in
             print(error)

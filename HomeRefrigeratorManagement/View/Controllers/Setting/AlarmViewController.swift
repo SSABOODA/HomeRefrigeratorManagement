@@ -33,7 +33,7 @@ final class AlarmViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkAccessAlarm()
+        initialSwitchValue()
     }
     
     override func configureView() {
@@ -52,12 +52,38 @@ final class AlarmViewController: BaseViewController {
     
     @objc func switchViewTapped() {
         print(#function)
+        if switchView.isOn {
+            print(true)
+            
+            showAlertAction2(
+                preferredStyle: .alert,
+                title: "알림 허용",
+                message: "알림을 사용할 수 없습니다. 기기의 '설정>앱>알림'에서 알림 허용을 해주세요",
+                cancelTitle: "취소",
+                completeTitle: "확인") {} _: {
+                    if !self.checkAccessAlarm() {
+                        guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
+                        
+                        if UIApplication.shared.canOpenURL(url) {
+                            UIApplication.shared.open(url)
+                        }
+                    }
+                }
+            
+        } else {
+            print(false)
+        }
     }
     
-    private func checkAccessAlarm() {
+    private func initialSwitchValue() {
+        let result = checkAccessAlarm()
+        switchView.setOn(result, animated: true)
+    }
+    
+    private func checkAccessAlarm() -> Bool {
         let permissionStatus = UserDefaults.standard.bool(forKey: "permission")
         print("permissionStatus: \(permissionStatus)")
-        switchView.setOn(permissionStatus, animated: true)
+        return permissionStatus
     }
 }
 
