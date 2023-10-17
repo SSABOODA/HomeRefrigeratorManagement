@@ -16,6 +16,7 @@
 		F7289E532AD3CDF700E092C6 /* GlobalEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7289E522AD3CDF700E092C6 /* GlobalEnum.swift */; };
 		F7289E582AD50CF800E092C6 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F7289E572AD50CF800E092C6 /* IQKeyboardManagerSwift */; };
 		F7289E5B2AD52F4E00E092C6 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = F7289E5A2AD52F4E00E092C6 /* FSCalendar */; };
+		F75E9AFD2ADE529A000CF09A /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75E9AFC2ADE529A000CF09A /* SplashViewController.swift */; };
 		F7610A212AD5458C00832129 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A202AD5458C00832129 /* CalendarViewModel.swift */; };
 		F7610A232AD54A2500832129 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A222AD54A2500832129 /* CalendarView.swift */; };
 		F7610A252AD56D3800832129 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A242AD56D3800832129 /* UIImage+Extension.swift */; };
@@ -107,6 +108,7 @@
 		F7289E4D2AD2C60300E092C6 /* FoodDetailManagementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailManagementViewModel.swift; sourceTree = "<group>"; };
 		F7289E4F2AD2E99900E092C6 /* FoodDetailManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailManagementView.swift; sourceTree = "<group>"; };
 		F7289E522AD3CDF700E092C6 /* GlobalEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalEnum.swift; sourceTree = "<group>"; };
+		F75E9AFC2ADE529A000CF09A /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		F7610A202AD5458C00832129 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
 		F7610A222AD54A2500832129 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		F7610A242AD56D3800832129 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -425,6 +427,7 @@
 		F7C31DBF2AC2E40D008DAA21 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F75E9AFC2ADE529A000CF09A /* SplashViewController.swift */,
 				F7610A4F2AD83FB800832129 /* Sheet */,
 				F794A5B12ADD424E009D3A3A /* Setting */,
 				F7C31DC72AC2E588008DAA21 /* CalendarViewController.swift */,
@@ -700,6 +703,7 @@
 				F7C31D7C2AC2CE2F008DAA21 /* FoodManagementViewController.swift in Sources */,
 				F7C31DDA2AC5A924008DAA21 /* BaseView.swift in Sources */,
 				F7C31E2C2ACE93E3008DAA21 /* FoodRegisterDetailViewModel.swift in Sources */,
+				F75E9AFD2ADE529A000CF09A /* SplashViewController.swift in Sources */,
 				F78B9B292ADA54D400EA61CB /* ChartViewController.swift in Sources */,
 				F7C31DCC2AC2EF27008DAA21 /* BaseViewController.swift in Sources */,
 				F7C31E3A2ACFD0D8008DAA21 /* UIView+Extension.swift in Sources */,
