@@ -161,8 +161,8 @@ extension FoodManagementViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath)
         let nextVC = FoodDetailManagementViewController()
-        guard let filteredFoodData = self.viewModel.filteredFoodData else { return }
-        let food = filteredFoodData[indexPath.item]
+        let searchFilterFoodData = self.viewModel.searchFilterFoodData
+        let food = searchFilterFoodData[indexPath.item]
         nextVC.viewModel.food = food
         nextVC.viewModel.completionHandler = { [weak self] isDelete in
             guard let weakSelf = self else {return }
