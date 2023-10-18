@@ -52,7 +52,17 @@ final class FoodManagementViewModel {
         
         return filteredFoodData?.toArray()
     }
-    
+
+    func filterStorageType(_ storageType: Constant.FoodStorageType) {        
+        if storageType != .all {
+            filteredFoodData = filteredFoodData?.where({ food in
+                return food.storageType.storageType == storageType.rawValue
+            })
+        }
+    }
+}
+
+extension FoodManagementViewModel {
     func filterInitialConsonant(with searchText: String) -> [FoodModel] {
         let foodIconData = Constant.FoodConstant.foodIconInfo
         if searchText.isEmpty {
@@ -82,13 +92,4 @@ final class FoodManagementViewModel {
         let dDay = Int(floor(Double(useTime/86400)))
         return dDay < 0 ? "D+\(-dDay)" : "D-\(dDay)"
     }
-    
-    func filterStorageType(_ storageType: Constant.FoodStorageType) {        
-        if storageType != .all {
-            filteredFoodData = filteredFoodData?.where({ food in
-                return food.storageType.storageType == storageType.rawValue
-            })
-        }
-    }
 }
-
