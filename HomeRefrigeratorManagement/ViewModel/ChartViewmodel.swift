@@ -45,11 +45,11 @@ final class ChartViewmodel {
             return foodData.value.count
         case .successExpirationDate:
             return foodData.value.filter {
-                $0.count == 0
+                ($0.expirationDate < Date()) && ($0.count == 0)
             }.count
         case .failedExpirationDate:
             return foodData.value.filter {
-                $0.expirationDate > Date()
+                $0.expirationDate < Date()
             }.count
         }
     }

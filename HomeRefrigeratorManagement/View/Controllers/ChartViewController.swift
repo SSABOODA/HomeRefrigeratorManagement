@@ -25,6 +25,9 @@ final class ChartViewController: BaseViewController {
         setNav()
         pieChartDataConfiguration()
         totalAnalysisDataConfiguration()
+        
+        mainView.pieChartTableView.delegate = self
+        mainView.pieChartTableView.dataSource = self
     }
 
     override func configureView() {
@@ -56,6 +59,23 @@ final class ChartViewController: BaseViewController {
     }
 }
 
+extension ChartViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return categoryList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "pieChartCell") as? PieChartTableViewCell else { return UITableViewCell() }
+        
+        cell.backgroundColor = .systemBlue
+        cell.colorLabel.backgroundColor = .orange
+        cell.categoryLabel.text = "test"
+        cell.percentageLabel.text = "10%"
+        
+        return cell
+    }
+}
+
 // pieChart
 extension ChartViewController {
     
@@ -68,6 +88,14 @@ extension ChartViewController {
         
         let pieChartDataSet = PieChartDataSet(entries: dataEntries, label: "")
         pieChartDataSet.colors = colorsOfCharts(numbersOfColor: dataPoints.count)
+        
+        guard let NSFont = NSUIFont(name: Constant.Font.soyoBold, size: 13) else { return }
+        pieChartDataSet.valueFont = NSFont
+        pieChartDataSet.valueTextColor = NSUIColor(hexCode: "#000000")
+        pieChartDataSet.valueLinePart1OffsetPercentage = 0.8
+        pieChartDataSet.valueLinePart1Length = 0.5
+        pieChartDataSet.valueLinePart2Length = 0.1
+        pieChartDataSet.yValuePosition = .outsideSlice
         
         let pieChartData = PieChartData(dataSet: pieChartDataSet)
         let format = NumberFormatter()

@@ -21,6 +21,8 @@
 		F75E9B012ADE61A2000CF09A /* ConsumtionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75E9B002ADE61A2000CF09A /* ConsumtionView.swift */; };
 		F75E9B032ADE672D000CF09A /* ConsumptionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75E9B022ADE672D000CF09A /* ConsumptionCollectionViewCell.swift */; };
 		F75E9B052ADE67CD000CF09A /* ConsumptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75E9B042ADE67CD000CF09A /* ConsumptionViewModel.swift */; };
+		F75E9B082ADFF85E000CF09A /* PieChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75E9B072ADFF85E000CF09A /* PieChartTableViewCell.swift */; };
+		F75E9B0B2AE0028B000CF09A /* launchScreenBackgroundImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F75E9B0A2AE0028B000CF09A /* launchScreenBackgroundImage.jpeg */; };
 		F7610A212AD5458C00832129 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A202AD5458C00832129 /* CalendarViewModel.swift */; };
 		F7610A232AD54A2500832129 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A222AD54A2500832129 /* CalendarView.swift */; };
 		F7610A252AD56D3800832129 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A242AD56D3800832129 /* UIImage+Extension.swift */; };
@@ -117,6 +119,8 @@
 		F75E9B002ADE61A2000CF09A /* ConsumtionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumtionView.swift; sourceTree = "<group>"; };
 		F75E9B022ADE672D000CF09A /* ConsumptionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumptionCollectionViewCell.swift; sourceTree = "<group>"; };
 		F75E9B042ADE67CD000CF09A /* ConsumptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumptionViewModel.swift; sourceTree = "<group>"; };
+		F75E9B072ADFF85E000CF09A /* PieChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartTableViewCell.swift; sourceTree = "<group>"; };
+		F75E9B0A2AE0028B000CF09A /* launchScreenBackgroundImage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launchScreenBackgroundImage.jpeg; sourceTree = "<group>"; };
 		F7610A202AD5458C00832129 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
 		F7610A222AD54A2500832129 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		F7610A242AD56D3800832129 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -249,6 +253,14 @@
 			path = UIImageView;
 			sourceTree = "<group>";
 		};
+		F75E9B092AE0027F000CF09A /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				F75E9B0A2AE0028B000CF09A /* launchScreenBackgroundImage.jpeg */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
 		F7610A4F2AD83FB800832129 /* Sheet */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +287,7 @@
 		F78B9B312ADA86C000EA61CB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F75E9B092AE0027F000CF09A /* Image */,
 				F78B9B322ADA86CF00EA61CB /* Font */,
 			);
 			path = Resources;
@@ -479,6 +492,7 @@
 				F7610A262AD5B40100832129 /* CustomCalendarCell.swift */,
 				F7610A4D2AD8020700832129 /* RecipeCollectionViewCell.swift */,
 				F75E9B022ADE672D000CF09A /* ConsumptionCollectionViewCell.swift */,
+				F75E9B072ADFF85E000CF09A /* PieChartTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -648,6 +662,7 @@
 				F7C31D842AC2CE30008DAA21 /* LaunchScreen.storyboard in Resources */,
 				F7C31D812AC2CE30008DAA21 /* Assets.xcassets in Resources */,
 				F7C31DB22AC2DA90008DAA21 /* InfoPlist.strings in Resources */,
+				F75E9B0B2AE0028B000CF09A /* launchScreenBackgroundImage.jpeg in Resources */,
 				F7C31E142ACD347C008DAA21 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -759,6 +774,7 @@
 				F7C31D7A2AC2CE2F008DAA21 /* SceneDelegate.swift in Sources */,
 				F7C31DD12AC32A0B008DAA21 /* RealmTableRepository.swift in Sources */,
 				F794A5B72ADD6A27009D3A3A /* InquireViewController.swift in Sources */,
+				F75E9B082ADFF85E000CF09A /* PieChartTableViewCell.swift in Sources */,
 				F7C31DBE2AC2DE7B008DAA21 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -846,6 +862,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = FoodKeeper;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -901,6 +918,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = FoodKeeper;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -923,11 +941,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HomeRefrigeratorManagement/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -956,11 +975,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HomeRefrigeratorManagement/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

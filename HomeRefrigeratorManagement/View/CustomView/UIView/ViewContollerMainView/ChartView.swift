@@ -195,13 +195,19 @@ final class ChartView: BaseView {
         
         view.legend.horizontalAlignment = .center
         view.legend.verticalAlignment = .bottom
-        view.drawEntryLabelsEnabled = false
+//        view.drawEntryLabelsEnabled = false
         view.notifyDataSetChanged()
         return view
     }()
     
+    let pieChartTableView = {
+        let tableView = UITableView()
+        tableView.register(PieChartTableViewCell.self, forCellReuseIdentifier: "pieChartCell")
+        return tableView
+    }()
+    
     private let chartView = {
-        let view = ChartContentView()
+        let view = UIView()
         return view
     }()
     
@@ -230,6 +236,8 @@ final class ChartView: BaseView {
         contentView.addSubview(categoryChartAnalyView)
         categoryChartAnalyView.addSubview(categoryChartAnalyTitleLabel)
         categoryChartAnalyView.addSubview(categoryPieChartView)
+        categoryChartAnalyView.addSubview(pieChartTableView)
+        
         
         // temp Chart View
         contentView.addSubview(chartView)
@@ -321,7 +329,7 @@ final class ChartView: BaseView {
         categoryChartAnalyView.snp.makeConstraints { make in
             make.top.equalTo(totalAnalysisView.snp.bottom).inset(-15)
             make.horizontalEdges.equalTo(contentView.snp.horizontalEdges).inset(Constant.MainView.mainViewHorizontalPadding)
-            make.height.equalTo(Constant.ScreenSize.deviceScreenHeight*0.6)
+            make.height.equalTo(Constant.ScreenSize.deviceScreenHeight*0.7)
         }
         
         categoryChartAnalyTitleLabel.snp.makeConstraints { make in
@@ -332,6 +340,12 @@ final class ChartView: BaseView {
             make.top.equalTo(categoryChartAnalyTitleLabel.snp.bottom).inset(-30)
             make.centerX.equalToSuperview()
             make.size.equalTo(Constant.ScreenSize.deviceScreenWidth*0.8)
+        }
+        
+        pieChartTableView.snp.makeConstraints { make in
+            make.top.equalTo(categoryPieChartView.snp.bottom).inset(-10)
+            make.horizontalEdges.equalTo(categoryPieChartView.snp.horizontalEdges)
+            make.bottom.equalToSuperview().inset(10)
         }
         
         // 임시 chartView
