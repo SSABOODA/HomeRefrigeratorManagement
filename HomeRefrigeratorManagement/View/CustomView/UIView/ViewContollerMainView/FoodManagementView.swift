@@ -58,6 +58,8 @@ class FoodManagementView: BaseView {
         return button
     }()
     
+    let emptyView = EmptyView()
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         foodRegisterButton.layer.cornerRadius = foodRegisterButton.frame.width / 2
@@ -66,6 +68,7 @@ class FoodManagementView: BaseView {
     override func configureHierarchy() {
         addSubview(collectionView)
         addSubview(foodRegisterButton)
+        addSubview(emptyView)
     }
     
     override func configureLayout() {
@@ -78,6 +81,12 @@ class FoodManagementView: BaseView {
             make.size.equalTo(60)
             make.bottom.equalToSuperview().offset(-83-30)
             make.trailing.equalToSuperview().offset(-30)
+        }
+        
+        emptyView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.width.equalToSuperview()
+            make.height.equalTo(Constant.ScreenSize.deviceScreenHeight*0.3)
         }
     }
     

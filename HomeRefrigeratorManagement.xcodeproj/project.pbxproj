@@ -24,6 +24,7 @@
 		F75E9B082ADFF85E000CF09A /* PieChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75E9B072ADFF85E000CF09A /* PieChartTableViewCell.swift */; };
 		F75E9B0B2AE0028B000CF09A /* launchScreenBackgroundImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F75E9B0A2AE0028B000CF09A /* launchScreenBackgroundImage.jpeg */; };
 		F75E9B0D2AE00DF0000CF09A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F75E9B0C2AE00DF0000CF09A /* Settings.bundle */; };
+		F75E9B112AE01755000CF09A /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75E9B102AE01755000CF09A /* EmptyView.swift */; };
 		F7610A212AD5458C00832129 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A202AD5458C00832129 /* CalendarViewModel.swift */; };
 		F7610A232AD54A2500832129 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A222AD54A2500832129 /* CalendarView.swift */; };
 		F7610A252AD56D3800832129 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A242AD56D3800832129 /* UIImage+Extension.swift */; };
@@ -123,6 +124,7 @@
 		F75E9B072ADFF85E000CF09A /* PieChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartTableViewCell.swift; sourceTree = "<group>"; };
 		F75E9B0A2AE0028B000CF09A /* launchScreenBackgroundImage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launchScreenBackgroundImage.jpeg; sourceTree = "<group>"; };
 		F75E9B0C2AE00DF0000CF09A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		F75E9B102AE01755000CF09A /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		F7610A202AD5458C00832129 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
 		F7610A222AD54A2500832129 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		F7610A242AD56D3800832129 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -503,6 +505,7 @@
 		F7C31DC22AC2E43B008DAA21 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				F75E9B062ADE6CB1000CF09A /* UIImageView */,
 				F7248A352AD9328200D768DF /* Activity */,
 				F7C31E342ACFABD4008DAA21 /* UILabel */,
 				F7C31E202ACD40F9008DAA21 /* UITabBarController */,
@@ -542,10 +545,10 @@
 		F7C31E1F2ACD40E8008DAA21 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
-				F75E9B062ADE6CB1000CF09A /* UIImageView */,
 				F7248A382AD963C600D768DF /* CollectionViewHeaderView */,
 				F78B9B2E2ADA75D600EA61CB /* ViewContollerMainView */,
 				F78B9B2F2ADA761900EA61CB /* ChartContentView.swift */,
+				F75E9B102AE01755000CF09A /* EmptyView.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -743,6 +746,7 @@
 				F7C31E2E2ACE9DAB008DAA21 /* FoodRegisterDetailView.swift in Sources */,
 				F7C31D7C2AC2CE2F008DAA21 /* FoodManagementViewController.swift in Sources */,
 				F7C31DDA2AC5A924008DAA21 /* BaseView.swift in Sources */,
+				F75E9B112AE01755000CF09A /* EmptyView.swift in Sources */,
 				F75E9B052ADE67CD000CF09A /* ConsumptionViewModel.swift in Sources */,
 				F7C31E2C2ACE93E3008DAA21 /* FoodRegisterDetailViewModel.swift in Sources */,
 				F75E9AFD2ADE529A000CF09A /* SplashViewController.swift in Sources */,

@@ -17,6 +17,10 @@ final class FoodManagementViewModel {
     var isAcending = Observable(false) // false: 오름차순, true: 내림차순
     let localRealm = RealmTableRepository.shared
     
+    var currentRealmDataCount: Int {
+        return localRealm.fetch(object: Food()).count
+    }
+    
     func filterFoodData(
         query: String,
         sortType: SortType,

@@ -15,6 +15,7 @@ final class FoodManagementViewController: BaseViewController {
     }
     
     private let mainView = FoodManagementView()
+    private let emptyView = EmptyView()
     private var dataSource: UICollectionViewDiffableDataSource<Section, Food>!
     private let viewModel = FoodManagementViewModel()
     
@@ -36,12 +37,18 @@ final class FoodManagementViewController: BaseViewController {
         addTarget()
         configureDataSource()
         performQuery(searchText: "", storageType: currentStorageType)
+        
     }
     
+    private func updateEmptyView() {
+        let count = viewModel.currentRealmDataCount
+        print("data empty: \(count)")
+        mainView.emptyView.isHidden = count == 0 ? false : true
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print(#function, "FoodManagementViewController")
-//        performQuery(searchText: "@", storageType: currentStorageType)
         performQuery(searchText: "", storageType: currentStorageType)
     }
     
@@ -294,7 +301,8 @@ extension FoodManagementViewController {
         )
         
         guard let item else { return }
-        
+        updateEmptyView()
+
         var snapshot = NSDiffableDataSourceSnapshot<Section, Food>()
         snapshot.appendSections([.main])
         snapshot.appendItems(item)
@@ -304,6 +312,8 @@ extension FoodManagementViewController {
             snapshot.deleteItems([deleteFood])
             dataSource.apply(snapshot, animatingDifferences: true)
             RealmTableRepository.shared.delete(object: deleteFood)
+            viewModel.filteredFoodDataArray = viewModel.filteredFoodData?.toArray()
+            updateEmptyView()
         }
         dataSource.apply(snapshot, animatingDifferences: true)
     }
