@@ -15,10 +15,14 @@ final class ChartViewmodel {
         case failedExpirationDate
     }
     
+    let table = Food()
     var foodData: Observable<[Food]> = Observable([Food]())
     
+    var totalFoodCount: Int {
+        return RealmTableRepository.shared.fetch(object: table).count
+    }
+    
     func fetchData() {
-        let table = Food()
         let data = RealmTableRepository.shared.fetch(object: table).toArray()
         foodData.value = data
     }
@@ -52,6 +56,11 @@ final class ChartViewmodel {
                 $0.expirationDate < Date()
             }.count
         }
+    }
+    
+    func makeCategoryPercetage(count: Double) -> String {
+        let percentage = count/Double(self.totalFoodCount) * 100
+        return "\(round(percentage*10)/10)%"
     }
     
 }

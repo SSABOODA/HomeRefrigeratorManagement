@@ -67,10 +67,9 @@ extension ChartViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "pieChartCell") as? PieChartTableViewCell else { return UITableViewCell() }
         
-        cell.backgroundColor = .systemBlue
-        cell.colorLabel.backgroundColor = .orange
-        cell.categoryLabel.text = "test"
-        cell.percentageLabel.text = "10%"
+        cell.colorImageView.backgroundColor = colorsOfCharts()[indexPath.row]
+        cell.categoryLabel.text = categoryList[indexPath.row]
+        cell.percentageLabel.text = viewModel.makeCategoryPercetage(count: numberOfFoodsByCategory[indexPath.row])
         
         return cell
     }
@@ -87,7 +86,7 @@ extension ChartViewController {
         }
         
         let pieChartDataSet = PieChartDataSet(entries: dataEntries, label: "")
-        pieChartDataSet.colors = colorsOfCharts(numbersOfColor: dataPoints.count)
+        pieChartDataSet.colors = colorsOfCharts()
         
         guard let NSFont = NSUIFont(name: Constant.Font.soyoBold, size: 13) else { return }
         pieChartDataSet.valueFont = NSFont
@@ -106,8 +105,7 @@ extension ChartViewController {
         mainView.categoryPieChartView.data = pieChartData
     }
     
-    private func colorsOfCharts(numbersOfColor: Int) -> [UIColor] {
-        
+    private func colorsOfCharts() -> [UIColor] {
         let hexColors = Constant.ChartColor.FoodCategoryTypeChartColor
         return hexColors.map { UIColor(hexCode: $0) }
     }

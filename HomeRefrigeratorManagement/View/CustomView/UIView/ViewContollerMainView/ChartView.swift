@@ -203,6 +203,7 @@ final class ChartView: BaseView {
     let pieChartTableView = {
         let tableView = UITableView()
         tableView.register(PieChartTableViewCell.self, forCellReuseIdentifier: "pieChartCell")
+        tableView.rowHeight = 70
         return tableView
     }()
     
@@ -352,7 +353,7 @@ final class ChartView: BaseView {
         chartView.snp.makeConstraints { make in
             make.top.equalTo(categoryChartAnalyView.snp.bottom).inset(-15)
             make.horizontalEdges.equalTo(contentView.snp.horizontalEdges).inset(Constant.MainView.mainViewHorizontalPadding)
-            make.height.equalTo(Constant.ScreenSize.deviceScreenHeight*0.1)
+            make.height.equalTo(10)
             make.bottom.equalTo(scrollView.snp.bottom)
         }
     }
