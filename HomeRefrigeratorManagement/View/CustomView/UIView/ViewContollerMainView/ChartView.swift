@@ -182,7 +182,7 @@ final class ChartView: BaseView {
         let view = PieChartView()
         view.backgroundColor = Constant.BaseColor.backgroundColor
         // 데이터 없을 UI 세팅
-        view.noDataText = "출력 데이터가 없습니다. 😭".localized
+        view.noDataText = "출력할 데이터가 없습니다. 😭".localized
         view.noDataFont = UIFont(name: Constant.Font.soyoBold, size: 20)!
         view.noDataTextColor = .orange
         view.noDataTextAlignment = .center
@@ -330,7 +330,7 @@ final class ChartView: BaseView {
         categoryChartAnalyView.snp.makeConstraints { make in
             make.top.equalTo(totalAnalysisView.snp.bottom).inset(-15)
             make.horizontalEdges.equalTo(contentView.snp.horizontalEdges).inset(Constant.MainView.mainViewHorizontalPadding)
-            make.height.equalTo(Constant.ScreenSize.deviceScreenHeight*0.7)
+            make.height.equalTo(Constant.ScreenSize.deviceScreenHeight*0.8)
         }
         
         categoryChartAnalyTitleLabel.snp.makeConstraints { make in
@@ -344,7 +344,7 @@ final class ChartView: BaseView {
         }
         
         pieChartTableView.snp.makeConstraints { make in
-            make.top.equalTo(categoryPieChartView.snp.bottom).inset(-10)
+            make.top.equalTo(categoryPieChartView.snp.bottom).inset(-20)
             make.horizontalEdges.equalTo(categoryPieChartView.snp.horizontalEdges)
             make.bottom.equalToSuperview().inset(10)
         }

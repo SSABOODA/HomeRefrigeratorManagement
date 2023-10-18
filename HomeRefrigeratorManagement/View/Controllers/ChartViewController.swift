@@ -12,10 +12,7 @@ final class ChartViewController: BaseViewController {
 
     let mainView = ChartView()
     let viewModel = ChartViewmodel()
-    
-    var categoryList = [String]()
-    var numberOfFoodsByCategory = [Double]()
-    
+
     override func loadView() {
         view = mainView
     }
@@ -43,12 +40,9 @@ final class ChartViewController: BaseViewController {
     
     private func pieChartDataConfiguration() {
         viewModel.fetchData()
-        categoryList = viewModel.makeFoodCategoryList()
-        numberOfFoodsByCategory = viewModel.numberOfFoodsByCategory(categoryList)
-        
         customizeChart(
-            dataPoints: categoryList,
-            values: numberOfFoodsByCategory
+            dataPoints: viewModel.categoryList,
+            values: viewModel.numberOfFoodsByCategory
         )
     }
     
@@ -61,15 +55,15 @@ final class ChartViewController: BaseViewController {
 
 extension ChartViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categoryList.count
+        return viewModel.categoryList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "pieChartCell") as? PieChartTableViewCell else { return UITableViewCell() }
         
         cell.colorImageView.backgroundColor = colorsOfCharts()[indexPath.row]
-        cell.categoryLabel.text = categoryList[indexPath.row]
-        cell.percentageLabel.text = viewModel.makeCategoryPercetage(count: numberOfFoodsByCategory[indexPath.row])
+        cell.categoryLabel.text = viewModel.categoryList[indexPath.row]
+        cell.percentageLabel.text = viewModel.makeCategoryPercetage(count: viewModel.numberOfFoodsByCategory[indexPath.row])
         
         return cell
     }

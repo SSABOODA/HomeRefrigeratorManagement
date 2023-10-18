@@ -18,20 +18,11 @@ final class ChartViewmodel {
     let table = Food()
     var foodData: Observable<[Food]> = Observable([Food]())
     
-    var totalFoodCount: Int {
-        return RealmTableRepository.shared.fetch(object: table).count
-    }
-    
-    func fetchData() {
-        let data = RealmTableRepository.shared.fetch(object: table).toArray()
-        foodData.value = data
-    }
-    
-    func makeFoodCategoryList() -> [String] {
+    var categoryList: [String] {
         return Constant.FoodCategory.allCases.map { $0.rawValue }
     }
     
-    func numberOfFoodsByCategory(_ categoryList: [String]) -> [Double] {
+    var numberOfFoodsByCategory: [Double] {
         var result = [Int]()
         for category in categoryList {
             let count = foodData.value.filter {
@@ -40,6 +31,15 @@ final class ChartViewmodel {
             result.append(count)
         }
         return result.map { Double($0) }
+    }
+    
+    var totalFoodCount: Int {
+        return RealmTableRepository.shared.fetch(object: table).count
+    }
+    
+    func fetchData() {
+        let data = RealmTableRepository.shared.fetch(object: table).toArray()
+        foodData.value = data
     }
     
     func totalAnalysisData(_ totalAnalysisType: TotalAnalysis) -> Int {
@@ -60,7 +60,7 @@ final class ChartViewmodel {
     
     func makeCategoryPercetage(count: Double) -> String {
         let percentage = count/Double(self.totalFoodCount) * 100
-        return "\(round(percentage*10)/10)%"
+        return percentage.isNaN ? "0%" : "\(round(percentage*10)/10)%"
     }
     
 }
