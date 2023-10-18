@@ -90,10 +90,7 @@ class FoodManagementView: BaseView {
                 heightDimension: .fractionalHeight(1.0)
             )
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
-
-//            let groupFractionalWidth = CGFloat(
-//                layoutEnvironment.container.effectiveContentSize.width > 500 ? 0.425 : 0.85
-//            )
+            
             let groupSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
                 heightDimension: .absolute(100)

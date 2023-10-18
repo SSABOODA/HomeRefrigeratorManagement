@@ -31,7 +31,7 @@ final class NoticeViewController: BaseViewController {
          self.targetDate = calendar.date(from: dateComponents)
          
          // 타이머 시작
-         startTimer()
+//         startTimer()
      }
      
      func startTimer() {

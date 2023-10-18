@@ -17,6 +17,10 @@
 		F7289E582AD50CF800E092C6 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F7289E572AD50CF800E092C6 /* IQKeyboardManagerSwift */; };
 		F7289E5B2AD52F4E00E092C6 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = F7289E5A2AD52F4E00E092C6 /* FSCalendar */; };
 		F75E9AFD2ADE529A000CF09A /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75E9AFC2ADE529A000CF09A /* SplashViewController.swift */; };
+		F75E9AFF2ADE5E35000CF09A /* ConsumptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75E9AFE2ADE5E35000CF09A /* ConsumptionViewController.swift */; };
+		F75E9B012ADE61A2000CF09A /* ConsumtionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75E9B002ADE61A2000CF09A /* ConsumtionView.swift */; };
+		F75E9B032ADE672D000CF09A /* ConsumptionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75E9B022ADE672D000CF09A /* ConsumptionCollectionViewCell.swift */; };
+		F75E9B052ADE67CD000CF09A /* ConsumptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75E9B042ADE67CD000CF09A /* ConsumptionViewModel.swift */; };
 		F7610A212AD5458C00832129 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A202AD5458C00832129 /* CalendarViewModel.swift */; };
 		F7610A232AD54A2500832129 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A222AD54A2500832129 /* CalendarView.swift */; };
 		F7610A252AD56D3800832129 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A242AD56D3800832129 /* UIImage+Extension.swift */; };
@@ -109,6 +113,10 @@
 		F7289E4F2AD2E99900E092C6 /* FoodDetailManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailManagementView.swift; sourceTree = "<group>"; };
 		F7289E522AD3CDF700E092C6 /* GlobalEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalEnum.swift; sourceTree = "<group>"; };
 		F75E9AFC2ADE529A000CF09A /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		F75E9AFE2ADE5E35000CF09A /* ConsumptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumptionViewController.swift; sourceTree = "<group>"; };
+		F75E9B002ADE61A2000CF09A /* ConsumtionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumtionView.swift; sourceTree = "<group>"; };
+		F75E9B022ADE672D000CF09A /* ConsumptionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumptionCollectionViewCell.swift; sourceTree = "<group>"; };
+		F75E9B042ADE67CD000CF09A /* ConsumptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumptionViewModel.swift; sourceTree = "<group>"; };
 		F7610A202AD5458C00832129 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
 		F7610A222AD54A2500832129 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		F7610A242AD56D3800832129 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -233,6 +241,14 @@
 			path = Enum;
 			sourceTree = "<group>";
 		};
+		F75E9B062ADE6CB1000CF09A /* UIImageView */ = {
+			isa = PBXGroup;
+			children = (
+				F78B9B3F2ADB8C7000EA61CB /* FoodIconImageView.swift */,
+			);
+			path = UIImageView;
+			sourceTree = "<group>";
+		};
 		F7610A4F2AD83FB800832129 /* Sheet */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +267,7 @@
 				F7C31E2D2ACE9DAB008DAA21 /* FoodRegisterDetailView.swift */,
 				F7C31E3D2ACFE025008DAA21 /* FoodRegisterTextFieldView.swift */,
 				F78B9B2A2ADA572700EA61CB /* ChartView.swift */,
+				F75E9B002ADE61A2000CF09A /* ConsumtionView.swift */,
 			);
 			path = ViewContollerMainView;
 			sourceTree = "<group>";
@@ -344,6 +361,7 @@
 				F7C31E232ACD4636008DAA21 /* FoodRegisterListViewModel.swift */,
 				F7C31E2B2ACE93E3008DAA21 /* FoodRegisterDetailViewModel.swift */,
 				F78B9B3D2ADAD07D00EA61CB /* ChartViewmodel.swift */,
+				F75E9B042ADE67CD000CF09A /* ConsumptionViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -438,6 +456,7 @@
 				F7C31E292ACE8E8C008DAA21 /* FoodRegisterDetailViewController.swift */,
 				F7610A522AD9109D00832129 /* YoutubeWebViewViewController.swift */,
 				F78B9B282ADA54D400EA61CB /* ChartViewController.swift */,
+				F75E9AFE2ADE5E35000CF09A /* ConsumptionViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -459,6 +478,7 @@
 				F7C31E1C2ACD3E06008DAA21 /* FoodIconCollectionViewCell.swift */,
 				F7610A262AD5B40100832129 /* CustomCalendarCell.swift */,
 				F7610A4D2AD8020700832129 /* RecipeCollectionViewCell.swift */,
+				F75E9B022ADE672D000CF09A /* ConsumptionCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -471,7 +491,6 @@
 				F7C31E202ACD40F9008DAA21 /* UITabBarController */,
 				F7C31E1F2ACD40E8008DAA21 /* UIView */,
 				F7C31E1E2ACD40D4008DAA21 /* UIButton */,
-				F78B9B3F2ADB8C7000EA61CB /* FoodIconImageView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -506,6 +525,7 @@
 		F7C31E1F2ACD40E8008DAA21 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
+				F75E9B062ADE6CB1000CF09A /* UIImageView */,
 				F7248A382AD963C600D768DF /* CollectionViewHeaderView */,
 				F78B9B2E2ADA75D600EA61CB /* ViewContollerMainView */,
 				F78B9B2F2ADA761900EA61CB /* ChartContentView.swift */,
@@ -665,6 +685,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7C31E332ACEE999008DAA21 /* InitialConsonant.swift in Sources */,
+				F75E9AFF2ADE5E35000CF09A /* ConsumptionViewController.swift in Sources */,
 				F7C31E302ACEDB23008DAA21 /* CALayer+Extension.swift in Sources */,
 				F7610A232AD54A2500832129 /* CalendarView.swift in Sources */,
 				F7610A482AD7C30E00832129 /* YoutubeModel.swift in Sources */,
@@ -684,6 +705,7 @@
 				F7C31DD42AC5A3C3008DAA21 /* RecipeTable.swift in Sources */,
 				F7C31DC62AC2E57D008DAA21 /* SettingViewController.swift in Sources */,
 				F794A5B92ADD7BD4009D3A3A /* NoticeViewController.swift in Sources */,
+				F75E9B012ADE61A2000CF09A /* ConsumtionView.swift in Sources */,
 				F7C31DDC2AC5ABF7008DAA21 /* FoodManagementCollectionViewCell.swift in Sources */,
 				F7C31DAF2AC2DA29008DAA21 /* String+Extension.swift in Sources */,
 				F78B9B3E2ADAD07D00EA61CB /* ChartViewmodel.swift in Sources */,
@@ -702,6 +724,7 @@
 				F7C31E2E2ACE9DAB008DAA21 /* FoodRegisterDetailView.swift in Sources */,
 				F7C31D7C2AC2CE2F008DAA21 /* FoodManagementViewController.swift in Sources */,
 				F7C31DDA2AC5A924008DAA21 /* BaseView.swift in Sources */,
+				F75E9B052ADE67CD000CF09A /* ConsumptionViewModel.swift in Sources */,
 				F7C31E2C2ACE93E3008DAA21 /* FoodRegisterDetailViewModel.swift in Sources */,
 				F75E9AFD2ADE529A000CF09A /* SplashViewController.swift in Sources */,
 				F78B9B292ADA54D400EA61CB /* ChartViewController.swift in Sources */,
@@ -711,6 +734,7 @@
 				F7289E4A2AD1BB9500E092C6 /* Results+Extension.swift in Sources */,
 				F7610A532AD9109D00832129 /* YoutubeWebViewViewController.swift in Sources */,
 				F7C31DBC2AC2DE64008DAA21 /* Constant.swift in Sources */,
+				F75E9B032ADE672D000CF09A /* ConsumptionCollectionViewCell.swift in Sources */,
 				F7C31D782AC2CE2E008DAA21 /* AppDelegate.swift in Sources */,
 				F7C31E262ACD7847008DAA21 /* FoodConstant.swift in Sources */,
 				F7C31DE42AC5C5F3008DAA21 /* UIViewController+Extension.swift in Sources */,

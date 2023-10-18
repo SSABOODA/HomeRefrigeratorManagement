@@ -89,5 +89,3 @@ final class CustomTabBarController: UITabBarController {
         self.selectedIndex = Constant.TabBarSetting.selectedIndex
     }
 }
-
-

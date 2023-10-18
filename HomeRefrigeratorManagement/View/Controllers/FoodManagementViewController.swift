@@ -22,6 +22,7 @@ final class FoodManagementViewController: BaseViewController {
     private var storageOutdoorButtonIsActive = false
     private var storageIceButtonIsActive = false
     private var storageFrozenButtonIsActive = false
+    
     var storageButtonArray = [UIButton]()
     var currentStorageType: Constant.FoodStorageType = .all
     var searchText = ""
@@ -85,7 +86,11 @@ extension FoodManagementViewController {
         
         let chartButton = UIBarButtonItem(image: UIImage(systemName: "chart.pie"), style: .plain, target: self, action: #selector(chartButtonTapped))
         chartButton.tintColor = .black
-        navigationItem.rightBarButtonItems = [sortButton, chartButton]
+        
+        let consumptionButton = UIBarButtonItem(image: UIImage(systemName: "fork.knife.circle"), style: .plain, target: self, action: #selector(consumptionButtonTapped))
+        consumptionButton.tintColor = .black
+        
+        navigationItem.rightBarButtonItems = [sortButton, chartButton, consumptionButton]
         
         func createMenu() -> UIMenu {
             // DB filter
@@ -118,6 +123,12 @@ extension FoodManagementViewController {
         print(#function)
         // TODO: Chart
         let vc = ChartViewController()
+        transition(viewController: vc, style: .push)
+    }
+    
+    @objc func consumptionButtonTapped() {
+        print(#function)
+        let vc = ConsumptionViewController()
         transition(viewController: vc, style: .push)
     }
 }

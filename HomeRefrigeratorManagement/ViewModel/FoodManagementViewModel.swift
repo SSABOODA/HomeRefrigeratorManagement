@@ -83,9 +83,7 @@ final class FoodManagementViewModel {
         return dDay < 0 ? "D+\(-dDay)" : "D-\(dDay)"
     }
     
-    func filterStorageType(_ storageType: Constant.FoodStorageType) {
-        print(#function)
-        
+    func filterStorageType(_ storageType: Constant.FoodStorageType) {        
         if storageType != .all {
             filteredFoodData = filteredFoodData?.where({ food in
                 return food.storageType.storageType == storageType.rawValue

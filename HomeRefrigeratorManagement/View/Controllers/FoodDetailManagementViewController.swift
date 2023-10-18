@@ -82,7 +82,6 @@ final class FoodDetailManagementViewController: BaseViewController {
     }
     
     @objc func registerDateTextFieldTapped(_ sender: UITextField) {
-        print(#function, "\(sender.text)")
         dateFormatterAlert(sender)
     }
     
