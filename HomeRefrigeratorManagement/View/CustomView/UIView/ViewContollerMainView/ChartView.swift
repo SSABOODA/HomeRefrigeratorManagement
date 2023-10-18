@@ -331,14 +331,14 @@ final class ChartView: BaseView {
         categoryPieChartView.snp.makeConstraints { make in
             make.top.equalTo(categoryChartAnalyTitleLabel.snp.bottom).inset(-30)
             make.centerX.equalToSuperview()
-            make.size.equalTo(350)
+            make.size.equalTo(Constant.ScreenSize.deviceScreenWidth*0.8)
         }
         
         // 임시 chartView
         chartView.snp.makeConstraints { make in
             make.top.equalTo(categoryChartAnalyView.snp.bottom).inset(-15)
             make.horizontalEdges.equalTo(contentView.snp.horizontalEdges).inset(Constant.MainView.mainViewHorizontalPadding)
-            make.height.equalTo(Constant.ScreenSize.deviceScreenHeight*0.6)
+            make.height.equalTo(Constant.ScreenSize.deviceScreenHeight*0.1)
             make.bottom.equalTo(scrollView.snp.bottom)
         }
     }
