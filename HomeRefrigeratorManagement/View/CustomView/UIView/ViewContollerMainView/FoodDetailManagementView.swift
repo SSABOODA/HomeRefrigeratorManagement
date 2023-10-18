@@ -7,16 +7,17 @@
 
 import UIKit
 
-// @deprecated
 class FoodDetailManagementView: BaseView {
-    
-    
-    
+
     let mainView = {
         let view = UIView()
         view.backgroundColor = Constant.BaseColor.backgroundColor
         view.layer.cornerRadius = 10
-        view.clipsToBounds = true
+        view.clipsToBounds = false
+        view.layer.shadowColor = UIColor.darkGray.cgColor
+        view.layer.shadowOffset = CGSize.zero
+        view.layer.shadowRadius = 1
+        view.layer.shadowOpacity = 0.5
         return view
     }()
     
@@ -89,6 +90,7 @@ class FoodDetailManagementView: BaseView {
         let stackView = UIStackView(arrangedSubviews: [foodDescriptionLabel, foodDescriptionTextFieldView])
         stackView.axis = .horizontal
         stackView.spacing = Constant.StackView.detailManagementTextFieldStackViewSpacing
+        stackView.distribution = .fill
         return stackView
     }()
     
@@ -117,6 +119,7 @@ class FoodDetailManagementView: BaseView {
         let stackView = UIStackView(arrangedSubviews: [registerDateLabel, registerDateTextFieldView])
         stackView.axis = .horizontal
         stackView.spacing = Constant.StackView.detailManagementTextFieldStackViewSpacing
+        stackView.distribution = .fill
         return stackView
     }()
     
@@ -145,6 +148,7 @@ class FoodDetailManagementView: BaseView {
         let stackView = UIStackView(arrangedSubviews: [expirationDateLabel, expirationDateTextFieldView])
         stackView.axis = .horizontal
         stackView.spacing = Constant.StackView.detailManagementTextFieldStackViewSpacing
+        stackView.distribution = .fill
         return stackView
     }()
     
@@ -173,6 +177,7 @@ class FoodDetailManagementView: BaseView {
         let stackView = UIStackView(arrangedSubviews: [storageTypeLabel, storageTypeTextFieldView])
         stackView.axis = .horizontal
         stackView.spacing = Constant.StackView.detailManagementTextFieldStackViewSpacing
+        stackView.distribution = .fill
         return stackView
     }()
     
@@ -264,9 +269,9 @@ class FoodDetailManagementView: BaseView {
     
     override func configureLayout() {
         mainView.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.horizontalEdges.equalToSuperview().inset(Constant.MainView.mainViewHorizontalPadding)
-            make.height.equalToSuperview().multipliedBy(0.6)
+            make.center.equalToSuperview()
+            make.width.equalTo(Constant.ScreenSize.deviceScreenWidth*0.9)
+            make.height.equalTo(Constant.ScreenSize.deviceScreenHeight*0.7)
         }
         
         foodView.snp.makeConstraints { make in
@@ -299,58 +304,82 @@ class FoodDetailManagementView: BaseView {
         
         // 식품 설명
         foodDescriptionStackView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
             make.top.equalTo(divideLineView.snp.bottom).offset(30)
-            make.leading.equalTo(divideLineView.snp.leading)
-            make.trailing.equalTo(divideLineView.snp.trailing)
+            make.width.equalTo(divideLineView.snp.width)
             make.height.equalToSuperview().multipliedBy(0.1)
         }
+        
+        foodDescriptionLabel.snp.makeConstraints { make in
+            make.width.equalToSuperview().multipliedBy(0.2)
+        }
+
         foodDescriptionTextField.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(10)
         }
         
         // 등록 날짜
         registerDateStackView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
             make.top.equalTo(foodDescriptionStackView.snp.bottom).offset(20)
-            make.leading.equalTo(divideLineView.snp.leading)
-            make.trailing.equalTo(divideLineView.snp.trailing)
+            make.width.equalTo(divideLineView.snp.width)
             make.height.equalToSuperview().multipliedBy(0.1)
         }
+        
+        registerDateLabel.snp.makeConstraints { make in
+            make.width.equalToSuperview().multipliedBy(0.2)
+        }
+
         registerDateTextField.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(10)
         }
         
         // 유효기간
         expirationDateStackView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
             make.top.equalTo(registerDateStackView.snp.bottom).offset(20)
-            make.leading.equalTo(divideLineView.snp.leading)
-            make.trailing.equalTo(divideLineView.snp.trailing)
+            make.width.equalTo(divideLineView.snp.width)
             make.height.equalToSuperview().multipliedBy(0.1)
         }
+        
+        expirationDateLabel.snp.makeConstraints { make in
+            make.width.equalToSuperview().multipliedBy(0.2)
+        }
+
         expirationDateTextField.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(10)
         }
-        
+
         // 저장 방법
         storageTypeStackView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
             make.top.equalTo(expirationDateStackView.snp.bottom).offset(20)
-            make.leading.equalTo(divideLineView.snp.leading)
-            make.trailing.equalTo(divideLineView.snp.trailing)
+            make.width.equalTo(divideLineView.snp.width)
             make.height.equalToSuperview().multipliedBy(0.1)
         }
+        
+        storageTypeLabel.snp.makeConstraints { make in
+            make.width.equalToSuperview().multipliedBy(0.2)
+        }
+
         storageTypeTextField.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(10)
         }
-        
+
         // 수량
         countStackView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
             make.top.equalTo(storageTypeStackView.snp.bottom).offset(20)
-            make.leading.equalTo(divideLineView.snp.leading)
-            make.trailing.equalTo(divideLineView.snp.trailing)
+            make.width.equalTo(divideLineView.snp.width)
             make.height.equalToSuperview().multipliedBy(0.1)
         }
+        
+        countLabel.snp.makeConstraints { make in
+            make.width.equalToSuperview().multipliedBy(0.2)
+        }
+        
         countTextField.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(10)
-            make.width.equalTo(countStackView.snp.width).multipliedBy(0.7)
         }
         
         // 버튼
