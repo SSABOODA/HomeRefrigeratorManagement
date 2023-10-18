@@ -88,6 +88,7 @@ final class FoodRegisterDetailView: BaseView {
         let stackView = UIStackView(arrangedSubviews: [foodDescriptionLabel, foodDescriptionTextFieldView])
         stackView.axis = .horizontal
         stackView.spacing = 10
+        stackView.distribution = .fill
         return stackView
     }()
     
@@ -115,6 +116,7 @@ final class FoodRegisterDetailView: BaseView {
         let stackView = UIStackView(arrangedSubviews: [registerDateLabel, registerDateTextFieldView])
         stackView.axis = .horizontal
         stackView.spacing = 10
+        stackView.distribution = .fill
         return stackView
     }()
     
@@ -142,6 +144,7 @@ final class FoodRegisterDetailView: BaseView {
         let stackView = UIStackView(arrangedSubviews: [expirationDateLabel, expirationDateTextFieldView])
         stackView.axis = .horizontal
         stackView.spacing = 10
+        stackView.distribution = .fill
         return stackView
     }()
     
@@ -169,6 +172,7 @@ final class FoodRegisterDetailView: BaseView {
         let stackView = UIStackView(arrangedSubviews: [storageTypeLabel, storageTypeTextFieldView])
         stackView.axis = .horizontal
         stackView.spacing = 10
+        stackView.distribution = .fill
         return stackView
     }()
     
@@ -197,6 +201,7 @@ final class FoodRegisterDetailView: BaseView {
         let stackView = UIStackView(arrangedSubviews: [countLabel, countTextFieldView])
         stackView.axis = .horizontal
         stackView.spacing = 10
+        stackView.distribution = .fill
         return stackView
     }()
     
@@ -220,7 +225,6 @@ final class FoodRegisterDetailView: BaseView {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-//        print("DetailView layoutSubviews")
         foodImageShadowView.layer.cornerRadius = foodImageShadowView.frame.width / 2
         foodImageShadowView.layoutIfNeeded()
         
@@ -239,24 +243,24 @@ final class FoodRegisterDetailView: BaseView {
         foodView.addSubview(foodImageShadowView)
         foodImageShadowView.addSubview(foodImageView)
         foodView.addSubview(foodNameLabel)
-        
+
         registerView.addSubview(divideLineView)
-        
+
         registerView.addSubview(foodDescriptionStackView)
         foodDescriptionTextFieldView.addSubview(foodDescriptionTextField)
-        
+
         registerView.addSubview(registerDateStackView)
         registerDateTextFieldView.addSubview(registerDateTextField)
-        
+
         registerView.addSubview(expirationDateStackView)
         expirationDateTextFieldView.addSubview(expirationDateTextField)
-        
+
         registerView.addSubview(storageTypeStackView)
         storageTypeTextFieldView.addSubview(storageTypeTextField)
-        
+
         registerView.addSubview(countStackView)
         countTextFieldView.addSubview(countTextField)
-        
+
         mainView.addSubview(cancelButton)
         mainView.addSubview(saveButton)
     }
@@ -265,8 +269,8 @@ final class FoodRegisterDetailView: BaseView {
         
         mainView.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.leading.trailing.equalToSuperview().inset(40)
-            make.top.bottom.equalToSuperview().inset(160)
+            make.width.equalTo(Constant.ScreenSize.deviceScreenWidth*0.8)
+            make.height.equalTo(Constant.ScreenSize.deviceScreenHeight*0.7)
         }
         
         foodView.snp.makeConstraints { make in
@@ -284,81 +288,102 @@ final class FoodRegisterDetailView: BaseView {
             make.center.equalToSuperview()
             make.size.equalTo(50)
         }
-        
+
         foodImageView.snp.makeConstraints { make in
             make.center.equalToSuperview()
             make.edges.equalToSuperview().inset(10)
         }
-        
+
         foodNameLabel.snp.makeConstraints { make in
             make.centerX.equalTo(foodImageShadowView.snp.centerX)
             make.top.equalTo(foodImageShadowView.snp.bottom).offset(10)
         }
         
         divideLineView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
             make.top.equalToSuperview().offset(30)
-            make.leading.trailing.equalToSuperview().inset(20)
+            make.width.equalToSuperview().multipliedBy(0.9)
             make.height.equalTo(0.5)
         }
         
         // 식품 설명
         foodDescriptionStackView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
             make.top.equalTo(divideLineView.snp.bottom).offset(30)
-            make.leading.equalTo(divideLineView.snp.leading)
-            make.trailing.equalTo(divideLineView.snp.trailing)
+            make.width.equalTo(divideLineView.snp.width)
             make.height.equalToSuperview().multipliedBy(0.1)
         }
         
+        foodDescriptionLabel.snp.makeConstraints { make in
+            make.width.equalToSuperview().multipliedBy(0.2)
+        }
+
         foodDescriptionTextField.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(10)
         }
         
         // 등록 날짜
         registerDateStackView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
             make.top.equalTo(foodDescriptionStackView.snp.bottom).offset(20)
-            make.leading.equalTo(divideLineView.snp.leading)
-            make.trailing.equalTo(divideLineView.snp.trailing)
+            make.width.equalTo(divideLineView.snp.width)
             make.height.equalToSuperview().multipliedBy(0.1)
         }
         
+        registerDateLabel.snp.makeConstraints { make in
+            make.width.equalToSuperview().multipliedBy(0.2)
+        }
+
         registerDateTextField.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(10)
         }
         
         // 유효기간
         expirationDateStackView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
             make.top.equalTo(registerDateStackView.snp.bottom).offset(20)
-            make.leading.equalTo(divideLineView.snp.leading)
-            make.trailing.equalTo(divideLineView.snp.trailing)
+            make.width.equalTo(divideLineView.snp.width)
             make.height.equalToSuperview().multipliedBy(0.1)
         }
         
+        expirationDateLabel.snp.makeConstraints { make in
+            make.width.equalToSuperview().multipliedBy(0.2)
+        }
+
         expirationDateTextField.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(10)
         }
-        
+
         // 저장 방법
         storageTypeStackView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
             make.top.equalTo(expirationDateStackView.snp.bottom).offset(20)
-            make.leading.equalTo(divideLineView.snp.leading)
-            make.trailing.equalTo(divideLineView.snp.trailing)
+            make.width.equalTo(divideLineView.snp.width)
             make.height.equalToSuperview().multipliedBy(0.1)
         }
         
+        storageTypeLabel.snp.makeConstraints { make in
+            make.width.equalToSuperview().multipliedBy(0.2)
+        }
+
         storageTypeTextField.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(10)
         }
-        
+
         // 수량
         countStackView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
             make.top.equalTo(storageTypeStackView.snp.bottom).offset(20)
-            make.leading.equalTo(divideLineView.snp.leading)
-            make.trailing.equalTo(divideLineView.snp.trailing)
+            make.width.equalTo(divideLineView.snp.width)
             make.height.equalToSuperview().multipliedBy(0.1)
         }
+        
+        countLabel.snp.makeConstraints { make in
+            make.width.equalToSuperview().multipliedBy(0.2)
+        }
+        
         countTextField.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(10)
-            make.width.equalTo(countStackView.snp.width).multipliedBy(0.7)
         }
         
         // 버튼
@@ -367,7 +392,7 @@ final class FoodRegisterDetailView: BaseView {
             make.width.equalToSuperview().multipliedBy(0.5)
             make.height.equalToSuperview().multipliedBy(0.1)
         }
-        
+
         saveButton.snp.makeConstraints { make in
             make.trailing.bottom.equalToSuperview()
             make.width.equalToSuperview().multipliedBy(0.5)

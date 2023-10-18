@@ -41,7 +41,7 @@ final class FoodManagementViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print(#function, "FoodManagementViewController")
-        performQuery(searchText: "@", storageType: currentStorageType)
+//        performQuery(searchText: "@", storageType: currentStorageType)
         performQuery(searchText: "", storageType: currentStorageType)
     }
     
@@ -161,8 +161,8 @@ extension FoodManagementViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath)
         let nextVC = FoodDetailManagementViewController()
-        let searchFilterFoodData = self.viewModel.searchFilterFoodData
-        let food = searchFilterFoodData[indexPath.item]
+        guard let filteredFoodDataArray = self.viewModel.filteredFoodDataArray else { return }
+        let food = filteredFoodDataArray[indexPath.item]
         nextVC.viewModel.food = food
         nextVC.viewModel.completionHandler = { [weak self] isDelete in
             guard let weakSelf = self else {return }

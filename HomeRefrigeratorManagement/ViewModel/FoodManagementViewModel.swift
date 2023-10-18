@@ -11,7 +11,8 @@ import RealmSwift
 final class FoodManagementViewModel {
     
     var filteredFoodData: Results<Food>?
-    var searchFilterFoodData = [Food]()
+    var filteredFoodDataArray: [Food]?
+    
     var deleteFoodData: Food?
     var isAcending = Observable(false) // false: 오름차순, true: 내림차순
     let localRealm = RealmTableRepository.shared
@@ -49,10 +50,11 @@ final class FoodManagementViewModel {
         
         // 검색어 있을 경우
         if !foodItemInfo.isEmpty {
-            searchFilterFoodData = foodItemInfo
-            return searchFilterFoodData
+            filteredFoodDataArray = foodItemInfo
+            return filteredFoodDataArray
         }
         
+        filteredFoodDataArray = filteredFoodData?.toArray()
         return filteredFoodData?.toArray()
     }
 
