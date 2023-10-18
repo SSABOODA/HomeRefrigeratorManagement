@@ -96,6 +96,7 @@ extension AlarmViewController: UITableViewDelegate, UITableViewDataSource {
         
         switchView.tag = indexPath.row
         let cell = UITableViewCell()
+        cell.selectionStyle = .none
         cell.accessoryView = switchView
         var content = cell.defaultContentConfiguration()
         

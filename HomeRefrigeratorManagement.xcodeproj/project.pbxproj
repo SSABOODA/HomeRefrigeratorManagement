@@ -23,6 +23,7 @@
 		F75E9B052ADE67CD000CF09A /* ConsumptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75E9B042ADE67CD000CF09A /* ConsumptionViewModel.swift */; };
 		F75E9B082ADFF85E000CF09A /* PieChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75E9B072ADFF85E000CF09A /* PieChartTableViewCell.swift */; };
 		F75E9B0B2AE0028B000CF09A /* launchScreenBackgroundImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F75E9B0A2AE0028B000CF09A /* launchScreenBackgroundImage.jpeg */; };
+		F75E9B0D2AE00DF0000CF09A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F75E9B0C2AE00DF0000CF09A /* Settings.bundle */; };
 		F7610A212AD5458C00832129 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A202AD5458C00832129 /* CalendarViewModel.swift */; };
 		F7610A232AD54A2500832129 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A222AD54A2500832129 /* CalendarView.swift */; };
 		F7610A252AD56D3800832129 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A242AD56D3800832129 /* UIImage+Extension.swift */; };
@@ -121,6 +122,7 @@
 		F75E9B042ADE67CD000CF09A /* ConsumptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumptionViewModel.swift; sourceTree = "<group>"; };
 		F75E9B072ADFF85E000CF09A /* PieChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartTableViewCell.swift; sourceTree = "<group>"; };
 		F75E9B0A2AE0028B000CF09A /* launchScreenBackgroundImage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launchScreenBackgroundImage.jpeg; sourceTree = "<group>"; };
+		F75E9B0C2AE00DF0000CF09A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		F7610A202AD5458C00832129 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
 		F7610A222AD54A2500832129 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		F7610A242AD56D3800832129 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 		F7C31D6B2AC2CE2E008DAA21 = {
 			isa = PBXGroup;
 			children = (
+				F75E9B0C2AE00DF0000CF09A /* Settings.bundle */,
 				F7C31D762AC2CE2E008DAA21 /* HomeRefrigeratorManagement */,
 				F7C31D752AC2CE2E008DAA21 /* Products */,
 			);
@@ -657,6 +660,7 @@
 			files = (
 				F78B9B352ADA86F200EA61CB /* SOYOMapleRegular.ttf in Resources */,
 				F78B9B362ADA86F200EA61CB /* SOYOMapleBold.ttf in Resources */,
+				F75E9B0D2AE00DF0000CF09A /* Settings.bundle in Resources */,
 				F7C31D8C2AC2CE9C008DAA21 /* .gitignore in Resources */,
 				F7C31DA82AC2D9BD008DAA21 /* Localizable.strings in Resources */,
 				F7C31D842AC2CE30008DAA21 /* LaunchScreen.storyboard in Resources */,
