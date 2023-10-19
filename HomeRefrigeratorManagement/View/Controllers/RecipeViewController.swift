@@ -19,14 +19,9 @@ class RecipeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print(#function, RecipeViewController.description())
-        
-//        viewModel.request(query: "감자")
-//        print(viewModel.youtubeModel.value)
     }
     
     override func configureView() {
         super.configureView()
-        title = "레시피 검색"
-        self.navigationItem.searchController = mainView.searchController
     }
 }

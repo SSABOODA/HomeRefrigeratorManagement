@@ -25,6 +25,7 @@ final class ConsumptionViewController: BaseViewController {
         super.viewDidLoad()
         configureData()
         configureDataSource()
+        searchControllerDelegate()
     }
     
     override func configureView() {
@@ -47,6 +48,10 @@ final class ConsumptionViewController: BaseViewController {
         viewModel.fetchData()
     }
     
+    private func searchControllerDelegate() {
+        self.mainView.searchController.searchBar.delegate = self
+    }
+    
     @objc func saveButtonTapped() {
         print(#function)
     
@@ -55,9 +60,24 @@ final class ConsumptionViewController: BaseViewController {
         ) {} _: {
             self.navigationController?.popViewController(animated: true)
         }
-
     }
 }
+
+extension ConsumptionViewController: UISearchControllerDelegate, UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("searchText: \(searchText)")
+        performQuery(query: searchText)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        guard let text = searchBar.text else { return }
+        performQuery(query: text)
+    }
+}
+
+
+// MARK: - configureDataSource
 
 extension ConsumptionViewController {
     private func configureDataSource() {
@@ -71,10 +91,6 @@ extension ConsumptionViewController {
             
             cell.minusButton.tag = indexPath.item
             cell.plusButton.tag = indexPath.item
-            
-//            cell.minusButton.addTarget(self, action: #selector(self.minusButtonTapped(_:)), for: .touchUpInside)
-//            cell.plusButton.addTarget(self, action: #selector(self.plusButtonTapped(_:)), for: .touchUpInside)
-            
         }
         
         dataSource = UICollectionViewDiffableDataSource(
@@ -83,23 +99,17 @@ extension ConsumptionViewController {
                 return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
             })
         
-        performQuery()
+        guard let text = mainView.searchController.searchBar.text else { return }
+        performQuery(query: text)
     }
     
-    private func performQuery() {
+    private func performQuery(query: String) {
+        viewModel.searchFilterData(query)
+        
         var snapshot = NSDiffableDataSourceSnapshot<Section, Food>()
         snapshot.appendSections([.main])
         snapshot.appendItems(viewModel.foodDataList.value)
         dataSource.apply(snapshot, animatingDifferences: true)
     }
-    
-//    @objc func minusButtonTapped(_ sender: UIButton) {
-//        print(#function, sender.tag)
-//    }
-//
-//    @objc func plusButtonTapped(_ sender: UIButton) {
-//        print(#function, sender.tag)
-//    }
-    
     
 }

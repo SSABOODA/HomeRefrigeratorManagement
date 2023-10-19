@@ -8,6 +8,4 @@
 import UIKit
 
 class RecipeView: BaseView {
-    
-    let searchController = UISearchController()
 }

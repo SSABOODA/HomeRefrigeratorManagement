@@ -42,7 +42,6 @@ final class FoodManagementViewController: BaseViewController {
     
     private func updateEmptyView() {
         let count = viewModel.currentRealmDataCount
-        print("data empty: \(count)")
         mainView.emptyView.isHidden = count == 0 ? false : true
     }
 

@@ -16,12 +16,32 @@ final class ConsumptionViewModel {
     let localRealm = RealmTableRepository.shared
     var foodDataList = Observable([Food]())
     
+    
     func fetchData() {
         foodDataList.value = RealmTableRepository.shared.fetch(object: Food()).toArray()
     }
     
-    func testUpdate() {
-        self.updateCount(indexPath: 0, updatedCount: 789)
+    func searchFilterData(_ query: String) {
+        let query = query.trimmingCharacters(in: .whitespaces)
+        
+        if query.isEmpty {
+            return
+        } else {
+            let isChosungCheck = isChosung(word: query)
+            
+//            foodDataList.value
+            let a = foodDataList.value.filter {
+                if isChosungCheck {
+                    return ($0.name.contains(query) || getInitialConsonants(word: $0.name).contains(query))
+                } else {
+                    return $0.name.contains(query)
+                }
+            }
+            
+            print("a: \(a)")
+        }
+        
+        
     }
     
     func updateCount(indexPath: Int, updatedCount: Int) {
@@ -52,26 +72,3 @@ final class ConsumptionViewModel {
 }
 
 
-/*
- func updateData() {
-     guard let food else { return }
-     
-     let category = FoodCategory()
-     category.categoryName = food.category?.categoryName ?? "기타"
-     let storageType = StorageType()
-     storageType.storageType = foodModel.value.storageType.rawValue
-     
-     let item = Food(value: [
-         "_id": food._id,
-         "name": food.name,
-         "category": category,
-         "storageType": storageType,
-         "count": foodModel.value.count == 0 ? food.count : foodModel.value.count,
-         "purchaseDate": foodModel.value.purchaseDate,
-         "expirationDate": foodModel.value.expirationDate,
-         "descriptionContent": foodModel.value.description.isEmpty ? food.descriptionContent : foodModel.value.description
-     ] as [String : Any])
-     
-     localRealm.update(object: item)
- }
- */
