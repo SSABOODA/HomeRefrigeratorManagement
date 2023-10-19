@@ -38,6 +38,7 @@ final class AlarmViewController: BaseViewController {
     
     override func configureView() {
         super.configureView()
+        navigationItem.largeTitleDisplayMode = .never
     }
     
     override func configureHirarchy() {

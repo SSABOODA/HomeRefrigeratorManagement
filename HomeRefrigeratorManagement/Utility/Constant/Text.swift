@@ -74,6 +74,7 @@ extension Constant {
     
     enum URLString {
         static let youtubeURL = "https://www.youtube.com/results?search_query"
+        static let privacyNotionURL = "https://thankful-gymnast-355.notion.site/7a3c2be2f38f4bd396202979e48bffc9?pvs=4"
     }
     
     enum CharViewTitle {

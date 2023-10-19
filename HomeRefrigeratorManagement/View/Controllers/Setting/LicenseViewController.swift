@@ -19,6 +19,8 @@ final class LicenseViewController: BaseViewController {
     
     override func configureView() {
         super.configureView()
+        navigationItem.largeTitleDisplayMode = .never
+        
         label.attributedText = """
         <a href="https://www.flaticon.com/kr/free-icons/" title="식품 아이콘">망고 아이콘  제작자: Freepik - Flaticon</a>
         """.htmlToAttributedString

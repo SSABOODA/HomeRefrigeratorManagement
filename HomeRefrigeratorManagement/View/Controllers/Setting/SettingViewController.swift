@@ -148,7 +148,10 @@ extension SettingViewController: UICollectionViewDelegate, UICollectionViewDataS
             print("licence")
             let vc = LicenseViewController()
             transition(viewController: vc, style: .push)
-        case .privacy: print("privacy")
+        case .privacy:
+            print("privacy")
+            let vc = PrivacyViewController()
+            transition(viewController: vc, style: .push)
         }
         
     }

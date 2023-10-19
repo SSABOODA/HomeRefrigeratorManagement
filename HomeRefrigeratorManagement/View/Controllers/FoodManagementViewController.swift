@@ -145,6 +145,7 @@ extension FoodManagementViewController: UISearchControllerDelegate, UISearchBarD
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print(#function)
         performQuery(searchText: searchText, storageType: currentStorageType)
+        self.searchText = searchText
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -268,22 +269,22 @@ extension FoodManagementViewController {
         if storageAllButtonIsActive {
             print("all 실행")
             viewModel.filterStorageType(.all)
-            performQuery(searchText: "", storageType: .all)
+            performQuery(searchText: self.searchText, storageType: .all)
             currentStorageType = .all
         } else if storageOutdoorButtonIsActive {
             print("Outdoor 실행")
             viewModel.filterStorageType(.outdoor)
-            performQuery(searchText: "", storageType: .outdoor)
+            performQuery(searchText: self.searchText, storageType: .outdoor)
             currentStorageType = .outdoor
         } else if storageIceButtonIsActive {
             print("Ice 실행")
             viewModel.filterStorageType(.cold)
-            performQuery(searchText: "", storageType: .cold)
+            performQuery(searchText: self.searchText, storageType: .cold)
             currentStorageType = .cold
         } else {
             print("frozen 실행")
             viewModel.filterStorageType(.frozen)
-            performQuery(searchText: "", storageType: .frozen)
+            performQuery(searchText: self.searchText, storageType: .frozen)
             currentStorageType = .frozen
         }
     }

@@ -25,6 +25,7 @@
 		F75E9B0B2AE0028B000CF09A /* launchScreenBackgroundImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F75E9B0A2AE0028B000CF09A /* launchScreenBackgroundImage.jpeg */; };
 		F75E9B0D2AE00DF0000CF09A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F75E9B0C2AE00DF0000CF09A /* Settings.bundle */; };
 		F75E9B112AE01755000CF09A /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75E9B102AE01755000CF09A /* EmptyView.swift */; };
+		F75E9B262AE10B64000CF09A /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75E9B252AE10B64000CF09A /* PrivacyViewController.swift */; };
 		F7610A212AD5458C00832129 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A202AD5458C00832129 /* CalendarViewModel.swift */; };
 		F7610A232AD54A2500832129 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A222AD54A2500832129 /* CalendarView.swift */; };
 		F7610A252AD56D3800832129 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A242AD56D3800832129 /* UIImage+Extension.swift */; };
@@ -125,6 +126,7 @@
 		F75E9B0A2AE0028B000CF09A /* launchScreenBackgroundImage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launchScreenBackgroundImage.jpeg; sourceTree = "<group>"; };
 		F75E9B0C2AE00DF0000CF09A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		F75E9B102AE01755000CF09A /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		F75E9B252AE10B64000CF09A /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
 		F7610A202AD5458C00832129 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
 		F7610A222AD54A2500832129 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		F7610A242AD56D3800832129 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 				F794A5B42ADD5B10009D3A3A /* AlarmViewController.swift */,
 				F794A5B62ADD6A27009D3A3A /* InquireViewController.swift */,
 				F794A5B82ADD7BD4009D3A3A /* NoticeViewController.swift */,
+				F75E9B252AE10B64000CF09A /* PrivacyViewController.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -746,6 +749,7 @@
 				F7C31E2E2ACE9DAB008DAA21 /* FoodRegisterDetailView.swift in Sources */,
 				F7C31D7C2AC2CE2F008DAA21 /* FoodManagementViewController.swift in Sources */,
 				F7C31DDA2AC5A924008DAA21 /* BaseView.swift in Sources */,
+				F75E9B262AE10B64000CF09A /* PrivacyViewController.swift in Sources */,
 				F75E9B112AE01755000CF09A /* EmptyView.swift in Sources */,
 				F75E9B052ADE67CD000CF09A /* ConsumptionViewModel.swift in Sources */,
 				F7C31E2C2ACE93E3008DAA21 /* FoodRegisterDetailViewModel.swift in Sources */,

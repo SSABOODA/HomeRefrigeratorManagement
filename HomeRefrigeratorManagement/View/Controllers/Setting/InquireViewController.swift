@@ -12,6 +12,7 @@ final class InquireViewController: BaseViewController, MFMailComposeViewControll
     override func viewDidLoad() {
         super.viewDidLoad()
         sendEmail()
+        navigationItem.largeTitleDisplayMode = .never
     }
     
     override func viewWillAppear(_ animated: Bool) {
