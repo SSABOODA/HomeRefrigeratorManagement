@@ -18,11 +18,6 @@ final class CalendarView: BaseView {
     
     private let calendarTypeChangeButtonView = {
         let view = UIView()
-        view.clipsToBounds = false
-        view.layer.shadowColor = UIColor.darkGray.cgColor
-        view.layer.shadowOpacity = 0.5
-        view.layer.shadowOffset = CGSize(width: 5, height: 5)
-        view.layer.shadowRadius = 5
         return view
     }()
     
@@ -35,11 +30,6 @@ final class CalendarView: BaseView {
     
     private let calendarHomeResetButtonView = {
         let view = UIView()
-        view.clipsToBounds = false
-        view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowOpacity = 0.5
-        view.layer.shadowOffset = CGSize(width: 5, height: 5)
-        view.layer.shadowRadius = 5
         return view
     }()
     
