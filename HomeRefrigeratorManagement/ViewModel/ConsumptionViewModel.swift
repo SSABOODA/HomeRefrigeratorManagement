@@ -25,12 +25,13 @@ final class ConsumptionViewModel {
         let query = query.trimmingCharacters(in: .whitespaces)
         
         if query.isEmpty {
+            print("비어 있어요")
+            self.fetchData()
             return
         } else {
             let isChosungCheck = isChosung(word: query)
             
-//            foodDataList.value
-            let a = foodDataList.value.filter {
+            foodDataList.value = foodDataList.value.filter {
                 if isChosungCheck {
                     return ($0.name.contains(query) || getInitialConsonants(word: $0.name).contains(query))
                 } else {
@@ -38,7 +39,7 @@ final class ConsumptionViewModel {
                 }
             }
             
-            print("a: \(a)")
+            
         }
         
         

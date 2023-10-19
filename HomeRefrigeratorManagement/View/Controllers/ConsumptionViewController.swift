@@ -13,9 +13,9 @@ final class ConsumptionViewController: BaseViewController {
         case main
     }
     
-    let mainView = ConsumtionView()
+    private let mainView = ConsumtionView()
     private var dataSource: UICollectionViewDiffableDataSource<Section, Food>!
-    let viewModel = ConsumptionViewModel.shared
+    private let viewModel = ConsumptionViewModel.shared
     
     override func loadView() {
         view = mainView
@@ -105,7 +105,7 @@ extension ConsumptionViewController {
     
     private func performQuery(query: String) {
         viewModel.searchFilterData(query)
-        
+        print("viewModel.foodDataList.value: \(viewModel.foodDataList.value)")
         var snapshot = NSDiffableDataSourceSnapshot<Section, Food>()
         snapshot.appendSections([.main])
         snapshot.appendItems(viewModel.foodDataList.value)
