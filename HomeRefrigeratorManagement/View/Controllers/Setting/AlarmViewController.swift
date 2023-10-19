@@ -7,32 +7,68 @@
 
 import UIKit
 
+
 final class AlarmViewController: BaseViewController {
     
-    struct AlarmInfo {
+    private struct AlarmInfo {
         let title: String
     }
     
-    var list = [
+    private var list = [
         AlarmInfo(title: "알림 허용")
     ]
     
-    lazy var tableView: UITableView = {
+    private lazy var tableView: UITableView = {
         let view = UITableView()
         view.delegate = self
         view.dataSource = self
+        view.tableFooterView = self.footerView
         return view
     }()
     
-    lazy var switchView = {
+    private lazy var switchView = {
         let switchView = UISwitch(frame: .zero)
         switchView.setOn(false, animated: true)
         switchView.addTarget(self, action: #selector(switchViewTapped), for: .valueChanged)
         return switchView
     }()
     
+    private let footerView = {
+        let view = UIView()
+        return view
+    }()
+    
+    private let alarmTimeChoiceLabel = {
+        let label = UILabel()
+        label.font = UIFont(name: Constant.Font.soyoRegular, size: 11)
+        label.text = "알림 받을 시간대 선택해주시면 선택한 시간에 알림을 보내드립니다."
+        label.textColor = .darkGray
+        label.numberOfLines = 2
+        return label
+    }()
+    
+    private lazy var datePicker = {
+        let picker = UIDatePicker()
+        picker.preferredDatePickerStyle = .automatic
+        picker.datePickerMode = .time
+        picker.locale = Locale(identifier: "ko-KR")
+        picker.timeZone = .autoupdatingCurrent
+        picker.addTarget(self, action: #selector(handleDatePicker(_:)), for: .valueChanged)
+        return picker
+    }()
+    
+    @objc func handleDatePicker(_ sender: UIDatePicker) {
+        print(sender.date)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        initialSwitchValue()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print(#function)
         initialSwitchValue()
     }
     
@@ -43,11 +79,24 @@ final class AlarmViewController: BaseViewController {
     
     override func configureHirarchy() {
         view.addSubview(tableView)
+        footerView.addSubview(alarmTimeChoiceLabel)
+        footerView.addSubview(datePicker)
     }
     
     override func configureLayout() {
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
+        }
+        
+        alarmTimeChoiceLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(10)
+            make.leading.equalToSuperview().inset(20)
+            make.width.equalToSuperview().multipliedBy(0.7)
+        }
+        
+        datePicker.snp.makeConstraints { make in
+            make.top.equalTo(alarmTimeChoiceLabel.snp.top)
+            make.trailing.equalToSuperview().inset(20)
         }
     }
     
@@ -109,4 +158,15 @@ extension AlarmViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return footerView
+    }
+
 }
+
