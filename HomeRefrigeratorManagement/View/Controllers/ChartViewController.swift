@@ -75,8 +75,14 @@ extension ChartViewController {
     
     private func customizeChart(dataPoints: [String], values: [Double]) {
         var dataEntries: [ChartDataEntry] = []
+        
         for i in 0..<dataPoints.count {
-            let dataEntry = PieChartDataEntry(value: values[i], label: dataPoints[i], data:  dataPoints[i] as AnyObject)
+            let dataEntry = PieChartDataEntry(
+                value: values[i],
+                label: dataPoints[i],
+                data:  dataPoints[i] as AnyObject
+            )
+            
             dataEntries.append(dataEntry)
         }
         

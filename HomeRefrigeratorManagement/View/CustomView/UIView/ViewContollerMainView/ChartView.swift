@@ -178,6 +178,15 @@ final class ChartView: BaseView {
         return label
     }()
     
+    private let unitLabel = {
+        let label = UILabel()
+        label.text = "(단위: 개)"
+        label.textAlignment = .center
+        label.font = UIFont(name: Constant.Font.soyoBold, size: 11)
+        label.textColor = .darkGray
+        return label
+    }()
+    
     let categoryPieChartView = {
         let view = PieChartView()
         view.backgroundColor = Constant.BaseColor.backgroundColor
@@ -197,13 +206,14 @@ final class ChartView: BaseView {
         view.legend.verticalAlignment = .bottom
 //        view.drawEntryLabelsEnabled = false
         view.notifyDataSetChanged()
+        view.animate(xAxisDuration: 2.0, easingOption: .linear)
         return view
     }()
     
-    let pieChartTableView = {
+    lazy var pieChartTableView = {
         let tableView = UITableView()
         tableView.register(PieChartTableViewCell.self, forCellReuseIdentifier: "pieChartCell")
-        tableView.rowHeight = 70
+        tableView.rowHeight = Constant.ScreenSize.deviceScreenHeight * 0.1
         return tableView
     }()
     
@@ -236,6 +246,7 @@ final class ChartView: BaseView {
         // chartAnalyView
         contentView.addSubview(categoryChartAnalyView)
         categoryChartAnalyView.addSubview(categoryChartAnalyTitleLabel)
+        categoryChartAnalyView.addSubview(unitLabel)
         categoryChartAnalyView.addSubview(categoryPieChartView)
         categoryChartAnalyView.addSubview(pieChartTableView)
         
@@ -334,6 +345,11 @@ final class ChartView: BaseView {
         
         categoryChartAnalyTitleLabel.snp.makeConstraints { make in
             make.top.horizontalEdges.equalToSuperview().inset(20)
+        }
+        
+        unitLabel.snp.makeConstraints { make in
+            make.trailing.equalTo(categoryChartAnalyView.snp.trailing).inset(15)
+            make.bottom.equalTo(categoryChartAnalyTitleLabel.snp.bottom)
         }
         
         categoryPieChartView.snp.makeConstraints { make in
