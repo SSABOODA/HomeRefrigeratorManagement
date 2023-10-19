@@ -239,7 +239,6 @@ final class ChartView: BaseView {
         categoryChartAnalyView.addSubview(categoryPieChartView)
         categoryChartAnalyView.addSubview(pieChartTableView)
         
-        
         // temp Chart View
         contentView.addSubview(chartView)
     }

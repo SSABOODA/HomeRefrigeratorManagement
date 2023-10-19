@@ -119,6 +119,7 @@ final class CalendarView: BaseView {
     
     lazy var collectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout())
+        view.alwaysBounceVertical = true
         return view
     }()
     

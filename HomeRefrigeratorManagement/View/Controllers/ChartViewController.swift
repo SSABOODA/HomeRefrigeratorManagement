@@ -19,7 +19,7 @@ final class ChartViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNav()
+        configureNavigationBar()
         pieChartDataConfiguration()
         totalAnalysisDataConfiguration()
         
@@ -33,7 +33,7 @@ final class ChartViewController: BaseViewController {
         view.backgroundColor = Constant.BaseColor.grayContrastBackgroundColor
     }
     
-    private func setNav() {
+    private func configureNavigationBar() {
         title = Constant.TabBarTitle.chartVC
         changeNavigationCustomFont()
     }

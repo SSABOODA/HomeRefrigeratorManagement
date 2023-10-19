@@ -60,7 +60,8 @@ final class SettingViewController: BaseViewController {
         
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.horizontalEdges.bottom.equalToSuperview()
         }
         
         cellRegistration = UICollectionView.CellRegistration(handler: { cell, indexPath, itemIdentifier in
