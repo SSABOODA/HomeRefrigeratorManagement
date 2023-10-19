@@ -31,12 +31,7 @@ final class PrivacyViewController: BaseViewController, WKUIDelegate {
     private func configureNavigationBar() {
         // 네비게이션
         let appearance = UINavigationBarAppearance()
-        
         navigationItem.largeTitleDisplayMode = .never
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        navigationController?.navigationBar.standardAppearance = appearance
-        
-        title = "개인정보 처리방침"
     }
     
     private func privateWebView() {

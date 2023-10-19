@@ -48,7 +48,6 @@ final class YoutubeWebViewViewController: BaseViewController {
     private func loadWebView() {
         webView.uiDelegate = self
         webView.navigationDelegate = self
-        
         let query = "\(removeDirectInputString(foodDataName)) 레시피".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         guard let query else { return }
         webViewURL = URL(string: Constant.URLString.youtubeURL + "=\(query)")

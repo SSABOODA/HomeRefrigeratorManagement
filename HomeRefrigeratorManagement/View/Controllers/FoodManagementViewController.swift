@@ -151,6 +151,7 @@ extension FoodManagementViewController: UISearchControllerDelegate, UISearchBarD
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         print(#function)
         searchBar.text = ""
+        self.searchText = ""
         guard let searchText = searchBar.text else { return }
         performQuery(searchText: searchText, storageType: currentStorageType)
     }

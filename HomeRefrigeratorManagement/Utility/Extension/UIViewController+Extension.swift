@@ -140,6 +140,11 @@ extension UIViewController {
         if textField.tag == FoodDataInputTextFieldTag.desc.rawValue {
             guard textField.text!.count < 19 else { return false }
         } else if textField.tag == FoodDataInputTextFieldTag.count.rawValue {
+            
+            if Int(string) == nil {
+                return false
+            }
+            
             if let text = textField.text,
                let amount = Int(text),
                (0 < amount), (amount < 100) {

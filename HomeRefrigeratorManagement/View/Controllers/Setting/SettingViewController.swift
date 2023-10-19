@@ -131,30 +131,28 @@ extension SettingViewController: UICollectionViewDelegate, UICollectionViewDataS
 
         let viewType = SettingInfo.SettingCategory.allCases[indexPath.section].options[indexPath.item].itemViewCategory
 
+        var vc: UIViewController
         switch viewType {
         case .alarm:
             print("alarm")
-            let vc = AlarmViewController()
-            transition(viewController: vc, style: .push)
+            vc = AlarmViewController()
         case .notice:
             print("notice")
-            let vc = NoticeViewController()
-            transition(viewController: vc, style: .push)
-        case .version: print("version")
+            vc = NoticeViewController()
+        case .version:
+            print("version")
+            vc = VersionViewController()
         case .inquire:
             print("inquire")
-            let vc = InquireViewController()
-            transition(viewController: vc, style: .push)
+            vc = InquireViewController()
         case .licence:
             print("licence")
-            let vc = LicenseViewController()
-            transition(viewController: vc, style: .push)
+            vc = LicenseViewController()
         case .privacy:
             print("privacy")
-            let vc = PrivacyViewController()
-            transition(viewController: vc, style: .push)
+            vc = PrivacyViewController()
         }
-        
+        transition(viewController: vc, style: .push)
     }
 }
 

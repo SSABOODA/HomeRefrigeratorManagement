@@ -61,6 +61,7 @@ extension ChartViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "pieChartCell") as? PieChartTableViewCell else { return UITableViewCell() }
         
+        cell.selectionStyle = .none
         cell.colorImageView.backgroundColor = colorsOfCharts()[indexPath.row]
         cell.categoryLabel.text = viewModel.categoryList[indexPath.row]
         cell.percentageLabel.text = viewModel.makeCategoryPercetage(count: viewModel.numberOfFoodsByCategory[indexPath.row])
