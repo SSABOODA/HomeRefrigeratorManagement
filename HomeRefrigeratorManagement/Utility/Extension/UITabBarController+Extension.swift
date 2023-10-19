@@ -13,12 +13,14 @@ extension UITabBarController {
         viewContoller: UIViewController,
         titleString: String,
         imageString: String,
-        selectedImageString: String
+        selectedImageString: String,
+        tag: Int
     ) {
         viewContoller.tabBarItem = UITabBarItem(
             title: titleString,
             image: UIImage(systemName: imageString),
-            selectedImage: UIImage(systemName: selectedImageString)
+//            selectedImage: UIImage(systemName: selectedImageString)
+            tag: tag
         )
     }
 }

@@ -47,40 +47,36 @@ final class CustomTabBarController: UITabBarController {
         let FoodManagementVC = UINavigationController(rootViewController: FoodManagementViewController())
         let SettingVC = UINavigationController(rootViewController: SettingViewController())
         
-        setViewControllers(
-            [
-                CalendarVC,
-                FoodManagementVC,
-                SettingVC
-            ], animated: true
-        )
-        
-        modalPresentationStyle = .fullScreen
-        
+        setViewControllers([CalendarVC, FoodManagementVC, SettingVC], animated: true)
+
         createTabBarItem(
             viewContoller: CalendarVC,
             titleString: Constant.TabBarTitle.calendarVC,
             imageString: Constant.SystemImageName.calendarVCTabBarImage,
-            selectedImageString: Constant.SystemImageName.calendarVCTabBarSelectImage
+            selectedImageString: Constant.SystemImageName.calendarVCTabBarSelectImage,
+            tag: 0
         )
-        
+
         createTabBarItem(
             viewContoller: FoodManagementVC,
             titleString: Constant.TabBarTitle.foodManagementVC,
             imageString: Constant.SystemImageName.foodManagementVCTabBarImage,
-            selectedImageString: Constant.SystemImageName.foodManagementVCTabBarSelectImage
+            selectedImageString: Constant.SystemImageName.foodManagementVCTabBarSelectImage,
+            tag: 1
         )
-        
+
         createTabBarItem(
             viewContoller: SettingVC,
             titleString: Constant.TabBarTitle.settingVC,
             imageString: Constant.SystemImageName.settingVCTabBarImage,
-            selectedImageString: Constant.SystemImageName.settingVCTabBarSelectImage
+            selectedImageString: Constant.SystemImageName.settingVCTabBarSelectImage,
+            tag: 2
         )
         
         let appearance = UITabBarItem.appearance()
         let attributes = [NSAttributedString.Key.font: UIFont(name: Constant.Font.soyoBold, size: 11)]
         appearance.setTitleTextAttributes(attributes as [NSAttributedString.Key : Any], for: .normal)
+        modalPresentationStyle = .fullScreen
     }
     
     private func configureTabBarLayout() {}
@@ -88,4 +84,24 @@ final class CustomTabBarController: UITabBarController {
     private func configureTabBar() {
         self.selectedIndex = Constant.TabBarSetting.selectedIndex
     }
+    
+    private var bounceAnimation: CAKeyframeAnimation = {
+            let bounceAnimation = CAKeyframeAnimation(keyPath: "transform.scale")
+            bounceAnimation.values = [1.0, 1.4, 0.9, 1.02, 1.0]
+            bounceAnimation.duration = TimeInterval(0.3)
+            bounceAnimation.calculationMode = CAAnimationCalculationMode.cubic
+            return bounceAnimation
+        }()
+    
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+            // find index if the selected tab bar item, then find the corresponding view and get its image, the view position is offset by 1 because the first item is the background (at least in this case)
+        guard let idx = tabBar.items?.firstIndex(of: item), tabBar.subviews.count > idx + 1, let imageView = tabBar.subviews[idx + 1].subviews.compactMap ({ $0 as? UIImageView }).first else {
+                return
+            }
+        
+        print(idx, imageView)
+
+            // animate the imageView
+        imageView.layer.add(bounceAnimation, forKey: nil)
+        }
 }

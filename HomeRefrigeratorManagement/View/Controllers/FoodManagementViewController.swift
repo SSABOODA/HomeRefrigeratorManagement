@@ -37,7 +37,6 @@ final class FoodManagementViewController: BaseViewController {
         addTarget()
         configureDataSource()
         performQuery(searchText: "", storageType: currentStorageType)
-        
     }
     
     private func updateEmptyView() {

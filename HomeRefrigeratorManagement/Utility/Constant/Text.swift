@@ -11,7 +11,7 @@ extension Constant {
     enum TabBarTitle {
         static let calendarVC = "캘런더".localized
         static let recipeVC = "레시피".localized
-        static let foodManagementVC = "관리".localized
+        static let foodManagementVC = "냉장고 관리".localized
         static let chartVC = "분석".localized
         static let settingVC = "설정".localized
     }
