@@ -34,7 +34,7 @@ final class CustomTabBarController: UITabBarController {
             shadowView.layer.maskedCorners = tabBar.layer.maskedCorners
             shadowView.layer.masksToBounds = false
             shadowView.layer.shadowColor = UIColor.black.cgColor
-            shadowView.layer.shadowOffset = CGSize(width: 0.0, height: -1.0)
+            shadowView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
             shadowView.layer.shadowOpacity = 0.3
             shadowView.layer.shadowRadius = 2
             view.addSubview(shadowView)

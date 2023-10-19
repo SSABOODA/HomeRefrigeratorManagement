@@ -38,6 +38,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             object: nil
         )
         
+        UserDefaultsHelper.standard.hour = 19
+        UserDefaultsHelper.standard.minute = 30
+        
         return true
     }
     
@@ -45,24 +48,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     @objc private func checkNotificationSetting() {
         UNUserNotificationCenter.current()
             .getNotificationSettings { permission in
-                let key = "permission"
                 switch permission.authorizationStatus  {
                 case .authorized:
                     print("푸시 수신 동의")
-                    UserDefaults.standard.set(true, forKey: key)
+                    UserDefaultsHelper.standard.permission = true
                 case .denied:
                     print("푸시 수신 거부")
-                    UserDefaults.standard.set(false, forKey: key)
+                    UserDefaultsHelper.standard.permission = false
                 case .notDetermined:
                     print("한 번 허용 누른 경우")
-                    UserDefaults.standard.set(true, forKey: key)
+                    UserDefaultsHelper.standard.permission = true
                 case .provisional:
                     print("푸시 수신 임시 중단")
-                    UserDefaults.standard.set(false, forKey: key)
+                    UserDefaultsHelper.standard.permission = false
                 case .ephemeral:
                     // @available(iOS 14.0, *)
                     print("푸시 설정이 App Clip에 대해서만 부분적으로 동의한 경우")
-                    UserDefaults.standard.set(true, forKey: key)
+                    UserDefaultsHelper.standard.permission = true
                 @unknown default:
                     print("Unknow Status")
                 }

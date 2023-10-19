@@ -53,8 +53,8 @@ class FoodManagementView: BaseView {
         button.clipsToBounds = false
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOpacity = 0.5
-        button.layer.shadowOffset = CGSize(width: 5, height: 5)
-        button.layer.shadowRadius = 5
+        button.layer.shadowOffset = CGSize(width: 2, height: 2)
+        button.layer.shadowRadius = 2
         return button
     }()
     

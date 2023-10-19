@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Toast
 
 
 final class AlarmViewController: BaseViewController {
@@ -58,12 +59,28 @@ final class AlarmViewController: BaseViewController {
     }()
     
     @objc func handleDatePicker(_ sender: UIDatePicker) {
-        print(sender.date)
+        let calendar = Calendar.current
+        let timeComponents = calendar.dateComponents([.hour, .minute], from: sender.date)
+        let hour = timeComponents.hour ?? 0
+        let minute = timeComponents.minute ?? 0
+        
+        print(hour, UserDefaultsHelper.standard.hour)
+        print(minute, UserDefaultsHelper.standard.minute)
+        
+        if (hour != UserDefaultsHelper.standard.hour) || (minute != UserDefaultsHelper.standard.minute) {
+            UserDefaultsHelper.standard.isManual = true
+            UserDefaultsHelper.standard.hour = hour
+            UserDefaultsHelper.standard.minute = minute
+            UserNotificationRepository.shared.configureUserNotification()
+            
+            self.view.makeToast("알림 시간이 변경되었습니다.😀")
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSwitchValue()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -131,7 +148,7 @@ final class AlarmViewController: BaseViewController {
     }
     
     private func checkAccessAlarm() -> Bool {
-        let permissionStatus = UserDefaults.standard.bool(forKey: "permission")
+        let permissionStatus = UserDefaultsHelper.standard.permission
         print("permissionStatus: \(permissionStatus)")
         return permissionStatus
     }
