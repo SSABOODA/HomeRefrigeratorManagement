@@ -36,6 +36,7 @@ final class CalendarViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print(#function, CalendarViewController.description())
+        mainView.calendar.reloadData()
     }
     
     override func viewWillLayoutSubviews() {

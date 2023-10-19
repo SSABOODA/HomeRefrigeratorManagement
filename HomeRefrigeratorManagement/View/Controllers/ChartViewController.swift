@@ -26,7 +26,7 @@ final class ChartViewController: BaseViewController {
         mainView.pieChartTableView.delegate = self
         mainView.pieChartTableView.dataSource = self
     }
-
+    
     override func configureView() {
         super.configureView()
         mainView.scrollView.delegate = self

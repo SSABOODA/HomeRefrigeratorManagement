@@ -225,7 +225,7 @@ class FoodDetailManagementView: BaseView {
         button.setTitle(Constant.ButtonSetTitle.foodUpdateButtonTitle, for: .normal)
         button.titleLabel?.font = UIFont(name: Constant.Font.soyoBold, size: 13)
         button.setTitleColor(UIColor.white, for: .normal)
-        button.backgroundColor = Constant.BaseColor.basePointColor
+        button.backgroundColor = Constant.BaseColor.basePointBlueHexColor
         return button
     }()
 

@@ -13,7 +13,8 @@ extension Constant {
         static let grayContrastBackgroundColor = UIColor(named: "grayContrastBackgroundColor")
         static let tintColor = UIColor(named: "tintColor")
         static let borderColor = UIColor.lightGray.cgColor
-        static let basePointColor = UIColor(hexCode: "#3D6FD2") // 파란색
+        static let basePointBlueHexColor = UIColor(hexCode: "#3D6FD2") // 파란색
+        static let basePointOrangeHexColor = UIColor(hexCode: "#F7B728") // 주황색
     }
     
     enum collectionViewColor {
