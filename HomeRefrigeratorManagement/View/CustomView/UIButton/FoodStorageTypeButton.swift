@@ -25,7 +25,7 @@ class FoodStorageTypeButton: UIButton {
         layer.cornerRadius = 15
         layer.shadowColor = UIColor.darkGray.cgColor
         layer.shadowOffset = CGSize.zero
-        layer.shadowRadius = 5
+        layer.shadowRadius = 2
         layer.shadowOpacity = 0.5
         clipsToBounds = false
         

@@ -18,7 +18,7 @@ final class CustomTabBarController: UITabBarController {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        tabBar.tintColor = Constant.BaseColor.tintColor
+        tabBar.tintColor = Constant.BaseColor.basePointOrangeHexColor
         tabBar.layer.masksToBounds = true
         tabBar.layer.cornerRadius = 20
         tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]

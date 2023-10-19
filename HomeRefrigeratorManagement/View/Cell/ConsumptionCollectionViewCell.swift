@@ -113,6 +113,6 @@ final class ConsumptionCollectionViewCell: BaseCollectionViewCell {
         layer.shadowColor = UIColor.lightGray.cgColor
         layer.shadowOpacity = 0.5
         layer.shadowOffset = CGSize.zero
-        layer.shadowRadius = 5
+        layer.shadowRadius = 2
     }
 }
