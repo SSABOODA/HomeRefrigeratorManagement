@@ -29,6 +29,7 @@
 		F75E9B282AE11BA4000CF09A /* VersionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75E9B272AE11BA4000CF09A /* VersionViewController.swift */; };
 		F75E9B2B2AE17E27000CF09A /* UserNotificationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75E9B2A2AE17E27000CF09A /* UserNotificationRepository.swift */; };
 		F75E9B2D2AE18A61000CF09A /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75E9B2C2AE18A61000CF09A /* UserDefaultsHelper.swift */; };
+		F75E9B312AE1A45F000CF09A /* launchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = F75E9B302AE1A45F000CF09A /* launchScreen.png */; };
 		F7610A212AD5458C00832129 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A202AD5458C00832129 /* CalendarViewModel.swift */; };
 		F7610A232AD54A2500832129 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A222AD54A2500832129 /* CalendarView.swift */; };
 		F7610A252AD56D3800832129 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A242AD56D3800832129 /* UIImage+Extension.swift */; };
@@ -133,6 +134,7 @@
 		F75E9B272AE11BA4000CF09A /* VersionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionViewController.swift; sourceTree = "<group>"; };
 		F75E9B2A2AE17E27000CF09A /* UserNotificationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationRepository.swift; sourceTree = "<group>"; };
 		F75E9B2C2AE18A61000CF09A /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
+		F75E9B302AE1A45F000CF09A /* launchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchScreen.png; sourceTree = "<group>"; };
 		F7610A202AD5458C00832129 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
 		F7610A222AD54A2500832129 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		F7610A242AD56D3800832129 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 		F75E9B092AE0027F000CF09A /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				F75E9B302AE1A45F000CF09A /* launchScreen.png */,
 				F75E9B0A2AE0028B000CF09A /* launchScreenBackgroundImage.jpeg */,
 			);
 			path = Image;
@@ -682,6 +685,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F78B9B352ADA86F200EA61CB /* SOYOMapleRegular.ttf in Resources */,
+				F75E9B312AE1A45F000CF09A /* launchScreen.png in Resources */,
 				F78B9B362ADA86F200EA61CB /* SOYOMapleBold.ttf in Resources */,
 				F75E9B0D2AE00DF0000CF09A /* Settings.bundle in Resources */,
 				F7C31D8C2AC2CE9C008DAA21 /* .gitignore in Resources */,
