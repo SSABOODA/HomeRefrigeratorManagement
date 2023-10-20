@@ -12,12 +12,12 @@ import UIKit
 struct SettingInfo {
     enum SettingCategory: Int, CaseIterable {
         case alarm = 0 //"알람"
-        case notice = 1 //"서비스 알림"
+//        case notice = 1 //"서비스 알림"
         case inquire = 2 //"문의"
         case privacy = 3 //"개인정보"
         
         enum SettingViewType: Int, CaseIterable {
-            case alarm = 0, notice, version, inquire, licence, privacy
+            case alarm = 0, inquire, licence, privacy // notice, version
         }
         
         var options: [SettingInfo] {
@@ -26,11 +26,11 @@ struct SettingInfo {
                 return [
                     SettingInfo(title: "알림 설정", sectionCategory: self, itemViewCategory: SettingCategory.SettingViewType.alarm)
                 ]
-            case .notice:
-                return [
-                    SettingInfo(title: "공지 사항", sectionCategory: self, itemViewCategory: SettingCategory.SettingViewType.notice),
-                    SettingInfo(title: "버전 정보", sectionCategory: self, itemViewCategory: SettingCategory.SettingViewType.version),
-                ]
+//            case .notice:
+//                return [
+//                    SettingInfo(title: "공지 사항", sectionCategory: self, itemViewCategory: SettingCategory.SettingViewType.notice),
+//                    SettingInfo(title: "버전 정보", sectionCategory: self, itemViewCategory: SettingCategory.SettingViewType.version),
+//                ]
             case .inquire:
                 return [
                     SettingInfo(title: "서비스 제보, 문의", sectionCategory: self, itemViewCategory: SettingCategory.SettingViewType.inquire),
@@ -137,12 +137,12 @@ extension SettingViewController: UICollectionViewDelegate, UICollectionViewDataS
         case .alarm:
             print("alarm")
             vc = AlarmViewController()
-        case .notice:
-            print("notice")
-            vc = NoticeViewController()
-        case .version:
-            print("version")
-            vc = VersionViewController()
+//        case .notice:
+//            print("notice")
+//            vc = NoticeViewController()
+//        case .version:
+//            print("version")
+//            vc = VersionViewController()
         case .inquire:
             print("inquire")
             vc = InquireViewController()
