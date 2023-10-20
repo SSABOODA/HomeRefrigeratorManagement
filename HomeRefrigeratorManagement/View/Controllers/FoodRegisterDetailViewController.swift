@@ -122,6 +122,17 @@ extension FoodRegisterDetailViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         return foodInputDataTextFieldRestriction(textField, string: string)
     }
+    
+    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+        print(#function)
+        
+        if action == #selector(UIResponderStandardEditActions.paste(_:)) {
+            return false
+        }
+        return super.canPerformAction(action, withSender: sender)
+        
+        
+    }
 }
 
 // UIPickerViewDelegate

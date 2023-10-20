@@ -51,7 +51,7 @@ final class FoodRegisterDetailView: BaseView {
     
     let foodNameLabel = {
         let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 15)
+        label.font = UIFont(name: Constant.Font.soyoBold, size: 15)
         return label
     }()
     
@@ -68,6 +68,7 @@ final class FoodRegisterDetailView: BaseView {
     let foodDescriptionLabel = {
         let label = FoodDetailSettingLabel()
         label.text = "식품 설명"
+        label.font = UIFont(name: Constant.Font.soyoBold, size: 13)
         return label
     }()
     
@@ -96,6 +97,7 @@ final class FoodRegisterDetailView: BaseView {
     let registerDateLabel = {
         let label = FoodDetailSettingLabel()
         label.text = "등록 날짜"
+        label.font = UIFont(name: Constant.Font.soyoBold, size: 13)
         return label
     }()
     
@@ -124,6 +126,7 @@ final class FoodRegisterDetailView: BaseView {
     let expirationDateLabel = {
         let label = FoodDetailSettingLabel()
         label.text = "유통 기한"
+        label.font = UIFont(name: Constant.Font.soyoBold, size: 13)
         return label
     }()
     
@@ -152,6 +155,7 @@ final class FoodRegisterDetailView: BaseView {
     let storageTypeLabel = {
         let label = FoodDetailSettingLabel()
         label.text = "저장 방법"
+        label.font = UIFont(name: Constant.Font.soyoBold, size: 13)
         return label
     }()
     
@@ -180,6 +184,7 @@ final class FoodRegisterDetailView: BaseView {
     let countLabel = {
         let label = FoodDetailSettingLabel()
         label.text = "수량"
+        label.font = UIFont(name: Constant.Font.soyoBold, size: 13)
         return label
     }()
     
@@ -189,7 +194,7 @@ final class FoodRegisterDetailView: BaseView {
     }()
     
     let countTextField = {
-        let tf = UITextField()
+        let tf = CustomTextField()
         tf.keyboardType = .numberPad
         tf.placeholder = "수량을 입력해주세요~"
         tf.font = .systemFont(ofSize: 13)

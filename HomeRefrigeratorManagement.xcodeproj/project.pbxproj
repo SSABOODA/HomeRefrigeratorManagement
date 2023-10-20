@@ -30,6 +30,7 @@
 		F75E9B2B2AE17E27000CF09A /* UserNotificationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75E9B2A2AE17E27000CF09A /* UserNotificationRepository.swift */; };
 		F75E9B2D2AE18A61000CF09A /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75E9B2C2AE18A61000CF09A /* UserDefaultsHelper.swift */; };
 		F75E9B312AE1A45F000CF09A /* launchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = F75E9B302AE1A45F000CF09A /* launchScreen.png */; };
+		F75E9B362AE251AA000CF09A /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75E9B352AE251AA000CF09A /* CustomTextField.swift */; };
 		F7610A212AD5458C00832129 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A202AD5458C00832129 /* CalendarViewModel.swift */; };
 		F7610A232AD54A2500832129 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A222AD54A2500832129 /* CalendarView.swift */; };
 		F7610A252AD56D3800832129 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A242AD56D3800832129 /* UIImage+Extension.swift */; };
@@ -135,6 +136,7 @@
 		F75E9B2A2AE17E27000CF09A /* UserNotificationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationRepository.swift; sourceTree = "<group>"; };
 		F75E9B2C2AE18A61000CF09A /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		F75E9B302AE1A45F000CF09A /* launchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchScreen.png; sourceTree = "<group>"; };
+		F75E9B352AE251AA000CF09A /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		F7610A202AD5458C00832129 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
 		F7610A222AD54A2500832129 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		F7610A242AD56D3800832129 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -283,6 +285,14 @@
 				F75E9B2C2AE18A61000CF09A /* UserDefaultsHelper.swift */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		F75E9B342AE2519D000CF09A /* UITextField */ = {
+			isa = PBXGroup;
+			children = (
+				F75E9B352AE251AA000CF09A /* CustomTextField.swift */,
+			);
+			path = UITextField;
 			sourceTree = "<group>";
 		};
 		F7610A4F2AD83FB800832129 /* Sheet */ = {
@@ -528,6 +538,7 @@
 		F7C31DC22AC2E43B008DAA21 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				F75E9B342AE2519D000CF09A /* UITextField */,
 				F75E9B062ADE6CB1000CF09A /* UIImageView */,
 				F7248A352AD9328200D768DF /* Activity */,
 				F7C31E342ACFABD4008DAA21 /* UILabel */,
@@ -769,6 +780,7 @@
 				F7C31E3E2ACFE025008DAA21 /* FoodRegisterTextFieldView.swift in Sources */,
 				F7C31DC42AC2E456008DAA21 /* CustomTabBarController.swift in Sources */,
 				F7610A422AD7BDFB00832129 /* RecipeViewController.swift in Sources */,
+				F75E9B362AE251AA000CF09A /* CustomTextField.swift in Sources */,
 				F7610A272AD5B40100832129 /* CustomCalendarCell.swift in Sources */,
 				F7C31E2E2ACE9DAB008DAA21 /* FoodRegisterDetailView.swift in Sources */,
 				F7C31D7C2AC2CE2F008DAA21 /* FoodManagementViewController.swift in Sources */,

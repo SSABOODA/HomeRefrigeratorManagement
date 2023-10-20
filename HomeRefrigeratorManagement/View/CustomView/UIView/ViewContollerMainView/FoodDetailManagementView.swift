@@ -51,8 +51,7 @@ class FoodDetailManagementView: BaseView {
     
     let foodNameLabel = {
         let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 15)
-        label.text = "가지"
+        label.font = UIFont(name: Constant.Font.soyoBold, size: 15)
         return label
     }()
     
@@ -195,7 +194,7 @@ class FoodDetailManagementView: BaseView {
     }()
     
     let countTextField = {
-        let tf = UITextField()
+        let tf = CustomTextField()
         tf.keyboardType = .numberPad
         tf.placeholder = "수량을 입력해주세요~"
         tf.font = .boldSystemFont(ofSize: 13)

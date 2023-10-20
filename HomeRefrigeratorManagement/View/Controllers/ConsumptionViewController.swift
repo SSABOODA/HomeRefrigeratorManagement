@@ -39,6 +39,11 @@ final class ConsumptionViewController: BaseViewController {
         self.navigationItem.hidesSearchBarWhenScrolling = false
         
         let saveButton = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(saveButtonTapped))
+        
+        saveButton.setTitleTextAttributes(
+            [NSAttributedString.Key.font: UIFont(name: Constant.Font.soyoBold, size: 15)!],
+            for: .normal
+        )
         saveButton.tintColor = .black
         navigationItem.rightBarButtonItem = saveButton
     }
