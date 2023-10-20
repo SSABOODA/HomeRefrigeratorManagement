@@ -16,6 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 //        Thread.sleep(forTimeInterval: 1.0)
+        
+        print(#function)
+        
         // Firebase
         FirebaseApp.configure()
         
@@ -30,14 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
             print(success, error)
         }
-        
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(checkNotificationSetting),
-            name: UIApplication.willEnterForegroundNotification,
-            object: nil
-        )
-        
+
         UserDefaultsHelper.standard.hour = 19
         UserDefaultsHelper.standard.minute = 30
         
@@ -45,31 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     
-    @objc private func checkNotificationSetting() {
-        UNUserNotificationCenter.current()
-            .getNotificationSettings { permission in
-                switch permission.authorizationStatus  {
-                case .authorized:
-                    print("푸시 수신 동의")
-                    UserDefaultsHelper.standard.permission = true
-                case .denied:
-                    print("푸시 수신 거부")
-                    UserDefaultsHelper.standard.permission = false
-                case .notDetermined:
-                    print("한 번 허용 누른 경우")
-                    UserDefaultsHelper.standard.permission = true
-                case .provisional:
-                    print("푸시 수신 임시 중단")
-                    UserDefaultsHelper.standard.permission = false
-                case .ephemeral:
-                    // @available(iOS 14.0, *)
-                    print("푸시 설정이 App Clip에 대해서만 부분적으로 동의한 경우")
-                    UserDefaultsHelper.standard.permission = true
-                @unknown default:
-                    print("Unknow Status")
-                }
-            }
-    }
+    
 
     // MARK: UISceneSession Lifecycle
 

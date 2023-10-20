@@ -48,7 +48,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         print(#function)
         userNotification.removePendingNotificationRequests()
         
+        NotificationCenter.default.post(
+            name: NSNotification.Name("permission"),
+            object: nil
+        )
+        
+        UserNotificationRepository.shared.checkPermission { _ in
+        }
     }
+    
+    
 
     func sceneDidEnterBackground(_ scene: UIScene) {
         // Called as the scene transitions from the foreground to the background.

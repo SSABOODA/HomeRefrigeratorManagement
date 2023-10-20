@@ -31,6 +31,7 @@
 		F75E9B2D2AE18A61000CF09A /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75E9B2C2AE18A61000CF09A /* UserDefaultsHelper.swift */; };
 		F75E9B312AE1A45F000CF09A /* launchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = F75E9B302AE1A45F000CF09A /* launchScreen.png */; };
 		F75E9B362AE251AA000CF09A /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75E9B352AE251AA000CF09A /* CustomTextField.swift */; };
+		F75E9B382AE2593A000CF09A /* AlarmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75E9B372AE2593A000CF09A /* AlarmViewModel.swift */; };
 		F7610A212AD5458C00832129 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A202AD5458C00832129 /* CalendarViewModel.swift */; };
 		F7610A232AD54A2500832129 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A222AD54A2500832129 /* CalendarView.swift */; };
 		F7610A252AD56D3800832129 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A242AD56D3800832129 /* UIImage+Extension.swift */; };
@@ -137,6 +138,7 @@
 		F75E9B2C2AE18A61000CF09A /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		F75E9B302AE1A45F000CF09A /* launchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchScreen.png; sourceTree = "<group>"; };
 		F75E9B352AE251AA000CF09A /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		F75E9B372AE2593A000CF09A /* AlarmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewModel.swift; sourceTree = "<group>"; };
 		F7610A202AD5458C00832129 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
 		F7610A222AD54A2500832129 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		F7610A242AD56D3800832129 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -413,6 +415,7 @@
 				F7C31E2B2ACE93E3008DAA21 /* FoodRegisterDetailViewModel.swift */,
 				F78B9B3D2ADAD07D00EA61CB /* ChartViewmodel.swift */,
 				F75E9B042ADE67CD000CF09A /* ConsumptionViewModel.swift */,
+				F75E9B372AE2593A000CF09A /* AlarmViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -805,6 +808,7 @@
 				F78B9B302ADA761A00EA61CB /* ChartContentView.swift in Sources */,
 				F7C31D922AC2CFEA008DAA21 /* APIKey.swift in Sources */,
 				F7C31DCA2AC2E93E008DAA21 /* Text.swift in Sources */,
+				F75E9B382AE2593A000CF09A /* AlarmViewModel.swift in Sources */,
 				F7C31E222ACD41A4008DAA21 /* FoodModel.swift in Sources */,
 				F7C31E1D2ACD3E06008DAA21 /* FoodIconCollectionViewCell.swift in Sources */,
 				F7610A252AD56D3800832129 /* UIImage+Extension.swift in Sources */,

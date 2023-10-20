@@ -64,9 +64,6 @@ final class AlarmViewController: BaseViewController {
         let hour = timeComponents.hour ?? 0
         let minute = timeComponents.minute ?? 0
         
-        print(hour, UserDefaultsHelper.standard.hour)
-        print(minute, UserDefaultsHelper.standard.minute)
-        
         if (hour != UserDefaultsHelper.standard.hour) || (minute != UserDefaultsHelper.standard.minute) {
             UserDefaultsHelper.standard.isManual = true
             UserDefaultsHelper.standard.hour = hour
@@ -79,14 +76,25 @@ final class AlarmViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initialSwitchValue()
+        print("UserDefaultsHelper.standard.permission: \(UserDefaultsHelper.standard.permission)")
         
+        UserNotificationRepository.shared.checkPermission { [weak self] value in
+            self?.setSwitchValue(UserDefaultsHelper.standard.permission)
+        }
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(checkNotificationSetting),
+            name: UIApplication.willEnterForegroundNotification,
+            object: nil
+        )
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print(#function)
-        initialSwitchValue()
+    @objc private func checkNotificationSetting(notification: NSNotification) {
+        
+        UserNotificationRepository.shared.checkPermission { [weak self] value in
+            self?.setSwitchValue(UserDefaultsHelper.standard.permission)
+        }
     }
     
     override func configureView() {
@@ -119,15 +127,19 @@ final class AlarmViewController: BaseViewController {
     
     @objc func switchViewTapped() {
         print(#function)
+        print("permission: \(UserDefaultsHelper.standard.permission)")
+
         if switchView.isOn {
-            print(true)
+            footerView.isHidden = false
             
             showAlertAction2(
                 preferredStyle: .alert,
                 title: "알림 허용",
                 message: "알림을 사용할 수 없습니다. 기기의 '설정>앱>알림'에서 알림 허용을 해주세요",
                 cancelTitle: "취소",
-                completeTitle: "확인") {} _: {
+                completeTitle: "확인") {
+                    self.setSwitchValue(false)
+                } _: {
                     if !self.checkAccessAlarm() {
                         guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
                         
@@ -138,13 +150,21 @@ final class AlarmViewController: BaseViewController {
                 }
             
         } else {
-            print(false)
+            footerView.isHidden = true
         }
     }
     
-    private func initialSwitchValue() {
-        let result = checkAccessAlarm()
-        switchView.setOn(result, animated: true)
+    private func setSwitchValue(_ permission: Bool) {
+        
+        DispatchQueue.main.async { [weak self] in
+            if permission {
+                self?.switchView.setOn(permission, animated: true)
+                self?.footerView.isHidden = !permission
+            } else {
+                self?.switchView.setOn(permission, animated: true)
+                self?.footerView.isHidden = !permission
+            }
+        }
     }
     
     private func checkAccessAlarm() -> Bool {

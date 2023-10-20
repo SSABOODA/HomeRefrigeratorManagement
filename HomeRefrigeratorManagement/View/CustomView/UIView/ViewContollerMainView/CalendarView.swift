@@ -23,7 +23,7 @@ final class CalendarView: BaseView {
     
     let calendarTypeChangeButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "chevron.down"), for: .normal)
+        button.setImage(UIImage(systemName: "chevron.up"), for: .normal)
         button.tintColor = Constant.BaseColor.tintColor
         return button
     }()
@@ -118,9 +118,9 @@ final class CalendarView: BaseView {
 //        print(#function, CalendarView.description())
         
         if calendar.scope == .month {
-            calendarTypeChangeButton.setImage(UIImage(systemName: "chevron.down"), for: .normal)
-        } else {
             calendarTypeChangeButton.setImage(UIImage(systemName: "chevron.up"), for: .normal)
+        } else {
+            calendarTypeChangeButton.setImage(UIImage(systemName: "chevron.down"), for: .normal)
         }
     }
     

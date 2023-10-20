@@ -22,6 +22,33 @@ final class UserNotificationRepository {
         return UserDefaultsHelper.standard.permission
     }
     
+    func checkPermission(_ completion: @escaping (Bool) -> Void) {
+        UNUserNotificationCenter.current()
+            .getNotificationSettings { [weak self] permission in
+                switch permission.authorizationStatus  {
+                case .authorized:
+                    print("푸시 수신 동의")
+                    UserDefaultsHelper.standard.permission = true
+                case .denied:
+                    print("푸시 수신 거부")
+                    UserDefaultsHelper.standard.permission = false
+                case .notDetermined:
+                    print("한 번 허용 누른 경우")
+                    UserDefaultsHelper.standard.permission = false
+                case .provisional:
+                    print("푸시 수신 임시 중단")
+                    UserDefaultsHelper.standard.permission = false
+                case .ephemeral:
+                    // @available(iOS 14.0, *)
+                    print("푸시 설정이 App Clip에 대해서만 부분적으로 동의한 경우")
+                    UserDefaultsHelper.standard.permission = true
+                @unknown default:
+                    print("Unknow Status")
+                }
+                completion(UserDefaultsHelper.standard.permission)
+            }
+    }
+    
     func calculateImminentFood(_ baseDate: Int) -> Int? {
         var dayComponent = DateComponents()
         dayComponent.day = -baseDate
