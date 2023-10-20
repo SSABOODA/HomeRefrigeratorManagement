@@ -19,10 +19,5 @@ final class FoodIconImageView: UIImageView {
     }
     
     func configureView() {
-        clipsToBounds = false
-        layer.shadowColor = Constant.BaseColor.tintColor?.cgColor
-        layer.shadowOffset = CGSize(width: 5, height: 5)
-        layer.shadowRadius = 5
-        layer.shadowOpacity = 0.5
     }
 }

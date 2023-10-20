@@ -47,6 +47,7 @@ final class FoodManagementViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print(#function, "FoodManagementViewController")
+        performQuery(searchText: "@", storageType: currentStorageType)
         performQuery(searchText: "", storageType: currentStorageType)
     }
     

@@ -79,7 +79,7 @@ final class FoodManagementCollectionViewCell: BaseCollectionViewCell {
         expirationDateLabel.snp.makeConstraints { make in
             make.trailing.equalToSuperview().offset(-30)
             make.centerY.equalToSuperview()
-            make.size.equalTo(50)
+            make.height.equalTo(50)
         }
     }
     

@@ -71,6 +71,8 @@ final class UserNotificationRepository {
         print(#function)
         let content = UNMutableNotificationContent()
         guard let count = self.calculateImminentFood(3) else { return }
+        guard count != 0 else { return }
+        
         content.title = "유통기한이 임박한 상품이 \(count)개 있어요"
         content.body = "식품을 소비하거나 관리해보세요:)"
         content.badge = NSNumber(value: UIApplication.shared.applicationIconBadgeNumber + 1)

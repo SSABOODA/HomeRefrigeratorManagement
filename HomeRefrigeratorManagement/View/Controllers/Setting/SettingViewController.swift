@@ -88,8 +88,8 @@ final class SettingViewController: BaseViewController {
             backgroundConfig.cornerRadius = 10
             backgroundConfig.strokeWidth = 2
             cell.backgroundConfiguration = backgroundConfig
+            
         })
-        
     }
     
     override func configureView() {
@@ -123,6 +123,7 @@ extension SettingViewController: UICollectionViewDelegate, UICollectionViewDataS
             for: indexPath,
             item: SettingInfo.SettingCategory.allCases[indexPath.section].options[indexPath.item]
         )
+        
         return cell
     }
     
