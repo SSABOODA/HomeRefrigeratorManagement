@@ -196,6 +196,10 @@ final class ChartView: BaseView {
         view.noDataTextColor = .orange
         view.noDataTextAlignment = .center
         
+        view.usePercentValuesEnabled = true
+        view.transparentCircleRadiusPercent = CGFloat(0)
+        view.legend.enabled = true
+        
         // pieChart UI 세팅
         view.legend.font = UIFont(name: Constant.Font.soyoRegular, size: 12)!
         view.entryLabelFont = UIFont(name: Constant.Font.soyoRegular, size: 10)
@@ -204,9 +208,7 @@ final class ChartView: BaseView {
         
         view.legend.horizontalAlignment = .center
         view.legend.verticalAlignment = .bottom
-//        view.drawEntryLabelsEnabled = false
-        view.notifyDataSetChanged()
-        view.animate(xAxisDuration: 2.0, easingOption: .linear)
+        view.animate(yAxisDuration: 2.0, easingOption: .linear)
         return view
     }()
     
@@ -345,11 +347,6 @@ final class ChartView: BaseView {
         
         categoryChartAnalyTitleLabel.snp.makeConstraints { make in
             make.top.horizontalEdges.equalToSuperview().inset(20)
-        }
-        
-        unitLabel.snp.makeConstraints { make in
-            make.trailing.equalTo(categoryChartAnalyView.snp.trailing).inset(15)
-            make.bottom.equalTo(categoryChartAnalyTitleLabel.snp.bottom)
         }
         
         categoryPieChartView.snp.makeConstraints { make in

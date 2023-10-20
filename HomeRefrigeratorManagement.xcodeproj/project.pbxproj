@@ -330,12 +330,12 @@
 			isa = PBXGroup;
 			children = (
 				F7C31DC52AC2E57D008DAA21 /* SettingViewController.swift */,
-				F794A5B22ADD4263009D3A3A /* LicenseViewController.swift */,
 				F794A5B42ADD5B10009D3A3A /* AlarmViewController.swift */,
-				F794A5B62ADD6A27009D3A3A /* InquireViewController.swift */,
 				F794A5B82ADD7BD4009D3A3A /* NoticeViewController.swift */,
-				F75E9B252AE10B64000CF09A /* PrivacyViewController.swift */,
 				F75E9B272AE11BA4000CF09A /* VersionViewController.swift */,
+				F794A5B62ADD6A27009D3A3A /* InquireViewController.swift */,
+				F794A5B22ADD4263009D3A3A /* LicenseViewController.swift */,
+				F75E9B252AE10B64000CF09A /* PrivacyViewController.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";

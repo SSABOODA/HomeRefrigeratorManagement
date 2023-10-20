@@ -78,32 +78,33 @@ extension ChartViewController {
         
         for i in 0..<dataPoints.count {
             let dataEntry = PieChartDataEntry(
-                value: values[i],
-                label: dataPoints[i],
-                data:  dataPoints[i] as AnyObject
+                value: Double(values[i] / Double(viewModel.totalFoodCount)),
+//                label: dataPoints[i]
+                label: nil
             )
-            
             dataEntries.append(dataEntry)
         }
         
         let pieChartDataSet = PieChartDataSet(entries: dataEntries, label: "")
         pieChartDataSet.colors = colorsOfCharts()
         
-        guard let NSFont = NSUIFont(name: Constant.Font.soyoBold, size: 13) else { return }
+        guard let NSFont = NSUIFont(name: Constant.Font.soyoBold, size: 12) else { return }
         pieChartDataSet.valueFont = NSFont
         pieChartDataSet.valueTextColor = NSUIColor(hexCode: "#000000")
-        pieChartDataSet.valueLinePart1OffsetPercentage = 0.8
-        pieChartDataSet.valueLinePart1Length = 0.5
+        pieChartDataSet.valueLinePart1OffsetPercentage = 0.4 // 선깊이
+        pieChartDataSet.valueLinePart1Length = 0.1 // 선길이
         pieChartDataSet.valueLinePart2Length = 0.1
         pieChartDataSet.yValuePosition = .outsideSlice
         
         let pieChartData = PieChartData(dataSet: pieChartDataSet)
-        let format = NumberFormatter()
-        format.numberStyle = .none
-        let formatter = DefaultValueFormatter(formatter: format)
-        pieChartData.setValueFormatter(formatter)
-        
         mainView.categoryPieChartView.data = pieChartData
+        let format = NumberFormatter()
+        format.numberStyle = .percent
+        format.maximumFractionDigits = 1
+        format.multiplier = 1
+        pieChartData.setValueFormatter(DefaultValueFormatter(formatter: format))
+        
+        
     }
     
     private func colorsOfCharts() -> [UIColor] {
