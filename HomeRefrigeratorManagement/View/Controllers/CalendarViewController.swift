@@ -104,10 +104,11 @@ extension CalendarViewController: UICollectionViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print(scrollView.contentOffset.y)
         let contentOffsetY = scrollView.contentOffset.y
-        if contentOffsetY > 0 {
+        if contentOffsetY >= 1 {
             mainView.calendar.setScope(.week, animated: true)
-        } else {
+        } else if contentOffsetY <= -1 {
             mainView.calendar.setScope(.month, animated: true)
         }
         view.layoutIfNeeded()
