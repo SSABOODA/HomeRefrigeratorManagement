@@ -41,9 +41,27 @@ extension Constant {
 //            "#336666",  // 약한 시안
 //            "#663366",  // 약한 퍼플
 //            "#CC3333",  // 약한 레드
-            "#FFA500", "#FFB732", "#FFC964", "#FFDD96", "#FFEEB8",
-                "#FFF3CC", "#FFE7A7", "#FFDB82", "#FFCF5D", "#FFC341",
-                "#FFB726", "#FFAB00", "#FFA100", "#FF9700", "#FF8C00"
+            
+//            "#FFA500", "#FFB732", "#FFC964", "#FFDD96", "#FFEEB8",
+//                "#FFF3CC", "#FFE7A7", "#FFDB82", "#FFCF5D", "#FFC341",
+//                "#FFB726", "#FFAB00", "#FFA100", "#FF9700", "#FF8C00"
+            
+            "#FFD1DC",
+              "#A1FFCE",
+              "#E3D7FF",
+              "#E1FFB5",
+              "#D0A9FF",
+              "#A3E4FF",
+              "#D3FFCE",
+              "#FFC1A1",
+              "#D2B48C",
+              "#C4C4C4",
+              "#FFF7A1",
+              "#A1EFFF",
+              "#FFA1B1",
+              "#E7FFA1",
+              "#A1FFF7"
+            
         ]
     }
 }

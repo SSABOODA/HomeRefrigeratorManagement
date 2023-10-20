@@ -7,8 +7,6 @@
 
 import UIKit
 
-
-
 final class LicenseViewController: BaseViewController {
     
     let label = UILabel()

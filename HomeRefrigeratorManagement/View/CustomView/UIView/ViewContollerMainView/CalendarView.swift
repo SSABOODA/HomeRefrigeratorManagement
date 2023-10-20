@@ -86,7 +86,7 @@ final class CalendarView: BaseView {
         calendar.layer.shadowColor = UIColor.darkGray.cgColor
         calendar.layer.shadowOffset = CGSize.zero
         calendar.layer.shadowRadius = 1
-        calendar.layer.shadowOpacity = 0.5
+        calendar.layer.shadowOpacity = 0.3
         calendar.register(CustomCalendarCell.self, forCellReuseIdentifier: CustomCalendarCell.description())
         return calendar
     }()
