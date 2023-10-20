@@ -16,18 +16,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchScreenBackgroundImage.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="Alu-bR-Jz4">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchScreen.png" translatesAutoresizingMaskIntoConstraints="NO" id="uOk-i6-yB4">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="832"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="Alu-bR-Jz4" secondAttribute="bottom" id="Hv4-oe-BfP"/>
-                            <constraint firstItem="Alu-bR-Jz4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="NNh-lx-OVz"/>
-                            <constraint firstItem="Alu-bR-Jz4" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="XYl-al-z7s"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Alu-bR-Jz4" secondAttribute="trailing" id="jE7-8a-52U"/>
+                            <constraint firstAttribute="bottom" secondItem="uOk-i6-yB4" secondAttribute="bottom" constant="20" symbolic="YES" id="eT1-KX-Tzc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uOk-i6-yB4" secondAttribute="trailing" id="iMn-t1-bal"/>
+                            <constraint firstItem="uOk-i6-yB4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="mx6-70-tXY"/>
+                            <constraint firstItem="uOk-i6-yB4" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="wf6-aJ-zXa"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -37,6 +36,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="launchScreenBackgroundImage.jpeg" width="1170" height="2000"/>
+        <image name="launchScreen.png" width="606" height="1100"/>
     </resources>
 </document>

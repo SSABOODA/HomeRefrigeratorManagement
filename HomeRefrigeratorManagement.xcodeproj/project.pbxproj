@@ -22,16 +22,15 @@
 		F75E9B032ADE672D000CF09A /* ConsumptionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75E9B022ADE672D000CF09A /* ConsumptionCollectionViewCell.swift */; };
 		F75E9B052ADE67CD000CF09A /* ConsumptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75E9B042ADE67CD000CF09A /* ConsumptionViewModel.swift */; };
 		F75E9B082ADFF85E000CF09A /* PieChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75E9B072ADFF85E000CF09A /* PieChartTableViewCell.swift */; };
-		F75E9B0B2AE0028B000CF09A /* launchScreenBackgroundImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F75E9B0A2AE0028B000CF09A /* launchScreenBackgroundImage.jpeg */; };
 		F75E9B0D2AE00DF0000CF09A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F75E9B0C2AE00DF0000CF09A /* Settings.bundle */; };
 		F75E9B112AE01755000CF09A /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75E9B102AE01755000CF09A /* EmptyView.swift */; };
 		F75E9B262AE10B64000CF09A /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75E9B252AE10B64000CF09A /* PrivacyViewController.swift */; };
 		F75E9B282AE11BA4000CF09A /* VersionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75E9B272AE11BA4000CF09A /* VersionViewController.swift */; };
 		F75E9B2B2AE17E27000CF09A /* UserNotificationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75E9B2A2AE17E27000CF09A /* UserNotificationRepository.swift */; };
 		F75E9B2D2AE18A61000CF09A /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75E9B2C2AE18A61000CF09A /* UserDefaultsHelper.swift */; };
-		F75E9B312AE1A45F000CF09A /* launchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = F75E9B302AE1A45F000CF09A /* launchScreen.png */; };
 		F75E9B362AE251AA000CF09A /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75E9B352AE251AA000CF09A /* CustomTextField.swift */; };
 		F75E9B382AE2593A000CF09A /* AlarmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75E9B372AE2593A000CF09A /* AlarmViewModel.swift */; };
+		F75E9B402AE2744B000CF09A /* launchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = F75E9B3F2AE2744B000CF09A /* launchScreen.png */; };
 		F7610A212AD5458C00832129 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A202AD5458C00832129 /* CalendarViewModel.swift */; };
 		F7610A232AD54A2500832129 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A222AD54A2500832129 /* CalendarView.swift */; };
 		F7610A252AD56D3800832129 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A242AD56D3800832129 /* UIImage+Extension.swift */; };
@@ -129,16 +128,15 @@
 		F75E9B022ADE672D000CF09A /* ConsumptionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumptionCollectionViewCell.swift; sourceTree = "<group>"; };
 		F75E9B042ADE67CD000CF09A /* ConsumptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumptionViewModel.swift; sourceTree = "<group>"; };
 		F75E9B072ADFF85E000CF09A /* PieChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartTableViewCell.swift; sourceTree = "<group>"; };
-		F75E9B0A2AE0028B000CF09A /* launchScreenBackgroundImage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launchScreenBackgroundImage.jpeg; sourceTree = "<group>"; };
 		F75E9B0C2AE00DF0000CF09A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		F75E9B102AE01755000CF09A /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		F75E9B252AE10B64000CF09A /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
 		F75E9B272AE11BA4000CF09A /* VersionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionViewController.swift; sourceTree = "<group>"; };
 		F75E9B2A2AE17E27000CF09A /* UserNotificationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationRepository.swift; sourceTree = "<group>"; };
 		F75E9B2C2AE18A61000CF09A /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
-		F75E9B302AE1A45F000CF09A /* launchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchScreen.png; sourceTree = "<group>"; };
 		F75E9B352AE251AA000CF09A /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		F75E9B372AE2593A000CF09A /* AlarmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewModel.swift; sourceTree = "<group>"; };
+		F75E9B3F2AE2744B000CF09A /* launchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchScreen.png; sourceTree = "<group>"; };
 		F7610A202AD5458C00832129 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
 		F7610A222AD54A2500832129 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		F7610A242AD56D3800832129 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -274,8 +272,7 @@
 		F75E9B092AE0027F000CF09A /* Image */ = {
 			isa = PBXGroup;
 			children = (
-				F75E9B302AE1A45F000CF09A /* launchScreen.png */,
-				F75E9B0A2AE0028B000CF09A /* launchScreenBackgroundImage.jpeg */,
+				F75E9B3F2AE2744B000CF09A /* launchScreen.png */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -374,8 +371,8 @@
 			children = (
 				F7C31D772AC2CE2E008DAA21 /* AppDelegate.swift */,
 				F7C31D792AC2CE2F008DAA21 /* SceneDelegate.swift */,
-				F75E9B292AE17DFF000CF09A /* Repository */,
 				F78B9B312ADA86C000EA61CB /* Resources */,
+				F75E9B292AE17DFF000CF09A /* Repository */,
 				F7C31DCD2AC2F524008DAA21 /* Realm */,
 				F7C31DAD2AC2DA16008DAA21 /* Utility */,
 				F7C31D902AC2CFD6008DAA21 /* Network */,
@@ -699,15 +696,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F78B9B352ADA86F200EA61CB /* SOYOMapleRegular.ttf in Resources */,
-				F75E9B312AE1A45F000CF09A /* launchScreen.png in Resources */,
 				F78B9B362ADA86F200EA61CB /* SOYOMapleBold.ttf in Resources */,
+				F75E9B402AE2744B000CF09A /* launchScreen.png in Resources */,
 				F75E9B0D2AE00DF0000CF09A /* Settings.bundle in Resources */,
 				F7C31D8C2AC2CE9C008DAA21 /* .gitignore in Resources */,
 				F7C31DA82AC2D9BD008DAA21 /* Localizable.strings in Resources */,
 				F7C31D842AC2CE30008DAA21 /* LaunchScreen.storyboard in Resources */,
 				F7C31D812AC2CE30008DAA21 /* Assets.xcassets in Resources */,
 				F7C31DB22AC2DA90008DAA21 /* InfoPlist.strings in Resources */,
-				F75E9B0B2AE0028B000CF09A /* launchScreenBackgroundImage.jpeg in Resources */,
 				F7C31E142ACD347C008DAA21 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -992,6 +988,7 @@
 				DEVELOPMENT_TEAM = 2K3Y93YF8Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HomeRefrigeratorManagement/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "냉싸부";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -1026,6 +1023,7 @@
 				DEVELOPMENT_TEAM = 2K3Y93YF8Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HomeRefrigeratorManagement/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "냉싸부";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
