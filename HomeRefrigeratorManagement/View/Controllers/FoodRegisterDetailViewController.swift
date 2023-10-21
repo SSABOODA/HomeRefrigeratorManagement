@@ -59,10 +59,10 @@ final class FoodRegisterDetailViewController: BaseViewController {
     private func addTarget() {
         mainView.cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
         mainView.saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
-        
         mainView.foodDescriptionTextField.addTarget(self, action: #selector(foodDescriptionTextEditingChanged), for: .editingChanged)
         mainView.registerDateTextField.addTarget(self, action: #selector(dateTextFieldTapped), for: .touchDown)
         mainView.expirationDateTextField.addTarget(self, action: #selector(dateTextFieldTapped), for: .touchDown)
+        mainView.countTextField.addTarget(self, action: #selector(countTextFieldTapped), for: .editingChanged)
     }
     
     private func setupTapGestures() {
@@ -97,6 +97,13 @@ final class FoodRegisterDetailViewController: BaseViewController {
         }
     }
     
+    @objc func countTextFieldTapped(_ sender: UITextField) {
+        print(#function)
+        guard let text = sender.text else { return }
+        guard let count = Int(text) else { return }
+        viewModel.foodIconInfo.value.count = count
+    }
+    
     @objc func cancelButtonTapped() {
         print(#function)
         dismiss(animated: true)
@@ -118,7 +125,16 @@ final class FoodRegisterDetailViewController: BaseViewController {
         case .orderedAscending: print("<")
         }
         
+        guard let count = Int(self.mainView.countTextField.text ?? "0") else {
+            showAlertAction1(
+                preferredStyle: .alert,
+                title: Constant.AlertText.noInputFoodCountTitleMessage
+            )
+            return
+        }
+        
         updateViewModelData()
+        
         viewModel.saveRealmDatabase()
         if viewModel.isSave.value {
             dismiss(animated: true)
@@ -126,6 +142,7 @@ final class FoodRegisterDetailViewController: BaseViewController {
     }
 }
 
+// UITextFieldDelegate
 extension FoodRegisterDetailViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         return foodInputDataTextFieldRestriction(textField, string: string)
@@ -191,49 +208,73 @@ extension FoodRegisterDetailViewController: UIPickerViewDelegate, UIPickerViewDa
 
 // DatePicker
 extension FoodRegisterDetailViewController {
-    func dateFormatterAlert(_ sender: UITextField) {
-        let title = sender.tag == FoodDataInputTextFieldTag.register.rawValue ? "구매 일자" : "유통 기한"
-        
-        let alert = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
-        let ok = UIAlertAction(title: "선택 완료", style: .cancel, handler: nil)
-        alert.addAction(ok)
-        
+    private func makeDatePicker() -> UIDatePicker {
         let datePicker = UIDatePicker()
+        
+        var components = DateComponents()
+        components.year = 10
+        let maxDate = Calendar.autoupdatingCurrent.date(byAdding: components, to: Date())
+        components.year = -5
+        let minDate = Calendar.autoupdatingCurrent.date(byAdding: components, to: Date())
+
+        datePicker.maximumDate = maxDate
+        datePicker.minimumDate = minDate
+
         datePicker.datePickerMode = .date
         datePicker.preferredDatePickerStyle = .wheels
         datePicker.locale = Locale(identifier: "ko_KR")
+        return datePicker
+    }
+    
+    func dateFormatterAlert(_ sender: UITextField) {
+        // make alert
+        let year = Date().year
+        let alertMessage = "\(year-5)년 ~ \(year+10)년 까지 연도를 선택할 수 있습니다."
+        
+        let title = sender.tag == FoodDataInputTextFieldTag.register.rawValue ? "구매 일자" : "유통 기한"
+        let alert = UIAlertController(
+            title: title,
+            message: alertMessage,
+            preferredStyle: .actionSheet
+        )
+        let ok = UIAlertAction(
+            title: "선택 완료",
+            style: .cancel,
+            handler: nil
+        )
+        alert.addAction(ok)
+        
+        // make datapicker
+        let datePicker = makeDatePicker()
         guard let textFieldDate = sender.text?.toDate() else { return }
         datePicker.date = textFieldDate
         
         senderTag = sender.tag
         datePicker.addTarget(self, action: #selector(dateChange), for: .valueChanged)
-    
+        
         let vc = UIViewController()
         vc.view = datePicker
         alert.setValue(vc, forKey: "contentViewController")
         present(alert, animated: true)
     }
+}
 
-    func updateViewModelData() {
+// updateViewModelData
+extension FoodRegisterDetailViewController {
+    private func updateViewModelData() {
+        
         guard let desc = self.mainView.foodDescriptionTextField.text else { return }
         guard let registerDate = self.mainView.registerDateTextField.text?.toDate() else { return }
         guard let expirationDate = self.mainView.expirationDateTextField.text?.toDate() else { return }
         guard let storageTypeText = self.mainView.storageTypeTextField.text, !storageTypeText.isEmpty else {
-            
             showAlertAction1(
                 preferredStyle: .alert,
                 title: Constant.AlertText.emptyStorageTitleMessage
             )
             return
         }
-        guard let count = Int(self.mainView.countTextField.text ?? "0") else {
-            
-            showAlertAction1(
-                preferredStyle: .alert,
-                title: Constant.AlertText.noInputFoodCountTitleMessage
-            )
-            return
-        }
+        
+        guard let count = Int(self.mainView.countTextField.text ?? "0") else { return }
         
         self.viewModel.foodIconInfo.value.description = desc
         self.viewModel.foodIconInfo.value.purchaseDate = registerDate
@@ -243,5 +284,7 @@ extension FoodRegisterDetailViewController {
         self.viewModel.isSave.value = true
 
         print("end: \(viewModel.foodIconInfo.value)")
+        
+        
     }
 }

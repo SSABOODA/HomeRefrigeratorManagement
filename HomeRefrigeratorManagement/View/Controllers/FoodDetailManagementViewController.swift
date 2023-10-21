@@ -114,8 +114,7 @@ final class FoodDetailManagementViewController: BaseViewController {
     
     @objc func updateButtonTapped() {
         print(#function)
-        viewModel.foodModel.value.purchaseDate = mainView.registerDateTextField.text?.toDate() ?? Date()
-        viewModel.foodModel.value.expirationDate = mainView.expirationDateTextField.text?.toDate() ?? Date()
+        
         
         // 구매일자, 유효기간 비교
         guard let registerDate = mainView.registerDateTextField.text else { return }
@@ -137,6 +136,10 @@ final class FoodDetailManagementViewController: BaseViewController {
             preferredStyle: .alert,
             title: Constant.AlertText.updateAlertTitleMessage
         ) {} _: {
+//            self.viewModel.foodModel.value.purchaseDate = self.mainView.registerDateTextField.text?.toDate() ?? Date()
+//            self.viewModel.foodModel.value.expirationDate = self.mainView.expirationDateTextField.text?.toDate() ?? Date()
+            self.viewModel.foodModel.value.purchaseDate = registerDate.toDate() ?? Date()
+            self.viewModel.foodModel.value.expirationDate = expirationDate.toDate() ?? Date()
             self.viewModel.updateData()
             self.navigationController?.popViewController(animated: true)
         }
@@ -229,18 +232,45 @@ extension FoodDetailManagementViewController: UIPickerViewDelegate, UIPickerView
 
 // dateFormatterAlert
 extension FoodDetailManagementViewController {
-    func dateFormatterAlert(_ sender: UITextField) {
-        
-        let title = sender.tag == FoodDataInputTextFieldTag.register.rawValue ? "구매 일자" : "유통 기한"
-        
-        let alert = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
-        let ok = UIAlertAction(title: "선택 완료", style: .cancel, handler: nil)
-        alert.addAction(ok)
-        
+    
+    private func makeDatePicker() -> UIDatePicker {
         let datePicker = UIDatePicker()
+        
+        var components = DateComponents()
+        components.year = 10
+        let maxDate = Calendar.autoupdatingCurrent.date(byAdding: components, to: Date())
+        components.year = -5
+        let minDate = Calendar.autoupdatingCurrent.date(byAdding: components, to: Date())
+
+        datePicker.maximumDate = maxDate
+        datePicker.minimumDate = minDate
+
         datePicker.datePickerMode = .date
         datePicker.preferredDatePickerStyle = .wheels
         datePicker.locale = Locale(identifier: "ko_KR")
+        return datePicker
+    }
+    
+    private func dateFormatterAlert(_ sender: UITextField) {
+        // make alert
+        let year = Date().year
+        let alertMessage = "\(year-5)년 ~ \(year+10)년 까지 연도를 선택할 수 있습니다."
+        
+        let title = sender.tag == FoodDataInputTextFieldTag.register.rawValue ? "구매 일자" : "유통 기한"
+        let alert = UIAlertController(
+            title: title,
+            message: alertMessage,
+            preferredStyle: .actionSheet
+        )
+        let ok = UIAlertAction(
+            title: "선택 완료",
+            style: .cancel,
+            handler: nil
+        )
+        alert.addAction(ok)
+        
+        // make datapicker
+        let datePicker = makeDatePicker()
         guard let textFieldDate = sender.text?.toDate() else { return }
         datePicker.date = textFieldDate
         
