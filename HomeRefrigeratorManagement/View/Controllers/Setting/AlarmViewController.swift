@@ -119,7 +119,7 @@ final class AlarmViewController: BaseViewController {
             UserDefaultsHelper.standard.minute = minute
             UserNotificationRepository.shared.configureUserNotification()
             
-            self.view.makeToast("\(hour)시 \(minute)분에 알림을 보내드릴게요.😀")
+            self.view.makeToast("매일 \(hour)시 \(minute)분에 알림을 보내드릴게요.😀")
         }
     }
     
