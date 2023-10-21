@@ -56,14 +56,32 @@ final class SettingViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        makeCellRegistration()
         setNav()
+    }
+    
+    override func configureView() {
+        super.configureView()
+        // view
+        view.backgroundColor = Constant.BaseColor.grayContrastBackgroundColor
         
+        // collectionView
+        collectionView.delegate = self
+        collectionView.dataSource = self
+    }
+    
+    override func configureHirarchy() {
         view.addSubview(collectionView)
+    }
+    
+    override func configureLayout() {
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.horizontalEdges.bottom.equalToSuperview()
         }
-        
+    }
+    
+    private func makeCellRegistration() {
         cellRegistration = UICollectionView.CellRegistration(handler: { cell, indexPath, itemIdentifier in
             
             // 셀 디자인 및 데이터 처리
@@ -92,19 +110,18 @@ final class SettingViewController: BaseViewController {
         })
     }
     
-    override func configureView() {
-        super.configureView()
-        // view
-        view.backgroundColor = Constant.BaseColor.grayContrastBackgroundColor
-        
-        // collectionView
-        collectionView.delegate = self
-        collectionView.dataSource = self
-    }
-    
     private func setNav() {
         title = Constant.TabBarTitle.settingVC
         changeNavigationCustomFont()
+        
+        // backbutton UI
+        let backBarButtonItem = UIBarButtonItem(title: self.title, style: .plain, target: self, action: nil)
+        backBarButtonItem.tintColor = Constant.BaseColor.tintColor
+        backBarButtonItem.setTitleTextAttributes([
+            NSAttributedString.Key.font : UIFont(name: Constant.Font.soyoBold, size: 15)!,
+            NSAttributedString.Key.foregroundColor : UIColor.black],
+                                         for: .normal)
+        self.navigationItem.backBarButtonItem = backBarButtonItem
     }
 }
 

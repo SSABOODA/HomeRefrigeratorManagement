@@ -26,7 +26,7 @@ final class InquireViewController: BaseViewController, MFMailComposeViewControll
             composeViewController.mailComposeDelegate = self
             
             let bodyString = """
-                                 FoodKeeper 앱을 사용하시다 문제가 있거나 개선 사항이 있다면 말씀해주세요. :)
+                                 냉싸부 앱을 사용하시다 문제가 있거나 개선 사항이 있다면 말씀해주세요. :)
                                  
                                  이곳에 내용을 작성해주세요.
                                  
@@ -41,7 +41,7 @@ final class InquireViewController: BaseViewController, MFMailComposeViewControll
                                  """
             
             composeViewController.setToRecipients(["ssaboo92@gmail.com"])
-            composeViewController.setSubject("<FoodKeeper> 문의 및 의견")
+            composeViewController.setSubject("<냉싸부> 문의 및 의견")
             composeViewController.setMessageBody(bodyString, isHTML: false)
             
             self.present(composeViewController, animated: true, completion: nil)
