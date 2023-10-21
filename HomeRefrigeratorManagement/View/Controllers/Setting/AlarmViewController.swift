@@ -57,44 +57,11 @@ final class AlarmViewController: BaseViewController {
         picker.addTarget(self, action: #selector(handleDatePicker(_:)), for: .valueChanged)
         return picker
     }()
-    
-    @objc func handleDatePicker(_ sender: UIDatePicker) {
-        let calendar = Calendar.current
-        let timeComponents = calendar.dateComponents([.hour, .minute], from: sender.date)
-        let hour = timeComponents.hour ?? 0
-        let minute = timeComponents.minute ?? 0
-        
-        if (hour != UserDefaultsHelper.standard.hour) || (minute != UserDefaultsHelper.standard.minute) {
-            UserDefaultsHelper.standard.isManual = true
-            UserDefaultsHelper.standard.hour = hour
-            UserDefaultsHelper.standard.minute = minute
-            UserNotificationRepository.shared.configureUserNotification()
-            
-            self.view.makeToast("알림 시간이 변경되었습니다.😀")
-        }
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("UserDefaultsHelper.standard.permission: \(UserDefaultsHelper.standard.permission)")
-        
-        UserNotificationRepository.shared.checkPermission { [weak self] value in
-            self?.setSwitchValue(UserDefaultsHelper.standard.permission)
-        }
-        
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(checkNotificationSetting),
-            name: UIApplication.willEnterForegroundNotification,
-            object: nil
-        )
-    }
-    
-    @objc private func checkNotificationSetting(notification: NSNotification) {
-        
-        UserNotificationRepository.shared.checkPermission { [weak self] value in
-            self?.setSwitchValue(UserDefaultsHelper.standard.permission)
-        }
+        initSwitch()
+        startAddObserver()
     }
     
     override func configureView() {
@@ -125,6 +92,43 @@ final class AlarmViewController: BaseViewController {
         }
     }
     
+    private func initSwitch() {
+        UserNotificationRepository.shared.checkPermission { [weak self] value in
+            self?.setSwitchValue(UserDefaultsHelper.standard.permission)
+        }
+    }
+    
+    private func startAddObserver() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(checkNotificationSetting),
+            name: UIApplication.willEnterForegroundNotification,
+            object: nil
+        )
+    }
+    
+    @objc func handleDatePicker(_ sender: UIDatePicker) {
+        let calendar = Calendar.current
+        let timeComponents = calendar.dateComponents([.hour, .minute], from: sender.date)
+        let hour = timeComponents.hour ?? 0
+        let minute = timeComponents.minute ?? 0
+        
+        if (hour != UserDefaultsHelper.standard.hour) || (minute != UserDefaultsHelper.standard.minute) {
+            UserDefaultsHelper.standard.isManual = true
+            UserDefaultsHelper.standard.hour = hour
+            UserDefaultsHelper.standard.minute = minute
+            UserNotificationRepository.shared.configureUserNotification()
+            
+            self.view.makeToast("\(hour)시 \(minute)분에 알림을 보내드릴게요.😀")
+        }
+    }
+    
+    @objc private func checkNotificationSetting(notification: NSNotification) {
+        UserNotificationRepository.shared.checkPermission { [weak self] value in
+            self?.setSwitchValue(UserDefaultsHelper.standard.permission)
+        }
+    }
+    
     @objc func switchViewTapped() {
         print(#function)
         print("permission: \(UserDefaultsHelper.standard.permission)")
@@ -151,6 +155,7 @@ final class AlarmViewController: BaseViewController {
             
         } else {
             footerView.isHidden = true
+            UserNotificationRepository.shared.removePendingNotificationRequests()
         }
     }
     
@@ -194,9 +199,7 @@ extension AlarmViewController: UITableViewDelegate, UITableViewDataSource {
         cell.contentConfiguration = content
         return cell
     }
-    
-    
-    
+
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return UITableView.automaticDimension
     }
