@@ -58,9 +58,13 @@ final class FoodManagementViewController: BaseViewController {
     
     override func configureView() {
         // view setting
-        mainView.collectionView.delegate = self
         mainView.collectionView.backgroundColor = Constant.collectionViewColor.collectionViewBackgroundColor
+        collectionViewDelegate()
         configureNavigationBar()
+    }
+    
+    private func collectionViewDelegate() {
+        mainView.collectionView.delegate = self
     }
     
     private func addTarget() {
@@ -181,6 +185,7 @@ extension FoodManagementViewController: UICollectionViewDelegate {
         }
         transition(viewController: nextVC, style: .push)
     }
+    
 }
 
 // MARK: - DataSource

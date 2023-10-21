@@ -12,12 +12,13 @@ final class InquireViewController: BaseViewController, MFMailComposeViewControll
     override func viewDidLoad() {
         super.viewDidLoad()
         sendEmail()
-        navigationItem.largeTitleDisplayMode = .never
+        navigationItem.largeTitleDisplayMode = .never       
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print(#function)
+        self.navigationController?.popViewController(animated: true)
     }
     
     private func sendEmail() {
@@ -47,22 +48,51 @@ final class InquireViewController: BaseViewController, MFMailComposeViewControll
             self.present(composeViewController, animated: true, completion: nil)
         } else {
             print("메일 보내기 실패")
-            let sendMailErrorAlert = UIAlertController(title: "메일 전송 실패", message: "메일을 보내려면 'Mail' 앱이 필요합니다. App Store에서 해당 앱을 복원하거나 이메일 설정을 확인하고 다시 시도해주세요.", preferredStyle: .alert)
-            let goAppStoreAction = UIAlertAction(title: "App Store로 이동하기", style: .default) { _ in
-                // 앱스토어로 이동하기(Mail)
-                if let url = URL(string: "https://apps.apple.com/kr/app/mail/id1108187098"), UIApplication.shared.canOpenURL(url) {
-                    if #available(iOS 10.0, *) {
-                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                    } else {
-                        UIApplication.shared.openURL(url)
-                    }
+            goAppstoreShowSendMailErrorAlert()
+        }
+    }
+    
+    private func goAppstoreShowSendMailErrorAlert() {
+        
+        let message = """
+        메일을 보내려면 다음 2가지 방법 중 하나를 선택해주세요 \n
+        1. 메일을 보내려면 'Mail' 앱이 필요합니다. App Store에서 해당 앱을 복원하거나 이메일 설정을 확인하고 다시 시도해주세요.
+        2. 시스템 설정 -> Mail -> 기본 메일 앱 설정
+        """
+        
+        let sendMailErrorAlert = UIAlertController(
+            title: "메일 전송 실패",
+            message: message,
+            preferredStyle: .alert
+        )
+        let goAppStoreAction = UIAlertAction(title: "App Store로 이동하기", style: .default) { _ in
+            // 앱스토어로 이동하기(Mail)
+            if let url = URL(string: "https://apps.apple.com/kr/app/mail/id1108187098"), UIApplication.shared.canOpenURL(url) {
+                self.navigationController?.popViewController(animated: true)
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                } else {
+                    UIApplication.shared.openURL(url)
                 }
             }
-            let cancelAction = UIAlertAction(title: "취소", style: .destructive)
-            sendMailErrorAlert.addAction(goAppStoreAction)
-            sendMailErrorAlert.addAction(cancelAction)
-            self.present(sendMailErrorAlert, animated: true, completion: nil)
         }
+        let cancelAction = UIAlertAction(title: "취소", style: .destructive) { _ in
+            self.navigationController?.popViewController(animated: true)
+        }
+        sendMailErrorAlert.addAction(goAppStoreAction)
+        sendMailErrorAlert.addAction(cancelAction)
+        self.present(sendMailErrorAlert, animated: true, completion: nil)
+    }
+    
+    private func showSendMailErrorAlert() {
+        let sendMailErrorAlert = UIAlertController(title: "메일 전송 실패", message: "아이폰 이메일 설정을 확인하고 다시 시도해주세요.", preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "확인", style: .default) {
+            (action) in
+            print("확인")
+            self.navigationController?.popViewController(animated: true)
+        }
+        sendMailErrorAlert.addAction(confirmAction)
+        self.present(sendMailErrorAlert, animated: true, completion: nil)
     }
     
     // Device Identifier 찾기
@@ -86,6 +116,7 @@ final class InquireViewController: BaseViewController, MFMailComposeViewControll
     }
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        print(#function)
         switch result {
         case .cancelled:
             self.dismiss(animated: true, completion: nil)
@@ -98,6 +129,7 @@ final class InquireViewController: BaseViewController, MFMailComposeViewControll
         @unknown default:
             print(error?.localizedDescription)
         }
+        dismiss(animated: true)
         self.navigationController?.popViewController(animated: true)
     }
 

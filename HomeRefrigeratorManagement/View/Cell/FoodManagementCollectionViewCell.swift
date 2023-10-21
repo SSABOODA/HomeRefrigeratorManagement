@@ -54,6 +54,7 @@ final class FoodManagementCollectionViewCell: BaseCollectionViewCell {
         label.textColor = UIColor(hexCode: "#E27749")
         label.textAlignment = .right
         label.text = "D-0"
+        label.numberOfLines = 1
         return label
     }()
     
@@ -79,6 +80,7 @@ final class FoodManagementCollectionViewCell: BaseCollectionViewCell {
         expirationDateLabel.snp.makeConstraints { make in
             make.trailing.equalToSuperview().offset(-30)
             make.centerY.equalToSuperview()
+            make.width.equalToSuperview().multipliedBy(0.3)
             make.height.equalTo(50)
         }
     }
