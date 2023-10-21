@@ -22,7 +22,7 @@ extension Constant {
         static let calendarVCTabBarImage = "calendar.badge.clock"
         static let recipeVCTabBarImage = "fork.knife"
         static let foodManagementVCTabBarImage = "refrigerator"
-        static let settingVCTabBarImage = "person"
+        static let settingVCTabBarImage = "gearshape"
         
         // TabBar Selected System Image
         static let calendarVCTabBarSelectImage = "calendar.badge.clock"

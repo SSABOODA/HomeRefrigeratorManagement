@@ -26,7 +26,7 @@ final class FoodDetailManagementViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(#function, FoodDetailManagementViewController.description())
         addTarget()
         setupTapGestures()
     }
@@ -37,9 +37,15 @@ final class FoodDetailManagementViewController: BaseViewController {
         navigationBar()
         configreData()
         configPickerView()
-        
-        mainView.countTextField.delegate = self
+        textFieldDelegate()
+    }
+    
+    private func textFieldDelegate() {
         mainView.foodDescriptionTextField.delegate = self
+        mainView.registerDateTextField.delegate = self
+        mainView.expirationDateTextField.delegate = self
+        mainView.storageTypeTextField.delegate = self
+        mainView.countTextField.delegate = self
     }
 
     private func configreData() {
@@ -77,7 +83,6 @@ final class FoodDetailManagementViewController: BaseViewController {
     
     @objc func foodDescriptionTextEditingChanged(_ sender: UITextField) {
         guard let text = sender.text else { return }
-        print("textfiled.text: \(text)")
         viewModel.foodModel.value.description = text
     }
     
@@ -225,7 +230,10 @@ extension FoodDetailManagementViewController: UIPickerViewDelegate, UIPickerView
 // dateFormatterAlert
 extension FoodDetailManagementViewController {
     func dateFormatterAlert(_ sender: UITextField) {
-        let alert = UIAlertController(title: "구매 일자", message: nil, preferredStyle: .actionSheet)
+        
+        let title = sender.tag == FoodDataInputTextFieldTag.register.rawValue ? "구매 일자" : "유통 기한"
+        
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
         let ok = UIAlertAction(title: "선택 완료", style: .cancel, handler: nil)
         alert.addAction(ok)
         

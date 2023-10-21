@@ -197,7 +197,7 @@ class FoodDetailManagementView: BaseView {
         let tf = CustomTextField()
         tf.keyboardType = .numberPad
         tf.placeholder = "수량을 입력해주세요~"
-        tf.font = .boldSystemFont(ofSize: 13)
+        tf.font = UIFont(name: Constant.Font.soyoBold, size: 13)
         tf.clearButtonMode = .whileEditing
         tf.tag = FoodDataInputTextFieldTag.count.rawValue
         return tf

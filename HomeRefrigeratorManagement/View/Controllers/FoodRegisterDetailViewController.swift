@@ -34,13 +34,21 @@ final class FoodRegisterDetailViewController: BaseViewController {
     
     override func configureView() {
         super.configureView()
+        view.backgroundColor = UIColor(white: 1, alpha: 0.5)
         configureInitialDate()
         addTarget()
         configPickerView()
-        view.backgroundColor = UIColor(white: 1, alpha: 0.5)
+        textFieldDelegate()
+    }
+    
+    private func textFieldDelegate() {
         mainView.foodDescriptionTextField.delegate = self
+        mainView.registerDateTextField.delegate = self
+        mainView.expirationDateTextField.delegate = self
+        mainView.storageTypeTextField.delegate = self
         mainView.countTextField.delegate = self
     }
+
 
     private func configureInitialDate() {
         mainView.foodImageView.image = UIImage(named: viewModel.foodIconName)
@@ -122,17 +130,6 @@ extension FoodRegisterDetailViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         return foodInputDataTextFieldRestriction(textField, string: string)
     }
-    
-    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
-        print(#function)
-        
-        if action == #selector(UIResponderStandardEditActions.paste(_:)) {
-            return false
-        }
-        return super.canPerformAction(action, withSender: sender)
-        
-        
-    }
 }
 
 // UIPickerViewDelegate
@@ -195,7 +192,9 @@ extension FoodRegisterDetailViewController: UIPickerViewDelegate, UIPickerViewDa
 // DatePicker
 extension FoodRegisterDetailViewController {
     func dateFormatterAlert(_ sender: UITextField) {
-        let alert = UIAlertController(title: "구매 일자", message: nil, preferredStyle: .actionSheet)
+        let title = sender.tag == FoodDataInputTextFieldTag.register.rawValue ? "구매 일자" : "유통 기한"
+        
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
         let ok = UIAlertAction(title: "선택 완료", style: .cancel, handler: nil)
         alert.addAction(ok)
         
