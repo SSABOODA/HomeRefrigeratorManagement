@@ -130,12 +130,6 @@ extension UIViewController {
     
     // 텍스트필드 제약
     func foodInputDataTextFieldRestriction(_ textField: UITextField, string: String) -> Bool {
-        
-        // 텍스트 붙여넣기 제한
-        if UIPasteboard.general.hasStrings {
-            return false
-        }
-        
         // 지우기 했을 경우 입력 되도록
         if let char = string.cString(using: String.Encoding.utf8) {
             let isBackSpace = strcmp(char, "\\b")
@@ -143,10 +137,15 @@ extension UIViewController {
                 return true
             }
         }
-        
-        // 각 텍스트필드의 제약사항
+        // 각 텍스트필드의 제약
         if textField.tag == FoodDataInputTextFieldTag.desc.rawValue {
-            guard textField.text!.count < 19 else { return false }
+            
+            if textField.text!.count > 19 {
+                return false
+            } else {
+                return true
+            }
+            
         } else if textField.tag == FoodDataInputTextFieldTag.count.rawValue {
             
             if Int(string) == nil {

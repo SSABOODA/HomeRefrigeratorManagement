@@ -46,7 +46,7 @@ final class FoodDetailManagementViewModel {
             "count": foodModel.value.count == 0 ? food.count : foodModel.value.count,
             "purchaseDate": foodModel.value.purchaseDate,
             "expirationDate": foodModel.value.expirationDate,
-            "descriptionContent": foodModel.value.description.isEmpty ? food.descriptionContent : foodModel.value.description
+            "descriptionContent": foodModel.value.description
         ] as [String : Any])
         
         localRealm.update(object: item)

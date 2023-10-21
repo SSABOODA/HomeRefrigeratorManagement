@@ -115,7 +115,6 @@ final class FoodDetailManagementViewController: BaseViewController {
     @objc func updateButtonTapped() {
         print(#function)
         
-        
         // 구매일자, 유효기간 비교
         guard let registerDate = mainView.registerDateTextField.text else { return }
         guard let expirationDate = mainView.expirationDateTextField.text else { return }
@@ -136,8 +135,6 @@ final class FoodDetailManagementViewController: BaseViewController {
             preferredStyle: .alert,
             title: Constant.AlertText.updateAlertTitleMessage
         ) {} _: {
-//            self.viewModel.foodModel.value.purchaseDate = self.mainView.registerDateTextField.text?.toDate() ?? Date()
-//            self.viewModel.foodModel.value.expirationDate = self.mainView.expirationDateTextField.text?.toDate() ?? Date()
             self.viewModel.foodModel.value.purchaseDate = registerDate.toDate() ?? Date()
             self.viewModel.foodModel.value.expirationDate = expirationDate.toDate() ?? Date()
             self.viewModel.updateData()
