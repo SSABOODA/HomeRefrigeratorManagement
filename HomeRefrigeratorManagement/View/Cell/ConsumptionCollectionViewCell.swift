@@ -45,7 +45,6 @@ final class ConsumptionCollectionViewCell: BaseCollectionViewCell {
     }()
     
     @objc func minusButtonTapped(_ sender: UIButton) {
-        print(#function, sender.tag)
         guard let text = countLabel.text else { return }
         guard let count = Int(text) else { return }
         if (count-1) < 0 { return }
@@ -55,7 +54,6 @@ final class ConsumptionCollectionViewCell: BaseCollectionViewCell {
     }
     
     @objc func plusButtonTapped(_ sender: UIButton) {
-        print(#function, sender.tag)
         guard let text = countLabel.text else { return }
         guard let count = Int(text) else { return }
         if (count+1) > 1000 { return }

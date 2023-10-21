@@ -46,13 +46,11 @@ final class FoodManagementViewController: BaseViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print(#function, "FoodManagementViewController")
         performQuery(searchText: "@", storageType: currentStorageType)
         performQuery(searchText: "", storageType: currentStorageType)
     }
     
     @objc func foodRegisterButtonTapped() {
-        print(#function)
         showSheet()
     }
     
@@ -130,14 +128,12 @@ extension FoodManagementViewController {
     }
     
     @objc func chartButtonTapped() {
-        print(#function)
         // TODO: Chart
         let vc = ChartViewController()
         transition(viewController: vc, style: .push)
     }
     
     @objc func consumptionButtonTapped() {
-        print(#function)
         let vc = ConsumptionViewController()
         transition(viewController: vc, style: .push)
     }
@@ -146,13 +142,11 @@ extension FoodManagementViewController {
 // MARK: - SearchBarDelegate {
 extension FoodManagementViewController: UISearchControllerDelegate, UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(#function)
         performQuery(searchText: searchText, storageType: currentStorageType)
         self.searchText = searchText
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        print(#function)
         searchBar.text = ""
         self.searchText = ""
         guard let searchText = searchBar.text else { return }
@@ -171,7 +165,6 @@ extension FoodManagementViewController: UISearchControllerDelegate, UISearchBarD
 // MARK: - UICollectionViewDelegate
 extension FoodManagementViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath)
         let nextVC = FoodDetailManagementViewController()
         guard let filteredFoodDataArray = self.viewModel.filteredFoodDataArray else { return }
         let food = filteredFoodDataArray[indexPath.item]
@@ -238,7 +231,6 @@ extension FoodManagementViewController {
     }
     
     @objc func storageFilterButtonTapped(_ sender: UIButton) {
-        print(#function, sender.tag)
         
         storageAllButtonIsActive = false
         storageOutdoorButtonIsActive = false
@@ -272,22 +264,18 @@ extension FoodManagementViewController {
     
     private func storageChoiceWork() {
         if storageAllButtonIsActive {
-            print("all 실행")
             viewModel.filterStorageType(.all)
             performQuery(searchText: self.searchText, storageType: .all)
             currentStorageType = .all
         } else if storageOutdoorButtonIsActive {
-            print("Outdoor 실행")
             viewModel.filterStorageType(.outdoor)
             performQuery(searchText: self.searchText, storageType: .outdoor)
             currentStorageType = .outdoor
         } else if storageIceButtonIsActive {
-            print("Ice 실행")
             viewModel.filterStorageType(.cold)
             performQuery(searchText: self.searchText, storageType: .cold)
             currentStorageType = .cold
         } else {
-            print("frozen 실행")
             viewModel.filterStorageType(.frozen)
             performQuery(searchText: self.searchText, storageType: .frozen)
             currentStorageType = .frozen

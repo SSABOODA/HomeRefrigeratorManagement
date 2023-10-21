@@ -10,7 +10,6 @@ import UIKit
 final class NoticeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(#function, NoticeViewController.description())
         navigationItem.largeTitleDisplayMode = .never
     }
 }

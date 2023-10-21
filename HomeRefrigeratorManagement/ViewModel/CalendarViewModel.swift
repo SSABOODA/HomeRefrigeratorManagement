@@ -37,7 +37,6 @@ final class CalendarViewModel {
         guard let endTime = format.date(from: format.string(from: expirationData)) else { return "0" }
         let useTime = Int(endTime.timeIntervalSince(startTime))
         let dDay = Int(floor(Double(useTime/86400)))
-//        print("useTime: \(useTime)", "startTime: \(startTime)", "endTime: \(endTime)", "dday: \(dDay)")
         return dDay < 0 ? "D+\(-dDay)" : "D-\(dDay)"
     }
 }

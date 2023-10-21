@@ -18,7 +18,6 @@ class RecipeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(#function, RecipeViewController.description())
     }
     
     override func configureView() {

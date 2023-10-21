@@ -44,7 +44,6 @@ extension UIViewController {
     // MARK: - navigation
 
     func setNavigationBar() {
-        print(#function)
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = Constant.BaseColor.backgroundColor

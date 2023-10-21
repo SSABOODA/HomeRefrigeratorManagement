@@ -35,8 +35,6 @@ class Network {
     typealias NetworkCompletion<T> = (Result<T, NetworkError>) -> Void
     
     func requestConvertible<T: Decodable>(type: T.Type, api: Router, completion: @escaping NetworkCompletion<T> ) {
-        print(#function)
-        
         AF.request(api).responseDecodable(of: T.self) { response in
             switch response.result {
             case .success(let data):

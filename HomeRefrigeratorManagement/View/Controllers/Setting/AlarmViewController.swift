@@ -130,8 +130,6 @@ final class AlarmViewController: BaseViewController {
     }
     
     @objc func switchViewTapped() {
-        print(#function)
-        print("permission: \(UserDefaultsHelper.standard.permission)")
 
         if switchView.isOn {
             footerView.isHidden = false
@@ -174,7 +172,6 @@ final class AlarmViewController: BaseViewController {
     
     private func checkAccessAlarm() -> Bool {
         let permissionStatus = UserDefaultsHelper.standard.permission
-        print("permissionStatus: \(permissionStatus)")
         return permissionStatus
     }
 }

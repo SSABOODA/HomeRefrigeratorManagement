@@ -115,7 +115,6 @@ final class CalendarView: BaseView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-//        print(#function, CalendarView.description())
         
         if calendar.scope == .month {
             calendarTypeChangeButton.setImage(UIImage(systemName: "chevron.up"), for: .normal)
@@ -139,7 +138,6 @@ final class CalendarView: BaseView {
     }
     
     override func configureLayout() {
-        print(#function)
         calendarTopView.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide)
             make.horizontalEdges.equalToSuperview().inset(25)

@@ -12,7 +12,6 @@ final class UserNotificationRepository {
     private init() {}
     
     func removePendingNotificationRequests() {
-        print(#function)
         UIApplication.shared.applicationIconBadgeNumber = 0
         UNUserNotificationCenter.current().removeAllDeliveredNotifications()
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
@@ -68,7 +67,6 @@ final class UserNotificationRepository {
     }
     
     func configureUserNotification() {
-        print(#function)
         let content = UNMutableNotificationContent()
         guard let count = self.calculateImminentFood(3) else { return }
         guard count != 0 else { return }
@@ -84,7 +82,6 @@ final class UserNotificationRepository {
         let trigger = UNCalendarNotificationTrigger(dateMatching: component, repeats: true)
         let request = UNNotificationRequest(identifier: "\(Date())", content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request) { error in
-//            print(error?.localizedDescription)
         }
     }
     

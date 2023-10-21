@@ -145,29 +145,21 @@ extension SettingViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.row)
-
         let viewType = SettingInfo.SettingCategory.allCases[indexPath.section].options[indexPath.item].itemViewCategory
 
         var vc: UIViewController
         switch viewType {
         case .alarm:
-            print("alarm")
             vc = AlarmViewController()
 //        case .notice:
-//            print("notice")
 //            vc = NoticeViewController()
 //        case .version:
-//            print("version")
 //            vc = VersionViewController()
         case .inquire:
-            print("inquire")
             vc = InquireViewController()
         case .licence:
-            print("licence")
             vc = LicenseViewController()
         case .privacy:
-            print("privacy")
             vc = PrivacyViewController()
         }
         transition(viewController: vc, style: .push)

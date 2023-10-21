@@ -35,13 +35,11 @@ final class CalendarViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print(#function, CalendarViewController.description())
         mainView.calendar.reloadData()
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        print(#function, CalendarViewController.description())
     }
     
     private func dataBind() {
@@ -128,13 +126,11 @@ extension CalendarViewController: FSCalendarDelegateAppearance, FSCalendarDataSo
 
     // 날짜 선택 시 콜백 메소드
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        print("선택됨: \(date)")
         viewModel.fetchImminentExpirationDateFoodData(date)
     }
     
     // 날짜 선택 해제 시 콜백 메소드
     func calendar(_ calendar: FSCalendar, didDeselect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        print("해제됨: \(date)")
     }
     
     func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
@@ -191,7 +187,6 @@ extension CalendarViewController: FSCalendarDelegateAppearance, FSCalendarDataSo
     }
     
     @objc func calendarHomeResetButtonTapped() {
-        print(#function)
         self.mainView.calendar.setCurrentPage(Date(), animated: true)
     }
     

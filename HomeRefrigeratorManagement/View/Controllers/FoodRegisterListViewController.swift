@@ -30,8 +30,6 @@ final class FoodRegisterListViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("FoodRegisterListViewController", #function)
-        
         configureDataSource()
         setupSearchBar()
         performQuery(with: "")
@@ -39,7 +37,6 @@ final class FoodRegisterListViewController: BaseViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        print("FoodRegisterListViewController", #function)
         viewModel.completionHandler?(viewModel.isSave.value)
     }
     
@@ -104,7 +101,6 @@ extension FoodRegisterListViewController {
 
 extension FoodRegisterListViewController: UISearchControllerDelegate, UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(#function)
         performQuery(with: searchText)
     }
     

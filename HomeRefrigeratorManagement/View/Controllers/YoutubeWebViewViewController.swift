@@ -105,12 +105,10 @@ final class YoutubeWebViewViewController: BaseViewController {
     }
     
     @objc func leftbarButtonTapped() {
-        print(#function)
         dismiss(animated: true)
     }
     
     @objc func refreshBarButtonTapped() {
-        print(#function)
         DispatchQueue.main.asyncAfter(deadline: .now()) {
             self.webView.reload()
             self.webView.scrollView.refreshControl?.endRefreshing()
@@ -118,21 +116,18 @@ final class YoutubeWebViewViewController: BaseViewController {
     }
     
     @objc func backActionToolbarButtonTapped() {
-        print(#function)
         if self.webView.canGoBack {
             self.webView.goBack()
         }
     }
     
     @objc func forwardActionToolbarButtonTapped() {
-        print(#function)
         if self.webView.canGoForward {
             webView.goForward()
         }
     }
     
     @objc func activityToolbarButtonTapped() {
-        print(#function)
         guard let urlToShare: String = webViewURL?.absoluteString else { return }
         let safariActivity = SafariActivity()
         safariActivity.delegate = self
@@ -146,7 +141,6 @@ final class YoutubeWebViewViewController: BaseViewController {
 
 extension YoutubeWebViewViewController: WKUIDelegate, WKNavigationDelegate {
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
-        print(#function)
     }
 }
 

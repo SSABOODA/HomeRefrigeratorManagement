@@ -23,8 +23,6 @@ final class FoodRegisterDetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTapGestures()
-        print(#function)
-        print(viewModel.foodIconInfo.value)
     }
     
     override func viewWillLayoutSubviews() {
@@ -72,7 +70,6 @@ final class FoodRegisterDetailViewController: BaseViewController {
     }
     
     @objc func viewTapGesture() {
-        print(#function)
         view.endEditing(true)
     }
     
@@ -82,12 +79,10 @@ final class FoodRegisterDetailViewController: BaseViewController {
     }
     
     @objc func dateTextFieldTapped(_ sender: UITextField) {
-        print(#function)
         dateFormatterAlert(sender)
     }
     
     @objc func dateChange(_ sender: UIDatePicker) {
-        print(#function, "\(sender.date)")
         if senderTag == FoodDataInputTextFieldTag.register.rawValue {
             viewModel.foodIconInfo.value.purchaseDate = sender.date
             mainView.registerDateTextField.text = sender.date.toString(format: .compactDot)
@@ -98,19 +93,16 @@ final class FoodRegisterDetailViewController: BaseViewController {
     }
     
     @objc func countTextFieldTapped(_ sender: UITextField) {
-        print(#function)
         guard let text = sender.text else { return }
         guard let count = Int(text) else { return }
         viewModel.foodIconInfo.value.count = count
     }
     
     @objc func cancelButtonTapped() {
-        print(#function)
         dismiss(animated: true)
     }
     
     @objc func saveButtonTapped() {
-        print(#function)
         guard let registerDate = mainView.registerDateTextField.text else { return }
         guard let expirationDate = mainView.expirationDateTextField.text else { return }
         
@@ -282,9 +274,5 @@ extension FoodRegisterDetailViewController {
         self.viewModel.foodIconInfo.value.count = count
         self.viewModel.foodIconInfo.value.storageType = Constant.FoodStorageType(rawValue: storageTypeText) ?? .outdoor
         self.viewModel.isSave.value = true
-
-        print("end: \(viewModel.foodIconInfo.value)")
-        
-        
     }
 }

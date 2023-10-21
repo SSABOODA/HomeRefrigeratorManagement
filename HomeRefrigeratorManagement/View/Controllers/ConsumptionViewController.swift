@@ -49,7 +49,6 @@ final class ConsumptionViewController: BaseViewController {
     }
     
     private func configureData() {
-        print("여기에요")
         viewModel.fetchData()
     }
     
@@ -58,7 +57,6 @@ final class ConsumptionViewController: BaseViewController {
     }
     
     @objc func saveButtonTapped() {
-        print(#function)
     
         showAlertAction2(
             title: "소비한 식품을 저장하시겠습니까?"
@@ -70,7 +68,6 @@ final class ConsumptionViewController: BaseViewController {
 
 extension ConsumptionViewController: UISearchControllerDelegate, UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print("searchText: \(searchText)")
         performQuery(query: searchText)
     }
     
@@ -110,7 +107,6 @@ extension ConsumptionViewController {
     
     private func performQuery(query: String) {
         viewModel.searchFilterData(query)
-        print("viewModel.foodDataList.value: \(viewModel.foodDataList.value)")
         var snapshot = NSDiffableDataSourceSnapshot<Section, Food>()
         snapshot.appendSections([.main])
         snapshot.appendItems(viewModel.foodDataList.value)

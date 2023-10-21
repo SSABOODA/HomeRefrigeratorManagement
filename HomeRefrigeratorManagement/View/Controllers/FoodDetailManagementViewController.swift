@@ -26,7 +26,6 @@ final class FoodDetailManagementViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(#function, FoodDetailManagementViewController.description())
         addTarget()
         setupTapGestures()
     }
@@ -77,7 +76,6 @@ final class FoodDetailManagementViewController: BaseViewController {
     }
     
     @objc func viewTapGesture() {
-        print(#function)
         view.endEditing(true)
     }
     
@@ -91,17 +89,14 @@ final class FoodDetailManagementViewController: BaseViewController {
     }
     
     @objc func expirationDateTextFieldTapped(_ sender: UITextField) {
-        print(#function)
         dateFormatterAlert(sender)
     }
     
     @objc func dateTextFieldTapped(_ sender: UITextField) {
-        print(#function)
         dateFormatterAlert(sender)
     }
     
     @objc func storageTypeTextFieldEditingChanged(_ sender: UITextField) {
-        print(#function)
         guard let text = sender.text else { return }
         viewModel.foodModel.value.storageType = Constant.FoodStorageType(rawValue: text) ?? .outdoor
     }
@@ -113,8 +108,6 @@ final class FoodDetailManagementViewController: BaseViewController {
     }
     
     @objc func updateButtonTapped() {
-        print(#function)
-        
         // 구매일자, 유효기간 비교
         guard let registerDate = mainView.registerDateTextField.text else { return }
         guard let expirationDate = mainView.expirationDateTextField.text else { return }
@@ -143,7 +136,6 @@ final class FoodDetailManagementViewController: BaseViewController {
     }
     
     @objc func deleteButtonTapped() {
-        print(#function)
         showAlertAction2(
             preferredStyle: .alert,
             title: Constant.AlertText.deleteAlertTitleMessage
@@ -281,7 +273,6 @@ extension FoodDetailManagementViewController {
     }
 
     @objc func dateChange(_ sender: UIDatePicker) {
-        print(#function, "\(sender.date)")
         if senderTag == FoodDataInputTextFieldTag.register.rawValue {
             viewModel.foodModel.value.purchaseDate = sender.date
             mainView.registerDateTextField.text = sender.date.toString(format: .compactDot)

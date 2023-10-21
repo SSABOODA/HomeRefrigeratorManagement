@@ -25,7 +25,6 @@ final class ConsumptionViewModel {
         let query = query.trimmingCharacters(in: .whitespaces)
         
         if query.isEmpty {
-            print("비어 있어요")
             self.fetchData()
             return
         } else {
@@ -38,11 +37,7 @@ final class ConsumptionViewModel {
                     return $0.name.contains(query)
                 }
             }
-            
-            
         }
-        
-        
     }
     
     func updateCount(indexPath: Int, updatedCount: Int) {

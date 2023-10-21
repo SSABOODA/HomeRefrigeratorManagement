@@ -14,12 +14,7 @@ final class InquireViewController: BaseViewController, MFMailComposeViewControll
         sendEmail()
         navigationItem.largeTitleDisplayMode = .never
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print(#function)
-    }
-    
+
     private func sendEmail() {
         if MFMailComposeViewController.canSendMail() {
             let composeViewController = MFMailComposeViewController()
@@ -115,7 +110,6 @@ final class InquireViewController: BaseViewController, MFMailComposeViewControll
     }
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        print(#function)
         switch result {
         case .cancelled:
             self.dismiss(animated: true, completion: nil)
