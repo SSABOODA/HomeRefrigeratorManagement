@@ -131,7 +131,7 @@ extension FoodRegisterListViewController: UICollectionViewDelegate {
         let nextVC = FoodRegisterDetailViewController()
         nextVC.viewModel.completionHandler = { isSave in
             if isSave {
-                self.view.makeToast(Constant.ToastMessage.foodSaveSuccessMessage.localized)
+                self.view.makeToast(Constant.ToastMessage.foodSaveSuccessMessage)
                 self.viewModel.isSave.value = true
             }
         }

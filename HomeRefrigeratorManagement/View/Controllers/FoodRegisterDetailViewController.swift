@@ -117,7 +117,7 @@ final class FoodRegisterDetailViewController: BaseViewController {
         case .orderedAscending: print("<")
         }
         
-        guard let count = Int(self.mainView.countTextField.text ?? "0") else {
+        guard Int(self.mainView.countTextField.text ?? "0") != nil else {
             showAlertAction1(
                 preferredStyle: .alert,
                 title: Constant.AlertText.noInputFoodCountTitleMessage
