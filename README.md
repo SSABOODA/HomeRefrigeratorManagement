@@ -2,10 +2,10 @@
 
 ## 앱 설명
 <p align="center" width="100%">
-  <img src="https://github.com/SSABOODA/HomeRefrigeratorManagement/assets/69753846/d3f50e7a-3e8b-4bc7-b5e3-13b81d88cdef" width="25%">
-  <img src="https://github.com/SSABOODA/HomeRefrigeratorManagement/assets/69753846/2afb9333-f612-40d6-a678-7c90b5561e7b" width="25%">
-  <img src="https://github.com/SSABOODA/HomeRefrigeratorManagement/assets/69753846/6ad97490-9992-449e-9610-2d07cc8dee36" width="25%">
-  <img src="https://github.com/SSABOODA/HomeRefrigeratorManagement/assets/69753846/ab24ae04-0b79-4807-88c2-f750fd0b5873" width="25%">
+  <img src="https://github.com/SSABOODA/HomeRefrigeratorManagement/assets/69753846/6ad97490-9992-449e-9610-2d07cc8dee36" width="20%">
+  <img src="https://github.com/SSABOODA/HomeRefrigeratorManagement/assets/69753846/ab24ae04-0b79-4807-88c2-f750fd0b5873" width="20%">
+  <img src="https://github.com/SSABOODA/HomeRefrigeratorManagement/assets/69753846/2afb9333-f612-40d6-a678-7c90b5561e7b" width="20%">
+  <img src="https://github.com/SSABOODA/HomeRefrigeratorManagement/assets/69753846/d3f50e7a-3e8b-4bc7-b5e3-13b81d88cdef" width="20%">
 </p>
 
 ![image.jpg1](https://steemitimages.com/0x0/https://static.tasteem.io/uploads/image/image/7289/content_994dbe3f-631b-4f76-9ee1-751c87c668dd.jpeg) |![image.jpg2](https://steemitimages.com/0x0/https://static.tasteem.io/uploads/image/image/7293/content_994dbe3f-631b-4f76-9ee1-751c87c668dd.jpeg)
