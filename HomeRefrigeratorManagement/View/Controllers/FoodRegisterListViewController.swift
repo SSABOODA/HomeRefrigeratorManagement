@@ -21,6 +21,7 @@ final class FoodRegisterListViewController: BaseViewController {
             collectionViewLayout: collectionViewLayout()
         )
         view.delegate = self
+        view.keyboardDismissMode = .onDrag
         return view
     }()
     
@@ -54,7 +55,7 @@ final class FoodRegisterListViewController: BaseViewController {
     private func setupSearchBar() {
         self.navigationItem.titleView = searchBar
         searchBar.delegate = self
-        searchBar.showsCancelButton = true
+        searchBar.setShowsCancelButton(true, animated: true)
         
         let nsAttributedString = NSAttributedString(
             string: "저장할 식품을 검색해보세요".localized,
@@ -67,11 +68,13 @@ final class FoodRegisterListViewController: BaseViewController {
                 string: "취소".localized,
                 attributes: [NSAttributedString.Key.font: UIFont(name: Constant.Font.soyoBold, size: 12)!]
             )
+
             cancelButton.setTitleColor(Constant.BaseColor.tintColor, for: .normal)
             cancelButton.setAttributedTitle(nsAttributedString, for: .normal)
         }
+        
+        searchBar.setShowsCancelButton(false, animated: true)
     }
-
 }
 
 // MARK: - DataSource
@@ -91,7 +94,6 @@ extension FoodRegisterListViewController {
     private func performQuery(with filter: String?) {
         viewModel.foodIconInfo.value = viewModel.filterInitialConsonant(with: filter ?? "")
         
-        
         var snapshot = NSDiffableDataSourceSnapshot<Section, FoodModel>()
         snapshot.appendSections([.main])
         snapshot.appendItems(viewModel.foodIconInfo.value)
@@ -100,6 +102,10 @@ extension FoodRegisterListViewController {
 }
 
 extension FoodRegisterListViewController: UISearchControllerDelegate, UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
+    }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         performQuery(with: searchText)
     }
@@ -107,6 +113,7 @@ extension FoodRegisterListViewController: UISearchControllerDelegate, UISearchBa
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
         performQuery(with: searchBar.text)
+        dismiss(animated: true)
     }
 }
 
