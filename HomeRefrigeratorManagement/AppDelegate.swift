@@ -31,15 +31,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
             print(success, error)
         }
-
-        UserDefaultsHelper.standard.hour = 19
-        UserDefaultsHelper.standard.minute = 30
         
+        if !UserDefaultsHelper.standard.isManual {
+            UserDefaultsHelper.standard.hour = 19
+            UserDefaultsHelper.standard.minute = 30
+        }
         return true
     }
-    
-    
-    
 
     // MARK: UISceneSession Lifecycle
 

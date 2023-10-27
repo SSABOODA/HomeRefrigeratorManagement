@@ -60,7 +60,9 @@ final class AlarmViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        initSwitch()
+        print(#function)
+        initialSwitch()
+        inititalDatePickerSetTime()
         startAddObserver()
     }
     
@@ -97,13 +99,32 @@ final class AlarmViewController: BaseViewController {
         }
     }
     
-    private func initSwitch() {
+    private func initialSwitch() {
         UserNotificationRepository.shared.checkPermission { [weak self] value in
-            self?.setSwitchValue(UserDefaultsHelper.standard.permission)
+            if !value {
+                self?.setSwitchValue(UserDefaultsHelper.standard.permission)
+            } else {
+                self?.setSwitchValue(UserDefaultsHelper.standard.switchValue)
+            }
         }
     }
     
+    private func inititalDatePickerSetTime() {
+
+        let selectedHour = UserDefaultsHelper.standard.hour
+        let selectedMinute = UserDefaultsHelper.standard.minute
+        
+        let calendar = Calendar.current
+        var components = DateComponents()
+        components.hour = selectedHour
+        components.minute = selectedMinute
+            
+        datePicker.setDate(calendar.date(from: components)!, animated: true)
+        
+    }
+    
     private func startAddObserver() {
+        print("엥?")
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(checkNotificationSetting),
@@ -122,6 +143,7 @@ final class AlarmViewController: BaseViewController {
             UserDefaultsHelper.standard.isManual = true
             UserDefaultsHelper.standard.hour = hour
             UserDefaultsHelper.standard.minute = minute
+            UserNotificationRepository.shared.removePendingNotificationRequests()
             UserNotificationRepository.shared.configureUserNotification()
             
             self.view.makeToast("매일 \(hour)시 \(minute)분에 알림을 보내드릴게요.😀")
@@ -129,35 +151,50 @@ final class AlarmViewController: BaseViewController {
     }
     
     @objc private func checkNotificationSetting(notification: NSNotification) {
+        print("응?")
         UserNotificationRepository.shared.checkPermission { [weak self] value in
-            self?.setSwitchValue(UserDefaultsHelper.standard.permission)
+            print("value: \(value)")
+            if !value {
+                print("12312312")
+                self?.setSwitchValue(UserDefaultsHelper.standard.permission)
+            }
         }
     }
     
     @objc func switchViewTapped() {
 
         if switchView.isOn {
-            footerView.isHidden = false
             
-            showAlertAction2(
-                preferredStyle: .alert,
-                title: "알림 허용",
-                message: "알림을 사용할 수 없습니다. 기기의 '설정>앱>알림'에서 알림 허용을 해주세요",
-                cancelTitle: "취소",
-                completeTitle: "확인") {
-                    self.setSwitchValue(false)
-                } _: {
-                    if !self.checkAccessAlarm() {
-                        guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
-                        
-                        if UIApplication.shared.canOpenURL(url) {
-                            UIApplication.shared.open(url)
+            UserDefaultsHelper.standard.switchValue = true
+            
+            if !UserDefaultsHelper.standard.permission {
+                // 시스템 설정 Off
+                showAlertAction2(
+                    preferredStyle: .alert,
+                    title: "알림 허용",
+                    message: "알림을 사용할 수 없습니다. 기기의 '설정>앱>알림'에서 알림 허용을 해주세요",
+                    cancelTitle: "취소",
+                    completeTitle: "확인") {
+                        self.setSwitchValue(false)
+                    } _: {
+                        if !self.checkAccessAlarm() {
+                            guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
+                            
+                            if UIApplication.shared.canOpenURL(url) {
+                                UIApplication.shared.open(url)
+                            }
                         }
+                        self.footerView.isHidden = false
                     }
-                }
+            } else {
+                // 시스템 설정 On
+                self.setSwitchValue(true)
+                UserNotificationRepository.shared.configureUserNotification()
+            }
             
         } else {
             footerView.isHidden = true
+            UserDefaultsHelper.standard.switchValue = false
             UserNotificationRepository.shared.removePendingNotificationRequests()
         }
     }

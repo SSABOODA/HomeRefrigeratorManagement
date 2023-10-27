@@ -29,7 +29,6 @@
 		F75E9B2D2AE18A61000CF09A /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75E9B2C2AE18A61000CF09A /* UserDefaultsHelper.swift */; };
 		F75E9B362AE251AA000CF09A /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75E9B352AE251AA000CF09A /* CustomTextField.swift */; };
 		F75E9B382AE2593A000CF09A /* AlarmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75E9B372AE2593A000CF09A /* AlarmViewModel.swift */; };
-		F75E9B422AE290A3000CF09A /* launchScreen1.png in Resources */ = {isa = PBXBuildFile; fileRef = F75E9B412AE290A3000CF09A /* launchScreen1.png */; };
 		F7610A212AD5458C00832129 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A202AD5458C00832129 /* CalendarViewModel.swift */; };
 		F7610A232AD54A2500832129 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A222AD54A2500832129 /* CalendarView.swift */; };
 		F7610A252AD56D3800832129 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7610A242AD56D3800832129 /* UIImage+Extension.swift */; };
@@ -111,6 +110,7 @@
 		F7C31E3E2ACFE025008DAA21 /* FoodRegisterTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31E3D2ACFE025008DAA21 /* FoodRegisterTextFieldView.swift */; };
 		F7C31E402AD153A3008DAA21 /* FoodStorageTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31E3F2AD153A3008DAA21 /* FoodStorageTypeButton.swift */; };
 		F7C31E432AD1625D008DAA21 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = F7C31E422AD1625D008DAA21 /* Toast */; };
+		F7D61EB42AEBBEEE001E03CF /* LaunchScreen.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F7D61EB32AEBBEEE001E03CF /* LaunchScreen.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -134,7 +134,6 @@
 		F75E9B2C2AE18A61000CF09A /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		F75E9B352AE251AA000CF09A /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		F75E9B372AE2593A000CF09A /* AlarmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewModel.swift; sourceTree = "<group>"; };
-		F75E9B412AE290A3000CF09A /* launchScreen1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchScreen1.png; sourceTree = "<group>"; };
 		F7610A202AD5458C00832129 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
 		F7610A222AD54A2500832129 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		F7610A242AD56D3800832129 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -211,6 +210,7 @@
 		F7C31E3B2ACFD61D008DAA21 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		F7C31E3D2ACFE025008DAA21 /* FoodRegisterTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRegisterTextFieldView.swift; sourceTree = "<group>"; };
 		F7C31E3F2AD153A3008DAA21 /* FoodStorageTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodStorageTypeButton.swift; sourceTree = "<group>"; };
+		F7D61EB32AEBBEEE001E03CF /* LaunchScreen.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LaunchScreen.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,7 +270,7 @@
 		F75E9B092AE0027F000CF09A /* Image */ = {
 			isa = PBXGroup;
 			children = (
-				F75E9B412AE290A3000CF09A /* launchScreen1.png */,
+				F7D61EB32AEBBEEE001E03CF /* LaunchScreen.jpeg */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -694,7 +694,7 @@
 			files = (
 				F78B9B352ADA86F200EA61CB /* SOYOMapleRegular.ttf in Resources */,
 				F78B9B362ADA86F200EA61CB /* SOYOMapleBold.ttf in Resources */,
-				F75E9B422AE290A3000CF09A /* launchScreen1.png in Resources */,
+				F7D61EB42AEBBEEE001E03CF /* LaunchScreen.jpeg in Resources */,
 				F75E9B0D2AE00DF0000CF09A /* Settings.bundle in Resources */,
 				F7C31D8C2AC2CE9C008DAA21 /* .gitignore in Resources */,
 				F7C31DA82AC2D9BD008DAA21 /* Localizable.strings in Resources */,

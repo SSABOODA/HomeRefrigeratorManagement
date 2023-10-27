@@ -18,8 +18,10 @@ final class UserDefaultsHelper {
         case isManual
         case hour
         case minute
+        case switchValue
     }
     
+    // 푸쉬 알림
     var permission: Bool {
         get {
             return userDefaults.bool(forKey: Key.permission.rawValue)
@@ -53,6 +55,15 @@ final class UserDefaultsHelper {
         }
         set {
             userDefaults.set(newValue, forKey: Key.minute.rawValue)
+        }
+    }
+    
+    var switchValue: Bool {
+        get {
+            return userDefaults.bool(forKey: Key.switchValue.rawValue)
+        }
+        set {
+            userDefaults.set(newValue, forKey: Key.switchValue.rawValue)
         }
     }
 }
