@@ -64,6 +64,11 @@ final class AlarmViewController: BaseViewController {
         startAddObserver()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func configureView() {
         super.configureView()
         navigationItem.largeTitleDisplayMode = .never
