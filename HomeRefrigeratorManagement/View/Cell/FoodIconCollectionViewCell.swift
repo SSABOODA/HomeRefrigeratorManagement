@@ -24,6 +24,8 @@ class FoodIconCollectionViewCell: BaseCollectionViewCell {
         let label = UILabel()
         label.text = "이름"
         label.font = UIFont(name: Constant.Font.soyoBold, size: 13)
+        label.numberOfLines = 2
+        label.textAlignment = .center
         return label
     }()
     
@@ -41,6 +43,7 @@ class FoodIconCollectionViewCell: BaseCollectionViewCell {
         foodIconNameLabel.snp.makeConstraints { make in
             make.centerX.equalTo(foodIconImageView.snp.centerX)
             make.top.equalTo(foodIconImageView.snp.bottom).offset(10)
+            make.width.equalToSuperview().multipliedBy(0.9)
         }
     }
     
