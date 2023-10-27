@@ -19,7 +19,9 @@ final class ConsumptionCollectionViewCell: BaseCollectionViewCell {
     
     let nameLabel = {
         let label = UILabel()
-        label.font = UIFont(name: Constant.Font.soyoBold, size: 15)
+        label.font = UIFont(name: Constant.Font.soyoBold, size: 13)
+        label.numberOfLines = 1
+        label.textAlignment = .center
         return label
     }()
     
@@ -86,6 +88,7 @@ final class ConsumptionCollectionViewCell: BaseCollectionViewCell {
         nameLabel.snp.makeConstraints { make in
             make.centerX.equalTo(consumptionImageView.snp.centerX)
             make.top.equalTo(consumptionImageView.snp.bottom).offset(15)
+            make.width.equalToSuperview().multipliedBy(0.9)
         }
         
         countLabel.snp.makeConstraints { make in
