@@ -114,6 +114,7 @@ final class FoodRegisterDetailViewController: BaseViewController {
                 preferredStyle: .alert,
                 title: "유통기한을 구매일보다 더 뒷날로 설정해야합니다."
             )
+            return
         case .orderedAscending: print("<")
         }
         
