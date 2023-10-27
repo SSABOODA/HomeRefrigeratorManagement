@@ -17,4 +17,14 @@ extension Constant {
         static let navigationLargeTitleFontSize = 30.0
         static let navigationBarFontSize = 15.0
     }
+    
+    enum FoodCreateViewFontSize {
+        static let labelFontSize = 13.0
+        static let textFieldFontSize = 11.0
+    }
+    
+    enum FoodUpdateViewFontSize {
+        static let labelFontSize = 13.0
+        static let textFieldFontSize = 11.0
+    }
 }

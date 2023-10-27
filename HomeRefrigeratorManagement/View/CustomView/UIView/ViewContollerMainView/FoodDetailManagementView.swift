@@ -68,7 +68,10 @@ class FoodDetailManagementView: BaseView {
     let foodDescriptionLabel = {
         let label = FoodDetailSettingLabel()
         label.text = "식품 설명"
-        label.font = UIFont(name: Constant.Font.soyoBold, size: 13)
+        label.font = UIFont(
+            name: Constant.Font.soyoBold,
+            size: Constant.FoodUpdateViewFontSize.labelFontSize
+        )
         return label
     }()
     
@@ -80,7 +83,10 @@ class FoodDetailManagementView: BaseView {
     lazy var foodDescriptionTextField = {
         let tf = CustomTextField()
         tf.placeholder = "식품의 상세한 설명을 적어보세요~"
-        tf.font = UIFont(name: Constant.Font.soyoBold, size: 13)
+        tf.font = UIFont(
+            name: Constant.Font.soyoBold,
+            size: Constant.FoodUpdateViewFontSize.textFieldFontSize
+        )
         tf.clearButtonMode = .whileEditing
         tf.tag = FoodDataInputTextFieldTag.desc.rawValue
         return tf
@@ -98,7 +104,10 @@ class FoodDetailManagementView: BaseView {
     let registerDateLabel = {
         let label = FoodDetailSettingLabel()
         label.text = "등록 날짜"
-        label.font = UIFont(name: Constant.Font.soyoBold, size: 13)
+        label.font = UIFont(
+            name: Constant.Font.soyoBold,
+            size: Constant.FoodUpdateViewFontSize.labelFontSize
+        )
         return label
     }()
     
@@ -110,7 +119,10 @@ class FoodDetailManagementView: BaseView {
     let registerDateTextField = {
         let tf = CustomTextField()
         tf.text = Date().dateFormat(date: Date())
-        tf.font = UIFont(name: Constant.Font.soyoBold, size: 13)
+        tf.font = UIFont(
+            name: Constant.Font.soyoBold,
+            size: Constant.FoodUpdateViewFontSize.textFieldFontSize
+        )
         tf.tag = FoodDataInputTextFieldTag.register.rawValue
         return tf
     }()
@@ -127,7 +139,10 @@ class FoodDetailManagementView: BaseView {
     let expirationDateLabel = {
         let label = FoodDetailSettingLabel()
         label.text = "유통 기한"
-        label.font = UIFont(name: Constant.Font.soyoBold, size: 13)
+        label.font = UIFont(
+            name: Constant.Font.soyoBold,
+            size: Constant.FoodUpdateViewFontSize.labelFontSize
+        )
         return label
     }()
     
@@ -139,7 +154,10 @@ class FoodDetailManagementView: BaseView {
     let expirationDateTextField = {
         let tf = CustomTextField()
         tf.text = Date().dateFormat(date: Date())
-        tf.font = UIFont(name: Constant.Font.soyoBold, size: 13)
+        tf.font = UIFont(
+            name: Constant.Font.soyoBold,
+            size: Constant.FoodUpdateViewFontSize.textFieldFontSize
+        )
         tf.tag = FoodDataInputTextFieldTag.expiration.rawValue
         return tf
     }()
@@ -156,7 +174,10 @@ class FoodDetailManagementView: BaseView {
     let storageTypeLabel = {
         let label = FoodDetailSettingLabel()
         label.text = "저장 방법"
-        label.font = UIFont(name: Constant.Font.soyoBold, size: 13)
+        label.font = UIFont(
+            name: Constant.Font.soyoBold,
+            size: Constant.FoodUpdateViewFontSize.labelFontSize
+        )
         return label
     }()
     
@@ -168,7 +189,10 @@ class FoodDetailManagementView: BaseView {
     let storageTypeTextField = {
         let tf = CustomTextField()
         tf.placeholder = "저장 방법을 선택해주세요"
-        tf.font = UIFont(name: Constant.Font.soyoBold, size: 13)
+        tf.font = UIFont(
+            name: Constant.Font.soyoBold,
+            size: Constant.FoodUpdateViewFontSize.textFieldFontSize
+        )
         tf.tag = FoodDataInputTextFieldTag.storage.rawValue
         return tf
     }()
@@ -185,7 +209,10 @@ class FoodDetailManagementView: BaseView {
     let countLabel = {
         let label = FoodDetailSettingLabel()
         label.text = "수량"
-        label.font = UIFont(name: Constant.Font.soyoBold, size: 13)
+        label.font = UIFont(
+            name: Constant.Font.soyoBold,
+            size: Constant.FoodUpdateViewFontSize.labelFontSize
+        )
         return label
     }()
     
@@ -198,7 +225,10 @@ class FoodDetailManagementView: BaseView {
         let tf = CustomTextField()
         tf.keyboardType = .numberPad
         tf.placeholder = "수량을 입력해주세요~"
-        tf.font = UIFont(name: Constant.Font.soyoBold, size: 13)
+        tf.font = UIFont(
+            name: Constant.Font.soyoBold,
+            size: Constant.FoodUpdateViewFontSize.textFieldFontSize
+        )
         tf.clearButtonMode = .whileEditing
         tf.tag = FoodDataInputTextFieldTag.count.rawValue
         return tf
