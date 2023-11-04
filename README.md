@@ -32,9 +32,13 @@
 
 ## 프로젝트 기획 및 기록
 [기획 및 작업 기록](https://thankful-gymnast-355.notion.site/1c2d64adac9c4c219347d7b6ca2287a2?pvs=4)
+[앱 출시 회고 불로그](https://ios-developer-hans.tistory.com/17)
 
 ## 이슈
 1. 앱 내의 '알림 설정'과 시스템 설정의 '알림 설정' 동기화 문제
+2. Realm과 DiffableDatasource를 사용했을 때 Delete 시 크래시 문제
+3. DiffableDatasource의 검색 애니메이션을 구현할 때 한글 검색으로 할 경우 문제
+문제 상황
 
 
 
