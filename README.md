@@ -31,8 +31,8 @@
   - Crashlytics
 
 ## 프로젝트 기획 및 기록
-[기획 및 작업 기록](https://thankful-gymnast-355.notion.site/1c2d64adac9c4c219347d7b6ca2287a2?pvs=4)
-[앱 출시 회고 불로그](https://ios-developer-hans.tistory.com/17)
+- [기획 및 작업 기록](https://thankful-gymnast-355.notion.site/1c2d64adac9c4c219347d7b6ca2287a2?pvs=4)
+- [앱 출시 회고 불로그](https://ios-developer-hans.tistory.com/17)
 
 ## 이슈
 1. 앱 내의 '알림 설정'과 시스템 설정의 '알림 설정' 동기화 문제
