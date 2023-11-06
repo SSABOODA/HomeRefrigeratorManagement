@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F709596F2AF9051900F0218B /* icon-launch.png in Resources */ = {isa = PBXBuildFile; fileRef = F709596E2AF9051900F0218B /* icon-launch.png */; };
 		F7248A372AD9329100D768DF /* SafariActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7248A362AD9329100D768DF /* SafariActivity.swift */; };
 		F7248A3A2AD963E600D768DF /* FoodManagementCollectionViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7248A392AD963E600D768DF /* FoodManagementCollectionViewHeaderView.swift */; };
 		F7289E4A2AD1BB9500E092C6 /* Results+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7289E492AD1BB9500E092C6 /* Results+Extension.swift */; };
@@ -114,6 +115,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F709596E2AF9051900F0218B /* icon-launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-launch.png"; sourceTree = "<group>"; };
 		F7248A362AD9329100D768DF /* SafariActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariActivity.swift; sourceTree = "<group>"; };
 		F7248A392AD963E600D768DF /* FoodManagementCollectionViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodManagementCollectionViewHeaderView.swift; sourceTree = "<group>"; };
 		F7289E492AD1BB9500E092C6 /* Results+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Results+Extension.swift"; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				F7D61EB32AEBBEEE001E03CF /* LaunchScreen.jpeg */,
+				F709596E2AF9051900F0218B /* icon-launch.png */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -700,6 +703,7 @@
 				F7C31DA82AC2D9BD008DAA21 /* Localizable.strings in Resources */,
 				F7C31D842AC2CE30008DAA21 /* LaunchScreen.storyboard in Resources */,
 				F7C31D812AC2CE30008DAA21 /* Assets.xcassets in Resources */,
+				F709596F2AF9051900F0218B /* icon-launch.png in Resources */,
 				F7C31DB22AC2DA90008DAA21 /* InfoPlist.strings in Resources */,
 				F7C31E142ACD347C008DAA21 /* GoogleService-Info.plist in Resources */,
 			);
