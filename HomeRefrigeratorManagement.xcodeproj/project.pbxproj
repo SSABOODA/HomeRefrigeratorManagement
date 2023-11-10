@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		F709596F2AF9051900F0218B /* icon-launch.png in Resources */ = {isa = PBXBuildFile; fileRef = F709596E2AF9051900F0218B /* icon-launch.png */; };
+		F70959E52AFE094D00F0218B /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F70959E42AFE094D00F0218B /* FirebaseAnalytics */; };
+		F70959E72AFE094D00F0218B /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = F70959E62AFE094D00F0218B /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		F70959E92AFE094D00F0218B /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = F70959E82AFE094D00F0218B /* FirebaseCrashlytics */; };
+		F70959EB2AFE094D00F0218B /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = F70959EA2AFE094D00F0218B /* FirebaseMessaging */; };
 		F7248A372AD9329100D768DF /* SafariActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7248A362AD9329100D768DF /* SafariActivity.swift */; };
 		F7248A3A2AD963E600D768DF /* FoodManagementCollectionViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7248A392AD963E600D768DF /* FoodManagementCollectionViewHeaderView.swift */; };
 		F7289E4A2AD1BB9500E092C6 /* Results+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7289E492AD1BB9500E092C6 /* Results+Extension.swift */; };
@@ -93,8 +97,6 @@
 		F7C31DE82AC69C3F008DAA21 /* FoodRegisterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DE72AC69C3F008DAA21 /* FoodRegisterListViewController.swift */; };
 		F7C31DEA2AC6AEFC008DAA21 /* FoodRegisterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31DE92AC6AEFC008DAA21 /* FoodRegisterButton.swift */; };
 		F7C31E142ACD347C008DAA21 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7C31E132ACD347C008DAA21 /* GoogleService-Info.plist */; };
-		F7C31E182ACD36C3008DAA21 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = F7C31E172ACD36C3008DAA21 /* FirebaseAnalyticsWithoutAdIdSupport */; };
-		F7C31E1A2ACD36C3008DAA21 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = F7C31E192ACD36C3008DAA21 /* FirebaseCrashlytics */; };
 		F7C31E1D2ACD3E06008DAA21 /* FoodIconCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31E1C2ACD3E06008DAA21 /* FoodIconCollectionViewCell.swift */; };
 		F7C31E222ACD41A4008DAA21 /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31E212ACD41A4008DAA21 /* FoodModel.swift */; };
 		F7C31E242ACD4636008DAA21 /* FoodRegisterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31E232ACD4636008DAA21 /* FoodRegisterListViewModel.swift */; };
@@ -116,6 +118,7 @@
 
 /* Begin PBXFileReference section */
 		F709596E2AF9051900F0218B /* icon-launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-launch.png"; sourceTree = "<group>"; };
+		F70959E22AFE074F00F0218B /* HomeRefrigeratorManagement.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HomeRefrigeratorManagement.entitlements; sourceTree = "<group>"; };
 		F7248A362AD9329100D768DF /* SafariActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariActivity.swift; sourceTree = "<group>"; };
 		F7248A392AD963E600D768DF /* FoodManagementCollectionViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodManagementCollectionViewHeaderView.swift; sourceTree = "<group>"; };
 		F7289E492AD1BB9500E092C6 /* Results+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Results+Extension.swift"; sourceTree = "<group>"; };
@@ -224,13 +227,15 @@
 				F7289E582AD50CF800E092C6 /* IQKeyboardManagerSwift in Frameworks */,
 				F7C31E432AD1625D008DAA21 /* Toast in Frameworks */,
 				F7C31D9A2AC2D4B6008DAA21 /* RealmSwift in Frameworks */,
+				F70959E72AFE094D00F0218B /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				F7610A402AD7BDBF00832129 /* Kingfisher in Frameworks */,
 				F7C31D982AC2D4B6008DAA21 /* Realm in Frameworks */,
-				F7C31E1A2ACD36C3008DAA21 /* FirebaseCrashlytics in Frameworks */,
 				F7289E5B2AD52F4E00E092C6 /* FSCalendar in Frameworks */,
+				F70959EB2AFE094D00F0218B /* FirebaseMessaging in Frameworks */,
 				F7C31D952AC2D3F2008DAA21 /* SnapKit in Frameworks */,
+				F70959E92AFE094D00F0218B /* FirebaseCrashlytics in Frameworks */,
+				F70959E52AFE094D00F0218B /* FirebaseAnalytics in Frameworks */,
 				F78B9B3B2ADAC1CA00EA61CB /* DGCharts in Frameworks */,
-				F7C31E182ACD36C3008DAA21 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,6 +375,7 @@
 		F7C31D762AC2CE2E008DAA21 /* HomeRefrigeratorManagement */ = {
 			isa = PBXGroup;
 			children = (
+				F70959E22AFE074F00F0218B /* HomeRefrigeratorManagement.entitlements */,
 				F7C31D772AC2CE2E008DAA21 /* AppDelegate.swift */,
 				F7C31D792AC2CE2F008DAA21 /* SceneDelegate.swift */,
 				F78B9B312ADA86C000EA61CB /* Resources */,
@@ -632,14 +638,16 @@
 				F7C31D942AC2D3F2008DAA21 /* SnapKit */,
 				F7C31D972AC2D4B6008DAA21 /* Realm */,
 				F7C31D992AC2D4B6008DAA21 /* RealmSwift */,
-				F7C31E172ACD36C3008DAA21 /* FirebaseAnalyticsWithoutAdIdSupport */,
-				F7C31E192ACD36C3008DAA21 /* FirebaseCrashlytics */,
 				F7C31E422AD1625D008DAA21 /* Toast */,
 				F7289E572AD50CF800E092C6 /* IQKeyboardManagerSwift */,
 				F7289E5A2AD52F4E00E092C6 /* FSCalendar */,
 				F7610A3C2AD7BDAC00832129 /* Alamofire */,
 				F7610A3F2AD7BDBF00832129 /* Kingfisher */,
 				F78B9B3A2ADAC1CA00EA61CB /* DGCharts */,
+				F70959E42AFE094D00F0218B /* FirebaseAnalytics */,
+				F70959E62AFE094D00F0218B /* FirebaseAnalyticsWithoutAdIdSupport */,
+				F70959E82AFE094D00F0218B /* FirebaseCrashlytics */,
+				F70959EA2AFE094D00F0218B /* FirebaseMessaging */,
 			);
 			productName = HomeRefrigeratorManagement;
 			productReference = F7C31D742AC2CE2E008DAA21 /* HomeRefrigeratorManagement.app */;
@@ -673,13 +681,13 @@
 			packageReferences = (
 				F7C31D932AC2D3F2008DAA21 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				F7C31D962AC2D4B6008DAA21 /* XCRemoteSwiftPackageReference "realm-swift" */,
-				F7C31E162ACD36C3008DAA21 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				F7C31E412AD1625D008DAA21 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				F7289E562AD50CF800E092C6 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				F7289E592AD52F4E00E092C6 /* XCRemoteSwiftPackageReference "FSCalendar" */,
 				F7610A3B2AD7BDAC00832129 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				F7610A3E2AD7BDBF00832129 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				F78B9B392ADAC1CA00EA61CB /* XCRemoteSwiftPackageReference "Charts" */,
+				F70959E32AFE094D00F0218B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = F7C31D752AC2CE2E008DAA21 /* Products */;
 			projectDirPath = "";
@@ -982,6 +990,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HomeRefrigeratorManagement/HomeRefrigeratorManagement.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -990,7 +999,7 @@
 				INFOPLIST_FILE = HomeRefrigeratorManagement/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "냉싸부";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -1018,6 +1027,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HomeRefrigeratorManagement/HomeRefrigeratorManagement.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2K3Y93YF8Z;
@@ -1025,7 +1035,7 @@
 				INFOPLIST_FILE = HomeRefrigeratorManagement/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "냉싸부";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -1072,6 +1082,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F70959E32AFE094D00F0218B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.17.0;
+			};
+		};
 		F7289E562AD50CF800E092C6 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
@@ -1128,14 +1146,6 @@
 				version = 10.42.4;
 			};
 		};
-		F7C31E162ACD36C3008DAA21 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 10.0.0;
-			};
-		};
 		F7C31E412AD1625D008DAA21 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
@@ -1147,6 +1157,26 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F70959E42AFE094D00F0218B /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F70959E32AFE094D00F0218B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		F70959E62AFE094D00F0218B /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F70959E32AFE094D00F0218B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		F70959E82AFE094D00F0218B /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F70959E32AFE094D00F0218B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		F70959EA2AFE094D00F0218B /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F70959E32AFE094D00F0218B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
 		F7289E572AD50CF800E092C6 /* IQKeyboardManagerSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F7289E562AD50CF800E092C6 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
@@ -1186,16 +1216,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F7C31D962AC2D4B6008DAA21 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
-		};
-		F7C31E172ACD36C3008DAA21 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F7C31E162ACD36C3008DAA21 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalyticsWithoutAdIdSupport;
-		};
-		F7C31E192ACD36C3008DAA21 /* FirebaseCrashlytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F7C31E162ACD36C3008DAA21 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseCrashlytics;
 		};
 		F7C31E422AD1625D008DAA21 /* Toast */ = {
 			isa = XCSwiftPackageProductDependency;

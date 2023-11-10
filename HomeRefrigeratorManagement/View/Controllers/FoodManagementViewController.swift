@@ -170,7 +170,7 @@ extension FoodManagementViewController: UICollectionViewDelegate {
         let food = filteredFoodDataArray[indexPath.item]
         nextVC.viewModel.food = food
         nextVC.viewModel.completionHandler = { [weak self] isDelete in
-            guard let weakSelf = self else {return }
+            guard let weakSelf = self else { return }
             if isDelete {
                 weakSelf.viewModel.deleteFoodData = food
                 weakSelf.view.makeToast(Constant.ToastMessage.foodDeleteSuccessMessage)
