@@ -105,7 +105,7 @@ final class AlarmViewController: BaseViewController {
             selector: #selector(checkNotificationSetting),
             name: UIApplication.willEnterForegroundNotification,
             object: nil
-       )
+        )
     }
 
     @objc private func checkNotificationSetting(notification: NSNotification) {
