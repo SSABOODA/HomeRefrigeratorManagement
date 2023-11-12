@@ -1,6 +1,6 @@
 # 냉싸부 - 냉장고를 싸그리 부탁해
 
-## 앱 설명
+## 📱 앱 설명
 <p align="center" width="100%">
   <img src="https://github.com/SSABOODA/HomeRefrigeratorManagement/assets/69753846/6ad97490-9992-449e-9610-2d07cc8dee36" width="20%">
   <img src="https://github.com/SSABOODA/HomeRefrigeratorManagement/assets/69753846/ab24ae04-0b79-4807-88c2-f750fd0b5873" width="20%">
@@ -16,16 +16,16 @@
 - 차트를 통해 현재 보관 식품의 종류별 현황을 파악가능
 - 유통기한이 지났거나, 임박한 상품이 있다면 푸쉬 알림을 통해 관리 유도
 
-## 프로젝트 기간
+## 🗓️ 프로젝트 기간
 - 2023.09.25 ~ 23.10.21(4주) - 현재 업데이트 진행 중
 
-## 프로젝트 참여 인원
+## 👥 프로젝트 참여 인원
 - 1명(개인 출시)
 
-## 앱 스토어 링크
+## 🔗 앱 스토어 링크
 [냉싸부 - 냉장고를 싸그리 부탁해](https://apps.apple.com/kr/app/%EB%83%89%EC%8B%B8%EB%B6%80-%EB%83%89%EC%9E%A5%EA%B3%A0%EB%A5%BC-%EC%8B%B8%EA%B7%B8%EB%A6%AC-%EB%B6%80%ED%83%81%ED%95%B4/id6470002194)
 
-## 사용된 프레임워크, 라이브러리, 디자인 패턴
+## 🛠️ 사용된 프레임워크, 라이브러리, 디자인 패턴
 - DGCharts
 - FSCalendar
 - IQKeyboardManager
@@ -37,7 +37,7 @@
   - Crashlytics
 - MVVM(Bind 패턴)
 
-## 구현 기능
+## 🔍 구현 기능
 - GET, POST 하는 뷰의 식품 데이터들은 모두 UICollectionViewDiffableDataSource를 사용하여 구현하습니다.
     - 데이터 소스를 제공하여 효율적으로 셀을 관리하였습니다.
     - 데이터 변경을 추적하고 snapshot 기반으로 한 식품 데이터 검색 애니메이션을 사용하여 UX를 향상시켰습니다.
@@ -51,11 +51,11 @@
 - 시스템 알림과 앱 내 알림의 on,off 상태을 연동해 사용자가 원하는 시간에 유통기한 임박 상품의 알림을 받을 수 있도록 구현하였습니다.
   - 시스템 알림 상태와 앱 내 알림 상태 연동은 NotificationCenter를 활용해 구현하였습니다.
 
-## 프로젝트 기획 및 기록
+## 📖 프로젝트 기획 및 기록
 - [기획 및 작업 기록](https://thankful-gymnast-355.notion.site/1c2d64adac9c4c219347d7b6ca2287a2?pvs=4)
 - [앱 출시 회고 블로그](https://ios-developer-hans.tistory.com/17)
 
-## 이슈
+## 🔥 이슈
 ### 1. 앱 내의 '알림 설정'과 시스템 설정의 '알림 설정' 동기화 문제
 ```
 - 앱 최초 실행시 알림 허용 O
@@ -82,10 +82,10 @@ viewWillApper가 재실행되지 않아 시스템 알림 권한 설정 상태를
 ```swift
 // SceneDelegate.swift
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-	func sceneWillEnterForeground(_ scene: UIScene) {
-        NotificationCenter.default.post(
-            name: NSNotification.Name("permission"),
-            object: nil
+    func sceneWillEnterForeground(_ scene: UIScene) {
+	NotificationCenter.default.post(
+	    name: NSNotification.Name("permission"),
+	    object: nil
         )
     }
 }
@@ -94,34 +94,34 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 ```swift
 // AlarmViewController.swift
 final class AlarmViewController: BaseViewController {
-	override func viewDidLoad() {
-      super.viewDidLoad()
-      startAddObserver()
-  }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        startAddObserver()
+    }
 
-	private func startAddObserver() {
-      NotificationCenter.default.addObserver(
-          self,
-          selector: #selector(checkNotificationSetting),
-          name: UIApplication.willEnterForegroundNotification,
-          object: nil
-      )
-  }
+    private func startAddObserver() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(checkNotificationSetting),
+            name: UIApplication.willEnterForegroundNotification,
+            object: nil
+       )
+    }
 
-  @objc private func checkNotificationSetting(notification: NSNotification) {
-	UserNotificationRepository.shared.checkPermission { [weak self] value in
-         self?.setSwitchValue(UserDefaultsHelper.standard.permission)
-      }
-  }
+    @objc private func checkNotificationSetting(notification: NSNotification) {
+        UserNotificationRepository.shared.checkPermission { [weak self] value in
+            self?.setSwitchValue(UserDefaultsHelper.standard.permission)
+        }
+    }
 
-  private func setSwitchValue(_ permission: Bool) {
-    	DispatchQueue.main.async { [weak self] in
-    		if permission {
-    			self?.switchView.setOn(permission, animated: true)
+    private func setSwitchValue(_ permission: Bool) {
+        DispatchQueue.main.async { [weak self] in
+            if permission {
+                self?.switchView.setOn(permission, animated: true)
                 self?.footerView.isHidden = !permission
-    		} else {
-    			self?.switchView.setOn(permission, animated: true)
-    			self?.footerView.isHidden = !permission
+	    } else {
+		self?.switchView.setOn(permission, animated: true)
+		self?.footerView.isHidden = !permission
             }
         }
     }
