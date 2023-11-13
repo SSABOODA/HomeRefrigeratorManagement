@@ -128,13 +128,207 @@ final class AlarmViewController: BaseViewController {
 }
 ```
 
-### 3. Realm과 DiffableDatasource를 사용했을 때 Delete 시 크래시 문제
-### 4. DiffableDatasource의 검색 애니메이션을 구현할 때 한글 검색으로 할 경우 문제
-문제 상황
+### 2. Realm과 DiffableDatasource를 사용했을 때 Delete 시 크래시 문제
 
+#### 문제 상황
+- 식품을 등록하는 메인 뷰는 현재 `DiffableDatasource` 기반으로 CollectionView로 구현되어 있고, Realm Database를 같이 사용하고 있습니다.  
+- 문제는 Realm에서 데이터를 삭제했을 때 발생했다. `DiffableDatasource` 는 뷰의 갱신을 위해 뷰의 현재 데이터 상태를 스냅샷을 통해 보관하고 있는데 아래 예시처럼 해당 데이터가 삭제되면서 문제가 발생했습니다.
+```
+DiffableDatasource - diff -> DiffableDatasource
+Realm<Object>1               Realm<Object>1
+Realm<Object>2               Realm<Object>2
+Realm<Object>3 -> delete     Realm<Object>4
+Realm<Object>4
+```
+데이터를 삭제 한 직후 바로 snapshot을 통해 데이터를 재구성하게되면 Realm에서 예외처리 오류가 발생했습니다.
+```
+Terminating app due to uncaught exception 'RLMException', reason: 'Object has been deleted or invalidated.'
+terminating with uncaught exception of type NSException
+```
+`RLMException` 에러가 발생했고 Object가 삭제되었거나, 유효하지 않다는 내용의 에러입니다.
+Realm에서 데이터를 삭제한 뒤 해당 객체를 참조하거나 출력만 하려해도 에러가 발생하게됩니다.
 
+#### 문제 해결
+- 데이터를 삭제하는 ViewModel에서 Closure를 통해 데이터 삭제 여부를 전달하는 방식
 
+데이터가 삭제되었다면 snapshot 메서드가 있는 뷰컨트롤러로 데이터 삭제 여부를 completionHandler를 통해 전달하였고, 
+snapshot을 실행하는 시점에 분기처리를 통해 직접 snapshot item에 delete 메서드를 통해 동기화 시켜주는 방식으로 해결했습니다.
 
+- 데이터 삭제 Scene - ViewController
+```swift
+final class FoodDetailManagementViewController: BaseViewController {
+    let viewModel = FoodDetailManagementViewModel()
 
+    @objc func deleteButtonTapped() {
+        showAlertAction2(
+            preferredStyle: .alert,
+            title: Constant.AlertText.deleteAlertTitleMessage
+        ) {} _: {
+            self.viewModel.deleteData()
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+}
+```
 
+- 데이터 삭제 Scene - ViewModel
+```swift
+final class FoodDetailManagementViewModel {
+    var isDelete = Observable(false)
+    var completionHandler: ((Bool) -> Void)?
 
+    func deleteData() {
+        isDelete.value = true
+	completionHandler?(isDelete.value)
+    }
+}
+```
+
+- 데이터를 삭제하기 전 데이터를 넘겨줄 ViewController
+```swift
+final class FoodManagementViewController: BaseViewController {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        performQuery(searchText: "", storageType: currentStorageType)
+    }
+
+    private func performQuery(
+        searchText: String,
+        sortType: SortType = .expiration,
+        storageType: Constant.FoodStorageType
+    ) {
+
+    let item = viewModel.filterFoodData(
+        query: searchText,
+        sortType: sortType,
+        storageType: storageType
+    )
+        
+    guard let item else { return }
+    updateEmptyView()
+
+    var snapshot = NSDiffableDataSourceSnapshot<Section, Food>()
+    snapshot.appendSections([.main])
+    snapshot.appendItems(item)
+
+    // relam 데이터 삭제시 snapshot 처리
+    if let deleteFood = viewModel.deleteFoodData, !deleteFood.isInvalidated {
+        snapshot.deleteItems([deleteFood])
+        dataSource.apply(snapshot, animatingDifferences: true)
+        RealmTableRepository.shared.delete(object: deleteFood)
+        viewModel.filteredFoodDataArray = viewModel.filteredFoodData?.toArray()
+            updateEmptyView()
+    }
+    dataSource.apply(snapshot, animatingDifferences: true)
+    }
+}
+
+extension FoodManagementViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let nextVC = FoodDetailManagementViewController()
+        guard let filteredFoodDataArray = self.viewModel.filteredFoodDataArray else { return }
+        let food = filteredFoodDataArray[indexPath.item]
+        nextVC.viewModel.food = food
+        nextVC.viewModel.completionHandler = { [weak self] isDelete in
+            guard let weakSelf = self else {return }
+            if isDelete {
+                weakSelf.viewModel.deleteFoodData = food
+                weakSelf.view.makeToast(Constant.ToastMessage.foodDeleteSuccessMessage)
+            }
+        }
+        transition(viewController: nextVC, style: .push)
+    }
+}
+```
+
+- ViewModel
+```swift
+final class FoodManagementViewModel {
+    var deleteFoodData: Food?
+}
+```
+
+### 3. DiffableDatasource의 검색 애니메이션을 구현할 때 한글 검색으로 할 경우 문제
+#### 문제 상황
+`DiffableDatasource`를 사용하여 컬렉션뷰를 구성하였고, 식품 검색을 할 때 한글로 검색 시 애니메이션을 효과를 사용할 수 없는 문제가 발생했습니다.
+
+애플의 예제에서는 영어를 기준으로 검색하였을 때는 애니메이션 효과가 잘 실행되었고 그것을 기반으로 한글 또한 같은 로직을 사용하면 문제 없을 것이라고 생각하고 접근했습니다.
+하지만 한글의 경우 입력을 시작할 때 처음은 초성으로 시작하는데 초성에 해당하는 데이터는 당연히 없으므로 빈 데이터를 보여준 뒤 그 다음 글자가 완성되었을 때 해당 데이터를 뷰에 
+그리는 순간 애니메이션 효과가 나타나지 않는 문제가 있었습니다.
+
+#### 문제 해결
+이 문제를 해결하기 위해서는 생각했던 방법은 식품을 검색할 때 초성 검색이 가능하도록 하는 것이었습니다.
+예를 들어 '고구마'라는 식품을 검색할 때 'ㄱㄱㅁ' 를 검색어로 입력했을 때 '고구마'가 검색된다면 애니메이션 효과가 적용될 수 있을 것이고 사용자 UX또한 효과적으로 올릴 수 있다는 생각을 했습니다.
+
+문제 해결을 위해 작성했는 코드를 살펴보겠습니다.
+- 한글의 자음, 모음을 분리하는 메서드
+```swift
+import Foundation
+
+let korean = ["ㄱ", "ㄲ", "ㄴ", "ㄷ", "ㄸ", "ㄹ", "ㅁ", "ㅂ", "ㅃ", "ㅅ", "ㅆ", "ㅇ", "ㅈ", "ㅉ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ"]
+
+func getInitialConsonants(word: String) -> String {
+    
+    var result = ""
+    
+    for char in word {
+        let scalar = char.unicodeScalars.first!
+        if scalar >= "\u{AC00}" && scalar <= "\u{D7A3}" {
+            let index = Int((scalar.value - 0xAC00) / 28 / 21)
+            result.append(korean[index])
+        } else {
+            result.append(char)
+        }
+    }
+
+    return result
+}
+
+func isChosung(word: String) -> Bool {
+    var isChosung = false
+    for char in word {
+        if 0 < korean.filter({ $0.contains(char)}).count {
+            isChosung = true
+        } else {
+            isChosung = false
+            break
+        }
+    }
+    return isChosung
+}
+```
+- 검색 query
+```swift
+import Foundation
+
+final class FoodRegisterListViewModel {
+    var foodIconInfo = Observable(Constant.FoodConstant.foodIconInfo)
+    var isSave = Observable(false)
+    
+    var completionHandler: ((Bool) -> Void)?
+  
+    func filterInitialConsonant(with searchText: String) -> [FoodModel] {
+        let foodIconData = Constant.FoodConstant.foodIconInfo
+        if searchText.isEmpty {
+            return foodIconData
+        }
+        
+        let text = searchText.trimmingCharacters(in: .whitespaces)
+        let isChosungCheck = isChosung(word: text)
+
+        let filteredData = foodIconData.filter({
+            if isChosungCheck {
+                return ($0.name.contains(text) || getInitialConsonants(word: $0.name).contains(text))
+            } else {
+                return $0.name.contains(text)
+            }
+        })
+        return filteredData
+    }
+}
+```
+
+## 💡 추후 업데이트 예정 기능
+- MapKit을 이용한 근처 식료품점 확인
+- 레시피 크롤링, API를 활용한 저장 기능
+- 차트 다변화 및 상세화
