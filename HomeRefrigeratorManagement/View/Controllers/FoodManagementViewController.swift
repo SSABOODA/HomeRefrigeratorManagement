@@ -330,7 +330,6 @@ extension FoodManagementViewController: UISheetPresentationControllerDelegate {
 
         let formNC = UINavigationController(rootViewController: formController)
         formNC.modalPresentationStyle = UIModalPresentationStyle.pageSheet
-
         if let sheetPresentationController = formNC.presentationController as? UISheetPresentationController {
             sheetPresentationController.prefersGrabberVisible = true
             sheetPresentationController.detents = [

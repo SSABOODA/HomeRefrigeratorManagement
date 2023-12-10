@@ -124,7 +124,6 @@ final class AlarmViewController: BaseViewController {
     }
     
     private func startAddObserver() {
-        print("엥?")
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(checkNotificationSetting),
@@ -151,11 +150,8 @@ final class AlarmViewController: BaseViewController {
     }
     
     @objc private func checkNotificationSetting(notification: NSNotification) {
-        print("응?")
         UserNotificationRepository.shared.checkPermission { [weak self] value in
-            print("value: \(value)")
             if !value {
-                print("12312312")
                 self?.setSwitchValue(UserDefaultsHelper.standard.permission)
             }
         }
