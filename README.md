@@ -1,4 +1,5 @@
 # 냉싸부 - 냉장고를 싸그리 부탁해
+<img src="https://github.com/SSABOODA/HomeRefrigeratorManagement/assets/69753846/096ebcbc-863b-46e1-9634-06b092c08861" height="200" width="200">
 
 ## 📱 앱 설명
 <p align="center" width="100%">
