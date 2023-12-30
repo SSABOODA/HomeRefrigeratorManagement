@@ -38,18 +38,18 @@
 - MVVM(Bind 패턴)
 
 ## 🔍 구현 기능
-- GET, POST 하는 뷰의 식품 데이터들은 모두 UICollectionViewDiffableDataSource를 사용하여 구현하습니다.
+- GET, POST 하는 뷰의 식품 데이터들은 모두 `UICollectionViewDiffableDataSource`를 사용하여 구현하습니다.
     - 데이터 소스를 제공하여 효율적으로 셀을 관리하였습니다.
-    - 데이터 변경을 추적하고 snapshot 기반으로 한 식품 데이터 검색 애니메이션을 사용하여 UX를 향상시켰습니다.
-- 식품을 등록하는 뷰는 UISheetPresentController기반으로 구현하였고, 이를 통해 사용자가 더욱 빠르게 식품을 등록하고 확인 및 숨김이 가능하도록 구현하였습니다.
-- 식품 검색은 한글 '초성' 검색이 가능하도록 하여 DiffableDataSource의 애니메이션 기능을 활용하여 사용자 경험을 더욱 증가시켰습니다.
-- FSCalendar 라이브러리를 사용해 유통기한이 임박한 식품을 나타내었습니다.
-  - 유통기한이 임박한 날의 식품이 존재한다면, 아래에 UICollectionViewDiffableDataSource 기반으로 컬렉션뷰를 구현하였습니다.
+    - 데이터 변경을 추적하고 `snapshot` 기반으로 한 식품 데이터 검색 애니메이션을 사용하여 UX를 향상시켰습니다.
+- 식품을 등록하는 뷰는 `UISheetPresentController`기반으로 구현하였고, 이를 통해 사용자가 더욱 빠르게 식품을 등록하고 확인 및 숨김이 가능하도록 구현하였습니다.
+- 식품 검색은 한글 '초성' 검색이 가능하도록 하여 `DiffableDataSource`의 애니메이션 기능을 활용하여 사용자 경험을 더욱 증가시켰습니다.
+- `FSCalendar` 라이브러리를 사용해 유통기한이 임박한 식품을 나타내었습니다.
+  - 유통기한이 임박한 날의 식품이 존재한다면, 아래에 `UICollectionViewDiffableDataSource` 기반으로 컬렉션뷰를 구현하였습니다.
   - 해당 식품 클릭 시 식품 이름 데이터를 활용해 Youtube 사이트를 WebView를 활용해 띄워 바로 해당 레시피를 검색할 수 있도록 구현했습니다.
-- DGCharts 라이브러리를 활용해 현재 저장된 식품군의 카테고리별로 pieChart로 나타내도록하였습니다.
+- `DGCharts` 라이브러리를 활용해 현재 저장된 식품군의 카테고리별로 pieChart로 나타내도록하였습니다.
   - 가독성을 위해 pieChart 이외에도 아래 같은 정보를 tableView형식으로 나타내었습니다.
 - 시스템 알림과 앱 내 알림의 on,off 상태을 연동해 사용자가 원하는 시간에 유통기한 임박 상품의 알림을 받을 수 있도록 구현하였습니다.
-  - 시스템 알림 상태와 앱 내 알림 상태 연동은 NotificationCenter를 활용해 구현하였습니다.
+  - 시스템 알림 상태와 앱 내 알림 상태 연동은 `NotificationCenter`를 활용해 구현하였습니다.
 
 ## 📖 프로젝트 기획 및 기록
 - [기획 및 작업 기록](https://thankful-gymnast-355.notion.site/1c2d64adac9c4c219347d7b6ca2287a2?pvs=4)
