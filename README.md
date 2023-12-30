@@ -1,6 +1,9 @@
 # 냉싸부 - 냉장고를 싸그리 부탁해
 <img src="https://github.com/SSABOODA/HomeRefrigeratorManagement/assets/69753846/096ebcbc-863b-46e1-9634-06b092c08861" height="200" width="200">
 
+## 🔗 앱 스토어 링크
+[냉싸부 - 냉장고를 싸그리 부탁해](https://apps.apple.com/kr/app/%EB%83%89%EC%8B%B8%EB%B6%80-%EB%83%89%EC%9E%A5%EA%B3%A0%EB%A5%BC-%EC%8B%B8%EA%B7%B8%EB%A6%AC-%EB%B6%80%ED%83%81%ED%95%B4/id6470002194)
+
 ## 프로젝트 소개
 <p align="center" width="100%">
   <img src="https://github.com/SSABOODA/HomeRefrigeratorManagement/assets/69753846/6ad97490-9992-449e-9610-2d07cc8dee36" width="24%">
@@ -23,10 +26,10 @@
 ## 👥 프로젝트 참여 인원
 1명(개인 출시)
 
-## 🔗 앱 스토어 링크
-[냉싸부 - 냉장고를 싸그리 부탁해](https://apps.apple.com/kr/app/%EB%83%89%EC%8B%B8%EB%B6%80-%EB%83%89%EC%9E%A5%EA%B3%A0%EB%A5%BC-%EC%8B%B8%EA%B7%B8%EB%A6%AC-%EB%B6%80%ED%83%81%ED%95%B4/id6470002194)
-
 ## 🛠️ 사용된 프레임워크, 라이브러리, 디자인 패턴
+### Framework
+- UIKit
+### Library
 - DGCharts
 - FSCalendar
 - IQKeyboardManager
@@ -36,7 +39,9 @@
 - Firebase
   - Analytics
   - Crashlytics
+### Design Pattern
 - MVVM(+Bind)
+- Repository Pattern
 
 ## 🔍 구현 기능
 - GET, POST 하는 뷰의 식품 데이터들은 모두 `UICollectionViewDiffableDataSource`를 사용하여 구현하습니다.
