@@ -62,6 +62,7 @@
 		F794A5B52ADD5B10009D3A3A /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F794A5B42ADD5B10009D3A3A /* AlarmViewController.swift */; };
 		F794A5B72ADD6A27009D3A3A /* InquireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F794A5B62ADD6A27009D3A3A /* InquireViewController.swift */; };
 		F794A5B92ADD7BD4009D3A3A /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F794A5B82ADD7BD4009D3A3A /* NoticeViewController.swift */; };
+		F79D6A0B2B2A9D4B0059678E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F79D6A0A2B2A9D4B0059678E /* StoreKit.framework */; };
 		F7C31D782AC2CE2E008DAA21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D772AC2CE2E008DAA21 /* AppDelegate.swift */; };
 		F7C31D7A2AC2CE2F008DAA21 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D792AC2CE2F008DAA21 /* SceneDelegate.swift */; };
 		F7C31D7C2AC2CE2F008DAA21 /* FoodManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D7B2AC2CE2F008DAA21 /* FoodManagementViewController.swift */; };
@@ -164,6 +165,7 @@
 		F794A5B42ADD5B10009D3A3A /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
 		F794A5B62ADD6A27009D3A3A /* InquireViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InquireViewController.swift; sourceTree = "<group>"; };
 		F794A5B82ADD7BD4009D3A3A /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
+		F79D6A0A2B2A9D4B0059678E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		F7C31D742AC2CE2E008DAA21 /* HomeRefrigeratorManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeRefrigeratorManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7C31D772AC2CE2E008DAA21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7C31D792AC2CE2F008DAA21 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7610A3D2AD7BDAC00832129 /* Alamofire in Frameworks */,
+				F79D6A0B2B2A9D4B0059678E /* StoreKit.framework in Frameworks */,
 				F7289E582AD50CF800E092C6 /* IQKeyboardManagerSwift in Frameworks */,
 				F7C31E432AD1625D008DAA21 /* Toast in Frameworks */,
 				F7C31D9A2AC2D4B6008DAA21 /* RealmSwift in Frameworks */,
@@ -355,12 +358,21 @@
 			path = Setting;
 			sourceTree = "<group>";
 		};
+		F79D6A092B2A9D4B0059678E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F79D6A0A2B2A9D4B0059678E /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F7C31D6B2AC2CE2E008DAA21 = {
 			isa = PBXGroup;
 			children = (
 				F75E9B0C2AE00DF0000CF09A /* Settings.bundle */,
 				F7C31D762AC2CE2E008DAA21 /* HomeRefrigeratorManagement */,
 				F7C31D752AC2CE2E008DAA21 /* Products */,
+				F79D6A092B2A9D4B0059678E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
