@@ -1,7 +1,7 @@
 # 냉싸부 - 냉장고를 싸그리 부탁해
 <img src="https://github.com/SSABOODA/HomeRefrigeratorManagement/assets/69753846/096ebcbc-863b-46e1-9634-06b092c08861" height="200" width="200">
 
-## 📱 앱 설명
+## 프로젝트 소개
 <p align="center" width="100%">
   <img src="https://github.com/SSABOODA/HomeRefrigeratorManagement/assets/69753846/6ad97490-9992-449e-9610-2d07cc8dee36" width="20%">
   <img src="https://github.com/SSABOODA/HomeRefrigeratorManagement/assets/69753846/ab24ae04-0b79-4807-88c2-f750fd0b5873" width="20%">
@@ -36,7 +36,7 @@
 - Firebase
   - Analytics
   - Crashlytics
-- MVVM(Bind 패턴)
+- MVVM(+Bind)
 
 ## 🔍 구현 기능
 - GET, POST 하는 뷰의 식품 데이터들은 모두 `UICollectionViewDiffableDataSource`를 사용하여 구현하습니다.
@@ -56,7 +56,7 @@
 - [기획 및 작업 기록](https://thankful-gymnast-355.notion.site/1c2d64adac9c4c219347d7b6ca2287a2?pvs=4)
 - [앱 출시 회고 블로그](https://ios-developer-hans.tistory.com/17)
 
-## 🔥 이슈
+## 🔥 Trouble Shooting
 ### 1. 앱 내의 '알림 설정'과 시스템 설정의 '알림 설정' 동기화 문제
 ```
 - 앱 최초 실행시 알림 허용 O
