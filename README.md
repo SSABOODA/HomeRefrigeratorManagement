@@ -3,10 +3,10 @@
 
 ## 프로젝트 소개
 <p align="center" width="100%">
-  <img src="https://github.com/SSABOODA/HomeRefrigeratorManagement/assets/69753846/6ad97490-9992-449e-9610-2d07cc8dee36" width="20%">
-  <img src="https://github.com/SSABOODA/HomeRefrigeratorManagement/assets/69753846/ab24ae04-0b79-4807-88c2-f750fd0b5873" width="20%">
-  <img src="https://github.com/SSABOODA/HomeRefrigeratorManagement/assets/69753846/2afb9333-f612-40d6-a678-7c90b5561e7b" width="20%">
-  <img src="https://github.com/SSABOODA/HomeRefrigeratorManagement/assets/69753846/d3f50e7a-3e8b-4bc7-b5e3-13b81d88cdef" width="20%">
+  <img src="https://github.com/SSABOODA/HomeRefrigeratorManagement/assets/69753846/6ad97490-9992-449e-9610-2d07cc8dee36" width="25%">
+  <img src="https://github.com/SSABOODA/HomeRefrigeratorManagement/assets/69753846/ab24ae04-0b79-4807-88c2-f750fd0b5873" width="25%">
+  <img src="https://github.com/SSABOODA/HomeRefrigeratorManagement/assets/69753846/2afb9333-f612-40d6-a678-7c90b5561e7b" width="25%">
+  <img src="https://github.com/SSABOODA/HomeRefrigeratorManagement/assets/69753846/d3f50e7a-3e8b-4bc7-b5e3-13b81d88cdef" width="25%">
 </p>
 
 냉장고에 쌓여있던 음식들의 유통기한을 편하게 관리하고 소비또는 재구매할 수 있도록 도와주는 앱입니다.
