@@ -42,6 +42,7 @@
 ### Design Pattern
 - MVVM(+Bind)
 - Repository Pattern
+- Singleton Pattern
 
 ## 🔍 구현 기능
 - GET, POST 하는 뷰의 식품 데이터들은 모두 `UICollectionViewDiffableDataSource`를 사용하여 구현하습니다.
