@@ -3,7 +3,7 @@
 
 ## 프로젝트 소개
 <p align="center" width="100%">
-  <img src="https://github.com/SSABOODA/HomeRefrigeratorManagement/assets/69753846/8ffedb94-b078-49f3-ad64-79426b8c723d" width="100%">
+  <img src="https://github.com/SSABOODA/HomeRefrigeratorManagement/assets/69753846/688ae8b4-4ba8-45f3-b356-2db8ae008edf" width="100%">
 </p>
 
 ### 앱 스토어 링크
