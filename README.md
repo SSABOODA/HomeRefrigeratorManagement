@@ -28,15 +28,14 @@
 <br>
 
 ## 사용된 기술 스택
-- **Framework**
+- **Framework**<br>
 `UIKit`
-- **Library**
-`Realm`, `Snapkit`,
-`DGCharts`, `FSCalendar`, `IQKeyboardManager`, `Toast`
-, `Firebase(Analytics, Crashlytics)`
-- **Design Pattern**
+- **Library**<br>
+`Realm`, `Snapkit`, `DGCharts`, `FSCalendar`,<br>
+`IQKeyboardManager`, `Toast`, `Firebase(Analytics, Crashlytics)`
+- **Design Pattern**<br>
 `MVVM(+Bind)`, `Repository Pattern`, `Singleton Pattern`
-- **Etc**
+- **Etc**<br>
 `Code Base UI`, `Modern CollectionView`, `CompositionalLayout`
 
 <br>
