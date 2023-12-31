@@ -1,9 +1,6 @@
 # 냉싸부 - 냉장고를 싸그리 부탁해
 <img src="https://github.com/SSABOODA/HomeRefrigeratorManagement/assets/69753846/096ebcbc-863b-46e1-9634-06b092c08861" height="100" width="100">
 
-## 🔗 앱 스토어 링크
-[냉싸부 - 냉장고를 싸그리 부탁해](https://apps.apple.com/kr/app/%EB%83%89%EC%8B%B8%EB%B6%80-%EB%83%89%EC%9E%A5%EA%B3%A0%EB%A5%BC-%EC%8B%B8%EA%B7%B8%EB%A6%AC-%EB%B6%80%ED%83%81%ED%95%B4/id6470002194)
-
 ## 프로젝트 소개
 <p align="center" width="100%">
   <img src="https://github.com/SSABOODA/HomeRefrigeratorManagement/assets/69753846/6ad97490-9992-449e-9610-2d07cc8dee36" width="24%">
@@ -12,6 +9,10 @@
   <img src="https://github.com/SSABOODA/HomeRefrigeratorManagement/assets/69753846/d3f50e7a-3e8b-4bc7-b5e3-13b81d88cdef" width="24%">
 </p>
 
+### 앱 스토어 링크
+[냉싸부 - 냉장고를 싸그리 부탁해](https://apps.apple.com/kr/app/%EB%83%89%EC%8B%B8%EB%B6%80-%EB%83%89%EC%9E%A5%EA%B3%A0%EB%A5%BC-%EC%8B%B8%EA%B7%B8%EB%A6%AC-%EB%B6%80%ED%83%81%ED%95%B4/id6470002194)
+
+### 앱 소개
 냉장고에 쌓여있던 음식들의 유통기한을 편하게 관리하고 소비또는 재구매할 수 있도록 도와주는 앱입니다.
 
 - 식품 구매일자, 유통기한 정보 저장가능
@@ -20,31 +21,29 @@
 - 차트를 통해 현재 보관 식품의 종류별 현황을 파악가능
 - 유통기한이 지났거나, 임박한 상품이 있다면 푸쉬 알림을 통해 관리 유도
 
-## 🗓️ 프로젝트 기간
-2023.09.25 ~ 23.10.21(4주) - 현재 업데이트 진행 중
+### 프로젝트 기간
+- 2023.09.25 ~ 23.10.21(4주) - 현재 업데이트 진행 중
 
-## 👥 프로젝트 참여 인원
-1명(개인 출시)
+### 프로젝트 참여 인원
+1명(개인) - 출시
 
-## 🛠️ 사용된 기술 스택
-### Framework
-- UIKit
-### Library
-- DGCharts
-- FSCalendar
-- IQKeyboardManager
-- Realm
-- Snapkit
-- Toast
-- Firebase
-  - Analytics
-  - Crashlytics
-### Design Pattern
-- MVVM(+Bind)
-- Repository Pattern
-- Singleton Pattern
+<br>
+<br>
 
-## 🔍 구현 기능
+## 사용된 기술 스택
+- **Framework**
+`UIKit`
+- **Library**
+`Realm`, `Snapkit`,
+`DGCharts`, `FSCalendar`, `IQKeyboardManager`, `Toast`
+`Firebase(Analytics, Crashlytics)`
+- **Design Pattern**
+`MVVM(+Bind)`, `Repository Pattern`, `Singleton Pattern`
+
+<br>
+<br>
+
+## 구현 기능
 - GET, POST 하는 뷰의 식품 데이터들은 모두 `UICollectionViewDiffableDataSource`를 사용하여 구현하습니다.
     - 데이터 소스를 제공하여 효율적으로 셀을 관리하였습니다.
     - 데이터 변경을 추적하고 `snapshot` 기반으로 한 식품 데이터 검색 애니메이션을 사용하여 UX를 향상시켰습니다.
@@ -57,22 +56,28 @@
   - 가독성을 위해 pieChart 이외에도 아래 같은 정보를 tableView형식으로 나타내었습니다.
 - 시스템 알림과 앱 내 알림의 on,off 상태을 연동해 사용자가 원하는 시간에 유통기한 임박 상품의 알림을 받을 수 있도록 구현하였습니다.
   - 시스템 알림 상태와 앱 내 알림 상태 연동은 `NotificationCenter`를 활용해 구현하였습니다.
+ 
+<br>
+<br>
 
-## 📖 프로젝트 기획 및 기록
+## 프로젝트 기획 및 기록
 - [기획 및 작업 기록](https://thankful-gymnast-355.notion.site/1c2d64adac9c4c219347d7b6ca2287a2?pvs=4)
 - [앱 출시 회고 블로그](https://ios-developer-hans.tistory.com/17)
 
-## 🔥 Trouble Shooting
+<br>
+<br>
+
+## Trouble Shooting
 ### 1. 앱 내의 '알림 설정'과 시스템 설정의 '알림 설정' 동기화 문제
 ```
 - 앱 최초 실행시 알림 허용 O
-	- 시스템 알림 허용 O 상태
-        - 앱 내 알림 허용 O -> 푸쉬 알림 O
-        - 앱 내 알림 허용 X -> 푸쉬 알림 X
+    - 시스템 알림 허용 O 상태
+    - 앱 내 알림 허용 O -> 푸쉬 알림 O
+    - 앱 내 알림 허용 X -> 푸쉬 알림 X
 - 앱 최초 실행시 알림 허용 X
-	- 시스템 알림 허용 X 상태
-        - 앱 내 알림 허용 O -> 시스템 알림 허용 상태와 동기화 -> 앱 내 알림 상태 X
-        - 앱 내 알림 허용 X -> 푸쉬 알림 X
+    - 시스템 알림 허용 X 상태
+    - 앱 내 알림 허용 O -> 시스템 알림 허용 상태와 동기화 -> 앱 내 알림 상태 X
+    - 앱 내 알림 허용 X -> 푸쉬 알림 X
 ```
 #### 문제 상황
 - 설정 뷰에 들어왔을 때 `UNUserNotificationCenter` 클래스의 `authorizationStatus` 속성을 통해 현재 알림 권한 상태 체크
@@ -134,6 +139,8 @@ final class AlarmViewController: BaseViewController {
     }
 }
 ```
+
+<br>
 
 ### 2. Realm과 DiffableDatasource를 사용했을 때 Delete 시 크래시 문제
 
@@ -254,6 +261,8 @@ final class FoodManagementViewModel {
     var deleteFoodData: Food?
 }
 ```
+
+<br>
 
 ### 3. DiffableDatasource의 검색 애니메이션을 구현할 때 한글 검색으로 할 경우 문제
 #### 문제 상황
