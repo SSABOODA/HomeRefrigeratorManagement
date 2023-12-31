@@ -42,7 +42,7 @@
 <br>
 <br>
 
-구현 기능
+## 구현 기능
 - 모든 View는 **Modern Collection View**를 사용하여 UI를 구성하였습니다.
 - **UICollectionViewDiffableDataSource**의  사용하여 검색 시 애니메이션 효과를 가진 데이터 변경이 일어나도록 구현했습니다.
 - **UnicodeScalar**값을 활용해 한글 **초성 검색**이 가능하도록하여 데이터 변경 사항 애니메이션을 적극 활용하도록 구현하였습니다.
