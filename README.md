@@ -42,19 +42,14 @@
 <br>
 <br>
 
-## 구현 기능
-- GET, POST 하는 뷰의 식품 데이터들은 모두 `UICollectionViewDiffableDataSource`를 사용하여 구현하습니다.
-    - 데이터 소스를 제공하여 효율적으로 셀을 관리하였습니다.
-    - 데이터 변경을 추적하고 `snapshot` 기반으로 한 식품 데이터 검색 애니메이션을 사용하여 UX를 향상시켰습니다.
-- 식품을 등록하는 뷰는 `UISheetPresentController`기반으로 구현하였고, 이를 통해 사용자가 더욱 빠르게 식품을 등록하고 확인 및 숨김이 가능하도록 구현하였습니다.
-- 식품 검색은 한글 '초성' 검색이 가능하도록 하여 `DiffableDataSource`의 애니메이션 기능을 활용하여 사용자 경험을 더욱 증가시켰습니다.
-- `FSCalendar` 라이브러리를 사용해 유통기한이 임박한 식품을 나타내었습니다.
-  - 유통기한이 임박한 날의 식품이 존재한다면, 아래에 `UICollectionViewDiffableDataSource` 기반으로 컬렉션뷰를 구현하였습니다.
-  - 해당 식품 클릭 시 식품 이름 데이터를 활용해 Youtube 사이트를 WebView를 활용해 띄워 바로 해당 레시피를 검색할 수 있도록 구현했습니다.
-- `DGCharts` 라이브러리를 활용해 현재 저장된 식품군의 카테고리별로 pieChart로 나타내도록하였습니다.
-  - 가독성을 위해 pieChart 이외에도 아래 같은 정보를 tableView형식으로 나타내었습니다.
-- 시스템 알림과 앱 내 알림의 on,off 상태을 연동해 사용자가 원하는 시간에 유통기한 임박 상품의 알림을 받을 수 있도록 구현하였습니다.
-  - 시스템 알림 상태와 앱 내 알림 상태 연동은 `NotificationCenter`를 활용해 구현하였습니다.
+구현 기능
+- 모든 View는 **Modern Collection View**를 사용하여 UI를 구성하였습니다.
+- **UICollectionViewDiffableDataSource**의  사용하여 검색 시 애니메이션 효과를 가진 데이터 변경이 일어나도록 구현했습니다.
+- **UnicodeScalar**값을 활용해 한글 **초성 검색**이 가능하도록하여 데이터 변경 사항 애니메이션을 적극 활용하도록 구현하였습니다.
+- **FSCalendar** 라이브러리를 Custom하여 event를 식품 icon으로 대체하여 **사용자 친화적 UI**를 구현하도록하였습니다.
+- **DGCharts** 라이브러리를 활용해 저장된 식품 카테고리 비율로 **pieChart**로 나타내어 체계적 관리를 할 수 있도록 하였습니다.
+- **NotificationCenter**를 사용하여 시스템 알림 설정과 인앱 알림 설정 상태 **동기화**를 구현하였습니다.
+- **NotificationCenter**관련 코드는 **Repository Pattern**을 활용하여 코드 재사용성과 가독성을 증가시켰습니다.
  
 <br>
 <br>
