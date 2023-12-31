@@ -39,7 +39,7 @@
 , `Firebase(Analytics, Crashlytics)`
 - **Design Pattern**
 `MVVM(+Bind)`, `Repository Pattern`, `Singleton Pattern`
-- **etc**
+- **Etc**
 `Code Base UI`, `Modern CollectionView`, `CompositionalLayout`
 
 <br>
