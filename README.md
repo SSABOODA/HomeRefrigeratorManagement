@@ -36,9 +36,11 @@
 - **Library**
 `Realm`, `Snapkit`,
 `DGCharts`, `FSCalendar`, `IQKeyboardManager`, `Toast`
-`Firebase(Analytics, Crashlytics)`
+, `Firebase(Analytics, Crashlytics)`
 - **Design Pattern**
 `MVVM(+Bind)`, `Repository Pattern`, `Singleton Pattern`
+- **etc**
+`Code Base UI`, `Modern CollectionView`, `CompositionalLayout`
 
 <br>
 <br>
