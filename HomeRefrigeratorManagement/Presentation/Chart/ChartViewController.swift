@@ -11,7 +11,7 @@ import DGCharts
 final class ChartViewController: BaseViewController {
 
     let mainView = ChartView()
-    let viewModel = ChartViewmodel()
+    let viewModel = ChartViewModel()
 
     override func loadView() {
         view = mainView

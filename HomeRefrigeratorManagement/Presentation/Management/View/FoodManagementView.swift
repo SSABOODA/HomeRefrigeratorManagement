@@ -1,9 +1,5 @@
 //
 //  FoodManagementView.swift
-//  HomeRefrigeratorManagement
-//
-//  Created by 한성봉 on 2023/09/28.
-//
 
 import UIKit
 import SnapKit
@@ -51,10 +47,10 @@ class FoodManagementView: BaseView {
         button.tintColor = .white
         button.backgroundColor = Constant.BaseColor.basePointOrangeHexColor
         button.clipsToBounds = false
-        button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.shadowOpacity = 0.5
-        button.layer.shadowOffset = CGSize(width: 2, height: 2)
-        button.layer.shadowRadius = 2
+//        button.layer.shadowColor = UIColor.black.cgColor
+//        button.layer.shadowOpacity = 0.5
+//        button.layer.shadowOffset = CGSize(width: 2, height: 2)
+//        button.layer.shadowRadius = 2
         return button
     }()
     

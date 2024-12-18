@@ -1,13 +1,10 @@
 //
 //  YoutubeWebViewViewController.swift
-//  HomeRefrigeratorManagement
-//
-//  Created by 한성봉 on 2023/10/13.
-//
 
 import UIKit
 import WebKit
 import SnapKit
+import RxSwift
 
 final class YoutubeWebViewViewController: BaseViewController {
     
@@ -83,11 +80,32 @@ final class YoutubeWebViewViewController: BaseViewController {
         toolbar.backgroundColor = .white.withAlphaComponent(0.8)
         var items: [UIBarButtonItem] = []
 
-        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-        let backActionToolbarButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(backActionToolbarButtonTapped))
-        let forwardActionToolbarButton = UIBarButtonItem(image: UIImage(systemName: "chevron.forward"), style: .plain, target: self, action: #selector(forwardActionToolbarButtonTapped))
-        let activityToolbarButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(activityToolbarButtonTapped))
-        let refreshToolbarButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshBarButtonTapped))
+        let flexibleSpace = UIBarButtonItem(
+            barButtonSystemItem: .flexibleSpace,
+            target: self,
+            action: nil
+        )
+        let backActionToolbarButton = UIBarButtonItem(
+            image: UIImage(systemName: "chevron.backward"),
+            style: .plain,
+            target: self,
+            action: #selector(backActionToolbarButtonTapped)
+        )
+        let forwardActionToolbarButton = UIBarButtonItem(
+            image: UIImage(systemName: "chevron.forward"),
+            style: .plain, target: self,
+            action: #selector(forwardActionToolbarButtonTapped)
+        )
+        let activityToolbarButton = UIBarButtonItem(
+            barButtonSystemItem: .action,
+            target: self,
+            action: #selector(activityToolbarButtonTapped)
+        )
+        let refreshToolbarButton = UIBarButtonItem(
+            barButtonSystemItem: .refresh,
+            target: self,
+            action: #selector(refreshBarButtonTapped)
+        )
         
         items.append(backActionToolbarButton)
         items.append(flexibleSpace)

@@ -111,7 +111,7 @@
 		F7C31E382ACFC37C008DAA21 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31E372ACFC37C008DAA21 /* Date+Extension.swift */; };
 		F7C31E3A2ACFD0D8008DAA21 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31E392ACFD0D8008DAA21 /* UIView+Extension.swift */; };
 		F7C31E3C2ACFD61D008DAA21 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31E3B2ACFD61D008DAA21 /* UIColor+Extension.swift */; };
-		F7C31E3E2ACFE025008DAA21 /* FoodRegisterTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31E3D2ACFE025008DAA21 /* FoodRegisterTextFieldView.swift */; };
+		F7C31E3E2ACFE025008DAA21 /* FoodRegisterComponentTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31E3D2ACFE025008DAA21 /* FoodRegisterComponentTextFieldView.swift */; };
 		F7C31E402AD153A3008DAA21 /* FoodStorageTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31E3F2AD153A3008DAA21 /* FoodStorageTypeButton.swift */; };
 		F7C31E432AD1625D008DAA21 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = F7C31E422AD1625D008DAA21 /* Toast */; };
 		F7D61EB42AEBBEEE001E03CF /* LaunchScreen.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F7D61EB32AEBBEEE001E03CF /* LaunchScreen.jpeg */; };
@@ -215,7 +215,7 @@
 		F7C31E372ACFC37C008DAA21 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		F7C31E392ACFD0D8008DAA21 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		F7C31E3B2ACFD61D008DAA21 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
-		F7C31E3D2ACFE025008DAA21 /* FoodRegisterTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRegisterTextFieldView.swift; sourceTree = "<group>"; };
+		F7C31E3D2ACFE025008DAA21 /* FoodRegisterComponentTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRegisterComponentTextFieldView.swift; sourceTree = "<group>"; };
 		F7C31E3F2AD153A3008DAA21 /* FoodStorageTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodStorageTypeButton.swift; sourceTree = "<group>"; };
 		F7D61EB32AEBBEEE001E03CF /* LaunchScreen.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LaunchScreen.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -251,14 +251,6 @@
 				F7248A362AD9329100D768DF /* SafariActivity.swift */,
 			);
 			path = Activity;
-			sourceTree = "<group>";
-		};
-		F7248A382AD963C600D768DF /* CollectionViewHeaderView */ = {
-			isa = PBXGroup;
-			children = (
-				F7248A392AD963E600D768DF /* FoodManagementCollectionViewHeaderView.swift */,
-			);
-			path = CollectionViewHeaderView;
 			sourceTree = "<group>";
 		};
 		F7289E512AD3CDD900E092C6 /* Enum */ = {
@@ -309,21 +301,6 @@
 				F7610A502AD83FCF00832129 /* WebViewBottomSheetViewController.swift */,
 			);
 			path = Sheet;
-			sourceTree = "<group>";
-		};
-		F78B9B2E2ADA75D600EA61CB /* ViewContollerMainView */ = {
-			isa = PBXGroup;
-			children = (
-				F7610A222AD54A2500832129 /* CalendarView.swift */,
-				F7610A4B2AD8012D00832129 /* RecipeView.swift */,
-				F7C31DD72AC5A90A008DAA21 /* FoodManagementView.swift */,
-				F7289E4F2AD2E99900E092C6 /* FoodDetailManagementView.swift */,
-				F7C31E2D2ACE9DAB008DAA21 /* FoodRegisterDetailView.swift */,
-				F7C31E3D2ACFE025008DAA21 /* FoodRegisterTextFieldView.swift */,
-				F78B9B2A2ADA572700EA61CB /* ChartView.swift */,
-				F75E9B002ADE61A2000CF09A /* ConsumtionView.swift */,
-			);
-			path = ViewContollerMainView;
 			sourceTree = "<group>";
 		};
 		F78B9B312ADA86C000EA61CB /* Resources */ = {
@@ -389,15 +366,15 @@
 			isa = PBXGroup;
 			children = (
 				F70959E22AFE074F00F0218B /* HomeRefrigeratorManagement.entitlements */,
-				F7C31D772AC2CE2E008DAA21 /* AppDelegate.swift */,
-				F7C31D792AC2CE2F008DAA21 /* SceneDelegate.swift */,
+				F7ED472E2D130316000EF1E9 /* Application */,
+				F7ED472D2D13030E000EF1E9 /* Domain */,
+				F7ED472C2D130308000EF1E9 /* Data */,
 				F78B9B312ADA86C000EA61CB /* Resources */,
 				F75E9B292AE17DFF000CF09A /* Repository */,
 				F7C31DCD2AC2F524008DAA21 /* Realm */,
 				F7C31DAD2AC2DA16008DAA21 /* Utility */,
 				F7C31D902AC2CFD6008DAA21 /* Network */,
 				F7ED470A2D12FB26000EF1E9 /* Presentation */,
-				F7C31D8F2AC2CFCE008DAA21 /* Model */,
 				F7C31DB62AC2DA9C008DAA21 /* Localizable */,
 				F7C31D822AC2CE30008DAA21 /* LaunchScreen.storyboard */,
 				F7C31D852AC2CE30008DAA21 /* Info.plist */,
@@ -483,20 +460,7 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
-		F7C31DC12AC2E428008DAA21 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				F7C31DDB2AC5ABF7008DAA21 /* FoodManagementCollectionViewCell.swift */,
-				F7C31E1C2ACD3E06008DAA21 /* FoodIconCollectionViewCell.swift */,
-				F7610A262AD5B40100832129 /* CustomCalendarCell.swift */,
-				F7610A4D2AD8020700832129 /* RecipeCollectionViewCell.swift */,
-				F75E9B022ADE672D000CF09A /* ConsumptionCollectionViewCell.swift */,
-				F75E9B072ADFF85E000CF09A /* PieChartTableViewCell.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		F7C31DC22AC2E43B008DAA21 /* CustomView */ = {
+		F7C31DC22AC2E43B008DAA21 /* CustomComponentView */ = {
 			isa = PBXGroup;
 			children = (
 				F75E9B342AE2519D000CF09A /* UITextField */,
@@ -507,7 +471,7 @@
 				F7C31E1F2ACD40E8008DAA21 /* UIView */,
 				F7C31E1E2ACD40D4008DAA21 /* UIButton */,
 			);
-			path = CustomView;
+			path = CustomComponentView;
 			sourceTree = "<group>";
 		};
 		F7C31DCD2AC2F524008DAA21 /* Realm */ = {
@@ -540,9 +504,7 @@
 		F7C31E1F2ACD40E8008DAA21 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
-				F7248A382AD963C600D768DF /* CollectionViewHeaderView */,
-				F78B9B2E2ADA75D600EA61CB /* ViewContollerMainView */,
-				F78B9B2F2ADA761900EA61CB /* ChartContentView.swift */,
+				F7C31E3D2ACFE025008DAA21 /* FoodRegisterComponentTextFieldView.swift */,
 				F75E9B102AE01755000CF09A /* EmptyView.swift */,
 			);
 			path = UIView;
@@ -575,8 +537,8 @@
 		F7ED470A2D12FB26000EF1E9 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				F7C31DC22AC2E43B008DAA21 /* CustomView */,
-				F7C31DC12AC2E428008DAA21 /* Cell */,
+				F7C31DC22AC2E43B008DAA21 /* CustomComponentView */,
+				F7ED470F2D12FB7B000EF1E9 /* Base */,
 				F794A5B12ADD424E009D3A3A /* Setting */,
 				F7610A4F2AD83FB800832129 /* Sheet */,
 				F7C31D9D2AC2D619008DAA21 /* Observable.swift */,
@@ -585,8 +547,6 @@
 				F7ED47152D12FCB0000EF1E9 /* Chart */,
 				F7ED47142D12FCA2000EF1E9 /* Consumption */,
 				F7ED47132D12FC69000EF1E9 /* Recipe */,
-				F7ED47112D12FBFF000EF1E9 /* Resister */,
-				F7ED470F2D12FB7B000EF1E9 /* Base */,
 				F7ED470E2D12FB6E000EF1E9 /* Calendar */,
 				F7ED470B2D12FB52000EF1E9 /* Management */,
 				F7ED47102D12FBA1000EF1E9 /* Detail */,
@@ -599,8 +559,8 @@
 		F7ED470B2D12FB52000EF1E9 /* Management */ = {
 			isa = PBXGroup;
 			children = (
-				F7C31D7B2AC2CE2F008DAA21 /* FoodManagementViewController.swift */,
-				F7C31D9B2AC2D60E008DAA21 /* FoodManagementViewModel.swift */,
+				F7ED47322D1305A6000EF1E9 /* View */,
+				F7ED47332D1305AB000EF1E9 /* ViewModel */,
 			);
 			path = Management;
 			sourceTree = "<group>";
@@ -608,6 +568,7 @@
 		F7ED470D2D12FB5B000EF1E9 /* ResisterList */ = {
 			isa = PBXGroup;
 			children = (
+				F7C31E1C2ACD3E06008DAA21 /* FoodIconCollectionViewCell.swift */,
 				F7C31DE72AC69C3F008DAA21 /* FoodRegisterListViewController.swift */,
 				F7C31E232ACD4636008DAA21 /* FoodRegisterListViewModel.swift */,
 			);
@@ -617,6 +578,8 @@
 		F7ED470E2D12FB6E000EF1E9 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				F7610A262AD5B40100832129 /* CustomCalendarCell.swift */,
+				F7610A222AD54A2500832129 /* CalendarView.swift */,
 				F7C31DC72AC2E588008DAA21 /* CalendarViewController.swift */,
 				F7610A202AD5458C00832129 /* CalendarViewModel.swift */,
 			);
@@ -636,22 +599,16 @@
 		F7ED47102D12FBA1000EF1E9 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				F7289E4B2AD2C05400E092C6 /* FoodDetailManagementViewController.swift */,
-				F7289E4D2AD2C60300E092C6 /* FoodDetailManagementViewModel.swift */,
+				F7ED47342D1305F5000EF1E9 /* View */,
+				F7ED47352D1305FA000EF1E9 /* ViewModel */,
 			);
 			path = Detail;
-			sourceTree = "<group>";
-		};
-		F7ED47112D12FBFF000EF1E9 /* Resister */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resister;
 			sourceTree = "<group>";
 		};
 		F7ED47122D12FC43000EF1E9 /* ResisterDetail */ = {
 			isa = PBXGroup;
 			children = (
+				F7C31E2D2ACE9DAB008DAA21 /* FoodRegisterDetailView.swift */,
 				F7C31E292ACE8E8C008DAA21 /* FoodRegisterDetailViewController.swift */,
 				F7C31E2B2ACE93E3008DAA21 /* FoodRegisterDetailViewModel.swift */,
 			);
@@ -661,6 +618,8 @@
 		F7ED47132D12FC69000EF1E9 /* Recipe */ = {
 			isa = PBXGroup;
 			children = (
+				F7610A4B2AD8012D00832129 /* RecipeView.swift */,
+				F7610A4D2AD8020700832129 /* RecipeCollectionViewCell.swift */,
 				F7610A412AD7BDFB00832129 /* RecipeViewController.swift */,
 				F7610A492AD7C60400832129 /* RecipeViewModel.swift */,
 			);
@@ -670,6 +629,8 @@
 		F7ED47142D12FCA2000EF1E9 /* Consumption */ = {
 			isa = PBXGroup;
 			children = (
+				F75E9B002ADE61A2000CF09A /* ConsumtionView.swift */,
+				F75E9B022ADE672D000CF09A /* ConsumptionCollectionViewCell.swift */,
 				F75E9AFE2ADE5E35000CF09A /* ConsumptionViewController.swift */,
 				F75E9B042ADE67CD000CF09A /* ConsumptionViewModel.swift */,
 			);
@@ -679,6 +640,9 @@
 		F7ED47152D12FCB0000EF1E9 /* Chart */ = {
 			isa = PBXGroup;
 			children = (
+				F78B9B2F2ADA761900EA61CB /* ChartContentView.swift */,
+				F78B9B2A2ADA572700EA61CB /* ChartView.swift */,
+				F75E9B072ADFF85E000CF09A /* PieChartTableViewCell.swift */,
 				F78B9B282ADA54D400EA61CB /* ChartViewController.swift */,
 				F78B9B3D2ADAD07D00EA61CB /* ChartViewModel.swift */,
 			);
@@ -691,6 +655,90 @@
 				F7610A522AD9109D00832129 /* YoutubeWebViewViewController.swift */,
 			);
 			path = Youtube;
+			sourceTree = "<group>";
+		};
+		F7ED472C2D130308000EF1E9 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		F7ED472D2D13030E000EF1E9 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				F7ED47312D130362000EF1E9 /* Repository */,
+				F7ED47302D13035B000EF1E9 /* UseCase */,
+				F7ED472F2D130351000EF1E9 /* Entity */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		F7ED472E2D130316000EF1E9 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				F7C31D772AC2CE2E008DAA21 /* AppDelegate.swift */,
+				F7C31D792AC2CE2F008DAA21 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		F7ED472F2D130351000EF1E9 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				F7C31D8F2AC2CFCE008DAA21 /* Model */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		F7ED47302D13035B000EF1E9 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		F7ED47312D130362000EF1E9 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		F7ED47322D1305A6000EF1E9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F7248A392AD963E600D768DF /* FoodManagementCollectionViewHeaderView.swift */,
+				F7C31DD72AC5A90A008DAA21 /* FoodManagementView.swift */,
+				F7C31DDB2AC5ABF7008DAA21 /* FoodManagementCollectionViewCell.swift */,
+				F7C31D7B2AC2CE2F008DAA21 /* FoodManagementViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F7ED47332D1305AB000EF1E9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F7C31D9B2AC2D60E008DAA21 /* FoodManagementViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F7ED47342D1305F5000EF1E9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F7289E4F2AD2E99900E092C6 /* FoodDetailManagementView.swift */,
+				F7289E4B2AD2C05400E092C6 /* FoodDetailManagementViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F7ED47352D1305FA000EF1E9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F7289E4D2AD2C60300E092C6 /* FoodDetailManagementViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -861,7 +909,7 @@
 				F7610A442AD7C17100832129 /* NetworkManager.swift in Sources */,
 				F7C31DE82AC69C3F008DAA21 /* FoodRegisterListViewController.swift in Sources */,
 				F7C31E3C2ACFD61D008DAA21 /* UIColor+Extension.swift in Sources */,
-				F7C31E3E2ACFE025008DAA21 /* FoodRegisterTextFieldView.swift in Sources */,
+				F7C31E3E2ACFE025008DAA21 /* FoodRegisterComponentTextFieldView.swift in Sources */,
 				F7C31DC42AC2E456008DAA21 /* CustomTabBarController.swift in Sources */,
 				F7610A422AD7BDFB00832129 /* RecipeViewController.swift in Sources */,
 				F75E9B362AE251AA000CF09A /* CustomTextField.swift in Sources */,

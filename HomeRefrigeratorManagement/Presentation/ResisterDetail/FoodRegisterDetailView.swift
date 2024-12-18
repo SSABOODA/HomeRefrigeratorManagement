@@ -1,22 +1,23 @@
 //
-//  FoodDetailManagementView.swift
+//  FoodRegisterDetailView.swift
 //  HomeRefrigeratorManagement
 //
-//  Created by 한성봉 on 2023/10/08.
+//  Created by 한성봉 on 2023/10/05.
 //
 
 import UIKit
+import SnapKit
 
-class FoodDetailManagementView: BaseView {
-
+final class FoodRegisterDetailView: BaseView {
+    
     let mainView = {
         let view = UIView()
-        view.backgroundColor = Constant.BaseColor.backgroundColor
+        view.backgroundColor = UIColor(hexCode: "F6F6F6")
         view.layer.cornerRadius = 10
         view.clipsToBounds = false
-        view.layer.shadowColor = UIColor.darkGray.cgColor
-        view.layer.shadowOffset = CGSize.zero
-        view.layer.shadowRadius = 1
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOffset = .zero
+        view.layer.shadowRadius = 10
         view.layer.shadowOpacity = 0.5
         return view
     }()
@@ -45,7 +46,6 @@ class FoodDetailManagementView: BaseView {
     
     let foodImageView = {
         let view = UIImageView()
-        view.image = UIImage(named: "가지")
         return view
     }()
     
@@ -70,13 +70,13 @@ class FoodDetailManagementView: BaseView {
         label.text = "식품 설명"
         label.font = UIFont(
             name: Constant.Font.soyoBold,
-            size: Constant.FoodUpdateViewFontSize.labelFontSize
+            size: Constant.FoodCreateViewFontSize.labelFontSize
         )
         return label
     }()
     
     let foodDescriptionTextFieldView = {
-        let view = FoodRegisterTextFieldView()
+        let view = FoodRegisterComponentTextFieldView()
         return view
     }()
     
@@ -85,9 +85,8 @@ class FoodDetailManagementView: BaseView {
         tf.placeholder = "식품의 상세한 설명을 적어보세요~"
         tf.font = UIFont(
             name: Constant.Font.soyoBold,
-            size: Constant.FoodUpdateViewFontSize.textFieldFontSize
+            size: Constant.FoodCreateViewFontSize.textFieldFontSize
         )
-        tf.clearButtonMode = .whileEditing
         tf.tag = FoodDataInputTextFieldTag.desc.rawValue
         return tf
     }()
@@ -95,7 +94,7 @@ class FoodDetailManagementView: BaseView {
     lazy var foodDescriptionStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [foodDescriptionLabel, foodDescriptionTextFieldView])
         stackView.axis = .horizontal
-        stackView.spacing = Constant.StackView.detailManagementTextFieldStackViewSpacing
+        stackView.spacing = 10
         stackView.distribution = .fill
         return stackView
     }()
@@ -106,13 +105,13 @@ class FoodDetailManagementView: BaseView {
         label.text = "등록 날짜"
         label.font = UIFont(
             name: Constant.Font.soyoBold,
-            size: Constant.FoodUpdateViewFontSize.labelFontSize
+            size: Constant.FoodCreateViewFontSize.labelFontSize
         )
         return label
     }()
     
     let registerDateTextFieldView = {
-        let view = FoodRegisterTextFieldView()
+        let view = FoodRegisterComponentTextFieldView()
         return view
     }()
     
@@ -121,7 +120,7 @@ class FoodDetailManagementView: BaseView {
         tf.text = Date().dateFormat(date: Date())
         tf.font = UIFont(
             name: Constant.Font.soyoBold,
-            size: Constant.FoodUpdateViewFontSize.textFieldFontSize
+            size: Constant.FoodCreateViewFontSize.textFieldFontSize
         )
         tf.tag = FoodDataInputTextFieldTag.register.rawValue
         return tf
@@ -130,7 +129,7 @@ class FoodDetailManagementView: BaseView {
     lazy var registerDateStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [registerDateLabel, registerDateTextFieldView])
         stackView.axis = .horizontal
-        stackView.spacing = Constant.StackView.detailManagementTextFieldStackViewSpacing
+        stackView.spacing = 10
         stackView.distribution = .fill
         return stackView
     }()
@@ -141,13 +140,13 @@ class FoodDetailManagementView: BaseView {
         label.text = "유통 기한"
         label.font = UIFont(
             name: Constant.Font.soyoBold,
-            size: Constant.FoodUpdateViewFontSize.labelFontSize
+            size: Constant.FoodCreateViewFontSize.labelFontSize
         )
         return label
     }()
     
     let expirationDateTextFieldView = {
-        let view = FoodRegisterTextFieldView()
+        let view = FoodRegisterComponentTextFieldView()
         return view
     }()
     
@@ -156,7 +155,7 @@ class FoodDetailManagementView: BaseView {
         tf.text = Date().dateFormat(date: Date())
         tf.font = UIFont(
             name: Constant.Font.soyoBold,
-            size: Constant.FoodUpdateViewFontSize.textFieldFontSize
+            size: Constant.FoodCreateViewFontSize.textFieldFontSize
         )
         tf.tag = FoodDataInputTextFieldTag.expiration.rawValue
         return tf
@@ -165,7 +164,7 @@ class FoodDetailManagementView: BaseView {
     lazy var expirationDateStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [expirationDateLabel, expirationDateTextFieldView])
         stackView.axis = .horizontal
-        stackView.spacing = Constant.StackView.detailManagementTextFieldStackViewSpacing
+        stackView.spacing = 10
         stackView.distribution = .fill
         return stackView
     }()
@@ -176,13 +175,13 @@ class FoodDetailManagementView: BaseView {
         label.text = "저장 방법"
         label.font = UIFont(
             name: Constant.Font.soyoBold,
-            size: Constant.FoodUpdateViewFontSize.labelFontSize
+            size: Constant.FoodCreateViewFontSize.labelFontSize
         )
         return label
     }()
     
     let storageTypeTextFieldView = {
-        let view = FoodRegisterTextFieldView()
+        let view = FoodRegisterComponentTextFieldView()
         return view
     }()
     
@@ -191,7 +190,7 @@ class FoodDetailManagementView: BaseView {
         tf.placeholder = "저장 방법을 선택해주세요"
         tf.font = UIFont(
             name: Constant.Font.soyoBold,
-            size: Constant.FoodUpdateViewFontSize.textFieldFontSize
+            size: Constant.FoodCreateViewFontSize.textFieldFontSize
         )
         tf.tag = FoodDataInputTextFieldTag.storage.rawValue
         return tf
@@ -200,7 +199,7 @@ class FoodDetailManagementView: BaseView {
     lazy var storageTypeStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [storageTypeLabel, storageTypeTextFieldView])
         stackView.axis = .horizontal
-        stackView.spacing = Constant.StackView.detailManagementTextFieldStackViewSpacing
+        stackView.spacing = 10
         stackView.distribution = .fill
         return stackView
     }()
@@ -211,13 +210,13 @@ class FoodDetailManagementView: BaseView {
         label.text = "수량"
         label.font = UIFont(
             name: Constant.Font.soyoBold,
-            size: Constant.FoodUpdateViewFontSize.labelFontSize
+            size: Constant.FoodCreateViewFontSize.labelFontSize
         )
         return label
     }()
     
     let countTextFieldView = {
-        let view = FoodRegisterTextFieldView()
+        let view = FoodRegisterComponentTextFieldView()
         return view
     }()
     
@@ -227,7 +226,7 @@ class FoodDetailManagementView: BaseView {
         tf.placeholder = "수량을 입력해주세요~"
         tf.font = UIFont(
             name: Constant.Font.soyoBold,
-            size: Constant.FoodUpdateViewFontSize.textFieldFontSize
+            size: Constant.FoodCreateViewFontSize.textFieldFontSize
         )
         tf.clearButtonMode = .whileEditing
         tf.tag = FoodDataInputTextFieldTag.count.rawValue
@@ -237,70 +236,76 @@ class FoodDetailManagementView: BaseView {
     lazy var countStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [countLabel, countTextFieldView])
         stackView.axis = .horizontal
-        stackView.spacing = Constant.StackView.detailManagementTextFieldStackViewSpacing
+        stackView.spacing = 10
+        stackView.distribution = .fill
         return stackView
     }()
     
-    let deleteButton = {
+    let cancelButton = {
         let button = UIButton()
-        button.setTitle(Constant.ButtonSetTitle.foodDeleteButtonTitle, for: .normal)
-        button.titleLabel?.font = UIFont(name: Constant.Font.soyoBold, size: 13)
+        button.setTitle("취소하기", for: .normal)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 13)
         button.setTitleColor(UIColor.white, for: .normal)
         button.backgroundColor = .black
         return button
     }()
     
-    let updateButton = {
+    let saveButton = {
         let button = UIButton()
-        button.setTitle(Constant.ButtonSetTitle.foodUpdateButtonTitle, for: .normal)
-        button.titleLabel?.font = UIFont(name: Constant.Font.soyoBold, size: 13)
+        button.setTitle("저장하기", for: .normal)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 13)
         button.setTitleColor(UIColor.white, for: .normal)
         button.backgroundColor = Constant.BaseColor.basePointOrangeHexColor
         return button
     }()
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        foodImageShadowView.layer.cornerRadius = foodImageShadowView.frame.width / 2
+        foodImageShadowView.layoutIfNeeded()
+        
+        cancelButton.roundCorners(.bottomLeft, radius: 10)
+        cancelButton.layoutIfNeeded()
+        saveButton.roundCorners(.bottomRight, radius: 10)
+        saveButton.layoutIfNeeded()
+    }
+
     override func configureHierarchy() {
         addSubview(mainView)
+    
         mainView.addSubview(foodView)
         mainView.addSubview(registerView)
         
         foodView.addSubview(foodImageShadowView)
         foodImageShadowView.addSubview(foodImageView)
         foodView.addSubview(foodNameLabel)
-        
+
         registerView.addSubview(divideLineView)
-        
+
         registerView.addSubview(foodDescriptionStackView)
         foodDescriptionTextFieldView.addSubview(foodDescriptionTextField)
-        
+
         registerView.addSubview(registerDateStackView)
         registerDateTextFieldView.addSubview(registerDateTextField)
-        
+
         registerView.addSubview(expirationDateStackView)
         expirationDateTextFieldView.addSubview(expirationDateTextField)
-        
+
         registerView.addSubview(storageTypeStackView)
         storageTypeTextFieldView.addSubview(storageTypeTextField)
-        
+
         registerView.addSubview(countStackView)
         countTextFieldView.addSubview(countTextField)
-        
-        mainView.addSubview(deleteButton)
-        mainView.addSubview(updateButton)
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        deleteButton.roundCorners(.bottomLeft, radius: 10)
-        updateButton.roundCorners(.bottomRight, radius: 10)
-        deleteButton.layoutIfNeeded()
-        updateButton.layoutIfNeeded()
+
+        mainView.addSubview(cancelButton)
+        mainView.addSubview(saveButton)
     }
     
     override func configureLayout() {
+        
         mainView.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.width.equalTo(Constant.ScreenSize.deviceScreenWidth*0.9)
+            make.width.equalTo(Constant.ScreenSize.deviceScreenWidth*0.8)
             make.height.equalTo(Constant.ScreenSize.deviceScreenHeight*0.7)
         }
         
@@ -314,21 +319,26 @@ class FoodDetailManagementView: BaseView {
             make.horizontalEdges.equalToSuperview()
             make.height.equalToSuperview().multipliedBy(0.7)
         }
+
         foodImageShadowView.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.size.equalTo(60)
+            make.size.equalTo(50)
         }
+
         foodImageView.snp.makeConstraints { make in
             make.center.equalToSuperview()
             make.edges.equalToSuperview().inset(10)
         }
+
         foodNameLabel.snp.makeConstraints { make in
             make.centerX.equalTo(foodImageShadowView.snp.centerX)
             make.top.equalTo(foodImageShadowView.snp.bottom).offset(10)
         }
+        
         divideLineView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
             make.top.equalToSuperview().offset(30)
-            make.leading.trailing.equalToSuperview().inset(20)
+            make.width.equalToSuperview().multipliedBy(0.9)
             make.height.equalTo(0.5)
         }
         
@@ -413,17 +423,21 @@ class FoodDetailManagementView: BaseView {
         }
         
         // 버튼
-        deleteButton.snp.makeConstraints { make in
+        cancelButton.snp.makeConstraints { make in
             make.leading.bottom.equalToSuperview()
             make.width.equalToSuperview().multipliedBy(0.5)
             make.height.equalToSuperview().multipliedBy(0.1)
         }
-        
-        updateButton.snp.makeConstraints { make in
+
+        saveButton.snp.makeConstraints { make in
             make.trailing.bottom.equalToSuperview()
             make.width.equalToSuperview().multipliedBy(0.5)
             make.height.equalToSuperview().multipliedBy(0.1)
         }
         
     }
+    
+
+    
+    
 }
