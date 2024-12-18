@@ -78,7 +78,9 @@ extension CalendarViewController {
             cell.expirationDateLabel.text = self.viewModel.caculateDday(itemIdentifier.expirationDate)
         }
         
-        dataSource = UICollectionViewDiffableDataSource(collectionView: self.mainView.collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
+        dataSource = UICollectionViewDiffableDataSource(
+            collectionView: self.mainView.collectionView,
+            cellProvider: { collectionView, indexPath, itemIdentifier in
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
         })
     }

@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-final class ChartViewmodel {
+final class ChartViewModel {
     enum TotalAnalysis {
         case totalCurrentFoodCount
         case successExpirationDate

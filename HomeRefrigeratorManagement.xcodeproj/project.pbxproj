@@ -56,7 +56,7 @@
 		F78B9B362ADA86F200EA61CB /* SOYOMapleBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F78B9B342ADA86F200EA61CB /* SOYOMapleBold.ttf */; };
 		F78B9B382ADA899A00EA61CB /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78B9B372ADA899A00EA61CB /* Font.swift */; };
 		F78B9B3B2ADAC1CA00EA61CB /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = F78B9B3A2ADAC1CA00EA61CB /* DGCharts */; };
-		F78B9B3E2ADAD07D00EA61CB /* ChartViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78B9B3D2ADAD07D00EA61CB /* ChartViewmodel.swift */; };
+		F78B9B3E2ADAD07D00EA61CB /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78B9B3D2ADAD07D00EA61CB /* ChartViewModel.swift */; };
 		F78B9B402ADB8C7000EA61CB /* FoodIconImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78B9B3F2ADB8C7000EA61CB /* FoodIconImageView.swift */; };
 		F794A5B32ADD4263009D3A3A /* LicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F794A5B22ADD4263009D3A3A /* LicenseViewController.swift */; };
 		F794A5B52ADD5B10009D3A3A /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F794A5B42ADD5B10009D3A3A /* AlarmViewController.swift */; };
@@ -159,7 +159,7 @@
 		F78B9B332ADA86F100EA61CB /* SOYOMapleRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SOYOMapleRegular.ttf; sourceTree = "<group>"; };
 		F78B9B342ADA86F200EA61CB /* SOYOMapleBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SOYOMapleBold.ttf; sourceTree = "<group>"; };
 		F78B9B372ADA899A00EA61CB /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
-		F78B9B3D2ADAD07D00EA61CB /* ChartViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewmodel.swift; sourceTree = "<group>"; };
+		F78B9B3D2ADAD07D00EA61CB /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
 		F78B9B3F2ADB8C7000EA61CB /* FoodIconImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodIconImageView.swift; sourceTree = "<group>"; };
 		F794A5B22ADD4263009D3A3A /* LicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseViewController.swift; sourceTree = "<group>"; };
 		F794A5B42ADD5B10009D3A3A /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
@@ -329,6 +329,7 @@
 		F78B9B312ADA86C000EA61CB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F7C31D802AC2CE30008DAA21 /* Assets.xcassets */,
 				F75E9B092AE0027F000CF09A /* Image */,
 				F78B9B322ADA86CF00EA61CB /* Font */,
 			);
@@ -395,45 +396,15 @@
 				F7C31DCD2AC2F524008DAA21 /* Realm */,
 				F7C31DAD2AC2DA16008DAA21 /* Utility */,
 				F7C31D902AC2CFD6008DAA21 /* Network */,
+				F7ED470A2D12FB26000EF1E9 /* Presentation */,
 				F7C31D8F2AC2CFCE008DAA21 /* Model */,
-				F7C31D8D2AC2CFBE008DAA21 /* View */,
-				F7C31D8E2AC2CFC9008DAA21 /* ViewModel */,
 				F7C31DB62AC2DA9C008DAA21 /* Localizable */,
-				F7C31D802AC2CE30008DAA21 /* Assets.xcassets */,
 				F7C31D822AC2CE30008DAA21 /* LaunchScreen.storyboard */,
 				F7C31D852AC2CE30008DAA21 /* Info.plist */,
 				F7C31E132ACD347C008DAA21 /* GoogleService-Info.plist */,
 				F7C31D8B2AC2CE9C008DAA21 /* .gitignore */,
 			);
 			path = HomeRefrigeratorManagement;
-			sourceTree = "<group>";
-		};
-		F7C31D8D2AC2CFBE008DAA21 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				F7C31DC02AC2E422008DAA21 /* Base */,
-				F7C31DC22AC2E43B008DAA21 /* CustomView */,
-				F7C31DC12AC2E428008DAA21 /* Cell */,
-				F7C31DBF2AC2E40D008DAA21 /* Controllers */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		F7C31D8E2AC2CFC9008DAA21 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				F7C31D9D2AC2D619008DAA21 /* Observable.swift */,
-				F7610A202AD5458C00832129 /* CalendarViewModel.swift */,
-				F7610A492AD7C60400832129 /* RecipeViewModel.swift */,
-				F7C31D9B2AC2D60E008DAA21 /* FoodManagementViewModel.swift */,
-				F7289E4D2AD2C60300E092C6 /* FoodDetailManagementViewModel.swift */,
-				F7C31E232ACD4636008DAA21 /* FoodRegisterListViewModel.swift */,
-				F7C31E2B2ACE93E3008DAA21 /* FoodRegisterDetailViewModel.swift */,
-				F78B9B3D2ADAD07D00EA61CB /* ChartViewmodel.swift */,
-				F75E9B042ADE67CD000CF09A /* ConsumptionViewModel.swift */,
-				F75E9B372AE2593A000CF09A /* AlarmViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		F7C31D8F2AC2CFCE008DAA21 /* Model */ = {
@@ -510,34 +481,6 @@
 				F7C31DE12AC5C3F1008DAA21 /* RealmTableRepositoryProtocol.swift */,
 			);
 			path = Protocol;
-			sourceTree = "<group>";
-		};
-		F7C31DBF2AC2E40D008DAA21 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				F7610A4F2AD83FB800832129 /* Sheet */,
-				F794A5B12ADD424E009D3A3A /* Setting */,
-				F7C31DC72AC2E588008DAA21 /* CalendarViewController.swift */,
-				F7610A412AD7BDFB00832129 /* RecipeViewController.swift */,
-				F7C31D7B2AC2CE2F008DAA21 /* FoodManagementViewController.swift */,
-				F7289E4B2AD2C05400E092C6 /* FoodDetailManagementViewController.swift */,
-				F7C31DE72AC69C3F008DAA21 /* FoodRegisterListViewController.swift */,
-				F7C31E292ACE8E8C008DAA21 /* FoodRegisterDetailViewController.swift */,
-				F7610A522AD9109D00832129 /* YoutubeWebViewViewController.swift */,
-				F78B9B282ADA54D400EA61CB /* ChartViewController.swift */,
-				F75E9AFE2ADE5E35000CF09A /* ConsumptionViewController.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		F7C31DC02AC2E422008DAA21 /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				F7C31DD92AC5A924008DAA21 /* BaseView.swift */,
-				F7C31DCB2AC2EF27008DAA21 /* BaseViewController.swift */,
-				F7C31DDD2AC5AC34008DAA21 /* BaseCollectionViewCell.swift */,
-			);
-			path = Base;
 			sourceTree = "<group>";
 		};
 		F7C31DC12AC2E428008DAA21 /* Cell */ = {
@@ -627,6 +570,127 @@
 				F7C31E352ACFABFD008DAA21 /* FoodDetailSettingLabel.swift */,
 			);
 			path = UILabel;
+			sourceTree = "<group>";
+		};
+		F7ED470A2D12FB26000EF1E9 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				F7C31DC22AC2E43B008DAA21 /* CustomView */,
+				F7C31DC12AC2E428008DAA21 /* Cell */,
+				F794A5B12ADD424E009D3A3A /* Setting */,
+				F7610A4F2AD83FB800832129 /* Sheet */,
+				F7C31D9D2AC2D619008DAA21 /* Observable.swift */,
+				F75E9B372AE2593A000CF09A /* AlarmViewModel.swift */,
+				F7ED47162D12FD12000EF1E9 /* Youtube */,
+				F7ED47152D12FCB0000EF1E9 /* Chart */,
+				F7ED47142D12FCA2000EF1E9 /* Consumption */,
+				F7ED47132D12FC69000EF1E9 /* Recipe */,
+				F7ED47112D12FBFF000EF1E9 /* Resister */,
+				F7ED470F2D12FB7B000EF1E9 /* Base */,
+				F7ED470E2D12FB6E000EF1E9 /* Calendar */,
+				F7ED470B2D12FB52000EF1E9 /* Management */,
+				F7ED47102D12FBA1000EF1E9 /* Detail */,
+				F7ED470D2D12FB5B000EF1E9 /* ResisterList */,
+				F7ED47122D12FC43000EF1E9 /* ResisterDetail */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		F7ED470B2D12FB52000EF1E9 /* Management */ = {
+			isa = PBXGroup;
+			children = (
+				F7C31D7B2AC2CE2F008DAA21 /* FoodManagementViewController.swift */,
+				F7C31D9B2AC2D60E008DAA21 /* FoodManagementViewModel.swift */,
+			);
+			path = Management;
+			sourceTree = "<group>";
+		};
+		F7ED470D2D12FB5B000EF1E9 /* ResisterList */ = {
+			isa = PBXGroup;
+			children = (
+				F7C31DE72AC69C3F008DAA21 /* FoodRegisterListViewController.swift */,
+				F7C31E232ACD4636008DAA21 /* FoodRegisterListViewModel.swift */,
+			);
+			path = ResisterList;
+			sourceTree = "<group>";
+		};
+		F7ED470E2D12FB6E000EF1E9 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				F7C31DC72AC2E588008DAA21 /* CalendarViewController.swift */,
+				F7610A202AD5458C00832129 /* CalendarViewModel.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		F7ED470F2D12FB7B000EF1E9 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				F7C31DD92AC5A924008DAA21 /* BaseView.swift */,
+				F7C31DCB2AC2EF27008DAA21 /* BaseViewController.swift */,
+				F7C31DDD2AC5AC34008DAA21 /* BaseCollectionViewCell.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		F7ED47102D12FBA1000EF1E9 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				F7289E4B2AD2C05400E092C6 /* FoodDetailManagementViewController.swift */,
+				F7289E4D2AD2C60300E092C6 /* FoodDetailManagementViewModel.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		F7ED47112D12FBFF000EF1E9 /* Resister */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resister;
+			sourceTree = "<group>";
+		};
+		F7ED47122D12FC43000EF1E9 /* ResisterDetail */ = {
+			isa = PBXGroup;
+			children = (
+				F7C31E292ACE8E8C008DAA21 /* FoodRegisterDetailViewController.swift */,
+				F7C31E2B2ACE93E3008DAA21 /* FoodRegisterDetailViewModel.swift */,
+			);
+			path = ResisterDetail;
+			sourceTree = "<group>";
+		};
+		F7ED47132D12FC69000EF1E9 /* Recipe */ = {
+			isa = PBXGroup;
+			children = (
+				F7610A412AD7BDFB00832129 /* RecipeViewController.swift */,
+				F7610A492AD7C60400832129 /* RecipeViewModel.swift */,
+			);
+			path = Recipe;
+			sourceTree = "<group>";
+		};
+		F7ED47142D12FCA2000EF1E9 /* Consumption */ = {
+			isa = PBXGroup;
+			children = (
+				F75E9AFE2ADE5E35000CF09A /* ConsumptionViewController.swift */,
+				F75E9B042ADE67CD000CF09A /* ConsumptionViewModel.swift */,
+			);
+			path = Consumption;
+			sourceTree = "<group>";
+		};
+		F7ED47152D12FCB0000EF1E9 /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				F78B9B282ADA54D400EA61CB /* ChartViewController.swift */,
+				F78B9B3D2ADAD07D00EA61CB /* ChartViewModel.swift */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
+		F7ED47162D12FD12000EF1E9 /* Youtube */ = {
+			isa = PBXGroup;
+			children = (
+				F7610A522AD9109D00832129 /* YoutubeWebViewViewController.swift */,
+			);
+			path = Youtube;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -786,7 +850,7 @@
 				F75E9B012ADE61A2000CF09A /* ConsumtionView.swift in Sources */,
 				F7C31DDC2AC5ABF7008DAA21 /* FoodManagementCollectionViewCell.swift in Sources */,
 				F7C31DAF2AC2DA29008DAA21 /* String+Extension.swift in Sources */,
-				F78B9B3E2ADAD07D00EA61CB /* ChartViewmodel.swift in Sources */,
+				F78B9B3E2ADAD07D00EA61CB /* ChartViewModel.swift in Sources */,
 				F7289E4C2AD2C05400E092C6 /* FoodDetailManagementViewController.swift in Sources */,
 				F7610A212AD5458C00832129 /* CalendarViewModel.swift in Sources */,
 				F75E9B282AE11BA4000CF09A /* VersionViewController.swift in Sources */,
