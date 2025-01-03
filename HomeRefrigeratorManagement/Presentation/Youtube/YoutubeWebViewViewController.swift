@@ -4,7 +4,6 @@
 import UIKit
 import WebKit
 import SnapKit
-import RxSwift
 
 final class YoutubeWebViewViewController: BaseViewController {
     

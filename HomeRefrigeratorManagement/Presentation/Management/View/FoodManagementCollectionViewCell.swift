@@ -20,14 +20,14 @@ final class FoodManagementCollectionViewCell: BaseCollectionViewCell {
     
     let nameLabel = {
         let label = UILabel()
-        label.font = UIFont(name: Constant.Font.soyoBold, size: 15)
+        label.font = UIFont(name: Constant.Font.pretendardBold, size: 15)
         label.textColor = Constant.BaseColor.tintColor
         return label
     }()
     
     let descriptionLabel = {
         let label = UILabel()
-        label.font = UIFont(name: Constant.Font.soyoBold, size: 13)
+        label.font = UIFont(name: Constant.Font.pretendardBold, size: 13)
         label.textColor = Constant.BaseColor.tintColor
         label.numberOfLines = 1
         return label
@@ -35,7 +35,7 @@ final class FoodManagementCollectionViewCell: BaseCollectionViewCell {
     
     let purchaseDateLabel = {
         let label = UILabel()
-        label.font = UIFont(name: Constant.Font.soyoRegular, size: 13)
+        label.font = UIFont(name: Constant.Font.pretendardRegular, size: 13)
         label.textColor = Constant.BaseColor.tintColor
         label.numberOfLines = 1
         return label
@@ -50,7 +50,7 @@ final class FoodManagementCollectionViewCell: BaseCollectionViewCell {
     
     let expirationDateLabel = {
         let label = UILabel()
-        label.font = UIFont(name: Constant.Font.soyoBold, size: 15)
+        label.font = UIFont(name: Constant.Font.pretendardBold, size: 15)
         label.textColor = UIColor(hexCode: "#E27749")
         label.textAlignment = .right
         label.text = "D-0"

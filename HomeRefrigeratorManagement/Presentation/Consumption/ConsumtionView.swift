@@ -13,7 +13,7 @@ final class ConsumtionView: BaseView {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.searchTextField.attributedPlaceholder = NSAttributedString(
             string: "냉장고에 저장된 식품을 검색해보세요".localized,
-            attributes: [NSAttributedString.Key.font: UIFont(name: Constant.Font.soyoBold, size: 11)!]
+            attributes: [NSAttributedString.Key.font: UIFont(name: Constant.Font.pretendardBold, size: 11)!]
         )
         
         searchController.searchBar.showsCancelButton = true
@@ -22,7 +22,7 @@ final class ConsumtionView: BaseView {
         if let cancelButton = searchController.searchBar.value(forKey: "cancelButton") as? UIButton {
             let nsAttributedString = NSAttributedString(
                 string: "취소".localized,
-                attributes: [NSAttributedString.Key.font: UIFont(name: Constant.Font.soyoBold, size: 12)!]
+                attributes: [NSAttributedString.Key.font: UIFont(name: Constant.Font.pretendardBold, size: 12)!]
             )
             cancelButton.setTitleColor(Constant.BaseColor.tintColor, for: .normal)
             cancelButton.setAttributedTitle(nsAttributedString, for: .normal)

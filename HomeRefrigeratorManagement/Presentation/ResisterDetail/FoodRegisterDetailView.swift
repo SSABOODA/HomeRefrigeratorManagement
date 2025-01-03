@@ -1,40 +1,37 @@
 //
 //  FoodRegisterDetailView.swift
-//  HomeRefrigeratorManagement
-//
-//  Created by 한성봉 on 2023/10/05.
-//
 
 import UIKit
 import SnapKit
 
 final class FoodRegisterDetailView: BaseView {
     
-    let mainView = {
+    private let mainView = {
         let view = UIView()
         view.backgroundColor = UIColor(hexCode: "F6F6F6")
         view.layer.cornerRadius = 10
         view.clipsToBounds = false
-        view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowOffset = .zero
-        view.layer.shadowRadius = 10
-        view.layer.shadowOpacity = 0.5
+        
+//        view.layer.shadowColor = UIColor.black.cgColor
+//        view.layer.shadowOffset = .zero
+//        view.layer.shadowRadius = 10
+//        view.layer.shadowOpacity = 0.5
         return view
     }()
     
-    let foodView = {
+    private let foodView = {
         let view = UIView()
         return view
     }()
     
-    let registerView = {
+    private let registerView = {
         let view = UIView()
         return view
     }()
     
     // 상단 음식 아이콘
     
-    let foodImageShadowView = {
+    private let foodImageShadowView = {
         let view = UIView()
         view.clipsToBounds = false
         view.layer.shadowColor = UIColor.black.cgColor
@@ -44,14 +41,14 @@ final class FoodRegisterDetailView: BaseView {
         return view
     }()
     
-    let foodImageView = {
+    private let foodImageView = {
         let view = UIImageView()
         return view
     }()
     
-    let foodNameLabel = {
+    private let foodNameLabel = {
         let label = UILabel()
-        label.font = UIFont(name: Constant.Font.soyoBold, size: 15)
+        label.font = UIFont(name: Constant.Font.pretendardBold, size: 15)
         return label
     }()
     
@@ -69,7 +66,7 @@ final class FoodRegisterDetailView: BaseView {
         let label = FoodDetailSettingLabel()
         label.text = "식품 설명"
         label.font = UIFont(
-            name: Constant.Font.soyoBold,
+            name: Constant.Font.pretendardBold,
             size: Constant.FoodCreateViewFontSize.labelFontSize
         )
         return label
@@ -84,7 +81,7 @@ final class FoodRegisterDetailView: BaseView {
         let tf = CustomTextField()
         tf.placeholder = "식품의 상세한 설명을 적어보세요~"
         tf.font = UIFont(
-            name: Constant.Font.soyoBold,
+            name: Constant.Font.pretendardBold,
             size: Constant.FoodCreateViewFontSize.textFieldFontSize
         )
         tf.tag = FoodDataInputTextFieldTag.desc.rawValue
@@ -104,7 +101,7 @@ final class FoodRegisterDetailView: BaseView {
         let label = FoodDetailSettingLabel()
         label.text = "등록 날짜"
         label.font = UIFont(
-            name: Constant.Font.soyoBold,
+            name: Constant.Font.pretendardBold,
             size: Constant.FoodCreateViewFontSize.labelFontSize
         )
         return label
@@ -119,7 +116,7 @@ final class FoodRegisterDetailView: BaseView {
         let tf = CustomTextField()
         tf.text = Date().dateFormat(date: Date())
         tf.font = UIFont(
-            name: Constant.Font.soyoBold,
+            name: Constant.Font.pretendardBold,
             size: Constant.FoodCreateViewFontSize.textFieldFontSize
         )
         tf.tag = FoodDataInputTextFieldTag.register.rawValue
@@ -139,7 +136,7 @@ final class FoodRegisterDetailView: BaseView {
         let label = FoodDetailSettingLabel()
         label.text = "유통 기한"
         label.font = UIFont(
-            name: Constant.Font.soyoBold,
+            name: Constant.Font.pretendardBold,
             size: Constant.FoodCreateViewFontSize.labelFontSize
         )
         return label
@@ -154,7 +151,7 @@ final class FoodRegisterDetailView: BaseView {
         let tf = CustomTextField()
         tf.text = Date().dateFormat(date: Date())
         tf.font = UIFont(
-            name: Constant.Font.soyoBold,
+            name: Constant.Font.pretendardBold,
             size: Constant.FoodCreateViewFontSize.textFieldFontSize
         )
         tf.tag = FoodDataInputTextFieldTag.expiration.rawValue
@@ -174,7 +171,7 @@ final class FoodRegisterDetailView: BaseView {
         let label = FoodDetailSettingLabel()
         label.text = "저장 방법"
         label.font = UIFont(
-            name: Constant.Font.soyoBold,
+            name: Constant.Font.pretendardBold,
             size: Constant.FoodCreateViewFontSize.labelFontSize
         )
         return label
@@ -189,7 +186,7 @@ final class FoodRegisterDetailView: BaseView {
         let tf = CustomTextField()
         tf.placeholder = "저장 방법을 선택해주세요"
         tf.font = UIFont(
-            name: Constant.Font.soyoBold,
+            name: Constant.Font.pretendardBold,
             size: Constant.FoodCreateViewFontSize.textFieldFontSize
         )
         tf.tag = FoodDataInputTextFieldTag.storage.rawValue
@@ -209,7 +206,7 @@ final class FoodRegisterDetailView: BaseView {
         let label = FoodDetailSettingLabel()
         label.text = "수량"
         label.font = UIFont(
-            name: Constant.Font.soyoBold,
+            name: Constant.Font.pretendardBold,
             size: Constant.FoodCreateViewFontSize.labelFontSize
         )
         return label
@@ -225,7 +222,7 @@ final class FoodRegisterDetailView: BaseView {
         tf.keyboardType = .numberPad
         tf.placeholder = "수량을 입력해주세요~"
         tf.font = UIFont(
-            name: Constant.Font.soyoBold,
+            name: Constant.Font.pretendardBold,
             size: Constant.FoodCreateViewFontSize.textFieldFontSize
         )
         tf.clearButtonMode = .whileEditing
@@ -434,10 +431,5 @@ final class FoodRegisterDetailView: BaseView {
             make.width.equalToSuperview().multipliedBy(0.5)
             make.height.equalToSuperview().multipliedBy(0.1)
         }
-        
     }
-    
-
-    
-    
 }

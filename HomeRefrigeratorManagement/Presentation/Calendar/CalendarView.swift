@@ -49,11 +49,11 @@ final class CalendarView: BaseView {
         calendar.scrollDirection = .horizontal
         
         // 요일 UI 설정
-        calendar.appearance.weekdayFont = UIFont(name: Constant.Font.soyoBold, size: 17)
+        calendar.appearance.weekdayFont = UIFont(name: Constant.Font.pretendardBold, size: 17)
         calendar.appearance.weekdayTextColor = UIColor(hexCode: "A1A2A5")
         
         // 각각의 일(날짜) 폰트 설정
-        calendar.appearance.titleFont = UIFont(name: Constant.Font.soyoBold, size: 16)
+        calendar.appearance.titleFont = UIFont(name: Constant.Font.pretendardBold, size: 16)
         
         // 다중 선택
 //        calendar.allowsMultipleSelection = true
@@ -63,7 +63,7 @@ final class CalendarView: BaseView {
         calendar.appearance.headerDateFormat = "YYYY. M"
         calendar.appearance.headerTitleColor = Constant.BaseColor.tintColor
         calendar.appearance.headerTitleAlignment = .center
-        calendar.appearance.headerTitleFont = UIFont(name: Constant.Font.soyoBold, size: 25)
+        calendar.appearance.headerTitleFont = UIFont(name: Constant.Font.pretendardBold, size: 25)
         calendar.appearance.headerMinimumDissolvedAlpha = 0.0
         
 //        calendar.appearance.eventDefaultColor = UIColor.systemRed

@@ -19,7 +19,7 @@ final class ConsumptionCollectionViewCell: BaseCollectionViewCell {
     
     let nameLabel = {
         let label = UILabel()
-        label.font = UIFont(name: Constant.Font.soyoBold, size: 13)
+        label.font = UIFont(name: Constant.Font.pretendardBold, size: 13)
         label.numberOfLines = 1
         label.textAlignment = .center
         return label
@@ -27,7 +27,7 @@ final class ConsumptionCollectionViewCell: BaseCollectionViewCell {
     
     let countLabel = {
         let label = UILabel()
-        label.font = UIFont(name: Constant.Font.soyoBold, size: 13)
+        label.font = UIFont(name: Constant.Font.pretendardBold, size: 13)
         label.textAlignment = .center
         return label
     }()
@@ -111,9 +111,10 @@ final class ConsumptionCollectionViewCell: BaseCollectionViewCell {
         backgroundColor = Constant.collectionViewColor.collectionViewBackgroundColor
         layer.cornerRadius = 10
         clipsToBounds = false
-        layer.shadowColor = UIColor.lightGray.cgColor
-        layer.shadowOpacity = 0.5
-        layer.shadowOffset = CGSize.zero
-        layer.shadowRadius = 2
+        
+//        layer.shadowColor = UIColor.lightGray.cgColor
+//        layer.shadowOpacity = 0.5
+//        layer.shadowOffset = CGSize.zero
+//        layer.shadowRadius = 2
     }
 }

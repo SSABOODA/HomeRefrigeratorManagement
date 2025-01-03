@@ -23,7 +23,7 @@ class FoodIconCollectionViewCell: BaseCollectionViewCell {
     let foodIconNameLabel = {
         let label = UILabel()
         label.text = "이름"
-        label.font = UIFont(name: Constant.Font.soyoBold, size: 13)
+        label.font = UIFont(name: Constant.Font.pretendardBold, size: 13)
         label.numberOfLines = 2
         label.textAlignment = .center
         return label

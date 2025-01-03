@@ -6,6 +6,11 @@
 	<array>
 		<string>SOYOMapleBold.ttf</string>
 		<string>SOYOMapleRegular.ttf</string>
+		<string>Pretendard-Bold.otf</string>
+		<string>Pretendard-ExtraBold.otf</string>
+		<string>Pretendard-Medium.otf</string>
+		<string>Pretendard-Regular.otf</string>
+		<string>Pretendard-SemiBold.otf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

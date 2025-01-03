@@ -17,13 +17,13 @@ final class PieChartTableViewCell: UITableViewCell {
     
     let categoryLabel = {
         let label = UILabel()
-        label.font = UIFont(name: Constant.Font.soyoBold, size: 15)
+        label.font = UIFont(name: Constant.Font.pretendardBold, size: 15)
         return label
     }()
     
     let percentageLabel = {
         let label = UILabel()
-        label.font = UIFont(name: Constant.Font.soyoBold, size: 15)
+        label.font = UIFont(name: Constant.Font.pretendardBold, size: 15)
         return label
     }()
     

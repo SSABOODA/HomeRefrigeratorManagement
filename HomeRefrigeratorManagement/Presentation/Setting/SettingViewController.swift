@@ -92,7 +92,7 @@ final class SettingViewController: BaseViewController {
             
             let nsAttributedString = NSAttributedString(
                 string: "\(itemIdentifier.title)".localized,
-                attributes: [NSAttributedString.Key.font: UIFont(name: Constant.Font.soyoBold, size: 15)!]
+                attributes: [NSAttributedString.Key.font: UIFont(name: Constant.Font.pretendardBold, size: 15)!]
             )
             content.attributedText = nsAttributedString
             content.textToSecondaryTextVerticalPadding = 20
@@ -118,7 +118,7 @@ final class SettingViewController: BaseViewController {
         let backBarButtonItem = UIBarButtonItem(title: self.title, style: .plain, target: self, action: nil)
         backBarButtonItem.tintColor = Constant.BaseColor.tintColor
         backBarButtonItem.setTitleTextAttributes([
-            NSAttributedString.Key.font : UIFont(name: Constant.Font.soyoBold, size: 15)!,
+            NSAttributedString.Key.font : UIFont(name: Constant.Font.pretendardBold, size: 15)!,
             NSAttributedString.Key.foregroundColor : UIColor.black],
                                          for: .normal)
         self.navigationItem.backBarButtonItem = backBarButtonItem

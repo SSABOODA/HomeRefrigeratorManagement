@@ -79,7 +79,6 @@ extension ChartViewController {
         for i in 0..<dataPoints.count {
             let dataEntry = PieChartDataEntry(
                 value: Double(values[i] / Double(viewModel.totalFoodCount)),
-//                label: dataPoints[i]
                 label: nil
             )
             dataEntries.append(dataEntry)
@@ -88,7 +87,7 @@ extension ChartViewController {
         let pieChartDataSet = PieChartDataSet(entries: dataEntries, label: "")
         pieChartDataSet.colors = colorsOfCharts()
         
-        guard let NSFont = NSUIFont(name: Constant.Font.soyoBold, size: 12) else { return }
+        guard let NSFont = NSUIFont(name: Constant.Font.pretendardBold, size: 12) else { return }
         pieChartDataSet.valueFont = NSFont
         pieChartDataSet.valueTextColor = NSUIColor(hexCode: "#000000")
         pieChartDataSet.valueLinePart1OffsetPercentage = 0.4 // 선깊이

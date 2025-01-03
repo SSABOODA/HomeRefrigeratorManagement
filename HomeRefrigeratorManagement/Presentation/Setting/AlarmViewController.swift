@@ -41,7 +41,7 @@ final class AlarmViewController: BaseViewController {
     
     private let alarmTimeChoiceLabel = {
         let label = UILabel()
-        label.font = UIFont(name: Constant.Font.soyoRegular, size: 11)
+        label.font = UIFont(name: Constant.Font.pretendardRegular, size: 11)
         label.text = "알림 받을 시간대 선택해주시면 선택한 시간에 알림을 보내드립니다."
         label.textColor = .darkGray
         label.numberOfLines = 2
@@ -229,8 +229,8 @@ extension AlarmViewController: UITableViewDelegate, UITableViewDataSource {
         
         let data = list[indexPath.row]
         
-        content.attributedText = data.title.makeNSAttributedString(fontName: Constant.Font.soyoBold, fontSize: 15)
-        content.secondaryAttributedText = "유통기한이 임박한 상품에 대한 알림을 보내드립니다.".makeNSAttributedString(fontName: Constant.Font.soyoRegular, fontSize: 11)
+        content.attributedText = data.title.makeNSAttributedString(fontName: Constant.Font.pretendardBold, fontSize: 15)
+        content.secondaryAttributedText = "유통기한이 임박한 상품에 대한 알림을 보내드립니다.".makeNSAttributedString(fontName: Constant.Font.pretendardRegular, fontSize: 11)
         cell.contentConfiguration = content
         return cell
     }

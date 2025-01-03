@@ -74,7 +74,7 @@ final class CustomTabBarController: UITabBarController {
         )
         
         let appearance = UITabBarItem.appearance()
-        let attributes = [NSAttributedString.Key.font: UIFont(name: Constant.Font.soyoBold, size: 11)]
+        let attributes = [NSAttributedString.Key.font: UIFont(name: Constant.Font.pretendardBold, size: 11)]
         appearance.setTitleTextAttributes(attributes as [NSAttributedString.Key : Any], for: .normal)
         modalPresentationStyle = .fullScreen
     }

@@ -31,7 +31,7 @@ final class ChartView: BaseView {
     private let headerTitleLabel = {
         let label = UILabel()
         label.text = Date().toString(format: .compactDot)
-        label.font = UIFont(name: Constant.Font.soyoBold, size: 25)
+        label.font = UIFont(name: Constant.Font.pretendardBold, size: 25)
         label.textAlignment = .center
         return label
     }()
@@ -40,7 +40,7 @@ final class ChartView: BaseView {
         let label = UILabel()
         label.text = Constant.CharViewTitle.headerSubTitle
         label.textAlignment = .center
-        label.font = UIFont(name: Constant.Font.soyoRegular, size: 13)
+        label.font = UIFont(name: Constant.Font.pretendardRegular, size: 13)
         label.textColor = .lightGray
         return label
     }()
@@ -55,7 +55,7 @@ final class ChartView: BaseView {
         let label = UILabel()
         label.text = Constant.CharViewTitle.totalAnalysisTitle
         label.textAlignment = .center
-        label.font = UIFont(name: Constant.Font.soyoBold, size: 25)
+        label.font = UIFont(name: Constant.Font.pretendardBold, size: 25)
         return label
     }()
     
@@ -69,7 +69,7 @@ final class ChartView: BaseView {
     private let firstTotalAnalysisContentLabel = {
         let label = UILabel()
         label.text = Constant.CharViewTitle.firstTotalAnalysisContentTitle
-        label.font = UIFont(name: Constant.Font.soyoRegular, size: 13)
+        label.font = UIFont(name: Constant.Font.pretendardRegular, size: 13)
         label.textAlignment = .center
         return label
     }()
@@ -77,7 +77,7 @@ final class ChartView: BaseView {
     let firstTotalAnalysisContentInfoLabel = {
         let label = UILabel()
         label.text = "0"
-        label.font = UIFont(name: Constant.Font.soyoBold, size: 15)
+        label.font = UIFont(name: Constant.Font.pretendardBold, size: 15)
         label.textColor = .orange
         label.textAlignment = .right
         return label
@@ -93,7 +93,7 @@ final class ChartView: BaseView {
     private let secondTotalAnalysisContentLabel = {
         let label = UILabel()
         label.text = Constant.CharViewTitle.secondTotalAnalysisContentTitle
-        label.font = UIFont(name: Constant.Font.soyoRegular, size: 13)
+        label.font = UIFont(name: Constant.Font.pretendardRegular, size: 13)
         label.textAlignment = .center
         return label
     }()
@@ -101,7 +101,7 @@ final class ChartView: BaseView {
     let secondTotalAnalysisContentInfoLabel = {
         let label = UILabel()
         label.text = "0"
-        label.font = UIFont(name: Constant.Font.soyoBold, size: 15)
+        label.font = UIFont(name: Constant.Font.pretendardBold, size: 15)
         label.textColor = .orange
         label.textAlignment = .right
         return label
@@ -117,7 +117,7 @@ final class ChartView: BaseView {
     private let thirdTotalAnalysisContentLabel = {
         let label = UILabel()
         label.text = Constant.CharViewTitle.thirdTotalAnalysisContentTitle
-        label.font = UIFont(name: Constant.Font.soyoRegular, size: 13)
+        label.font = UIFont(name: Constant.Font.pretendardRegular, size: 13)
         label.textAlignment = .center
         return label
     }()
@@ -125,7 +125,7 @@ final class ChartView: BaseView {
     let thirdTotalAnalysisContentInfoLabel = {
         let label = UILabel()
         label.text = "0"
-        label.font = UIFont(name: Constant.Font.soyoBold, size: 15)
+        label.font = UIFont(name: Constant.Font.pretendardBold, size: 15)
         label.textColor = .orange
         label.textAlignment = .right
         return label
@@ -173,7 +173,7 @@ final class ChartView: BaseView {
     private let categoryChartAnalyTitleLabel = {
         let label = UILabel()
         label.text = Constant.CharViewTitle.chartAnalyTitle
-        label.font = UIFont(name: Constant.Font.soyoBold, size: 25)
+        label.font = UIFont(name: Constant.Font.pretendardBold, size: 25)
         label.textAlignment = .center
         return label
     }()
@@ -182,7 +182,7 @@ final class ChartView: BaseView {
         let label = UILabel()
         label.text = "(단위: 개)"
         label.textAlignment = .center
-        label.font = UIFont(name: Constant.Font.soyoBold, size: 11)
+        label.font = UIFont(name: Constant.Font.pretendardBold, size: 11)
         label.textColor = .darkGray
         return label
     }()
@@ -192,7 +192,7 @@ final class ChartView: BaseView {
         view.backgroundColor = Constant.BaseColor.backgroundColor
         // 데이터 없을 UI 세팅
         view.noDataText = "출력할 데이터가 없습니다. 😭".localized
-        view.noDataFont = UIFont(name: Constant.Font.soyoBold, size: 20)!
+        view.noDataFont = UIFont(name: Constant.Font.pretendardBold, size: 20)!
         view.noDataTextColor = .orange
         view.noDataTextAlignment = .center
         
@@ -201,8 +201,8 @@ final class ChartView: BaseView {
         view.legend.enabled = true
         
         // pieChart UI 세팅
-        view.legend.font = UIFont(name: Constant.Font.soyoRegular, size: 12)!
-        view.entryLabelFont = UIFont(name: Constant.Font.soyoRegular, size: 10)
+        view.legend.font = UIFont(name: Constant.Font.pretendardRegular, size: 12)!
+        view.entryLabelFont = UIFont(name: Constant.Font.pretendardRegular, size: 10)
         view.entryLabelColor = .black
         view.tintColor = .black
         

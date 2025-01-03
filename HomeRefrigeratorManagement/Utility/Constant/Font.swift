@@ -1,16 +1,19 @@
 //
 //  Font.swift
-//  HomeRefrigeratorManagement
-//
-//  Created by 한성봉 on 2023/10/14.
-//
 
 import Foundation
 
 extension Constant {
     enum Font {
+        // SOYO
         static let soyoBold = "SOYO-Maple-Bold-TTF"
         static let soyoRegular = "SOYO-Maple-Regular-TTF"
+        
+        // Pretendard
+        static let pretendardRegular = "Pretendard-Regular"
+        static let pretendardMedium = "Pretendard-Medium"
+        static let pretendardSemiBold = "Pretendard-SemiBold"
+        static let pretendardBold = "Pretendard-Bold"
     }
     
     enum FontSize {

@@ -59,14 +59,14 @@ final class FoodRegisterListViewController: BaseViewController {
         
         let nsAttributedString = NSAttributedString(
             string: "저장할 식품을 검색해보세요".localized,
-            attributes: [NSAttributedString.Key.font: UIFont(name: Constant.Font.soyoBold, size: 12)!]
+            attributes: [NSAttributedString.Key.font: UIFont(name: Constant.Font.pretendardBold, size: 12)!]
         )
         searchBar.searchTextField.attributedPlaceholder = nsAttributedString
         
         if let cancelButton = searchBar.value(forKey: "cancelButton") as? UIButton {
             let nsAttributedString = NSAttributedString(
                 string: "취소".localized,
-                attributes: [NSAttributedString.Key.font: UIFont(name: Constant.Font.soyoBold, size: 12)!]
+                attributes: [NSAttributedString.Key.font: UIFont(name: Constant.Font.pretendardBold, size: 12)!]
             )
 
             cancelButton.setTitleColor(Constant.BaseColor.tintColor, for: .normal)

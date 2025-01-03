@@ -20,14 +20,16 @@ class FoodStorageTypeButton: UIButton {
     
     func setupView() {
         setTitleColor(Constant.BaseColor.tintColor, for: .normal)
-        titleLabel?.font = UIFont(name: Constant.Font.soyoBold, size: 15)
+        titleLabel?.font = UIFont(name: Constant.Font.pretendardBold, size: 15)
         backgroundColor = Constant.BaseColor.backgroundColor
         layer.cornerRadius = 15
-        layer.shadowColor = UIColor.darkGray.cgColor
-        layer.shadowOffset = CGSize.zero
-        layer.shadowRadius = 2
-        layer.shadowOpacity = 0.5
         clipsToBounds = false
+        
+//        layer.shadowColor = UIColor.darkGray.cgColor
+//        layer.shadowOffset = CGSize.zero
+//        layer.shadowRadius = 2
+//        layer.shadowOpacity = 0.5
+        
         
     }
     

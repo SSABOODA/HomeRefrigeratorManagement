@@ -21,7 +21,7 @@ final class EmptyView: BaseView {
         label.text = "냉장고에 저장된 식품이 없습니다. 식품을 저장하고 관리해보세요.".localized
         label.textAlignment = .center
         label.numberOfLines = 0
-        label.font = UIFont(name: Constant.Font.soyoBold, size: 13)
+        label.font = UIFont(name: Constant.Font.pretendardBold, size: 13)
         return label
     }()
     

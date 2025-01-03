@@ -123,8 +123,12 @@ extension UIViewController {
     // 네비게이션 폰트 변경
     func changeNavigationCustomFont() {
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font: UIFont(name: Constant.Font.soyoBold, size: Constant.FontSize.navigationLargeTitleFontSize)!]
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: Constant.Font.soyoBold, size: 15)!]
+        navigationController?.navigationBar.largeTitleTextAttributes = [
+            NSAttributedString.Key.font: UIFont(name: Constant.Font.pretendardBold, size: Constant.FontSize.navigationLargeTitleFontSize)!
+        ]
+        navigationController?.navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.font: UIFont(name: Constant.Font.pretendardBold, size: 15)!
+        ]
     }
     
     // 텍스트필드 제약

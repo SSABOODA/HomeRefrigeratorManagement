@@ -51,7 +51,7 @@ class FoodDetailManagementView: BaseView {
     
     let foodNameLabel = {
         let label = UILabel()
-        label.font = UIFont(name: Constant.Font.soyoBold, size: 15)
+        label.font = UIFont(name: Constant.Font.pretendardBold, size: 15)
         return label
     }()
     
@@ -69,7 +69,7 @@ class FoodDetailManagementView: BaseView {
         let label = FoodDetailSettingLabel()
         label.text = "식품 설명"
         label.font = UIFont(
-            name: Constant.Font.soyoBold,
+            name: Constant.Font.pretendardBold,
             size: Constant.FoodUpdateViewFontSize.labelFontSize
         )
         return label
@@ -84,7 +84,7 @@ class FoodDetailManagementView: BaseView {
         let tf = CustomTextField()
         tf.placeholder = "식품의 상세한 설명을 적어보세요~"
         tf.font = UIFont(
-            name: Constant.Font.soyoBold,
+            name: Constant.Font.pretendardBold,
             size: Constant.FoodUpdateViewFontSize.textFieldFontSize
         )
         tf.clearButtonMode = .whileEditing
@@ -105,7 +105,7 @@ class FoodDetailManagementView: BaseView {
         let label = FoodDetailSettingLabel()
         label.text = "등록 날짜"
         label.font = UIFont(
-            name: Constant.Font.soyoBold,
+            name: Constant.Font.pretendardBold,
             size: Constant.FoodUpdateViewFontSize.labelFontSize
         )
         return label
@@ -120,7 +120,7 @@ class FoodDetailManagementView: BaseView {
         let tf = CustomTextField()
         tf.text = Date().dateFormat(date: Date())
         tf.font = UIFont(
-            name: Constant.Font.soyoBold,
+            name: Constant.Font.pretendardBold,
             size: Constant.FoodUpdateViewFontSize.textFieldFontSize
         )
         tf.tag = FoodDataInputTextFieldTag.register.rawValue
@@ -140,7 +140,7 @@ class FoodDetailManagementView: BaseView {
         let label = FoodDetailSettingLabel()
         label.text = "유통 기한"
         label.font = UIFont(
-            name: Constant.Font.soyoBold,
+            name: Constant.Font.pretendardBold,
             size: Constant.FoodUpdateViewFontSize.labelFontSize
         )
         return label
@@ -155,7 +155,7 @@ class FoodDetailManagementView: BaseView {
         let tf = CustomTextField()
         tf.text = Date().dateFormat(date: Date())
         tf.font = UIFont(
-            name: Constant.Font.soyoBold,
+            name: Constant.Font.pretendardBold,
             size: Constant.FoodUpdateViewFontSize.textFieldFontSize
         )
         tf.tag = FoodDataInputTextFieldTag.expiration.rawValue
@@ -175,7 +175,7 @@ class FoodDetailManagementView: BaseView {
         let label = FoodDetailSettingLabel()
         label.text = "저장 방법"
         label.font = UIFont(
-            name: Constant.Font.soyoBold,
+            name: Constant.Font.pretendardBold,
             size: Constant.FoodUpdateViewFontSize.labelFontSize
         )
         return label
@@ -190,7 +190,7 @@ class FoodDetailManagementView: BaseView {
         let tf = CustomTextField()
         tf.placeholder = "저장 방법을 선택해주세요"
         tf.font = UIFont(
-            name: Constant.Font.soyoBold,
+            name: Constant.Font.pretendardBold,
             size: Constant.FoodUpdateViewFontSize.textFieldFontSize
         )
         tf.tag = FoodDataInputTextFieldTag.storage.rawValue
@@ -210,7 +210,7 @@ class FoodDetailManagementView: BaseView {
         let label = FoodDetailSettingLabel()
         label.text = "수량"
         label.font = UIFont(
-            name: Constant.Font.soyoBold,
+            name: Constant.Font.pretendardBold,
             size: Constant.FoodUpdateViewFontSize.labelFontSize
         )
         return label
@@ -226,7 +226,7 @@ class FoodDetailManagementView: BaseView {
         tf.keyboardType = .numberPad
         tf.placeholder = "수량을 입력해주세요~"
         tf.font = UIFont(
-            name: Constant.Font.soyoBold,
+            name: Constant.Font.pretendardBold,
             size: Constant.FoodUpdateViewFontSize.textFieldFontSize
         )
         tf.clearButtonMode = .whileEditing
@@ -244,7 +244,7 @@ class FoodDetailManagementView: BaseView {
     let deleteButton = {
         let button = UIButton()
         button.setTitle(Constant.ButtonSetTitle.foodDeleteButtonTitle, for: .normal)
-        button.titleLabel?.font = UIFont(name: Constant.Font.soyoBold, size: 13)
+        button.titleLabel?.font = UIFont(name: Constant.Font.pretendardBold, size: 13)
         button.setTitleColor(UIColor.white, for: .normal)
         button.backgroundColor = .black
         return button
@@ -253,7 +253,7 @@ class FoodDetailManagementView: BaseView {
     let updateButton = {
         let button = UIButton()
         button.setTitle(Constant.ButtonSetTitle.foodUpdateButtonTitle, for: .normal)
-        button.titleLabel?.font = UIFont(name: Constant.Font.soyoBold, size: 13)
+        button.titleLabel?.font = UIFont(name: Constant.Font.pretendardBold, size: 13)
         button.setTitleColor(UIColor.white, for: .normal)
         button.backgroundColor = Constant.BaseColor.basePointOrangeHexColor
         return button
