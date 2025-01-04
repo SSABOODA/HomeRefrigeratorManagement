@@ -1,33 +1,19 @@
 //
-//  FoodIconCollectionViewCell.swift
-//  HomeRefrigeratorManagement
-//
-//  Created by 한성봉 on 2023/10/04.
-//
+//  FoodIconCollectionViewCell.swif
 
 import UIKit
 import SnapKit
+import Then
 
-class FoodIconCollectionViewCell: BaseCollectionViewCell {
+final class FoodIconCollectionViewCell: BaseCollectionViewCell {
     
-    lazy var foodIconImageView = {
-        let view = UIImageView()
-        view.clipsToBounds = false
-        view.layer.shadowColor = Constant.BaseColor.tintColor?.cgColor
-        view.layer.shadowOffset = CGSize(width: 5, height: 5)
-        view.layer.shadowRadius = 5
-        view.layer.shadowOpacity = 0.5
-        return view
-    }()
-    
-    let foodIconNameLabel = {
-        let label = UILabel()
-        label.text = "이름"
-        label.font = UIFont(name: Constant.Font.pretendardBold, size: 13)
-        label.numberOfLines = 2
-        label.textAlignment = .center
-        return label
-    }()
+    lazy var foodIconImageView = UIImageView().then { _ in }
+    let foodIconNameLabel = UILabel().then {
+        $0.text = "이름"
+        $0.font = UIFont(name: Constant.Font.pretendardBold, size: 13)
+        $0.numberOfLines = 2
+        $0.textAlignment = .center
+    }
     
     override func configureHierarchy() {
         addSubview(foodIconImageView)
@@ -46,10 +32,4 @@ class FoodIconCollectionViewCell: BaseCollectionViewCell {
             make.width.equalToSuperview().multipliedBy(0.9)
         }
     }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-    }
-    
-    
 }

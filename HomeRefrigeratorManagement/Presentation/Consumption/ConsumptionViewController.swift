@@ -1,9 +1,5 @@
 //
 //  ConsumptionViewController.swift
-//  HomeRefrigeratorManagement
-//
-//  Created by 한성봉 on 2023/10/17.
-//
 
 import UIKit
 
@@ -33,7 +29,7 @@ final class ConsumptionViewController: BaseViewController {
         
         title = "식품 소비하기"
         
-        mainView.collectionView.backgroundColor = Constant.collectionViewColor.collectionViewBackgroundColor
+        self.mainView.collectionView.backgroundColor = Constant.collectionViewColor.collectionViewBackgroundColor
         self.navigationItem.searchController = mainView.searchController
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.hidesSearchBarWhenScrolling = false

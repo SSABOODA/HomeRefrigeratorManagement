@@ -1,70 +1,34 @@
 //
 //  FoodDetailManagementView.swift
-//  HomeRefrigeratorManagement
-//
-//  Created by 한성봉 on 2023/10/08.
-//
 
 import UIKit
 
-class FoodDetailManagementView: BaseView {
+// TODO: Then 적용
 
-    let mainView = {
-        let view = UIView()
-        view.backgroundColor = Constant.BaseColor.backgroundColor
-        view.layer.cornerRadius = 10
-        view.clipsToBounds = false
-        view.layer.shadowColor = UIColor.darkGray.cgColor
-        view.layer.shadowOffset = CGSize.zero
-        view.layer.shadowRadius = 1
-        view.layer.shadowOpacity = 0.5
-        return view
-    }()
-    
-    let foodView = {
-        let view = UIView()
-        return view
-    }()
-    
-    let registerView = {
-        let view = UIView()
-        return view
-    }()
-    
+final class FoodDetailManagementView: BaseView {
+
+    let mainView = UIView().then {
+        $0.backgroundColor = Constant.BaseColor.backgroundColor
+        $0.layer.cornerRadius = 10
+        $0.clipsToBounds = false
+    }
+    let foodView = UIView().then { _ in }
+    let registerView = UIView().then { _ in }
+        
     // 상단 음식 아이콘
-    
-    let foodImageShadowView = {
-        let view = UIView()
-        view.clipsToBounds = false
-        view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowOffset = CGSize(width: 5, height: 5)
-        view.layer.shadowRadius = 5
-        view.layer.shadowOpacity = 0.8
-        return view
-    }()
-    
-    let foodImageView = {
-        let view = UIImageView()
-        view.image = UIImage(named: "가지")
-        return view
-    }()
-    
-    let foodNameLabel = {
-        let label = UILabel()
-        label.font = UIFont(name: Constant.Font.pretendardBold, size: 15)
-        return label
-    }()
+    let foodImageShadowView = UIView().then { _ in }
+    let foodImageView = UIImageView().then { _ in }
+    let foodNameLabel = UILabel().then {
+        $0.font = UIFont(name: Constant.Font.pretendardBold, size: 15)
+    }
     
     // 구분선
-    let divideLineView = {
-        let view = UIView()
-        view.layer.borderColor = UIColor.lightGray.cgColor
-        view.layer.borderWidth = 0.5
-        return view
-    }()
+    let divideLineView = UIView().then {
+        $0.layer.borderColor = UIColor.lightGray.cgColor
+        $0.layer.borderWidth = 0.5
+    }
     
     // 식품 설명
-    
     let foodDescriptionLabel = {
         let label = FoodDetailSettingLabel()
         label.text = "식품 설명"

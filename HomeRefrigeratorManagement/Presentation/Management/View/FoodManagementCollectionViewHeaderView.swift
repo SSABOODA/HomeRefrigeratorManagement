@@ -1,59 +1,45 @@
 //
 //  FoodManagementCollectionViewHeaderView.swift
-//  HomeRefrigeratorManagement
-//
-//  Created by 한성봉 on 2023/10/13.
-//
 
 import UIKit
 import SnapKit
+import Then
 
-class FoodManagementCollectionViewHeaderView: UICollectionReusableView {
-//    enum StorageFilterButton: String {
-//    }
+final class FoodManagementCollectionViewHeaderView: UICollectionReusableView {
+
+    let storageAllTypeButton = FoodStorageTypeButton().then {
+        $0.setTitle("전체", for: .normal)
+    }
     
-    let storageAllTypeButton = {
-        let button = FoodStorageTypeButton()
-        button.setTitle("전체", for: .normal)
-        return button
-    }()
+    let storageOutdoorTypeButton = FoodStorageTypeButton().then {
+        $0.setTitle("실외", for: .normal)
+    }
     
-    let storageOutdoorTypeButton = {
-        let button = FoodStorageTypeButton()
-        button.setTitle("실외", for: .normal)
-        return button
-    }()
+    let storageIceTypeButton = FoodStorageTypeButton().then {
+        $0.setTitle("냉장", for: .normal)
+    }
     
-    let storageIceTypeButton = {
-        let button = FoodStorageTypeButton()
-        button.setTitle("냉장", for: .normal)
-        return button
-    }()
+    let storageFrozenTypeButton = FoodStorageTypeButton().then {
+        $0.setTitle("냉동", for: .normal)
+    }
     
-    let storageFrozenTypeButton = {
-        let button = FoodStorageTypeButton()
-        button.setTitle("냉동", for: .normal)
-        return button
-    }()
+    let storageTypeView = UIView().then {
+        $0.backgroundColor = Constant.BaseColor.grayContrastBackgroundColor
+    }
     
-    let storageTypeView = {
-        let view = UIView()
-        view.backgroundColor = Constant.BaseColor.grayContrastBackgroundColor
-        return view
-    }()
-    
-    lazy var storageTypeStackView = {
-        let stackView = UIStackView(arrangedSubviews: [
+    lazy var storageTypeStackView = UIStackView(
+        arrangedSubviews: [
+            
             storageAllTypeButton,
             storageOutdoorTypeButton,
             storageIceTypeButton,
             storageFrozenTypeButton
-        ])
-        stackView.axis = .horizontal
-        stackView.spacing = 15
-        stackView.distribution = .fillEqually
-        return stackView
-    }()
+        ]
+    ).then {
+        $0.axis = .horizontal
+        $0.spacing = 15
+        $0.distribution = .fillEqually
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -84,9 +70,6 @@ class FoodManagementCollectionViewHeaderView: UICollectionReusableView {
         backgroundColor = Constant.BaseColor.grayContrastBackgroundColor
     }
     
-    
-    
     func prepare(title: String?) {
-//        self.titleLabel.text = title
     }
 }

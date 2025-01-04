@@ -1,9 +1,5 @@
 //
 //  ConsumptionCollectionViewCell.swift
-//  HomeRefrigeratorManagement
-//
-//  Created by 한성봉 on 2023/10/17.
-//
 
 import UIKit
 import SnapKit
@@ -12,39 +8,28 @@ final class ConsumptionCollectionViewCell: BaseCollectionViewCell {
     
     let viewModel = ConsumptionViewModel.shared
     
-    let consumptionImageView = {
-        let view = FoodIconImageView(frame: .zero)
-        return view
-    }()
+    let consumptionImageView = FoodIconImageView(frame: .zero).then { _ in }
     
-    let nameLabel = {
-        let label = UILabel()
-        label.font = UIFont(name: Constant.Font.pretendardBold, size: 13)
-        label.numberOfLines = 1
-        label.textAlignment = .center
-        return label
-    }()
+    let nameLabel = UILabel().then {
+        $0.font = UIFont(name: Constant.Font.pretendardBold, size: 13)
+        $0.numberOfLines = 1
+        $0.textAlignment = .center
+    }
     
-    let countLabel = {
-        let label = UILabel()
-        label.font = UIFont(name: Constant.Font.pretendardBold, size: 13)
-        label.textAlignment = .center
-        return label
-    }()
+    let countLabel = UILabel().then {
+        $0.font = UIFont(name: Constant.Font.pretendardBold, size: 13)
+        $0.textAlignment = .center
+    }
     
-    lazy var minusButton = {
-        let button = UIButton()
-        button.setImage(UIImage(systemName: "minus"), for: .normal)
-        button.addTarget(self, action: #selector(self.minusButtonTapped(_:)), for: .touchUpInside)
-        return button
-    }()
+    lazy var minusButton = UIButton().then {
+        $0.setImage(UIImage(systemName: "minus"), for: .normal)
+        $0.addTarget(self, action: #selector(self.minusButtonTapped(_:)), for: .touchUpInside)
+    }
     
-    lazy var plusButton = {
-        let button = UIButton()
-        button.setImage(UIImage(systemName: "plus"), for: .normal)
-        button.addTarget(self, action: #selector(self.plusButtonTapped(_:)), for: .touchUpInside)
-        return button
-    }()
+    lazy var plusButton = UIButton().then {
+        $0.setImage(UIImage(systemName: "plus"), for: .normal)
+        $0.addTarget(self, action: #selector(self.plusButtonTapped(_:)), for: .touchUpInside)
+    }
     
     @objc func minusButtonTapped(_ sender: UIButton) {
         guard let text = countLabel.text else { return }
@@ -69,7 +54,6 @@ final class ConsumptionCollectionViewCell: BaseCollectionViewCell {
         viewModel.fetchData()
     }
  
-    
     override func configureHierarchy() {
         addSubview(consumptionImageView)
         addSubview(nameLabel)
@@ -110,11 +94,9 @@ final class ConsumptionCollectionViewCell: BaseCollectionViewCell {
     func configureCell() {
         backgroundColor = Constant.collectionViewColor.collectionViewBackgroundColor
         layer.cornerRadius = 10
-        clipsToBounds = false
+        layer.borderColor = UIColor.lightGray.cgColor
+        layer.borderWidth = 1
         
-//        layer.shadowColor = UIColor.lightGray.cgColor
-//        layer.shadowOpacity = 0.5
-//        layer.shadowOffset = CGSize.zero
-//        layer.shadowRadius = 2
+        clipsToBounds = false
     }
 }

@@ -1,233 +1,173 @@
 //
 //  ChartView.swift
-//  HomeRefrigeratorManagement
-//
-//  Created by 한성봉 on 2023/10/14.
-//
 
 import UIKit
 import DGCharts
+import Then
 
 final class ChartView: BaseView {
     // scrollView
-    let scrollView = {
-        let scrollView = UIScrollView()
-        scrollView.showsVerticalScrollIndicator = false
-        return scrollView
-    }()
-    
-    private let contentView = {
-        let view = UIView()
-        view.backgroundColor = Constant.BaseColor.grayContrastBackgroundColor
-        return view
-    }()
+    let scrollView = UIScrollView().then {
+        $0.showsVerticalScrollIndicator = false
+    }
+    private let contentView = UIView().then {
+        $0.backgroundColor = Constant.BaseColor.grayContrastBackgroundColor
+    }
     
     // headerView
-    private let headerView = {
-        let view = ChartContentView()
-        return view
-    }()
+    private let headerView = ChartContentView().then { _ in }
     
-    private let headerTitleLabel = {
-        let label = UILabel()
-        label.text = Date().toString(format: .compactDot)
-        label.font = UIFont(name: Constant.Font.pretendardBold, size: 25)
-        label.textAlignment = .center
-        return label
-    }()
-    
-    private let headerSubTitleLabel = {
-        let label = UILabel()
-        label.text = Constant.CharViewTitle.headerSubTitle
-        label.textAlignment = .center
-        label.font = UIFont(name: Constant.Font.pretendardRegular, size: 13)
-        label.textColor = .lightGray
-        return label
-    }()
+    private let headerTitleLabel = UILabel().then {
+        $0.text = Date().toString(format: .compactDot)
+        $0.font = UIFont(name: Constant.Font.pretendardBold, size: 25)
+        $0.textAlignment = .center
+    }
+    private let headerSubTitleLabel = UILabel().then {
+        $0.text = Constant.CharViewTitle.headerSubTitle
+        $0.textAlignment = .center
+        $0.font = UIFont(name: Constant.Font.pretendardRegular, size: 13)
+        $0.textColor = .lightGray
+    }
     
     // totalAnalysisView
-    private let totalAnalysisView = {
-        let view = ChartContentView()
-        return view
-    }()
+    private let totalAnalysisView = ChartContentView().then { _ in }
+    private let totalAnalysisTitleLabel = UILabel().then {
+        $0.text = Constant.CharViewTitle.totalAnalysisTitle
+        $0.textAlignment = .center
+        $0.font = UIFont(name: Constant.Font.pretendardBold, size: 25)
+    }
     
-    private let totalAnalysisTitleLabel = {
-        let label = UILabel()
-        label.text = Constant.CharViewTitle.totalAnalysisTitle
-        label.textAlignment = .center
-        label.font = UIFont(name: Constant.Font.pretendardBold, size: 25)
-        return label
-    }()
+    private let firstTotalAnalysisImageView = FoodIconImageView(frame: .zero).then {
+        $0.image = UIImage(named: Constant.ImageName.currentStorageCountImageName)
+        $0.contentMode = .scaleAspectFit
+    }
     
-    private let firstTotalAnalysisImageView = {
-        let view = FoodIconImageView(frame: .zero)
-        view.image = UIImage(named: Constant.ImageName.currentStorageCountImageName)
-        view.contentMode = .scaleAspectFit
-        return view
-    }()
+    private let firstTotalAnalysisContentLabel = UILabel().then {
+        $0.text = Constant.CharViewTitle.firstTotalAnalysisContentTitle
+        $0.font = UIFont(name: Constant.Font.pretendardRegular, size: 13)
+        $0.textAlignment = .center
+    }
     
-    private let firstTotalAnalysisContentLabel = {
-        let label = UILabel()
-        label.text = Constant.CharViewTitle.firstTotalAnalysisContentTitle
-        label.font = UIFont(name: Constant.Font.pretendardRegular, size: 13)
-        label.textAlignment = .center
-        return label
-    }()
+    let firstTotalAnalysisContentInfoLabel = UILabel().then {
+        $0.text = "0"
+        $0.font = UIFont(name: Constant.Font.pretendardBold, size: 15)
+        $0.textColor = .orange
+        $0.textAlignment = .right
+    }
     
-    let firstTotalAnalysisContentInfoLabel = {
-        let label = UILabel()
-        label.text = "0"
-        label.font = UIFont(name: Constant.Font.pretendardBold, size: 15)
-        label.textColor = .orange
-        label.textAlignment = .right
-        return label
-    }()
+    private let secondTotalAnalysisImageView = FoodIconImageView(frame: .zero).then {
+        $0.image = UIImage(named: Constant.ImageName.successExpirationCountImageName)
+        $0.contentMode = .scaleAspectFit
+    }
     
-    private let secondTotalAnalysisImageView = {
-        let view = FoodIconImageView(frame: .zero)
-        view.image = UIImage(named: Constant.ImageName.successExpirationCountImageName)
-        view.contentMode = .scaleAspectFit
-        return view
-    }()
+    private let secondTotalAnalysisContentLabel = UILabel().then {
+        $0.text = Constant.CharViewTitle.secondTotalAnalysisContentTitle
+        $0.font = UIFont(name: Constant.Font.pretendardRegular, size: 13)
+        $0.textAlignment = .center
+    }
     
-    private let secondTotalAnalysisContentLabel = {
-        let label = UILabel()
-        label.text = Constant.CharViewTitle.secondTotalAnalysisContentTitle
-        label.font = UIFont(name: Constant.Font.pretendardRegular, size: 13)
-        label.textAlignment = .center
-        return label
-    }()
+    let secondTotalAnalysisContentInfoLabel = UILabel().then {
+        $0.text = "0"
+        $0.font = UIFont(name: Constant.Font.pretendardBold, size: 15)
+        $0.textColor = .orange
+        $0.textAlignment = .right
+    }
     
-    let secondTotalAnalysisContentInfoLabel = {
-        let label = UILabel()
-        label.text = "0"
-        label.font = UIFont(name: Constant.Font.pretendardBold, size: 15)
-        label.textColor = .orange
-        label.textAlignment = .right
-        return label
-    }()
+    private let thirdTotalAnalysisImageView = FoodIconImageView(frame: .zero).then {
+        $0.image = UIImage(named: Constant.ImageName.failedExpirationCountImageName)
+        $0.contentMode = .scaleAspectFit
+    }
     
-    private let thirdTotalAnalysisImageView = {
-        let view = FoodIconImageView(frame: .zero)
-        view.image = UIImage(named: Constant.ImageName.failedExpirationCountImageName)
-        view.contentMode = .scaleAspectFit
-        return view
-    }()
+    private let thirdTotalAnalysisContentLabel = UILabel().then {
+        $0.text = Constant.CharViewTitle.thirdTotalAnalysisContentTitle
+        $0.font = UIFont(name: Constant.Font.pretendardRegular, size: 13)
+        $0.textAlignment = .center
+    }
     
-    private let thirdTotalAnalysisContentLabel = {
-        let label = UILabel()
-        label.text = Constant.CharViewTitle.thirdTotalAnalysisContentTitle
-        label.font = UIFont(name: Constant.Font.pretendardRegular, size: 13)
-        label.textAlignment = .center
-        return label
-    }()
+    let thirdTotalAnalysisContentInfoLabel = UILabel().then {
+        $0.text = "0"
+        $0.font = UIFont(name: Constant.Font.pretendardBold, size: 15)
+        $0.textColor = .orange
+        $0.textAlignment = .right
+    }
     
-    let thirdTotalAnalysisContentInfoLabel = {
-        let label = UILabel()
-        label.text = "0"
-        label.font = UIFont(name: Constant.Font.pretendardBold, size: 15)
-        label.textColor = .orange
-        label.textAlignment = .right
-        return label
-    }()
-    
-    private lazy var firstTotalAnalysisContentStackView = {
-        let stackView = UIStackView(arrangedSubviews: [
+    private lazy var firstTotalAnalysisContentStackView = UIStackView(
+        arrangedSubviews: [
             firstTotalAnalysisImageView,
             firstTotalAnalysisContentLabel,
             firstTotalAnalysisContentInfoLabel
-        ])
-        stackView.axis = .horizontal
-        stackView.distribution = .fill
-        return stackView
-    }()
+        ]
+    ).then {
+        $0.axis = .horizontal
+        $0.distribution = .fill
+    }
     
-    private lazy var secondTotalAnalysisContentStackView = {
-        let stackView = UIStackView(arrangedSubviews: [
+    private lazy var secondTotalAnalysisContentStackView = UIStackView(
+        arrangedSubviews: [
             secondTotalAnalysisImageView,
             secondTotalAnalysisContentLabel,
             secondTotalAnalysisContentInfoLabel
-        ])
-        stackView.axis = .horizontal
-        stackView.distribution = .fill
-        return stackView
-    }()
+        ]
+    ).then {
+        $0.axis = .horizontal
+        $0.distribution = .fill
+    }
     
-    private lazy var thirdTotalAnalysisContentStackView = {
-        let stackView = UIStackView(arrangedSubviews: [
+    private lazy var thirdTotalAnalysisContentStackView = UIStackView(
+        arrangedSubviews: [
             thirdTotalAnalysisImageView,
             thirdTotalAnalysisContentLabel,
             thirdTotalAnalysisContentInfoLabel
-        ])
-        stackView.axis = .horizontal
-        stackView.distribution = .fill
-        return stackView
-    }()
-    
-    // ChartView
-    private let categoryChartAnalyView = {
-        let view = ChartContentView()
-        return view
-    }()
-    
-    private let categoryChartAnalyTitleLabel = {
-        let label = UILabel()
-        label.text = Constant.CharViewTitle.chartAnalyTitle
-        label.font = UIFont(name: Constant.Font.pretendardBold, size: 25)
-        label.textAlignment = .center
-        return label
-    }()
-    
-    private let unitLabel = {
-        let label = UILabel()
-        label.text = "(단위: 개)"
-        label.textAlignment = .center
-        label.font = UIFont(name: Constant.Font.pretendardBold, size: 11)
-        label.textColor = .darkGray
-        return label
-    }()
-    
-    let categoryPieChartView = {
-        let view = PieChartView()
-        view.backgroundColor = Constant.BaseColor.backgroundColor
-        // 데이터 없을 UI 세팅
-        view.noDataText = "출력할 데이터가 없습니다. 😭".localized
-        view.noDataFont = UIFont(name: Constant.Font.pretendardBold, size: 20)!
-        view.noDataTextColor = .orange
-        view.noDataTextAlignment = .center
-        
-        view.usePercentValuesEnabled = true
-        view.transparentCircleRadiusPercent = CGFloat(0)
-        view.legend.enabled = true
-        
-        // pieChart UI 세팅
-        view.legend.font = UIFont(name: Constant.Font.pretendardRegular, size: 12)!
-        view.entryLabelFont = UIFont(name: Constant.Font.pretendardRegular, size: 10)
-        view.entryLabelColor = .black
-        view.tintColor = .black
-        
-        view.legend.horizontalAlignment = .center
-        view.legend.verticalAlignment = .bottom
-        view.animate(yAxisDuration: 2.0, easingOption: .linear)
-        return view
-    }()
-    
-    lazy var pieChartTableView = {
-        let tableView = UITableView()
-        tableView.register(PieChartTableViewCell.self, forCellReuseIdentifier: "pieChartCell")
-        tableView.rowHeight = Constant.ScreenSize.deviceScreenHeight * 0.1
-        return tableView
-    }()
-    
-    private let chartView = {
-        let view = UIView()
-        return view
-    }()
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
+        ]
+    ).then {
+        $0.axis = .horizontal
+        $0.distribution = .fill
     }
     
+    // ChartView
+    private let categoryChartAnalyView = ChartContentView().then { _ in }
+    private let categoryChartAnalyTitleLabel = UILabel().then {
+        $0.text = Constant.CharViewTitle.chartAnalyTitle
+        $0.font = UIFont(name: Constant.Font.pretendardBold, size: 25)
+        $0.textAlignment = .center
+    }
+    
+    private let unitLabel = UILabel().then {
+        $0.text = "(단위: 개)"
+        $0.textAlignment = .center
+        $0.font = UIFont(name: Constant.Font.pretendardBold, size: 11)
+        $0.textColor = .darkGray
+    }
+    let categoryPieChartView = PieChartView().then {
+        $0.backgroundColor = Constant.BaseColor.backgroundColor
+        // 데이터 없을 UI 세팅
+        $0.noDataText = "출력할 데이터가 없습니다. 😭".localized
+        $0.noDataFont = UIFont(name: Constant.Font.pretendardBold, size: 20)!
+        $0.noDataTextColor = .orange
+        $0.noDataTextAlignment = .center
+        
+        $0.usePercentValuesEnabled = true
+        $0.transparentCircleRadiusPercent = CGFloat(0)
+        $0.legend.enabled = true
+        
+        // pieChart UI 세팅
+        $0.legend.font = UIFont(name: Constant.Font.pretendardRegular, size: 12)!
+        $0.entryLabelFont = UIFont(name: Constant.Font.pretendardRegular, size: 10)
+        $0.entryLabelColor = .black
+        $0.tintColor = .black
+        
+        $0.legend.horizontalAlignment = .center
+        $0.legend.verticalAlignment = .bottom
+        $0.animate(yAxisDuration: 2.0, easingOption: .linear)
+    }
+    
+    lazy var pieChartTableView = UITableView().then {
+        $0.register(PieChartTableViewCell.self, forCellReuseIdentifier: "pieChartCell")
+        $0.rowHeight = Constant.ScreenSize.deviceScreenHeight * 0.1
+    }
+    
+    private let chartView = UIView().then { _ in }
+
     override func configureHierarchy() {
         // scrollView
         addSubview(scrollView)
@@ -255,14 +195,14 @@ final class ChartView: BaseView {
         // temp Chart View
         contentView.addSubview(chartView)
     }
-
-
+    
+    
     override func configureLayout() {
         // scrollView
         scrollView.snp.makeConstraints { make in
             make.edges.equalTo(self.safeAreaLayoutGuide)
         }
-
+        
         contentView.snp.makeConstraints { make in
             make.edges.equalTo(scrollView.contentLayoutGuide)
             make.height.greaterThanOrEqualTo(self.snp.height).priority(.low)
@@ -323,7 +263,7 @@ final class ChartView: BaseView {
         secondTotalAnalysisContentLabel.snp.makeConstraints { make in
             make.width.equalTo(secondTotalAnalysisContentStackView.snp.width).multipliedBy(0.8)
         }
-
+        
         thirdTotalAnalysisContentStackView.snp.makeConstraints { make in
             make.top.equalTo(secondTotalAnalysisContentStackView.snp.bottom).inset(-10)
             make.horizontalEdges.equalToSuperview().inset(40)

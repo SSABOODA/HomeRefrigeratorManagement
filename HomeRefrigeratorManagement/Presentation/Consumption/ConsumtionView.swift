@@ -31,14 +31,12 @@ final class ConsumtionView: BaseView {
         return searchController
     }()
     
-    lazy var collectionView = {
-        let collectionView = UICollectionView(
-            frame: .zero,
-            collectionViewLayout: createLayout()
-        )
-        collectionView.backgroundColor = Constant.BaseColor.grayContrastBackgroundColor
-        return collectionView
-    }()
+    lazy var collectionView = UICollectionView(
+        frame: .zero,
+        collectionViewLayout: createLayout()
+    ).then {
+        $0.backgroundColor = Constant.BaseColor.grayContrastBackgroundColor
+    }
     
     override func configureHierarchy() {
         addSubview(collectionView)
@@ -59,7 +57,7 @@ extension ConsumtionView {
         layout.minimumInteritemSpacing = 8
         let size = UIScreen.main.bounds.width - 40
         layout.itemSize = CGSize(width: size/3, height: size/3)
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 15, right: 10)
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 15, bottom: 15, right: 15)
         return layout
     }
 }

@@ -1,9 +1,5 @@
 //
 //  CalendarViewModel.swift
-//  HomeRefrigeratorManagement
-//
-//  Created by 한성봉 on 2023/10/10.
-//
 
 import Foundation
 import RealmSwift

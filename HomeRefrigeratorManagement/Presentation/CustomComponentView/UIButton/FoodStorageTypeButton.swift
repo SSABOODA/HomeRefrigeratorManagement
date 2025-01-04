@@ -1,13 +1,10 @@
 //
 //  FoodStorageTypeButton.swift
-//  HomeRefrigeratorManagement
-//
-//  Created by 한성봉 on 2023/10/07.
-//
 
 import UIKit
 
-class FoodStorageTypeButton: UIButton {
+final class FoodStorageTypeButton: UIButton {
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -23,14 +20,8 @@ class FoodStorageTypeButton: UIButton {
         titleLabel?.font = UIFont(name: Constant.Font.pretendardBold, size: 15)
         backgroundColor = Constant.BaseColor.backgroundColor
         layer.cornerRadius = 15
+        layer.borderWidth = 1
+        layer.borderColor = UIColor(hexCode: "#E8E9EC").cgColor
         clipsToBounds = false
-        
-//        layer.shadowColor = UIColor.darkGray.cgColor
-//        layer.shadowOffset = CGSize.zero
-//        layer.shadowRadius = 2
-//        layer.shadowOpacity = 0.5
-        
-        
     }
-    
 }

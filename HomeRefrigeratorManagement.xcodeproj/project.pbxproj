@@ -114,12 +114,12 @@
 		F7C31E3E2ACFE025008DAA21 /* FoodRegisterComponentTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31E3D2ACFE025008DAA21 /* FoodRegisterComponentTextFieldView.swift */; };
 		F7C31E402AD153A3008DAA21 /* FoodStorageTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31E3F2AD153A3008DAA21 /* FoodStorageTypeButton.swift */; };
 		F7C31E432AD1625D008DAA21 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = F7C31E422AD1625D008DAA21 /* Toast */; };
-		F7D61EB42AEBBEEE001E03CF /* LaunchScreen.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F7D61EB32AEBBEEE001E03CF /* LaunchScreen.jpeg */; };
 		F7E7C0E12D281BEE001FC443 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F7E7C0DC2D281BEE001FC443 /* Pretendard-Medium.otf */; };
 		F7E7C0E22D281BEE001FC443 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F7E7C0DD2D281BEE001FC443 /* Pretendard-Regular.otf */; };
 		F7E7C0E32D281BEE001FC443 /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F7E7C0DE2D281BEE001FC443 /* Pretendard-ExtraBold.otf */; };
 		F7E7C0E42D281BEE001FC443 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F7E7C0DF2D281BEE001FC443 /* Pretendard-SemiBold.otf */; };
 		F7E7C0E52D281BEE001FC443 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F7E7C0E02D281BEE001FC443 /* Pretendard-Bold.otf */; };
+		F7E7C0E82D282048001FC443 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = F7E7C0E72D282048001FC443 /* Then */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -222,7 +222,6 @@
 		F7C31E3B2ACFD61D008DAA21 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		F7C31E3D2ACFE025008DAA21 /* FoodRegisterComponentTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRegisterComponentTextFieldView.swift; sourceTree = "<group>"; };
 		F7C31E3F2AD153A3008DAA21 /* FoodStorageTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodStorageTypeButton.swift; sourceTree = "<group>"; };
-		F7D61EB32AEBBEEE001E03CF /* LaunchScreen.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LaunchScreen.jpeg; sourceTree = "<group>"; };
 		F7E7C0DC2D281BEE001FC443 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		F7E7C0DD2D281BEE001FC443 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		F7E7C0DE2D281BEE001FC443 /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
@@ -245,6 +244,7 @@
 				F7C31D982AC2D4B6008DAA21 /* Realm in Frameworks */,
 				F7289E5B2AD52F4E00E092C6 /* FSCalendar in Frameworks */,
 				F70959EB2AFE094D00F0218B /* FirebaseMessaging in Frameworks */,
+				F7E7C0E82D282048001FC443 /* Then in Frameworks */,
 				F7C31D952AC2D3F2008DAA21 /* SnapKit in Frameworks */,
 				F70959E92AFE094D00F0218B /* FirebaseCrashlytics in Frameworks */,
 				F70959E52AFE094D00F0218B /* FirebaseAnalytics in Frameworks */,
@@ -282,7 +282,6 @@
 		F75E9B092AE0027F000CF09A /* Image */ = {
 			isa = PBXGroup;
 			children = (
-				F7D61EB32AEBBEEE001E03CF /* LaunchScreen.jpeg */,
 				F709596E2AF9051900F0218B /* icon-launch.png */,
 			);
 			path = Image;
@@ -379,12 +378,12 @@
 				F7ED472E2D130316000EF1E9 /* Application */,
 				F7ED472D2D13030E000EF1E9 /* Domain */,
 				F7ED472C2D130308000EF1E9 /* Data */,
+				F7ED470A2D12FB26000EF1E9 /* Presentation */,
 				F75E9B292AE17DFF000CF09A /* Repository */,
 				F78B9B312ADA86C000EA61CB /* Resources */,
 				F7C31DCD2AC2F524008DAA21 /* Realm */,
 				F7C31DAD2AC2DA16008DAA21 /* Utility */,
 				F7C31D902AC2CFD6008DAA21 /* Network */,
-				F7ED470A2D12FB26000EF1E9 /* Presentation */,
 				F7C31DB62AC2DA9C008DAA21 /* Localizable */,
 				F7C31D822AC2CE30008DAA21 /* LaunchScreen.storyboard */,
 				F7C31D852AC2CE30008DAA21 /* Info.plist */,
@@ -803,6 +802,7 @@
 				F70959E62AFE094D00F0218B /* FirebaseAnalyticsWithoutAdIdSupport */,
 				F70959E82AFE094D00F0218B /* FirebaseCrashlytics */,
 				F70959EA2AFE094D00F0218B /* FirebaseMessaging */,
+				F7E7C0E72D282048001FC443 /* Then */,
 			);
 			productName = HomeRefrigeratorManagement;
 			productReference = F7C31D742AC2CE2E008DAA21 /* HomeRefrigeratorManagement.app */;
@@ -843,6 +843,7 @@
 				F7610A3E2AD7BDBF00832129 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				F78B9B392ADAC1CA00EA61CB /* XCRemoteSwiftPackageReference "Charts" */,
 				F70959E32AFE094D00F0218B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				F7E7C0E62D282048001FC443 /* XCRemoteSwiftPackageReference "Then" */,
 			);
 			productRefGroup = F7C31D752AC2CE2E008DAA21 /* Products */;
 			projectDirPath = "";
@@ -862,7 +863,6 @@
 				F7E7C0E52D281BEE001FC443 /* Pretendard-Bold.otf in Resources */,
 				F78B9B362ADA86F200EA61CB /* SOYOMapleBold.ttf in Resources */,
 				F7E7C0E32D281BEE001FC443 /* Pretendard-ExtraBold.otf in Resources */,
-				F7D61EB42AEBBEEE001E03CF /* LaunchScreen.jpeg in Resources */,
 				F75E9B0D2AE00DF0000CF09A /* Settings.bundle in Resources */,
 				F7E7C0E22D281BEE001FC443 /* Pretendard-Regular.otf in Resources */,
 				F7C31D8C2AC2CE9C008DAA21 /* .gitignore in Resources */,
@@ -1314,6 +1314,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		F7E7C0E62D282048001FC443 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1381,6 +1389,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F7C31E412AD1625D008DAA21 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
 			productName = Toast;
+		};
+		F7E7C0E72D282048001FC443 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F7E7C0E62D282048001FC443 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

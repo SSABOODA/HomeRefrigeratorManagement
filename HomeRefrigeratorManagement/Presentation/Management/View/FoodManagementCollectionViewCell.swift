@@ -1,62 +1,45 @@
 //
 //  FoodManagementCollectionViewCell.swift
-//  HomeRefrigeratorManagement
-//
-//  Created by 한성봉 on 2023/09/28.
-//
 
 import UIKit
 import SnapKit
+import Then
 
 final class FoodManagementCollectionViewCell: BaseCollectionViewCell {
-    let foodImageView = {
-        let view = UIImageView()
-        view.layer.shadowColor = Constant.BaseColor.tintColor?.cgColor
-        view.layer.shadowOffset = CGSize(width: 5, height: 5)
-        view.layer.shadowRadius = 5
-        view.layer.shadowOpacity = 0.8
-        return view
-    }()
+    let foodImageView = UIImageView().then { _ in }
+    let nameLabel = UILabel().then {
+        $0.font = UIFont(name: Constant.Font.pretendardBold, size: 15)
+        $0.textColor = Constant.BaseColor.tintColor
+    }
     
-    let nameLabel = {
-        let label = UILabel()
-        label.font = UIFont(name: Constant.Font.pretendardBold, size: 15)
-        label.textColor = Constant.BaseColor.tintColor
-        return label
-    }()
+    let descriptionLabel = UILabel().then {
+        $0.font = UIFont(name: Constant.Font.pretendardBold, size: 13)
+        $0.textColor = Constant.BaseColor.tintColor
+        $0.numberOfLines = 1
+    }
     
-    let descriptionLabel = {
-        let label = UILabel()
-        label.font = UIFont(name: Constant.Font.pretendardBold, size: 13)
-        label.textColor = Constant.BaseColor.tintColor
-        label.numberOfLines = 1
-        return label
-    }()
+    let purchaseDateLabel = UILabel().then {
+        $0.font = UIFont(name: Constant.Font.pretendardRegular, size: 13)
+        $0.textColor = Constant.BaseColor.tintColor
+        $0.numberOfLines = 1
+    }
     
-    let purchaseDateLabel = {
-        let label = UILabel()
-        label.font = UIFont(name: Constant.Font.pretendardRegular, size: 13)
-        label.textColor = Constant.BaseColor.tintColor
-        label.numberOfLines = 1
-        return label
-    }()
+    lazy var stackView = UIStackView(
+        arrangedSubviews: [
+            nameLabel,
+            descriptionLabel,
+            purchaseDateLabel]).then {
+        $0.axis = .vertical
+        $0.spacing = 10
+    }
     
-    lazy var stackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [nameLabel, descriptionLabel, purchaseDateLabel])
-        stackView.axis = .vertical
-        stackView.spacing = 10
-        return stackView
-    }()
-    
-    let expirationDateLabel = {
-        let label = UILabel()
-        label.font = UIFont(name: Constant.Font.pretendardBold, size: 15)
-        label.textColor = UIColor(hexCode: "#E27749")
-        label.textAlignment = .right
-        label.text = "D-0"
-        label.numberOfLines = 1
-        return label
-    }()
+    let expirationDateLabel = UILabel().then {
+        $0.font = UIFont(name: Constant.Font.pretendardBold, size: 15)
+        $0.textColor = UIColor(hexCode: "#E27749")
+        $0.textAlignment = .right
+        $0.text = "D-0"
+        $0.numberOfLines = 1
+    }
     
     override func configureHierarchy() {
         addSubview(foodImageView)
@@ -103,11 +86,9 @@ final class FoodManagementCollectionViewCell: BaseCollectionViewCell {
     
     func configureCell() {
         backgroundColor = Constant.collectionViewColor.collectionViewCellBackgroundColor
-        layer.cornerRadius = 10
         clipsToBounds = false
-        layer.shadowColor = UIColor.lightGray.cgColor
-        layer.shadowOpacity = 0.5
-        layer.shadowOffset = CGSize.zero
-        layer.shadowRadius = 2
+        layer.borderWidth = 1
+        layer.borderColor = UIColor(hexCode: "#E8E9EC").cgColor
+        layer.cornerRadius = 10
     }
 }

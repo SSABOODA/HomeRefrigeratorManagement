@@ -1,31 +1,20 @@
 //
 //  PieChartTableViewCell.swift
-//  HomeRefrigeratorManagement
-//
-//  Created by 한성봉 on 2023/10/18.
-//
 
 import UIKit
 import SnapKit
+import Then
 
 final class PieChartTableViewCell: UITableViewCell {
-    lazy var colorImageView = {
-        let view = UIImageView()
-        view.clipsToBounds = true
-        return view
-    }()
-    
-    let categoryLabel = {
-        let label = UILabel()
-        label.font = UIFont(name: Constant.Font.pretendardBold, size: 15)
-        return label
-    }()
-    
-    let percentageLabel = {
-        let label = UILabel()
-        label.font = UIFont(name: Constant.Font.pretendardBold, size: 15)
-        return label
-    }()
+    lazy var colorImageView = UIImageView().then {
+        $0.clipsToBounds = true
+    }
+    let categoryLabel = UILabel().then {
+        $0.font = UIFont(name: Constant.Font.pretendardBold, size: 15)
+    }
+    let percentageLabel = UILabel().then {
+        $0.font = UIFont(name: Constant.Font.pretendardBold, size: 15)
+    }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

@@ -4,10 +4,11 @@
 import UIKit
 import WebKit
 import SnapKit
+import Then
 
 final class YoutubeWebViewViewController: BaseViewController {
     
-    let webView = WKWebView()
+    let webView = WKWebView().then { _ in}
     let toolbar = UIToolbar(
         frame: CGRect(
             origin: .zero,

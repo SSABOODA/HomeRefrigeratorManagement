@@ -18,39 +18,23 @@ final class CustomTabBarController: UITabBarController {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
+        tabBar.backgroundColor = .white
         tabBar.tintColor = Constant.BaseColor.basePointOrangeHexColor
-        tabBar.layer.masksToBounds = true
-        tabBar.layer.cornerRadius = 20
-        tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
-        if let shadowView = view.subviews.first(where: { $0.accessibilityIdentifier == "TabBarShadow" }) {
-            shadowView.frame = tabBar.frame
-        } else {
-            let shadowView = UIView(frame: .zero)
-            shadowView.frame = tabBar.frame
-            shadowView.accessibilityIdentifier = "TabBarShadow"
-            shadowView.backgroundColor = UIColor.white
-            shadowView.layer.cornerRadius = tabBar.layer.cornerRadius
-            shadowView.layer.maskedCorners = tabBar.layer.maskedCorners
-            shadowView.layer.masksToBounds = false
-            shadowView.layer.shadowColor = UIColor.black.cgColor
-            shadowView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
-            shadowView.layer.shadowOpacity = 0.3
-            shadowView.layer.shadowRadius = 2
-            view.addSubview(shadowView)
-            view.bringSubviewToFront(tabBar)
-        }
+        let border = UIView(frame: CGRect(x: 0, y: 0, width: tabBar.frame.width, height: 1))
+        border.backgroundColor = UIColor.black.withAlphaComponent(0.1)
+        tabBar.addSubview(border)
     }
     
     private func configureViewController() {
-        let CalendarVC = UINavigationController(rootViewController: CalendarViewController())
-        let FoodManagementVC = UINavigationController(rootViewController: FoodManagementViewController())
-        let SettingVC = UINavigationController(rootViewController: SettingViewController())
+        let calendarVC = UINavigationController(rootViewController: CalendarViewController())
+        let foodManagementVC = UINavigationController(rootViewController: FoodManagementViewController())
+        let settingVC = UINavigationController(rootViewController: SettingViewController())
         
-        setViewControllers([CalendarVC, FoodManagementVC, SettingVC], animated: true)
+        setViewControllers([calendarVC, foodManagementVC, settingVC], animated: true)
 
         createTabBarItem(
-            viewContoller: CalendarVC,
+            viewContoller: calendarVC,
             titleString: Constant.TabBarTitle.calendarVC,
             imageString: Constant.SystemImageName.calendarVCTabBarImage,
             selectedImageString: Constant.SystemImageName.calendarVCTabBarSelectImage,
@@ -58,7 +42,7 @@ final class CustomTabBarController: UITabBarController {
         )
 
         createTabBarItem(
-            viewContoller: FoodManagementVC,
+            viewContoller: foodManagementVC,
             titleString: Constant.TabBarTitle.foodManagementVC,
             imageString: Constant.SystemImageName.foodManagementVCTabBarImage,
             selectedImageString: Constant.SystemImageName.foodManagementVCTabBarSelectImage,
@@ -66,7 +50,7 @@ final class CustomTabBarController: UITabBarController {
         )
 
         createTabBarItem(
-            viewContoller: SettingVC,
+            viewContoller: settingVC,
             titleString: Constant.TabBarTitle.settingVC,
             imageString: Constant.SystemImageName.settingVCTabBarImage,
             selectedImageString: Constant.SystemImageName.settingVCTabBarSelectImage,

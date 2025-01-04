@@ -1,23 +1,18 @@
 //
 //  CustomCalendarCell.swift
-//  HomeRefrigeratorManagement
-//
-//  Created by 한성봉 on 2023/10/11.
-//
 
 import UIKit
 import FSCalendar
+import Then
 
 final class CustomCalendarCell: FSCalendarCell {
-    var mainImageView = {
-        let view = UIImageView()
-        view.backgroundColor = .red
-        view.layer.addBorder([.bottom], color: .black, width: 1)
-        view.image = UIImage(systemName: "star")
-        return view
-    }()
+    var mainImageView = UIImageView().then {
+        $0.backgroundColor = .red
+        $0.layer.addBorder([.bottom], color: .black, width: 1)
+        $0.image = UIImage(systemName: "star")
+    }
     
-    override init!(frame: CGRect) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(mainImageView)
         

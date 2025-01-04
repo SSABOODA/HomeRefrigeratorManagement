@@ -3,20 +3,20 @@
 
 import UIKit
 import SnapKit
+import Then
 
-class FoodManagementView: BaseView {
+final class FoodManagementView: BaseView {
     
-    let searchController = {
-        let searchController = UISearchController(searchResultsController: nil)
-        searchController.searchBar.searchTextField.attributedPlaceholder = NSAttributedString(
+    let searchController = UISearchController(searchResultsController: nil).then {
+        $0.searchBar.searchTextField.attributedPlaceholder = NSAttributedString(
             string: "냉장고에 저장된 식품을 검색해보세요".localized,
             attributes: [NSAttributedString.Key.font: UIFont(name: Constant.Font.pretendardBold, size: 11)!]
         )
         
-        searchController.searchBar.showsCancelButton = true
-        searchController.searchBar.setShowsCancelButton(false, animated: true)
+        $0.searchBar.showsCancelButton = true
+        $0.searchBar.setShowsCancelButton(false, animated: true)
         
-        if let cancelButton = searchController.searchBar.value(forKey: "cancelButton") as? UIButton {
+        if let cancelButton = $0.searchBar.value(forKey: "cancelButton") as? UIButton {
             let nsAttributedString = NSAttributedString(
                 string: "취소".localized,
                 attributes: [NSAttributedString.Key.font: UIFont(name: Constant.Font.pretendardBold, size: 12)!]
@@ -24,37 +24,25 @@ class FoodManagementView: BaseView {
             cancelButton.setTitleColor(Constant.BaseColor.tintColor, for: .normal)
             cancelButton.setAttributedTitle(nsAttributedString, for: .normal)
         }
-        return searchController
-    }()
+    }
     
-    lazy var collectionView = {
-        let collectionView = UICollectionView(
-            frame: .zero,
-            collectionViewLayout: createLayout()
-        )
-        collectionView.register(
+    lazy var collectionView = UICollectionView(frame: .zero,
+                                               collectionViewLayout: createLayout()).then {
+        $0.register(
             FoodManagementCollectionViewHeaderView.self,
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
             withReuseIdentifier: FoodManagementCollectionViewHeaderView.description()
         )
-        return collectionView
-    }()
+    }
     
-    // TODO: Constant
-    let foodRegisterButton = {
-        let button = UIButton()
-        button.setImage(UIImage(systemName: "plus"), for: .normal)
-        button.tintColor = .white
-        button.backgroundColor = Constant.BaseColor.basePointOrangeHexColor
-        button.clipsToBounds = false
-//        button.layer.shadowColor = UIColor.black.cgColor
-//        button.layer.shadowOpacity = 0.5
-//        button.layer.shadowOffset = CGSize(width: 2, height: 2)
-//        button.layer.shadowRadius = 2
-        return button
-    }()
+    let foodRegisterButton = UIButton().then {
+        $0.setImage(UIImage(systemName: "plus"), for: .normal)
+        $0.tintColor = .white
+        $0.backgroundColor = Constant.BaseColor.basePointOrangeHexColor
+        $0.clipsToBounds = false
+    }
     
-    let emptyView = EmptyView()
+    let emptyView = EmptyView().then { _ in }
     
     override func layoutSubviews() {
         super.layoutSubviews()
