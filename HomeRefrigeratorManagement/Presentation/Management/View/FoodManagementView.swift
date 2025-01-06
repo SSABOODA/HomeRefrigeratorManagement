@@ -37,16 +37,20 @@ final class FoodManagementView: BaseView {
     
     let foodRegisterButton = UIButton().then {
         $0.setImage(UIImage(systemName: "plus"), for: .normal)
+        $0.setTitle("보관하기", for: .normal)
+        $0.setTitleColor(.white, for: .normal)
+        $0.titleLabel?.font = UIFont(name: Constant.Font.pretendardSemiBold, size: 16)
         $0.tintColor = .white
         $0.backgroundColor = Constant.BaseColor.basePointOrangeHexColor
-        $0.clipsToBounds = false
+        $0.layer.cornerRadius = 18
+        $0.clipsToBounds = true
+        $0.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
     
     let emptyView = EmptyView().then { _ in }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        foodRegisterButton.layer.cornerRadius = foodRegisterButton.frame.width / 2
     }
     
     override func configureHierarchy() {
@@ -56,21 +60,18 @@ final class FoodManagementView: BaseView {
     }
     
     override func configureLayout() {
-        collectionView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+        collectionView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
-    
-        // tab bar height = 83.0
-        foodRegisterButton.snp.makeConstraints { make in
-            make.size.equalTo(60)
-            make.bottom.equalToSuperview().offset(-83-30)
-            make.trailing.equalToSuperview().offset(-30)
+        foodRegisterButton.snp.makeConstraints {
+            $0.height.equalTo(40)
+            $0.bottom.equalToSuperview().inset(100)
+            $0.trailing.equalToSuperview().inset(20)
         }
-        
-        emptyView.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-            make.width.equalToSuperview()
-            make.height.equalTo(Constant.ScreenSize.deviceScreenHeight*0.3)
+        emptyView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            $0.width.equalToSuperview()
+            $0.height.equalTo(Constant.ScreenSize.deviceScreenHeight*0.3)
         }
     }
     
