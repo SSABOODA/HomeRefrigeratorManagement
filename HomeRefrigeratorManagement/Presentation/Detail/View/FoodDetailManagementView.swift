@@ -3,8 +3,6 @@
 
 import UIKit
 
-// TODO: Then 적용
-
 final class FoodDetailManagementView: BaseView {
 
     let mainView = UIView().then {
@@ -29,199 +27,142 @@ final class FoodDetailManagementView: BaseView {
     }
     
     // 식품 설명
-    let foodDescriptionLabel = {
-        let label = FoodDetailSettingLabel()
-        label.text = "식품 설명"
-        label.font = UIFont(
+    let foodDescriptionLabel = FoodDetailSettingLabel().then {
+        $0.text = "식품 설명"
+        $0.font = UIFont(
             name: Constant.Font.pretendardBold,
             size: Constant.FoodUpdateViewFontSize.labelFontSize
         )
-        return label
-    }()
-    
-    let foodDescriptionTextFieldView = {
-        let view = FoodRegisterComponentTextFieldView()
-        return view
-    }()
-    
-    lazy var foodDescriptionTextField = {
-        let tf = CustomTextField()
-        tf.placeholder = "식품의 상세한 설명을 적어보세요~"
-        tf.font = UIFont(
+    }
+    let foodDescriptionTextFieldView = FoodRegisterComponentTextFieldView().then { _ in }
+    lazy var foodDescriptionTextField = CustomTextField().then {
+        $0.placeholder = "식품의 상세한 설명을 적어보세요~"
+        $0.font = UIFont(
             name: Constant.Font.pretendardBold,
             size: Constant.FoodUpdateViewFontSize.textFieldFontSize
         )
-        tf.clearButtonMode = .whileEditing
-        tf.tag = FoodDataInputTextFieldTag.desc.rawValue
-        return tf
-    }()
+        $0.clearButtonMode = .whileEditing
+        $0.tag = FoodDataInputTextFieldTag.desc.rawValue
+    }
     
-    lazy var foodDescriptionStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [foodDescriptionLabel, foodDescriptionTextFieldView])
-        stackView.axis = .horizontal
-        stackView.spacing = Constant.StackView.detailManagementTextFieldStackViewSpacing
-        stackView.distribution = .fill
-        return stackView
-    }()
+    lazy var foodDescriptionStackView = UIStackView(arrangedSubviews: [foodDescriptionLabel, foodDescriptionTextFieldView]).then {
+        $0.axis = .horizontal
+        $0.spacing = Constant.StackView.detailManagementTextFieldStackViewSpacing
+        $0.distribution = .fill
+    }
     
     // 등록일
-    let registerDateLabel = {
-        let label = FoodDetailSettingLabel()
-        label.text = "등록 날짜"
-        label.font = UIFont(
+    let registerDateLabel = FoodDetailSettingLabel().then {
+        $0.text = "등록 날짜"
+        $0.font = UIFont(
             name: Constant.Font.pretendardBold,
             size: Constant.FoodUpdateViewFontSize.labelFontSize
         )
-        return label
-    }()
-    
-    let registerDateTextFieldView = {
-        let view = FoodRegisterComponentTextFieldView()
-        return view
-    }()
-    
-    let registerDateTextField = {
-        let tf = CustomTextField()
-        tf.text = Date().dateFormat(date: Date())
-        tf.font = UIFont(
+    }
+    let registerDateTextFieldView = FoodRegisterComponentTextFieldView().then { _ in }
+    let registerDateTextField = CustomTextField().then {
+        $0.text = Date().dateFormat(date: Date())
+        $0.font = UIFont(
             name: Constant.Font.pretendardBold,
             size: Constant.FoodUpdateViewFontSize.textFieldFontSize
         )
-        tf.tag = FoodDataInputTextFieldTag.register.rawValue
-        return tf
-    }()
+        $0.tag = FoodDataInputTextFieldTag.register.rawValue
+    }
     
-    lazy var registerDateStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [registerDateLabel, registerDateTextFieldView])
-        stackView.axis = .horizontal
-        stackView.spacing = Constant.StackView.detailManagementTextFieldStackViewSpacing
-        stackView.distribution = .fill
-        return stackView
-    }()
+    lazy var registerDateStackView = UIStackView(arrangedSubviews: [registerDateLabel, registerDateTextFieldView]).then {
+        $0.axis = .horizontal
+        $0.spacing = Constant.StackView.detailManagementTextFieldStackViewSpacing
+        $0.distribution = .fill
+    }
     
     // 유통기한
-    let expirationDateLabel = {
-        let label = FoodDetailSettingLabel()
-        label.text = "유통 기한"
-        label.font = UIFont(
+    let expirationDateLabel = FoodDetailSettingLabel().then {
+        $0.text = "유통 기한"
+        $0.font = UIFont(
             name: Constant.Font.pretendardBold,
             size: Constant.FoodUpdateViewFontSize.labelFontSize
         )
-        return label
-    }()
+    }
     
-    let expirationDateTextFieldView = {
-        let view = FoodRegisterComponentTextFieldView()
-        return view
-    }()
-    
-    let expirationDateTextField = {
-        let tf = CustomTextField()
-        tf.text = Date().dateFormat(date: Date())
-        tf.font = UIFont(
+    let expirationDateTextFieldView = FoodRegisterComponentTextFieldView().then { _ in }
+    let expirationDateTextField = CustomTextField().then {
+        $0.text = Date().dateFormat(date: Date())
+        $0.font = UIFont(
             name: Constant.Font.pretendardBold,
             size: Constant.FoodUpdateViewFontSize.textFieldFontSize
         )
-        tf.tag = FoodDataInputTextFieldTag.expiration.rawValue
-        return tf
-    }()
+        $0.tag = FoodDataInputTextFieldTag.expiration.rawValue
+    }
     
-    lazy var expirationDateStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [expirationDateLabel, expirationDateTextFieldView])
-        stackView.axis = .horizontal
-        stackView.spacing = Constant.StackView.detailManagementTextFieldStackViewSpacing
-        stackView.distribution = .fill
-        return stackView
-    }()
+    lazy var expirationDateStackView = UIStackView(arrangedSubviews: [expirationDateLabel, expirationDateTextFieldView]).then {
+        $0.axis = .horizontal
+        $0.spacing = Constant.StackView.detailManagementTextFieldStackViewSpacing
+        $0.distribution = .fill
+    }
     
     // 저장 방법
-    let storageTypeLabel = {
-        let label = FoodDetailSettingLabel()
-        label.text = "저장 방법"
-        label.font = UIFont(
+    let storageTypeLabel = FoodDetailSettingLabel().then {
+        $0.text = "저장 방법"
+        $0.font = UIFont(
             name: Constant.Font.pretendardBold,
             size: Constant.FoodUpdateViewFontSize.labelFontSize
         )
-        return label
-    }()
-    
-    let storageTypeTextFieldView = {
-        let view = FoodRegisterComponentTextFieldView()
-        return view
-    }()
-    
-    let storageTypeTextField = {
-        let tf = CustomTextField()
-        tf.placeholder = "저장 방법을 선택해주세요"
-        tf.font = UIFont(
+    }
+    let storageTypeTextFieldView = FoodRegisterComponentTextFieldView().then { _ in }
+    let storageTypeTextField = CustomTextField().then {
+        $0.placeholder = "저장 방법을 선택해주세요"
+        $0.font = UIFont(
             name: Constant.Font.pretendardBold,
             size: Constant.FoodUpdateViewFontSize.textFieldFontSize
         )
-        tf.tag = FoodDataInputTextFieldTag.storage.rawValue
-        return tf
-    }()
+        $0.tag = FoodDataInputTextFieldTag.storage.rawValue
+    }
     
-    lazy var storageTypeStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [storageTypeLabel, storageTypeTextFieldView])
-        stackView.axis = .horizontal
-        stackView.spacing = Constant.StackView.detailManagementTextFieldStackViewSpacing
-        stackView.distribution = .fill
-        return stackView
-    }()
+    lazy var storageTypeStackView = UIStackView(arrangedSubviews: [storageTypeLabel, storageTypeTextFieldView]).then {
+        $0.axis = .horizontal
+        $0.spacing = Constant.StackView.detailManagementTextFieldStackViewSpacing
+        $0.distribution = .fill
+    }
     
     // 수량
-    let countLabel = {
-        let label = FoodDetailSettingLabel()
-        label.text = "수량"
-        label.font = UIFont(
+    let countLabel = FoodDetailSettingLabel().then {
+        $0.text = "수량"
+        $0.font = UIFont(
             name: Constant.Font.pretendardBold,
             size: Constant.FoodUpdateViewFontSize.labelFontSize
         )
-        return label
-    }()
+    }
+    let countTextFieldView = FoodRegisterComponentTextFieldView().then { _ in }
     
-    let countTextFieldView = {
-        let view = FoodRegisterComponentTextFieldView()
-        return view
-    }()
-    
-    let countTextField = {
-        let tf = CustomTextField()
-        tf.keyboardType = .numberPad
-        tf.placeholder = "수량을 입력해주세요~"
-        tf.font = UIFont(
+    let countTextField = CustomTextField().then {
+        $0.keyboardType = .numberPad
+        $0.placeholder = "수량을 입력해주세요~"
+        $0.font = UIFont(
             name: Constant.Font.pretendardBold,
             size: Constant.FoodUpdateViewFontSize.textFieldFontSize
         )
-        tf.clearButtonMode = .whileEditing
-        tf.tag = FoodDataInputTextFieldTag.count.rawValue
-        return tf
-    }()
+        $0.clearButtonMode = .whileEditing
+        $0.tag = FoodDataInputTextFieldTag.count.rawValue
+    }
     
-    lazy var countStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [countLabel, countTextFieldView])
-        stackView.axis = .horizontal
-        stackView.spacing = Constant.StackView.detailManagementTextFieldStackViewSpacing
-        return stackView
-    }()
+    lazy var countStackView = UIStackView(arrangedSubviews: [countLabel, countTextFieldView]).then {
+        $0.axis = .horizontal
+        $0.spacing = Constant.StackView.detailManagementTextFieldStackViewSpacing
+    }
     
-    let deleteButton = {
-        let button = UIButton()
-        button.setTitle(Constant.ButtonSetTitle.foodDeleteButtonTitle, for: .normal)
-        button.titleLabel?.font = UIFont(name: Constant.Font.pretendardBold, size: 13)
-        button.setTitleColor(UIColor.white, for: .normal)
-        button.backgroundColor = .black
-        return button
-    }()
+    let deleteButton = UIButton().then {
+        $0.setTitle(Constant.ButtonSetTitle.foodDeleteButtonTitle, for: .normal)
+        $0.titleLabel?.font = UIFont(name: Constant.Font.pretendardBold, size: 13)
+        $0.setTitleColor(UIColor.white, for: .normal)
+        $0.backgroundColor = .black
+    }
     
-    let updateButton = {
-        let button = UIButton()
-        button.setTitle(Constant.ButtonSetTitle.foodUpdateButtonTitle, for: .normal)
-        button.titleLabel?.font = UIFont(name: Constant.Font.pretendardBold, size: 13)
-        button.setTitleColor(UIColor.white, for: .normal)
-        button.backgroundColor = Constant.BaseColor.basePointOrangeHexColor
-        return button
-    }()
+    let updateButton = UIButton().then {
+        $0.setTitle(Constant.ButtonSetTitle.foodUpdateButtonTitle, for: .normal)
+        $0.titleLabel?.font = UIFont(name: Constant.Font.pretendardBold, size: 13)
+        $0.setTitleColor(UIColor.white, for: .normal)
+        $0.backgroundColor = Constant.BaseColor.basePointOrangeHexColor
+    }
 
     override func configureHierarchy() {
         addSubview(mainView)
@@ -388,6 +329,5 @@ final class FoodDetailManagementView: BaseView {
             make.width.equalToSuperview().multipliedBy(0.5)
             make.height.equalToSuperview().multipliedBy(0.1)
         }
-        
     }
 }
