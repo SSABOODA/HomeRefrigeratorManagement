@@ -30,8 +30,8 @@ final class FoodRegisterDetailViewController: BaseViewController {
         mainView.layoutSubviews()
     }
     
-    override func configureView() {
-        super.configureView()
+    override func setupViews() {
+        super.setupViews()
         view.backgroundColor = UIColor(white: 1, alpha: 0.5)
         configureInitialDate()
         addTarget()

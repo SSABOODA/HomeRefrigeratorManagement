@@ -46,8 +46,8 @@ final class CalendarViewController: BaseViewController {
         }
     }
 
-    override func configureView() {
-        super.configureView()
+    override func setupViews() {
+        super.setupViews()
         // configure navigation
         view.backgroundColor = Constant.BaseColor.grayContrastBackgroundColor
         title = Constant.NavigationTitle.calendarTitle

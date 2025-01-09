@@ -63,6 +63,7 @@
 		F794A5B72ADD6A27009D3A3A /* InquireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F794A5B62ADD6A27009D3A3A /* InquireViewController.swift */; };
 		F794A5B92ADD7BD4009D3A3A /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F794A5B82ADD7BD4009D3A3A /* NoticeViewController.swift */; };
 		F79D6A0B2B2A9D4B0059678E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F79D6A0A2B2A9D4B0059678E /* StoreKit.framework */; };
+		F7AAC03E2D2C1AC100B97EA1 /* NewFoodRegisterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AAC03D2D2C1AC100B97EA1 /* NewFoodRegisterDetailViewController.swift */; };
 		F7C31D782AC2CE2E008DAA21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D772AC2CE2E008DAA21 /* AppDelegate.swift */; };
 		F7C31D7A2AC2CE2F008DAA21 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D792AC2CE2F008DAA21 /* SceneDelegate.swift */; };
 		F7C31D7C2AC2CE2F008DAA21 /* FoodManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C31D7B2AC2CE2F008DAA21 /* FoodManagementViewController.swift */; };
@@ -171,6 +172,7 @@
 		F794A5B62ADD6A27009D3A3A /* InquireViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InquireViewController.swift; sourceTree = "<group>"; };
 		F794A5B82ADD7BD4009D3A3A /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
 		F79D6A0A2B2A9D4B0059678E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		F7AAC03D2D2C1AC100B97EA1 /* NewFoodRegisterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFoodRegisterDetailViewController.swift; sourceTree = "<group>"; };
 		F7C31D742AC2CE2E008DAA21 /* HomeRefrigeratorManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeRefrigeratorManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7C31D772AC2CE2E008DAA21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7C31D792AC2CE2F008DAA21 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -351,6 +353,14 @@
 				F79D6A0A2B2A9D4B0059678E /* StoreKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F7AAC03C2D2C1AB800B97EA1 /* New */ = {
+			isa = PBXGroup;
+			children = (
+				F7AAC03D2D2C1AC100B97EA1 /* NewFoodRegisterDetailViewController.swift */,
+			);
+			path = New;
 			sourceTree = "<group>";
 		};
 		F7C31D6B2AC2CE2E008DAA21 = {
@@ -638,6 +648,7 @@
 		F7ED47122D12FC43000EF1E9 /* ResisterDetail */ = {
 			isa = PBXGroup;
 			children = (
+				F7AAC03C2D2C1AB800B97EA1 /* New */,
 				F7C31E2D2ACE9DAB008DAA21 /* FoodRegisterDetailView.swift */,
 				F7C31E292ACE8E8C008DAA21 /* FoodRegisterDetailViewController.swift */,
 				F7C31E2B2ACE93E3008DAA21 /* FoodRegisterDetailViewModel.swift */,
@@ -938,6 +949,7 @@
 				F7289E4C2AD2C05400E092C6 /* FoodDetailManagementViewController.swift in Sources */,
 				F7610A212AD5458C00832129 /* CalendarViewModel.swift in Sources */,
 				F75E9B282AE11BA4000CF09A /* VersionViewController.swift in Sources */,
+				F7AAC03E2D2C1AC100B97EA1 /* NewFoodRegisterDetailViewController.swift in Sources */,
 				F7610A4A2AD7C60400832129 /* RecipeViewModel.swift in Sources */,
 				F7248A3A2AD963E600D768DF /* FoodManagementCollectionViewHeaderView.swift in Sources */,
 				F794A5B52ADD5B10009D3A3A /* AlarmViewController.swift in Sources */,

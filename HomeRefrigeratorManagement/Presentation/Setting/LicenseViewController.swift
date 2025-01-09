@@ -15,8 +15,8 @@ final class LicenseViewController: BaseViewController {
         super.viewDidLoad()
     }
     
-    override func configureView() {
-        super.configureView()
+    override func setupViews() {
+        super.setupViews()
         navigationItem.largeTitleDisplayMode = .never
         
         label.textAlignment = .center
@@ -25,11 +25,11 @@ final class LicenseViewController: BaseViewController {
         """.htmlToAttributedString
     }
     
-    override func configureHirarchy() {
+    override func setupHierarchy() {
         view.addSubview(label)
     }
     
-    override func configureLayout() {
+    override func setupConstraints() {
         label.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }

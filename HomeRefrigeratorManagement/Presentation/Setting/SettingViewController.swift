@@ -60,8 +60,8 @@ final class SettingViewController: BaseViewController {
         setNav()
     }
     
-    override func configureView() {
-        super.configureView()
+    override func setupViews() {
+        super.setupViews()
         // view
         view.backgroundColor = Constant.BaseColor.grayContrastBackgroundColor
         
@@ -70,11 +70,11 @@ final class SettingViewController: BaseViewController {
         collectionView.dataSource = self
     }
     
-    override func configureHirarchy() {
+    override func setupHierarchy() {
         view.addSubview(collectionView)
     }
     
-    override func configureLayout() {
+    override func setupConstraints() {
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.horizontalEdges.bottom.equalToSuperview()

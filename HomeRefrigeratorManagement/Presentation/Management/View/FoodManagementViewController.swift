@@ -54,7 +54,7 @@ final class FoodManagementViewController: BaseViewController {
         showSheet()
     }
     
-    override func configureView() {
+    override func setupViews() {
         // view setting
         mainView.collectionView.backgroundColor = Constant.collectionViewColor.collectionViewBackgroundColor
         collectionViewDelegate()
@@ -176,9 +176,9 @@ extension FoodManagementViewController: UICollectionViewDelegate {
                 weakSelf.view.makeToast(Constant.ToastMessage.foodDeleteSuccessMessage)
             }
         }
+        nextVC.hidesBottomBarWhenPushed = true
         transition(viewController: nextVC, style: .push)
     }
-    
 }
 
 // MARK: - DataSource
@@ -326,16 +326,25 @@ extension FoodManagementViewController: UISheetPresentationControllerDelegate {
             }
         }
         
+        formController.onItemTouchCompletion = { foodItem in
+            self.dismiss(animated: true) {
+                let vc = NewFoodRegisterDetailViewController()
+                self.transition(viewController: vc, style: .push)
+            }
+        }
+        
         formController.sheetPresentationController?.delegate = self
-
+        
+        
         let formNC = UINavigationController(rootViewController: formController)
         formNC.modalPresentationStyle = UIModalPresentationStyle.pageSheet
         if let sheetPresentationController = formNC.presentationController as? UISheetPresentationController {
             sheetPresentationController.prefersGrabberVisible = true
             sheetPresentationController.detents = [
                 UISheetPresentationController.Detent.medium(),
-                UISheetPresentationController.Detent.large()
+//                UISheetPresentationController.Detent.large()
             ]
+            sheetPresentationController.preferredCornerRadius = 16
         }
         present(formNC, animated: true)
     }

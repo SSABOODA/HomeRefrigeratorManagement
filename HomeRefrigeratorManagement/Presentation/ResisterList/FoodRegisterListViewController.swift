@@ -1,9 +1,5 @@
 //
 //  FoodRegisterDetailViewController.swift
-//  HomeRefrigeratorManagement
-//
-//  Created by 한성봉 on 2023/09/29.
-//
 
 import UIKit
 
@@ -13,21 +9,19 @@ final class FoodRegisterListViewController: BaseViewController {
         case main
     }
     
-    let searchBar = UISearchBar()
+    let searchBar = UISearchBar().then { _ in}
 
-    lazy var collectionView = {
-        let view = UICollectionView(
-            frame: .zero,
-            collectionViewLayout: collectionViewLayout()
-        )
-        view.delegate = self
-        view.keyboardDismissMode = .onDrag
-        return view
-    }()
+    lazy var collectionView = UICollectionView(
+        frame: .zero,
+        collectionViewLayout: collectionViewLayout()
+    ).then {
+        $0.delegate = self
+        $0.keyboardDismissMode = .onDrag
+    }
     
     let viewModel = FoodRegisterListViewModel()
-    
     var dataSource: UICollectionViewDiffableDataSource<Section, FoodModel>!
+    var onItemTouchCompletion: ((FoodModel) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,12 +35,12 @@ final class FoodRegisterListViewController: BaseViewController {
         viewModel.completionHandler?(viewModel.isSave.value)
     }
     
-    override func configureView() {
+    override func setupViews() {
         view.backgroundColor = Constant.BaseColor.backgroundColor
         view.addSubview(collectionView)
     }
     
-    override func configureLayout() {
+    override func setupConstraints() {
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
@@ -119,7 +113,6 @@ extension FoodRegisterListViewController: UISearchControllerDelegate, UISearchBa
 
 // MARK: - UICollectionViewFlowLayout
 extension FoodRegisterListViewController {
-    // TODO: Constant
     private func collectionViewLayout() -> UICollectionViewFlowLayout {
         let spacing: CGFloat = 8
         let layout = UICollectionViewFlowLayout()
@@ -133,7 +126,13 @@ extension FoodRegisterListViewController {
 }
 
 extension FoodRegisterListViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath) {
+        
+        let foodModel = self.viewModel.foodIconInfo.value[indexPath.item]
+        self.onItemTouchCompletion?(foodModel)
+        
+        return
         
         let nextVC = FoodRegisterDetailViewController()
         nextVC.viewModel.completionHandler = { isSave in

@@ -1,13 +1,9 @@
 //
 //  FoodRegisterDetailViewModel.swift
-//  HomeRefrigeratorManagement
-//
-//  Created by 한성봉 on 2023/10/05.
-//
 
 import Foundation
 
-class FoodRegisterDetailViewModel {
+final class FoodRegisterDetailViewModel {
     
     let realm = RealmTableRepository.shared
     

@@ -17,11 +17,11 @@ final class PrivacyViewController: BaseViewController, WKUIDelegate {
         configureNavigationBar()
      }
     
-    override func configureHirarchy() {
+    override func setupHierarchy() {
         view.addSubview(webView)
     }
     
-    override func configureLayout() {
+    override func setupConstraints() {
         webView.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide)
             make.horizontalEdges.bottom.equalToSuperview()

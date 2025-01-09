@@ -27,8 +27,8 @@ final class ChartViewController: BaseViewController {
         mainView.pieChartTableView.dataSource = self
     }
     
-    override func configureView() {
-        super.configureView()
+    override func setupViews() {
+        super.setupViews()
         mainView.scrollView.delegate = self
         view.backgroundColor = Constant.BaseColor.grayContrastBackgroundColor
     }

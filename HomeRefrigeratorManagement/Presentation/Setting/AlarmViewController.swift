@@ -71,18 +71,18 @@ final class AlarmViewController: BaseViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
-    override func configureView() {
-        super.configureView()
+    override func setupViews() {
+        super.setupViews()
         navigationItem.largeTitleDisplayMode = .never
     }
     
-    override func configureHirarchy() {
+    override func setupHierarchy() {
         view.addSubview(tableView)
         footerView.addSubview(alarmTimeChoiceLabel)
         footerView.addSubview(datePicker)
     }
     
-    override func configureLayout() {
+    override func setupConstraints() {
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }

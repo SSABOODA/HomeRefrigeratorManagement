@@ -13,7 +13,7 @@ final class VersionViewController: BaseViewController {
         super.viewDidLoad()
     }
     
-    override func configureView() {
-        super.configureView()
+    override func setupViews() {
+        super.setupViews()
     }
 }

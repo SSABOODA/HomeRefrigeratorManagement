@@ -24,8 +24,8 @@ final class ConsumptionViewController: BaseViewController {
         searchControllerDelegate()
     }
     
-    override func configureView() {
-        super.configureView()
+    override func setupViews() {
+        super.setupViews()
         
         title = "식품 소비하기"
         

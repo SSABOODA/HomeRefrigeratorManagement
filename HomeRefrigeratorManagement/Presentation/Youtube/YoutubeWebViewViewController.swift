@@ -26,12 +26,12 @@ final class YoutubeWebViewViewController: BaseViewController {
         setToolbar()
     }
     
-    override func configureView() {
+    override func setupViews() {
         view.addSubview(webView)
         view.addSubview(toolbar)
     }
     
-    override func configureLayout() {
+    override func setupConstraints() {
         webView.snp.makeConstraints { make in
             make.top.horizontalEdges.equalToSuperview()
             make.bottom.equalToSuperview().offset(-toolbar.frame.height)

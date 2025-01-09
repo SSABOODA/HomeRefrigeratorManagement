@@ -1,9 +1,5 @@
 //
 //  FoodDetailManagementViewController.swift
-//  HomeRefrigeratorManagement
-//
-//  Created by 한성봉 on 2023/10/08.
-//
 
 import UIKit
 
@@ -30,10 +26,10 @@ final class FoodDetailManagementViewController: BaseViewController {
         setupTapGestures()
     }
     
-    override func configureView() {
-        super.configureView()
+    override func setupViews() {
+        super.setupViews()
         view.backgroundColor = Constant.BaseColor.grayContrastBackgroundColor
-        navigationBar()
+        setupNavigationBar()
         configreData()
         configPickerView()
         textFieldDelegate()
@@ -148,9 +144,29 @@ final class FoodDetailManagementViewController: BaseViewController {
 
 // navigationBar
 extension FoodDetailManagementViewController {
-    private func navigationBar() {
+    private func setupNavigationBar() {
         title = Constant.NavigationTitle.foodDetailTitle
         self.navigationItem.largeTitleDisplayMode = .never
+        
+        let barButton = UIBarButtonItem(image: UIImage(systemName: "trash"),
+                                        style: .plain,
+                                        target: self,
+                                        action: #selector(rightButtonTapped))
+        barButton.tintColor = .black
+        navigationItem.rightBarButtonItem = barButton
+    }
+    
+    @objc
+    func rightButtonTapped() {
+        print("삭제")
+        
+        showAlertAction2(
+            preferredStyle: .alert,
+            title: Constant.AlertText.deleteAlertTitleMessage
+        ) {} _: {
+            self.viewModel.deleteData()
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 }
 

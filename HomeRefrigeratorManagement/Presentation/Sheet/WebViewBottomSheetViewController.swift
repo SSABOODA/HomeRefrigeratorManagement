@@ -37,13 +37,13 @@ final class WebViewBottomSheetViewController: BaseViewController {
         showBottomSheet()
     }
     
-    override func configureView() {
+    override func setupViews() {
         view.addSubview(dimmedView)
         view.addSubview(bottomSheetView)
         dimmedView.alpha = 0.0
     }
     
-    override func configureLayout() {
+    override func setupConstraints() {
         dimmedView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             dimmedView.topAnchor.constraint(equalTo: view.topAnchor),
