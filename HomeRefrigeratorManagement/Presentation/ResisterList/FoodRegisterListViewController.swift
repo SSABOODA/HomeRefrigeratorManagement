@@ -131,20 +131,21 @@ extension FoodRegisterListViewController: UICollectionViewDelegate {
         
         // TODO: 음식 보관 데이터 저장 UI 변경
         
-//        let foodModel = self.viewModel.foodIconInfo.value[indexPath.item]
-//        self.onItemTouchCompletion?(foodModel)
-//        return
+        let foodModel = self.viewModel.foodIconInfo.value[indexPath.item]
+        self.onItemTouchCompletion?(foodModel) // 화면 전환
+        return
         
-        let nextVC = FoodRegisterDetailViewController()
-        nextVC.viewModel.completionHandler = { isSave in
-            if isSave {
-                self.view.makeToast(Constant.ToastMessage.foodSaveSuccessMessage)
-                self.viewModel.isSave.value = true
-            }
-        }
-        
-        nextVC.viewModel.foodIconInfo.value = self.viewModel.foodIconInfo.value[indexPath.item]
-        nextVC.modalPresentationStyle = .overFullScreen
-        present(nextVC, animated: true)
+//        let nextVC = FoodRegisterDetailViewController()
+//        nextVC.viewModel.completionHandler = { isSave in
+//            if isSave {
+//                self.view.makeToast(Constant.ToastMessage.foodSaveSuccessMessage)
+//                self.viewModel.isSave.value = true
+//            }
+//
+//        }
+//        
+//        nextVC.viewModel.foodIconInfo.value = self.viewModel.foodIconInfo.value[indexPath.item]
+//        nextVC.modalPresentationStyle = .overFullScreen
+//        present(nextVC, animated: true)
     }
 }

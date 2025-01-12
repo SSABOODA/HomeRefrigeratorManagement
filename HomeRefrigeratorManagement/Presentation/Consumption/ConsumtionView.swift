@@ -38,11 +38,11 @@ final class ConsumtionView: BaseView {
         $0.backgroundColor = Constant.BaseColor.grayContrastBackgroundColor
     }
     
-    override func configureHierarchy() {
+    override func setupHierarchy() {
         addSubview(collectionView)
     }
     
-    override func configureLayout() {
+    override func setupConstraints() {
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }

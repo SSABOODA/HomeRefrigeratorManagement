@@ -1,15 +1,7 @@
 //
-//  NewResi.swift
+//  NewFoodRegisterDetailViewController.swift
 
 import UIKit
-
-final class NewFoodRegisterDetailView: BaseView {
-    
-}
-
-final class NewFoodRegisterDetailViewModel {
-    
-}
 
 final class NewFoodRegisterDetailViewController: BaseViewController {
     
@@ -21,19 +13,26 @@ final class NewFoodRegisterDetailViewController: BaseViewController {
         self.viewModel = viewModel
     }
     
+    
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    
+    override func loadView() {
+        view = mainView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    
     override func setupViews() {
         super.setupViews()
         navigationItem.title = "보관하기"
+        view.backgroundColor = Constant.BaseColor.grayContrastBackgroundColor
     }
 }
 

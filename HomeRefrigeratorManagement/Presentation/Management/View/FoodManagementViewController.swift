@@ -341,8 +341,8 @@ extension FoodManagementViewController: UISheetPresentationControllerDelegate {
         if let sheetPresentationController = formNC.presentationController as? UISheetPresentationController {
             sheetPresentationController.prefersGrabberVisible = true
             sheetPresentationController.detents = [
-                UISheetPresentationController.Detent.medium(),
-//                UISheetPresentationController.Detent.large()
+//                UISheetPresentationController.Detent.medium(),
+                UISheetPresentationController.Detent.large()
             ]
             sheetPresentationController.preferredCornerRadius = 16
         }

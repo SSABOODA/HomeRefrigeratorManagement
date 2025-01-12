@@ -95,7 +95,7 @@ final class CalendarView: BaseView {
         }
     }
     
-    override func configureHierarchy() {
+    override func setupHierarchy() {
         addSubview(calendarTopView)
         calendarTopView.addSubview(calendarTypeChangeButtonView)
         calendarTopView.addSubview(calendarHomeResetButtonView)
@@ -109,7 +109,7 @@ final class CalendarView: BaseView {
         addSubview(collectionView)
     }
     
-    override func configureLayout() {
+    override func setupConstraints() {
         calendarTopView.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide)
             make.horizontalEdges.equalToSuperview().inset(25)

@@ -53,13 +53,13 @@ final class FoodManagementView: BaseView {
         super.layoutSubviews()
     }
     
-    override func configureHierarchy() {
+    override func setupHierarchy() {
         addSubview(collectionView)
         addSubview(foodRegisterButton)
         addSubview(emptyView)
     }
     
-    override func configureLayout() {
+    override func setupConstraints() {
         collectionView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }

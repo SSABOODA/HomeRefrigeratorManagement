@@ -1,9 +1,5 @@
 //
 //  FoodDetailSettingLabel.swift
-//  HomeRefrigeratorManagement
-//
-//  Created by 한성봉 on 2023/10/06.
-//
 
 import UIKit
 
@@ -19,8 +15,9 @@ class FoodDetailSettingLabel: UILabel {
     }
     
     func setupView() {
-        font = .boldSystemFont(ofSize: 13)
-        textAlignment = .center
+        font = UIFont(name: Constant.Font.pretendardBold, size: 14)
+        textAlignment = .left
+        textColor = .black
     }
     
 }

@@ -196,7 +196,7 @@ final class FoodRegisterDetailView: BaseView {
         saveButton.layoutIfNeeded()
     }
 
-    override func configureHierarchy() {
+    override func setupHierarchy() {
         addSubview(mainView)
     
         mainView.addSubview(foodView)
@@ -227,7 +227,7 @@ final class FoodRegisterDetailView: BaseView {
         mainView.addSubview(saveButton)
     }
     
-    override func configureLayout() {
+    override func setupConstraints() {
         
         mainView.snp.makeConstraints { make in
             make.center.equalToSuperview()

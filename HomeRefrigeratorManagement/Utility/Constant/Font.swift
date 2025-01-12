@@ -22,12 +22,12 @@ extension Constant {
     }
     
     enum FoodCreateViewFontSize {
-        static let labelFontSize = 13.0
+        static let labelFontSize = 14.0
         static let textFieldFontSize = 11.0
     }
     
     enum FoodUpdateViewFontSize {
-        static let labelFontSize = 13.0
+        static let labelFontSize = 14.0
         static let textFieldFontSize = 11.0
     }
 }

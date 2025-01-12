@@ -164,7 +164,7 @@ final class FoodDetailManagementView: BaseView {
         $0.backgroundColor = Constant.BaseColor.basePointOrangeHexColor
     }
 
-    override func configureHierarchy() {
+    override func setupHierarchy() {
         addSubview(mainView)
         mainView.addSubview(foodView)
         mainView.addSubview(registerView)
@@ -202,7 +202,7 @@ final class FoodDetailManagementView: BaseView {
         updateButton.layoutIfNeeded()
     }
     
-    override func configureLayout() {
+    override func setupConstraints() {
         mainView.snp.makeConstraints { make in
             make.center.equalToSuperview()
             make.width.equalTo(Constant.ScreenSize.deviceScreenWidth*0.9)

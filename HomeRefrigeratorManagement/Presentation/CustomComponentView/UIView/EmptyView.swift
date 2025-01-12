@@ -26,12 +26,12 @@ final class EmptyView: BaseView {
     }()
     
     
-    override func configureHierarchy() {
+    override func setupHierarchy() {
         addSubview(imageView)
         addSubview(label)
     }
     
-    override func configureLayout() {
+    override func setupConstraints() {
         imageView.snp.makeConstraints { make in
             make.center.equalToSuperview()
             make.size.equalTo(50)

@@ -168,7 +168,7 @@ final class ChartView: BaseView {
     
     private let chartView = UIView().then { _ in }
 
-    override func configureHierarchy() {
+    override func setupHierarchy() {
         // scrollView
         addSubview(scrollView)
         scrollView.addSubview(contentView)
@@ -197,7 +197,7 @@ final class ChartView: BaseView {
     }
     
     
-    override func configureLayout() {
+    override func setupConstraints() {
         // scrollView
         scrollView.snp.makeConstraints { make in
             make.edges.equalTo(self.safeAreaLayoutGuide)
