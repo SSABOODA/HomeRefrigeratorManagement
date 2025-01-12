@@ -1,17 +1,14 @@
 //
 //  BaseCollectionViewCell.swift
-//  HomeRefrigeratorManagement
-//
-//  Created by 한성봉 on 2023/09/28.
-//
 
 import UIKit
 
 class BaseCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configureHierarchy()
-        configureLayout()
+        setupHierarchy()
+        setupLayout()
+        setupAttributes()
     }
     
     @available(*, unavailable)
@@ -19,11 +16,10 @@ class BaseCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureHierarchy() {
-    }
+    func setupHierarchy() {}
     
-    func configureLayout() {
-    }
+    func setupLayout() {}
     
+    func setupAttributes() {}
     
 }

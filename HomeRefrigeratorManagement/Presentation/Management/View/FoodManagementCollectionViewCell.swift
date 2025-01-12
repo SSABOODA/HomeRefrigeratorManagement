@@ -6,34 +6,34 @@ import SnapKit
 import Then
 
 final class FoodManagementCollectionViewCell: BaseCollectionViewCell {
-    let foodImageView = UIImageView().then { _ in }
-    let nameLabel = UILabel().then {
+    private let foodImageView = UIImageView().then { _ in }
+    private let nameLabel = UILabel().then {
         $0.font = UIFont(name: Constant.Font.pretendardBold, size: 15)
         $0.textColor = Constant.BaseColor.tintColor
     }
-    
-    let descriptionLabel = UILabel().then {
+    private let descriptionLabel = UILabel().then {
         $0.font = UIFont(name: Constant.Font.pretendardBold, size: 13)
         $0.textColor = Constant.BaseColor.tintColor
         $0.numberOfLines = 1
     }
     
-    let purchaseDateLabel = UILabel().then {
+    private let purchaseDateLabel = UILabel().then {
         $0.font = UIFont(name: Constant.Font.pretendardRegular, size: 13)
         $0.textColor = Constant.BaseColor.tintColor
         $0.numberOfLines = 1
     }
     
-    lazy var stackView = UIStackView(
+    private lazy var stackView = UIStackView(
         arrangedSubviews: [
             nameLabel,
             descriptionLabel,
-            purchaseDateLabel]).then {
+            purchaseDateLabel]
+    ).then {
         $0.axis = .vertical
         $0.spacing = 10
     }
     
-    let expirationDateLabel = UILabel().then {
+    private let expirationDateLabel = UILabel().then {
         $0.font = UIFont(name: Constant.Font.pretendardBold, size: 15)
         $0.textColor = UIColor(hexCode: "#E27749")
         $0.textAlignment = .right
@@ -41,13 +41,13 @@ final class FoodManagementCollectionViewCell: BaseCollectionViewCell {
         $0.numberOfLines = 1
     }
     
-    override func configureHierarchy() {
+    override func setupHierarchy() {
         addSubview(foodImageView)
         addSubview(stackView)
         addSubview(expirationDateLabel)
     }
     
-    override func configureLayout() {
+    override func setupLayout() {
         foodImageView.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(30)
             make.centerY.equalToSuperview()
@@ -68,6 +68,14 @@ final class FoodManagementCollectionViewCell: BaseCollectionViewCell {
         }
     }
     
+    override func setupAttributes() {
+        backgroundColor = Constant.collectionViewColor.collectionViewCellBackgroundColor
+        clipsToBounds = false
+        layer.borderWidth = 1
+        layer.borderColor = UIColor(hexCode: "#E8E9EC").cgColor
+        layer.cornerRadius = 10
+    }
+    
     override var isHighlighted: Bool {
         didSet {
             shrink(down: isHighlighted)
@@ -84,11 +92,11 @@ final class FoodManagementCollectionViewCell: BaseCollectionViewCell {
       }
     }
     
-    func configureCell() {
-        backgroundColor = Constant.collectionViewColor.collectionViewCellBackgroundColor
-        clipsToBounds = false
-        layer.borderWidth = 1
-        layer.borderColor = UIColor(hexCode: "#E8E9EC").cgColor
-        layer.cornerRadius = 10
+    func configureCell(with food: Food, dDay: String) {
+        foodImageView.image = UIImage(named: food.name)
+        nameLabel.text = food.name
+        descriptionLabel.text = food.descriptionContent.isEmpty ? food.name : food.descriptionContent
+        purchaseDateLabel.text = "구매일자: \(food.purchaseDate.toString(format: .compactDot))"
+        expirationDateLabel.text = dDay
     }
 }

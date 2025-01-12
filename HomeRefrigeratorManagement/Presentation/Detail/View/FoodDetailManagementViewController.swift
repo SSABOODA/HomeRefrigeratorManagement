@@ -22,20 +22,21 @@ final class FoodDetailManagementViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addTarget()
+        setupAddTarget()
         setupTapGestures()
     }
     
     override func setupViews() {
         super.setupViews()
         view.backgroundColor = Constant.BaseColor.grayContrastBackgroundColor
+        
+        setupFoodData()
+        setupPickerView()
         setupNavigationBar()
-        configreData()
-        configPickerView()
-        textFieldDelegate()
+        setupTextFieldDelegate()
     }
     
-    private func textFieldDelegate() {
+    private func setupTextFieldDelegate() {
         mainView.foodDescriptionTextField.delegate = self
         mainView.registerDateTextField.delegate = self
         mainView.expirationDateTextField.delegate = self
@@ -43,7 +44,7 @@ final class FoodDetailManagementViewController: BaseViewController {
         mainView.countTextField.delegate = self
     }
 
-    private func configreData() {
+    private func setupFoodData() {
         guard let food = viewModel.food else { return }
         mainView.foodImageView.image = UIImage(named: food.name)
         mainView.foodNameLabel.text = food.name
@@ -55,20 +56,50 @@ final class FoodDetailManagementViewController: BaseViewController {
     }
     
     private func setupTapGestures() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapGesture))
+        let tapGesture = UITapGestureRecognizer(
+            target: self,
+            action: #selector(viewTapGesture)
+        )
         view.addGestureRecognizer(tapGesture)
         view.isUserInteractionEnabled = true
     }
 
-    private func addTarget() {
-        mainView.deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
-        mainView.updateButton.addTarget(self, action: #selector(updateButtonTapped), for: .touchUpInside)
-        
-        mainView.foodDescriptionTextField.addTarget(self, action: #selector(foodDescriptionTextEditingChanged), for: .editingChanged)
-        mainView.registerDateTextField.addTarget(self, action: #selector(registerDateTextFieldTapped), for: .touchDown)
-        mainView.expirationDateTextField.addTarget(self, action: #selector(expirationDateTextFieldTapped), for: .touchDown)
-        mainView.storageTypeTextField.addTarget(self, action: #selector(storageTypeTextFieldEditingChanged), for: .editingChanged)
-        mainView.countTextField.addTarget(self, action: #selector(countTextFieldEditingChanged), for: .editingChanged)
+    private func setupAddTarget() {
+        mainView.deleteButton.addTarget(
+            self,
+            action: #selector(deleteButtonTapped),
+            for: .touchUpInside
+        )
+        mainView.updateButton.addTarget(
+            self,
+            action: #selector(updateButtonTapped),
+            for: .touchUpInside
+        )
+        mainView.foodDescriptionTextField.addTarget(
+            self,
+            action: #selector(foodDescriptionTextEditingChanged),
+            for: .editingChanged
+        )
+        mainView.registerDateTextField.addTarget(
+            self,
+            action: #selector(registerDateTextFieldTapped),
+            for: .touchDown
+        )
+        mainView.expirationDateTextField.addTarget(
+            self,
+            action: #selector(expirationDateTextFieldTapped),
+            for: .touchDown
+        )
+        mainView.storageTypeTextField.addTarget(
+            self,
+            action: #selector(storageTypeTextFieldEditingChanged),
+            for: .editingChanged
+        )
+        mainView.countTextField.addTarget(
+            self,
+            action: #selector(countTextFieldEditingChanged),
+            for: .editingChanged
+        )
     }
     
     @objc func viewTapGesture() {
@@ -170,16 +201,17 @@ extension FoodDetailManagementViewController {
     }
 }
 
-// UITextFieldDelegate
+// MARK: UITextFieldDelegate
 extension FoodDetailManagementViewController: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
         return foodInputDataTextFieldRestriction(textField, string: string)
     }
 }
-
-// UIPickerViewDelegate, UIPickerViewDataSource
+// MARK: - UIPickerViewDelegate, UIPickerViewDataSource
 extension FoodDetailManagementViewController: UIPickerViewDelegate, UIPickerViewDataSource {
-    func configPickerView() {
+    func setupPickerView() {
         picker.delegate = self
         picker.dataSource = self
         self.mainView.storageTypeTextField.inputView = picker
@@ -235,7 +267,7 @@ extension FoodDetailManagementViewController: UIPickerViewDelegate, UIPickerView
     }
 }
 
-// dateFormatterAlert
+// MARK: dateFormatterAlert
 extension FoodDetailManagementViewController {
     
     private func makeDatePicker() -> UIDatePicker {

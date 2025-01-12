@@ -15,12 +15,12 @@ final class FoodIconCollectionViewCell: BaseCollectionViewCell {
         $0.textAlignment = .center
     }
     
-    override func configureHierarchy() {
+    override func setupHierarchy() {
         addSubview(foodIconImageView)
         addSubview(foodIconNameLabel)
     }
     
-    override func configureLayout() {
+    override func setupLayout() {
         foodIconImageView.snp.makeConstraints { make in
             make.size.equalTo(30)
             make.center.equalToSuperview()

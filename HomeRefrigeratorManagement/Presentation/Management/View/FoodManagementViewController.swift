@@ -128,7 +128,6 @@ extension FoodManagementViewController {
     }
     
     @objc func chartButtonTapped() {
-        // TODO: Chart
         let vc = ChartViewController()
         transition(viewController: vc, style: .push)
     }
@@ -186,19 +185,20 @@ extension FoodManagementViewController {
     private func configureDataSource() {
         let cellRegistration = UICollectionView.CellRegistration<FoodManagementCollectionViewCell, Food> { cell, indexPath, itemIdentifier in
             
-            cell.configureCell()
-            cell.foodImageView.image = UIImage(named: itemIdentifier.name)
-            cell.nameLabel.text = itemIdentifier.name
-            cell.descriptionLabel.text = itemIdentifier.descriptionContent.isEmpty ? itemIdentifier.name : itemIdentifier.descriptionContent
-            cell.purchaseDateLabel.text = "구매일자: \(itemIdentifier.purchaseDate.toString(format: .compactDot))"
-            cell.expirationDateLabel.text = self.viewModel.caculateDday(itemIdentifier.expirationDate)
+            cell.configureCell(
+                with: itemIdentifier,
+                dDay: self.viewModel.caculateDday(itemIdentifier.expirationDate)
+            )
         }
         
         dataSource = UICollectionViewDiffableDataSource(
             collectionView: self.mainView.collectionView,
             cellProvider: { collectionView, indexPath, itemIdentifier in
-            return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
-        })
+                return collectionView.dequeueConfiguredReusableCell(
+                    using: cellRegistration,
+                    for: indexPath,
+                    item: itemIdentifier)
+            })
         
         let supplementaryRegistration = UICollectionView.SupplementaryRegistration<FoodManagementCollectionViewHeaderView>(elementKind: FoodManagementViewController.description()) { supplementaryView, elementKind, indexPath in
             self.storageButtonArray.append(supplementaryView.storageAllTypeButton)

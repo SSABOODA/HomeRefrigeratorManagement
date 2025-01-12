@@ -129,10 +129,11 @@ extension FoodRegisterListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
         
-        let foodModel = self.viewModel.foodIconInfo.value[indexPath.item]
-        self.onItemTouchCompletion?(foodModel)
+        // TODO: 음식 보관 데이터 저장 UI 변경
         
-        return
+//        let foodModel = self.viewModel.foodIconInfo.value[indexPath.item]
+//        self.onItemTouchCompletion?(foodModel)
+//        return
         
         let nextVC = FoodRegisterDetailViewController()
         nextVC.viewModel.completionHandler = { isSave in

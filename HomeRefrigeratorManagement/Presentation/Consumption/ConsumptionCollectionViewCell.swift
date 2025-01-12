@@ -54,7 +54,7 @@ final class ConsumptionCollectionViewCell: BaseCollectionViewCell {
         viewModel.fetchData()
     }
  
-    override func configureHierarchy() {
+    override func setupHierarchy() {
         addSubview(consumptionImageView)
         addSubview(nameLabel)
         addSubview(countLabel)
@@ -62,7 +62,7 @@ final class ConsumptionCollectionViewCell: BaseCollectionViewCell {
         addSubview(plusButton)
     }
     
-    override func configureLayout() {
+    override func setupLayout() {
         consumptionImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview().offset(-30)

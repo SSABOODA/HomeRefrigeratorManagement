@@ -12,10 +12,10 @@ final class RecipeCollectionViewCell: BaseCollectionViewCell {
     let titleLabel = UILabel().then { _ in }
     let descLabel = UILabel().then { _ in }
         
-    override func configureHierarchy() {
+    override func setupHierarchy() {
     }
     
-    override func configureLayout() {
+    override func setupLayout() {
         
     }
 
