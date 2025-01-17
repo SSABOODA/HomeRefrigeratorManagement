@@ -16,8 +16,7 @@ final class FoodRegisterDetailView: BaseView {
     private let registerView = UIView().then { _ in }
         
     // 상단 음식 아이콘
-    private let foodImageShadowView = UIView().then { _ in
-    }
+    private let foodImageShadowView = UIView().then { _ in }
     let foodImageView = UIImageView().then { _ in }
     let foodNameLabel = UILabel().then {
         $0.font = UIFont(name: Constant.Font.pretendardBold, size: 15)
