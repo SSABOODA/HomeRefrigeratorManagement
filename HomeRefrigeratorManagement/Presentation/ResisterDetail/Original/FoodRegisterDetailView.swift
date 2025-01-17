@@ -87,9 +87,9 @@ final class FoodRegisterDetailView: BaseView {
         $0.distribution = .fill
     }
     
-    // 유통기한
+    // 소비기한
     private let expirationDateLabel = FoodDetailSettingLabel().then {
-        $0.text = "유통 기한"
+        $0.text = "소비기한"
         $0.font = UIFont(
             name: Constant.Font.pretendardBold,
             size: Constant.FoodCreateViewFontSize.labelFontSize

@@ -230,7 +230,7 @@ extension AlarmViewController: UITableViewDelegate, UITableViewDataSource {
         let data = list[indexPath.row]
         
         content.attributedText = data.title.makeNSAttributedString(fontName: Constant.Font.pretendardBold, fontSize: 15)
-        content.secondaryAttributedText = "유통기한이 임박한 상품에 대한 알림을 보내드립니다.".makeNSAttributedString(fontName: Constant.Font.pretendardRegular, fontSize: 11)
+        content.secondaryAttributedText = "소비기한이 임박한 상품에 대한 알림을 보내드립니다.".makeNSAttributedString(fontName: Constant.Font.pretendardRegular, fontSize: 11)
         cell.contentConfiguration = content
         return cell
     }

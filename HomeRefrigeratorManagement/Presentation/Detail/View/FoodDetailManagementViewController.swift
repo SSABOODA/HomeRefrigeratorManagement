@@ -145,7 +145,7 @@ final class FoodDetailManagementViewController: BaseViewController {
             print(">")
             showAlertAction1(
                 preferredStyle: .alert,
-                title: "유통기한을 구매일보다 더 뒷날로 설정해야합니다."
+                title: "소비기한을 구매일보다 더 뒷날로 설정해야합니다."
             )
         case .orderedAscending: print("<")
         }
@@ -293,7 +293,7 @@ extension FoodDetailManagementViewController {
         let year = Date().year
         let alertMessage = "\(year-5)년 ~ \(year+10)년 까지 연도를 선택할 수 있습니다."
         
-        let title = sender.tag == FoodDataInputTextFieldTag.register.rawValue ? "구매 일자" : "유통 기한"
+        let title = sender.tag == FoodDataInputTextFieldTag.register.rawValue ? "구매 일자" : "소비기한"
         let alert = UIAlertController(
             title: title,
             message: alertMessage,

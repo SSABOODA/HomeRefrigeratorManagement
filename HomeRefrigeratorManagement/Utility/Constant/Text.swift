@@ -37,8 +37,8 @@ extension Constant {
     enum ImageName {
         // chartImage
         static let currentStorageCountImageName = "현재-저장-식품"
-        static let successExpirationCountImageName = "유통기한-소비"
-        static let failedExpirationCountImageName = "유통기한-초과"
+        static let successExpirationCountImageName = "소비기한-소비"
+        static let failedExpirationCountImageName = "소비기한-초과"
     }
     
     
@@ -81,8 +81,8 @@ extension Constant {
         static let headerSubTitle = "식품에 대한 분석을 살펴보세요".localized
         static let totalAnalysisTitle = "종합 분석".localized
         static let firstTotalAnalysisContentTitle = "현재 냉장고에 보관된 식품 수".localized
-        static let secondTotalAnalysisContentTitle = "유통기한 내에 먹은 음식 수".localized
-        static let thirdTotalAnalysisContentTitle = "유통기한을 지키지 못한 음식 수".localized
+        static let secondTotalAnalysisContentTitle = "소비기한 내에 먹은 음식 수".localized
+        static let thirdTotalAnalysisContentTitle = "소비기한을 지키지 못한 음식 수".localized
         static let chartAnalyTitle = "식품 유형".localized
     }
 }

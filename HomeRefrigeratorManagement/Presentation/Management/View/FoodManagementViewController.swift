@@ -1,9 +1,5 @@
 //
 //  ViewController.swift
-//  HomeRefrigeratorManagement
-//
-//  Created by 한성봉 on 2023/09/26.
-//
 
 import UIKit
 import RealmSwift
@@ -326,15 +322,21 @@ extension FoodManagementViewController: UISheetPresentationControllerDelegate {
             }
         }
         
-        formController.onItemTouchCompletion = { foodItem in
+        formController.onItemTouchCompletion = { foodModel in
             self.dismiss(animated: true) {
-                let vc = NewFoodRegisterDetailViewController()
+                let vm = NewFoodRegisterDetailViewModel(foodModel: foodModel)
+                vm.completionHandler = { isSave in
+                    if isSave {
+                        self.view.makeToast(Constant.ToastMessage.foodSaveSuccessMessage)
+//                        self.viewModel.isSave.value = true
+                    }
+                }
+                let vc = NewFoodRegisterDetailViewController(viewModel: vm)
                 self.transition(viewController: vc, style: .push)
             }
         }
         
         formController.sheetPresentationController?.delegate = self
-        
         
         let formNC = UINavigationController(rootViewController: formController)
         formNC.modalPresentationStyle = UIModalPresentationStyle.pageSheet
